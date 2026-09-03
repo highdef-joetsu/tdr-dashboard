@@ -20,7 +20,9 @@ def sample_park(payload: dict, mapping: dict[int, dict], park: str) -> dict:
         a = mapping.get(r.get("id"))
         if not a or a.get("park") != park:
             if not a:
-                unmapped.append(r.get("name"))
+                # 名前が無い経路（Worker 由来など）でも落ちないようにする。
+                # ここで sorted() に None が混ざると取り込み全体が死ぬ。
+                unmapped.append(r.get("name") or f"id:{r.get('id')}")
             continue
         if r.get("is_open"):
             waits[a["key"]] = r.get("wait_time")

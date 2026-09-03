@@ -63,7 +63,9 @@ async function collect(env) {
     const rides = [
       ...(d.lands || []).flatMap((l) => l.rides || []),
       ...(d.rides || []),
-    ].map((r) => ({ id: r.id, is_open: !!r.is_open, wait_time: r.wait_time }));
+      // name も残す。対応表に無い施設を Python 側の unmapped に記録するため
+      // （落とすと unmapped が空文字だらけになり、対応表更新の材料にならない）。
+    ].map((r) => ({ id: r.id, name: r.name, is_open: !!r.is_open, wait_time: r.wait_time }));
     rows.push({ kind: 'wait', payload: JSON.stringify({ park, rides }) });
   }
 

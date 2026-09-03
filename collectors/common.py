@@ -72,6 +72,15 @@ def by_themeparks_id() -> dict[str, dict]:
 
 # ---------- HTTP ----------
 
+class TransientError(RuntimeError):
+    """通信の一時的な失敗。これだけは Actions を赤くしない。
+
+    TypeError などのコードの不具合まで握り潰すと、ワークフローが緑のまま
+    データが増えない状態になる（実測: ingest が TypeError で全滅したのに
+    ワークフローは成功扱いだった）。
+    """
+
+
 def _sleep_backoff(attempt: int) -> None:
     time.sleep(min(30, (2 ** attempt) + random.random()))
 
@@ -92,7 +101,7 @@ def http_get(url: str, *, accept: str = "*/*") -> requests.Response:
             log(f"  取得失敗 ({attempt + 1}/{RETRIES}) {url}: {type(e).__name__}")
             if attempt < RETRIES - 1:
                 _sleep_backoff(attempt)
-    raise RuntimeError(f"{url} の取得に3回失敗: {last}")
+    raise TransientError(f"{url} の取得に3回失敗: {last}")
 
 
 def get_json(url: str):
@@ -161,18 +170,33 @@ def record_health(collector: str, ok: bool, detail: str = "") -> None:
     write_json(path, entry)
 
 
+def _annotate(msg: str) -> None:
+    """GitHub Actions のログに目立つ形で残す。"""
+    if os.environ.get("GITHUB_ACTIONS"):
+        print(f"::error title=collector::{msg}", flush=True)
+
+
 def run(collector: str, fn) -> int:
     """コレクタ本体を包む。失敗してもActionsを赤くせず(終了コード0)、health に残す。"""
     try:
         detail = fn() or ""
         record_health(collector, True, str(detail))
         log(f"{collector}: 成功 {detail}")
+    except TransientError as e:
+        # 通信の一時失敗。health に残し、終了コードは0のまま（赤くしない）。
+        record_health(collector, False, f"{type(e).__name__}: {e}")
+        log(f"{collector}: 取得失敗（一時的）{e}")
+        _annotate(f"{collector}: 取得に失敗した（一時的とみなす）: {e}")
+        return 0
     except Exception as e:  # noqa: BLE001
+        # コードの不具合・設定漏れ・解析破綻。これは黙って通さない。
         import traceback
 
         traceback.print_exc()
         record_health(collector, False, f"{type(e).__name__}: {e}")
         log(f"{collector}: 失敗 {type(e).__name__}: {e}")
+        _annotate(f"{collector}: {type(e).__name__}: {e}")
+        return 1
     return 0
 
 
