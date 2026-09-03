@@ -310,9 +310,14 @@ function renderDpa(d, date) {
       const td2 = el('td', 'num', v ? `${v}頃` : 'データなし');
       tr.appendChild(td2);
       const td3 = el('td');
-      if (e && e.source === 'observed') td3.append(`実績${e.samples}件`);
-      else if (v) td3.appendChild(el('span', 'badge prov', '暫定'));
-      else td3.append('—');
+      if (e && e.source === 'observed') {
+        td3.append(`実績${e.samples}件`);
+      } else if (v) {
+        td3.appendChild(el('span', 'badge prov', '暫定'));
+        if (e.note) td3.appendChild(el('div', 'muted', e.note));
+      } else {
+        td3.append('—');
+      }
       tr.appendChild(td3);
       tbl.appendChild(tr);
     }

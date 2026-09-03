@@ -31,6 +31,21 @@ def _hhmm(minutes: float) -> str:
     return f"{m // 60:02d}:{m % 60:02d}"
 
 
+def _bootstrap_entry(value, samples: int) -> dict:
+    """初期値は "HH:MM" か {"median": "HH:MM", "note": "出典など"} を受ける。
+
+    出典なしの数字が混ざらないよう、note を持てる形にしてある。
+    """
+    entry = {"median": None, "samples": samples, "source": "bootstrap"}
+    if isinstance(value, dict):
+        entry["median"] = value.get("median")
+        if value.get("note"):
+            entry["note"] = value["note"]
+    elif isinstance(value, str):
+        entry["median"] = value
+    return entry
+
+
 def compute(days: list[dict], crowd: dict, attractions: list[dict]) -> dict:
     """days: dpa/YYYY-MM-DD.json のリスト。crowd: crowd/calendar.json。"""
     park_of = {a["key"]: a["park"] for a in attractions}
@@ -67,11 +82,7 @@ def compute(days: list[dict], crowd: dict, attractions: list[dict]) -> dict:
                     "source": "observed",
                 }
             else:
-                out[key][band] = {
-                    "median": (boot.get(key) or {}).get(band),
-                    "samples": len(samples),
-                    "source": "bootstrap",
-                }
+                out[key][band] = _bootstrap_entry((boot.get(key) or {}).get(band), len(samples))
     return {"generated_at": c.iso(c.now_jst()), "min_samples": MIN_SAMPLES, "attractions": out}
 
 
