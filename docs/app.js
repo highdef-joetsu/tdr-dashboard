@@ -2,21 +2,32 @@
 
 const ALL_PARKS = [['tdl', '東京ディズニーランド'], ['tds', '東京ディズニーシー']];
 const PARK_KEYS = ALL_PARKS.map((p) => p[0]);
+const PARK_SHORT = { tdl: 'ランド', tds: 'シー' };
 const STORE_KEY = 'tdr.park';
-
-// 表示対象のパーク。'tdl' | 'tds' | 'both'
-let parkMode = 'both';
-let currentDate = null;
-let data = null;
-
-function PARKS_() {
-  return parkMode === 'both' ? ALL_PARKS : ALL_PARKS.filter((p) => p[0] === parkMode);
-}
+const STALE_MIN = 30;
+const PERMANENT_YEARS = 2;
 const CAT_JA = {
   attraction: 'アトラクション', show: 'パレード/ショー', greeting: 'キャラクターグリーティング',
   shop: 'ショップ', restaurant: 'レストラン', service: 'サービス施設',
 };
-const STALE_MIN = 30;
+const VERDICT = {
+  buy: ['買う価値あり', 'b-good'], skip: ['買わなくてよい', 'b-info'],
+  depends: ['滞在計画次第', 'b-warn'], insufficient: ['データ不足', ''],
+};
+const CHANGE_JA = {
+  published: 'スケジュール掲載', hours: '開園時間', ticket: 'チケット価格',
+  ticket_status: 'チケット販売状況', show_added: 'ショー追加', show_removed: 'ショー削除',
+  show_times: '公演時刻', show_badges: '対象制度', closure_added: '休止に追加',
+  closure_removed: '休止から復帰', long_closure_added: '長期休止に追加',
+  long_closure_removed: '長期休止から復帰', long_closure_period: '休止期間',
+};
+
+let parkMode = 'both';
+let currentDate = null;
+let data = null;
+
+const PARKS_ = () => (parkMode === 'both' ? ALL_PARKS : ALL_PARKS.filter((p) => p[0] === parkMode));
+const activeKeys = () => PARKS_().map((p) => p[0]);
 
 const el = (tag, cls, text) => {
   const n = document.createElement(tag);
@@ -39,90 +50,66 @@ function ageMinutes(iso) {
 function fmtDate(s) {
   if (!s) return '';
   const [y, m, d] = s.split('-').map(Number);
-  const w = '日月火水木金土'[new Date(y, m - 1, d).getDay()];
-  return `${y}年${m}月${d}日(${w})`;
+  return `${y}年${m}月${d}日（${'日月火水木金土'[new Date(y, m - 1, d).getDay()]}）`;
 }
 function shiftDate(s, days) {
   const [y, m, d] = s.split('-').map(Number);
   const dt = new Date(y, m - 1, d + days);
-  const p2 = (n) => String(n).padStart(2, '0');
-  return `${dt.getFullYear()}-${p2(dt.getMonth() + 1)}-${p2(dt.getDate())}`;
+  const p = (n) => String(n).padStart(2, '0');
+  return `${dt.getFullYear()}-${p(dt.getMonth() + 1)}-${p(dt.getDate())}`;
+}
+const crowdLevel = (p) => (p == null ? null : p <= 40 ? ['lo', '空いている'] : p <= 70 ? ['mid', 'やや混雑'] : ['hi', '混雑']);
+const parkTag = (p) => el('span', 'parkTag ' + p, PARK_SHORT[p]);
+
+function badge(text, kind) {
+  const b = el('span', 'badge' + (kind ? ' ' + kind : ''));
+  if (kind) b.appendChild(el('span', 'dot'));
+  b.append(text);
+  return b;
 }
 
-function crowdClass(p) { return p == null ? '' : p <= 40 ? 'lo' : p <= 70 ? 'mid' : 'hi'; }
-function parkTag(p) { return el('span', 'parkTag ' + p, p === 'tdl' ? 'ランド' : 'シー'); }
-
-// 「取得失敗（前回値 HH:MM）」を出すための共通表示
-function freshness(label, iso) {
-  const age = ageMinutes(iso);
-  const t = fmtClock(iso);
-  if (t == null) return { text: `${label}: 取得できていません`, stale: true };
-  if (age != null && age >= STALE_MIN) {
-    return { text: `${label}: ${t}（${age}分前）`, stale: true };
-  }
-  return { text: `${label}: ${t}`, stale: false };
-}
-
-
-// ---------- 待ちカーブのスパークライン ----------
-// 単系列（1施設・1混雑帯）。系列名は行のタイトルとパークタグが担うので凡例は置かない。
-// 直接ラベルはピークと夕方の最小の2点だけに絞る（全点に数字を置かない）。
-const SPARK = { w: 300, h: 62, padT: 14, padB: 16, padX: 8, hue: '#1565c0' };
+// ---------- スパークライン（単系列。識別は行の見出しとパークタグが担う） ----------
+const SPARK = { w: 300, h: 62, padT: 14, padB: 16, padX: 8, hue: '#3F456F' };
 
 function sparkline(curve) {
   const hours = Object.keys(curve).map(Number).sort((a, b) => a - b);
   if (hours.length < 2) return null;
-  const vals = hours.map((h) => curve[h]);
-  const maxV = Math.max(...vals);
+  const maxV = Math.max(...hours.map((h) => curve[h]));
   const minH = hours[0], maxH = hours[hours.length - 1];
   const { w, h, padT, padB, padX, hue } = SPARK;
   const x = (hr) => padX + (w - padX * 2) * (maxH === minH ? 0.5 : (hr - minH) / (maxH - minH));
   const y = (v) => padT + (h - padT - padB) * (1 - v / (maxV || 1));
-
   const peakH = hours.reduce((a, b) => (curve[b] > curve[a] ? b : a));
   const late = hours.filter((hr) => hr >= 15);
   const lateH = late.length ? late.reduce((a, b) => (curve[b] < curve[a] ? b : a)) : null;
 
   const ns = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(ns, 'svg');
-  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-  svg.setAttribute('class', 'spark');
-  svg.setAttribute('role', 'img');
-  svg.setAttribute('aria-label',
-    `時間帯別の待ち時間。ピークは${peakH}時台の${curve[peakH]}分` +
-    (lateH !== null ? `、${lateH}時台は${curve[lateH]}分。` : '。'));
-
   const mk = (tag, attrs) => {
     const n = document.createElementNS(ns, tag);
     for (const k in attrs) n.setAttribute(k, attrs[k]);
     return n;
   };
-  // 基準線（控えめ）
-  svg.appendChild(mk('line', { x1: 0, y1: h - padB, x2: w, y2: h - padB,
-    stroke: '#e2e2e2', 'stroke-width': 1 }));
+  const svg = mk('svg', { viewBox: `0 0 ${w} ${h}`, class: 'spark', role: 'img' });
+  svg.setAttribute('aria-label',
+    `時間帯別の待ち時間。ピークは${peakH}時台の${curve[peakH]}分` +
+    (lateH !== null ? `、${lateH}時台は${curve[lateH]}分。` : '。'));
+  svg.appendChild(mk('line', { x1: 0, y1: h - padB, x2: w, y2: h - padB, stroke: '#EDE8E1', 'stroke-width': 1 }));
   const pts = hours.map((hr) => `${x(hr)},${y(curve[hr])}`).join(' ');
-  svg.appendChild(mk('polygon', {
-    points: `${x(minH)},${h - padB} ${pts} ${x(maxH)},${h - padB}`,
-    fill: hue, 'fill-opacity': 0.10 }));
-  svg.appendChild(mk('polyline', { points: pts, fill: 'none',
-    stroke: hue, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
-
-  // ホバー用に全点へ透明な当たり判定と title を置く
+  svg.appendChild(mk('polygon', { points: `${x(minH)},${h - padB} ${pts} ${x(maxH)},${h - padB}`, fill: hue, 'fill-opacity': 0.09 }));
+  svg.appendChild(mk('polyline', { points: pts, fill: 'none', stroke: hue, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
   for (const hr of hours) {
-    const g = mk('circle', { cx: x(hr), cy: y(curve[hr]), r: 9, fill: 'transparent' });
+    const c = mk('circle', { cx: x(hr), cy: y(curve[hr]), r: 9, fill: 'transparent' });
     const t = document.createElementNS(ns, 'title');
     t.textContent = `${hr}時台 ${curve[hr]}分`;
-    g.appendChild(t);
-    svg.appendChild(g);
+    c.appendChild(t);
+    svg.appendChild(c);
   }
-  // 直接ラベルはこの2点だけ。点が下寄りのときは下に置くと軸ラベルとぶつかるので上に出す。
   const mid = padT + (h - padT - padB) / 2;
   for (const hr of [peakH, lateH]) {
     if (hr === null || hr === undefined) continue;
     const py = y(curve[hr]);
-    svg.appendChild(mk('circle', { cx: x(hr), cy: py, r: 4,
-      fill: hue, stroke: '#fff', 'stroke-width': 2 }));
-    const above = py > mid;   // 下寄りの点ほど上にラベルを出す
+    svg.appendChild(mk('circle', { cx: x(hr), cy: py, r: 4, fill: hue, stroke: '#fff', 'stroke-width': 2 }));
+    const above = py > mid;
     const lbl = mk('text', {
       x: Math.min(w - 30, Math.max(26, x(hr))),
       y: above ? Math.max(10, py - 8) : Math.min(h - padB - 4, py + 16),
@@ -130,58 +117,269 @@ function sparkline(curve) {
     lbl.textContent = `${hr}時 ${curve[hr]}分`;
     svg.appendChild(lbl);
   }
-  // 直接ラベルが端の時刻を既に言っているなら、軸ラベルは重ねない
   if (peakH !== minH && lateH !== minH) {
-    const ax = mk('text', { x: 0, y: h - 3, class: 'sparkAxis' });
-    ax.textContent = `${minH}時`;
-    svg.appendChild(ax);
+    const a = mk('text', { x: 0, y: h - 3, class: 'sparkAxis' }); a.textContent = `${minH}時`; svg.appendChild(a);
   }
   if (peakH !== maxH && lateH !== maxH) {
-    const ax2 = mk('text', { x: w, y: h - 3, 'text-anchor': 'end', class: 'sparkAxis' });
-    ax2.textContent = `${maxH}時`;
-    svg.appendChild(ax2);
+    const a = mk('text', { x: w, y: h - 3, 'text-anchor': 'end', class: 'sparkAxis' }); a.textContent = `${maxH}時`; svg.appendChild(a);
   }
   return svg;
 }
 
-const VERDICT = {
-  buy: '買う価値あり', skip: '買わなくてよい',
-  depends: '滞在計画次第', insufficient: 'データ不足',
+// ---------- 休止（恒久終了の判定はサーバ側 is_permanent と同じ規則） ----------
+function isPermanent(it, date) {
+  if (!it.undecided || !it.from) return false;
+  const [y, m, d] = date.split('-');
+  return it.from < `${String(Number(y) - PERMANENT_YEARS).padStart(4, '0')}-${m}-${d}`;
+}
+function covers(it, date) {
+  if (it.from && it.from > date) return false;
+  if (it.to && it.to < date) return false;
+  return !!(it.from || it.undecided);
+}
+function closuresFromSchedule(schedule, date) {
+  const out = {};
+  for (const [pk] of PARKS_()) {
+    const cats = {};
+    for (const it of (schedule || {})[pk] || []) {
+      if (!covers(it, date)) continue;
+      (cats[it.category] = cats[it.category] || []).push(
+        { name: it.name, from: it.from, to: it.to, undecided: !!it.undecided, permanent: isPermanent(it, date) });
+    }
+    out[pk] = cats;
+  }
+  return out;
+}
+function closuresFromOfficial(official, date) {
+  const out = {};
+  for (const [pk] of PARKS_()) {
+    const cats = {};
+    const entry = ((official.parks || {})[pk]) || {};
+    for (const [cat, list] of Object.entries(entry.closures_today || {})) {
+      for (const name of list) (cats[cat] = cats[cat] || []).push({ name, from: null, to: null, undecided: false });
+    }
+    for (const it of ((official.closures_schedule || {})[pk]) || []) {
+      if (!covers(it, date)) continue;
+      const list = (cats[it.category] = cats[it.category] || []);
+      const perm = isPermanent(it, date);
+      const hit = list.find((x) => x.name === it.name);
+      if (hit) Object.assign(hit, { from: it.from, to: it.to, undecided: !!it.undecided, permanent: perm });
+      else list.push({ name: it.name, from: it.from, to: it.to, undecided: !!it.undecided, permanent: perm });
+    }
+    out[pk] = cats;
+  }
+  return out;
+}
+const splitPermanent = (cats) => {
+  const live = {}, perm = [];
+  for (const [k, items] of Object.entries(cats || {})) {
+    for (const it of items) {
+      if (it.permanent) perm.push({ ...it, category: k });
+      else (live[k] = live[k] || []).push(it);
+    }
+  }
+  return [live, perm];
 };
 
-// ---------- 変更差分 ----------
-const CHANGE_JA = {
-  published: 'スケジュール掲載', hours: '開園時間', ticket: 'チケット価格',
-  ticket_status: 'チケット販売状況', show_added: 'ショー追加', show_removed: 'ショー削除',
-  show_times: '公演時刻', show_badges: '対象制度', closure_added: '休止に追加',
-  closure_removed: '休止から復帰', long_closure_added: '長期休止に追加',
-  long_closure_removed: '長期休止から復帰', long_closure_period: '休止期間',
-};
+// ---------- 操作列 ----------
+function renderControls() {
+  const box = el('div', 'controls');
+  const r1 = el('div', 'ctlRow');
+  const prev = el('button', 'ctlBtn', '‹ 前日');
+  prev.onclick = () => go(shiftDate(currentDate, -1));
+  const input = el('input', 'ctlDate');
+  input.type = 'date';
+  input.value = currentDate;
+  input.setAttribute('aria-label', '表示する日付');
+  input.onchange = () => { if (input.value) go(input.value); };
+  const next = el('button', 'ctlBtn', '翌日 ›');
+  next.onclick = () => go(shiftDate(currentDate, 1));
+  r1.append(prev, input, next);
 
-function fmtVal(v) {
-  if (Array.isArray(v)) return v.length ? v.join(' / ') : '（なし）';
-  if (v === null || v === undefined) return '—';
-  return String(v);
+  const r2 = el('div', 'ctlRow');
+  const seg = el('div', 'ctlRow seg');
+  for (const [val, label] of [['tdl', 'ランド'], ['tds', 'シー'], ['both', '両方']]) {
+    const b = el('button', 'segBtn' + (parkMode === val ? ' on' : ''), label);
+    b.setAttribute('aria-pressed', String(parkMode === val));
+    b.onclick = () => setPark(val);
+    seg.appendChild(b);
+  }
+  const t = el('button', 'ctlBtn', '来園日');
+  t.onclick = () => go(data.dates.target);
+  r2.append(seg, t);
+  box.append(r1, r2);
+  return box;
 }
 
-function renderChanges(d, date) {
-  const rows = (d.changes || {})[date] || [];
-  const active = PARKS_().map((x) => x[0]);
-  const mine = rows.filter((r) => active.includes(r.park));
-  const box = document.createDocumentFragment();
-  box.appendChild(el('h2', null, `この日の変更（${mine.length}件）`));
-  if (!mine.length) {
-    box.appendChild(el('p', 'muted',
-      '前回の取得から変更はありません。公式サイトは現在の状態しか出さないので、ここは蓄積した過去との差分です。'));
-    return box;
+// ---------- 要点 ----------
+function keyPoints(d, date, official, closures) {
+  const out = [];
+  const names = Object.fromEntries((d.attractions || []).map((a) => [a.key, a]));
+  const act = activeKeys();
+
+  // DPA対象・watch対象の施設が休止していないか
+  const watched = (d.attractions || []).filter((a) => act.includes(a.park));
+  for (const [pk] of PARKS_()) {
+    const [live] = splitPermanent((closures || {})[pk]);
+    const closedNames = new Set((live.attraction || []).map((x) => x.name));
+    for (const a of watched.filter((x) => x.park === pk)) {
+      if (closedNames.has(a.name_ja)) {
+        const it = (live.attraction || []).find((x) => x.name === a.name_ja);
+        const period = it && it.to ? `${it.from} 〜 ${it.to}` : (it && it.undecided ? '終了未定' : '');
+        out.push({ mark: 'bad', html: [`${a.name_ja}は休止`, a.dpa ? '（DPA対象）' : '', period ? ` ${period}` : ''] });
+      }
+    }
   }
-  const wrap = el('div', 'panel');
-  for (const r of mine.slice(0, 30)) {
+  // 買う価値ありのDPA
+  const buys = Object.entries(d.dpa_advice || {})
+    .filter(([k, v]) => v.verdict === 'buy' && act.includes((names[k] || {}).park));
+  if (buys.length) {
+    out.push({ mark: 'good', html: [`DPAは${buys.length}施設で「買う価値あり」`,
+      `（${buys.map(([k]) => (names[k] || {}).name_ja).slice(0, 2).join('・')}${buys.length > 2 ? ' ほか' : ''}）`] });
+  }
+  // 変更
+  const ch = ((d.changes || {})[date] || []).filter((r) => act.includes(r.park));
+  if (ch.length) out.push({ mark: 'info', html: [`前回の取得から${ch.length}件の変更`] });
+
+  // 未掲載・取得失敗
+  for (const [pk, nm] of PARKS_()) {
+    const e = ((official || {}).parks || {})[pk] || {};
+    if (e.note === 'not_published') out.push({ mark: 'warn', html: [`${nm}のスケジュールは未掲載`] });
+    if (e.note === 'fetch_failed') out.push({ mark: 'warn', html: [`${nm}の公式データを取得できていない`] });
+  }
+  if (!official) out.push({ mark: 'warn', html: ['この日の公式スケジュールは取得対象外（今日・明日・来園日のみ）'] });
+  return out;
+}
+
+function renderKeyPoints(points) {
+  if (!points.length) return null;
+  const card = el('div', 'card');
+  const body = el('div', 'row');
+  const ul = el('ul', 'keyList');
+  for (const p of points) {
+    const li = el('li');
+    li.appendChild(el('span', 'mark ' + p.mark));
+    const span = el('span');
+    const b = el('b', null, p.html[0]);
+    span.appendChild(b);
+    for (const rest of p.html.slice(1)) if (rest) span.append(rest);
+    li.appendChild(span);
+    ul.appendChild(li);
+  }
+  body.appendChild(ul);
+  card.appendChild(body);
+  return card;
+}
+
+// ---------- パーク概況 ----------
+function renderParkStat(d, date, official) {
+  const frag = document.createDocumentFragment();
+  for (const [pk, name] of PARKS_()) {
+    const entry = ((official || {}).parks || {})[pk] || {};
+    const hours = entry.hours || {};
+    const ticket = entry.ticket || {};
+    const crowd = ((d.crowd || {})[pk] || {})[date] || {};
+    const card = el('div', 'card');
+    const head = el('div', 'cardHead');
+    head.appendChild(parkTag(pk));
+    head.appendChild(el('h3', null, name));
+    card.appendChild(head);
+
+    const body = el('div', 'cardBody');
+    const stats = el('div', 'parkStat');
+    const mk = (k, v, unit) => {
+      const s = el('div', 'stat');
+      s.appendChild(el('span', 'k', k));
+      const val = el('span', 'v');
+      val.append(v);
+      if (unit) val.appendChild(el('small', null, unit));
+      s.appendChild(val);
+      return s;
+    };
+    stats.appendChild(mk('開園', hours.open && hours.close ? `${hours.open}–${hours.close}` : '—'));
+    stats.appendChild(mk('1デー大人', ticket.adult_1day ? `¥${ticket.adult_1day.toLocaleString()}` : '—',
+      ticket.status && ticket.status !== '販売中' ? ` ${ticket.status}` : ''));
+    body.appendChild(stats);
+
+    const lv = crowdLevel(crowd.crowd_pct);
+    const cb = el('div', 'crowdBar');
+    const track = el('div', 'track');
+    const fill = el('div', 'fill ' + (lv ? lv[0] : ''));
+    fill.style.width = (crowd.crowd_pct != null ? crowd.crowd_pct : 0) + '%';
+    track.appendChild(fill);
+    cb.appendChild(track);
+    const cap = el('div', 'cap');
+    cap.appendChild(el('span', 'muted', lv ? `混雑予想 ${lv[1]}` : '混雑予想 データなし'));
+    cap.appendChild(el('span', 'muted', crowd.crowd_pct != null ? `${crowd.crowd_pct}%` : '—'));
+    cb.appendChild(cap);
+    body.appendChild(cb);
+    card.appendChild(body);
+    frag.appendChild(card);
+  }
+  return frag;
+}
+
+// ---------- 鮮度 ----------
+function renderFreshness(d, official) {
+  const rows = [
+    ['公式サイト', (official || {}).fetched_at],
+    ['待ち時間', d.waits_fetched_at],
+    ['DPA', (d.dpa_today || {}).last_polled_at],
+    ['混雑カレンダー', d.crowd_fetched_at],
+  ];
+  const frag = document.createDocumentFragment();
+  const stale = rows.filter(([, iso]) => {
+    const a = ageMinutes(iso);
+    return a === null || a >= STALE_MIN;
+  });
+  if (stale.length) {
+    frag.appendChild(el('div', 'alert warn',
+      `${stale.length}件のデータが${STALE_MIN}分以上古いか未取得です。表示中の値は最新でない可能性があります。`));
+  }
+  const failing = Object.entries(d.health || {}).filter(([, v]) => (v.consecutive_failures || 0) >= 2);
+  if (failing.length) {
+    frag.appendChild(el('div', 'alert bad',
+      '連続失敗中: ' + failing.map(([k, v]) => `${k}（${v.consecutive_failures}回）`).join(' / ')));
+  }
+  const det = el('details');
+  det.className = 'card';
+  const sm = el('summary');
+  sm.append('データの取得時刻');
+  sm.appendChild(el('span', 'cnt', stale.length ? `${stale.length}件が古い` : 'すべて最新'));
+  det.appendChild(sm);
+  const body = el('div', 'detBody');
+  const ul = el('ul');
+  for (const [label, iso] of rows) {
+    const age = ageMinutes(iso);
+    const t = fmtClock(iso);
+    const li = el('li', null, `${label}　${t ? t + (age >= STALE_MIN ? `（${age}分前）` : '') : '取得できていません'}`);
+    ul.appendChild(li);
+  }
+  body.appendChild(ul);
+  det.appendChild(body);
+  frag.appendChild(det);
+  return frag;
+}
+
+// ---------- 変更 ----------
+const fmtVal = (v) => (Array.isArray(v) ? (v.length ? v.join(' / ') : '（なし）') : (v == null ? '—' : String(v)));
+
+function renderChanges(d, date) {
+  const rows = ((d.changes || {})[date] || []).filter((r) => activeKeys().includes(r.park));
+  const frag = document.createDocumentFragment();
+  frag.appendChild(el('h2', null, 'この日の変更'));
+  if (!rows.length) {
+    frag.appendChild(el('p', 'note',
+      '前回の取得から変更はありません。公式サイトは現在の状態しか出さないので、ここは蓄積した過去との差分です。'));
+    return frag;
+  }
+  const card = el('div', 'card');
+  for (const r of rows.slice(0, 30)) {
     const item = el('div', 'item');
-    const head = el('div');
-    head.appendChild(parkTag(r.park));
-    head.appendChild(el('span', 'badge prov', CHANGE_JA[r.kind] || r.kind));
-    item.appendChild(head);
+    const bl = el('div', 'badgeRow');
+    bl.appendChild(parkTag(r.park));
+    bl.appendChild(badge(CHANGE_JA[r.kind] || r.kind, 'b-info'));
+    item.appendChild(bl);
     item.appendChild(el('div', 'name', r.label + (r.category ? `（${r.category}）` : '')));
     if (r.before !== undefined || r.after !== undefined) {
       const line = el('div', 'times');
@@ -190,390 +388,222 @@ function renderChanges(d, date) {
       item.appendChild(line);
     }
     const at = new Date(r.at);
-    item.appendChild(el('div', 'muted',
+    item.appendChild(el('div', 'metaRow',
       isNaN(at) ? '' : `${at.getMonth() + 1}/${at.getDate()} ${fmtClock(r.at)} 検知`));
-    wrap.appendChild(item);
+    card.appendChild(item);
   }
-  box.appendChild(wrap);
-  return box;
+  frag.appendChild(card);
+  return frag;
 }
 
-// ---------- 各セクション ----------
-
-function renderHeader(d, date, official) {
-  const box = document.createDocumentFragment();
-  const isTarget = date === d.dates.target;
-  box.appendChild(el('h1', null, `${fmtDate(date)}${isTarget ? ' の来園計画' : ''}`));
-
-  const today = d.dates.today;
-  const sub = el('p', 'muted', `今日: ${fmtDate(today)}　更新: ${fmtClock(d.generated_at) || '不明'}`);
-  box.appendChild(sub);
-
-  for (const [pk, name] of PARKS_()) {
-    const panel = el('div', 'panel');
-    const head = el('div');
-    head.appendChild(parkTag(pk));
-    head.appendChild(el('b', null, name));
-    panel.appendChild(head);
-
-    const entry = ((official || {}).parks || {})[pk] || {};
-    const hours = entry.hours || {};
-    const ticket = entry.ticket || {};
-    const crowdT = ((d.crowd || {})[pk] || {})[date] || {};
-    const crowdToday = ((d.crowd || {})[pk] || {})[today] || {};
-
-    const kv = el('div', 'kv');
-    kv.appendChild(el('div', null, `開園 ${hours.open && hours.close ? hours.open + ' - ' + hours.close : '—'}`));
-    kv.appendChild(el('div', null, `1デー大人 ${ticket.adult_1day ? '￥' + ticket.adult_1day.toLocaleString() : '—'}${ticket.status ? '（' + ticket.status + '）' : ''}`));
-    const c1 = el('div');
-    c1.append('当日の混雑予想 ');
-    c1.appendChild(el('span', 'crowd ' + crowdClass(crowdT.crowd_pct), crowdT.crowd_pct != null ? crowdT.crowd_pct + '%' : '—'));
-    kv.appendChild(c1);
-    if (date !== today) {
-      const c2 = el('div');
-      c2.append('今日 ');
-      c2.appendChild(el('span', 'crowd ' + crowdClass(crowdToday.crowd_pct), crowdToday.crowd_pct != null ? crowdToday.crowd_pct + '%' : '—'));
-      kv.appendChild(c2);
-    }
-    panel.appendChild(kv);
-    if (entry.note === 'not_published') {
-      panel.appendChild(el('div', 'warn', 'この日のスケジュールは公式サイトに未掲載です（翌月分は前月8日ごろ掲載）。'));
-    }
-    if (entry.note === 'fetch_failed') {
-      panel.appendChild(el('div', 'err', 'この日の公式データを取得できませんでした。'));
-    }
-    box.appendChild(panel);
-  }
-
-  // 鮮度と連続失敗の警告
-  const rows = [
-    freshness('公式サイト', (official || {}).fetched_at),
-    freshness('待ち時間', d.waits_fetched_at),
-    freshness('DPA', (d.dpa_today || {}).last_polled_at),
-    freshness('混雑カレンダー', d.crowd_fetched_at),
-  ];
-  const stale = rows.filter((r) => r.stale);
-  const info = el('p', 'muted', rows.map((r) => r.text).join('　/　'));
-  box.appendChild(info);
-  if (stale.length) {
-    box.appendChild(el('div', 'warn', `${stale.length}件のデータが${STALE_MIN}分以上古いか未取得です。表示中の値は最新でない可能性があります。`));
-  }
-  const failing = Object.entries(d.health || {}).filter(([, v]) => (v.consecutive_failures || 0) >= 2);
-  if (failing.length) {
-    box.appendChild(el('div', 'err', '連続失敗中のコレクタ: ' + failing.map(([k, v]) => `${k}(${v.consecutive_failures}回)`).join(', ')));
-  }
-  return box;
-}
-
+// ---------- ショー ----------
 function renderShows(official, date) {
-  const box = document.createDocumentFragment();
-  box.appendChild(el('h2', null, `ショースケジュール — ${fmtDate(date)}`));
+  const frag = document.createDocumentFragment();
+  frag.appendChild(el('h2', null, 'ショースケジュール'));
   if (!official) {
-    box.appendChild(el('div', 'warn',
-      'この日の公式スケジュールは取得していません。取得するのは今日・明日・来園予定日の3日分です。'
-      + '来園日を変えるなら config/settings.json の watch_dates を直すと翌朝から取得します。'));
-    return box;
+    frag.appendChild(el('div', 'alert warn',
+      'この日の公式スケジュールは取得していません。取得するのは今日・明日・来園予定日の3日分です。'));
+    return frag;
   }
   for (const [pk, name] of PARKS_()) {
     const entry = ((official.parks || {})[pk]) || {};
-    const h = el('h3');
-    h.appendChild(parkTag(pk));
-    h.append(name);
-    box.appendChild(h);
     const shows = entry.shows || [];
+    const card = el('div', 'card');
+    const head = el('div', 'cardHead');
+    head.appendChild(parkTag(pk));
+    head.appendChild(el('h3', null, name));
+    card.appendChild(head);
     if (!shows.length) {
-      box.appendChild(el('p', 'muted', entry.note === 'not_published' ? '未掲載' : '公演の掲載がありません。'));
-      continue;
+      card.appendChild(el('div', 'cardBody')).appendChild(
+        el('p', 'note', entry.note === 'not_published' ? '未掲載' : '公演の掲載がありません。'));
     }
-    const wrap = el('div', 'panel');
     for (const s of shows) {
       const item = el('div', 'item');
       item.appendChild(el('div', 'name', s.name));
-      const badges = el('div');
-      if (s.dpa) badges.appendChild(el('span', 'badge dpa', 'DPA対象'));
-      if (s.entry) badges.appendChild(el('span', 'badge entry', 'エントリー受付'));
-      if (s.reservation_only) badges.appendChild(el('span', 'badge yoyaku', '要事前予約'));
-      if (badges.childNodes.length) item.appendChild(badges);
-      const times = el('div', 'times' + (s.changed ? ' changed' : ''),
-        s.times && s.times.length ? s.times.join('　/　') : '時刻の記載なし');
-      item.appendChild(times);
-      if (s.changed) item.appendChild(el('div', 'muted', '当日変更あり（公式サイトで赤字表示）'));
-      wrap.appendChild(item);
+      const bl = el('div', 'badgeRow');
+      if (s.dpa) bl.appendChild(badge('DPA対象', 'b-info'));
+      if (s.entry) bl.appendChild(badge('エントリー受付', 'b-info'));
+      if (s.reservation_only) bl.appendChild(badge('要事前予約', 'b-warn'));
+      if (bl.childNodes.length) item.appendChild(bl);
+      item.appendChild(el('div', 'times' + (s.changed ? ' changed' : ''),
+        s.times && s.times.length ? s.times.join('　') : '時刻の記載なし'));
+      if (s.changed) item.appendChild(el('div', 'metaRow', '当日変更あり'));
+      card.appendChild(item);
     }
-    box.appendChild(wrap);
     const greet = entry.greetings || [];
     if (greet.length) {
-      const g = el('details');
-      g.appendChild(el('summary', 'muted', `キャラクターグリーティング ${greet.length}件`));
-      const gw = el('div', 'panel');
-      for (const x of greet) {
-        const item = el('div', 'item');
-        item.appendChild(el('div', 'name', x.name));
-        item.appendChild(el('div', 'times', (x.times || []).join('　/　') || '—'));
-        gw.appendChild(item);
+      const det = el('details');
+      const sm = el('summary');
+      sm.append('キャラクターグリーティング');
+      sm.appendChild(el('span', 'cnt', `${greet.length}件`));
+      det.appendChild(sm);
+      const body = el('div', 'detBody');
+      const ul = el('ul');
+      for (const g of greet) {
+        const li = el('li', null, g.name);
+        li.appendChild(el('span', 'period', (g.times || []).join(' / ') || '—'));
+        ul.appendChild(li);
       }
-      g.appendChild(gw);
-      box.appendChild(g);
+      body.appendChild(ul);
+      det.appendChild(body);
+      card.appendChild(det);
     }
+    frag.appendChild(card);
   }
-  return box;
+  return frag;
 }
 
-// latest.json に無い日を ?date= で開いたとき、個別の official ファイルから
-// 当日休止＋期間休止の和集合を組み立てる（build_latest.py の closures_for と同じ規則）。
-// 「終了未定」のまま長く経っているものは恒久終了とみなす（build_latest の is_permanent と同じ規則）。
-const PERMANENT_YEARS = 2;
-function isPermanent(it, date) {
-  if (!it.undecided || !it.from) return false;
-  const [y, m, d] = date.split('-');
-  return it.from < `${String(Number(y) - PERMANENT_YEARS).padStart(4, '0')}-${m}-${d}`;
-}
-
-// 公式の日次を取っていない日は、期間つき休止だけで判定する。
-function closuresFromSchedule(schedule, date) {
-  const out = {};
-  for (const [pk] of PARKS_()) {
-    const cats = {};
-    for (const it of (schedule || {})[pk] || []) {
-      if (it.from && it.from > date) continue;
-      if (it.to && it.to < date) continue;
-      if (!it.from && !it.undecided) continue;
-      (cats[it.category] = cats[it.category] || []).push(
-        { name: it.name, from: it.from, to: it.to, undecided: !!it.undecided,
-          permanent: isPermanent(it, date) });
-    }
-    out[pk] = cats;
-  }
-  return out;
-}
-
-function closuresFromOfficial(official, date) {
-  const out = {};
-  for (const [pk] of PARKS_()) {
-    const cats = {};
-    const entry = ((official.parks || {})[pk]) || {};
-    for (const [cat, list] of Object.entries(entry.closures_today || {})) {
-      for (const name of list) {
-        (cats[cat] = cats[cat] || []).push({ name, from: null, to: null, undecided: false });
-      }
-    }
-    for (const it of ((official.closures_schedule || {})[pk]) || []) {
-      if (it.from && it.from > date) continue;
-      if (it.to && it.to < date) continue;
-      if (!it.from && !it.undecided) continue;
-      const list = (cats[it.category] = cats[it.category] || []);
-      const hit = list.find((x) => x.name === it.name);
-      const perm = isPermanent(it, date);
-      if (hit) Object.assign(hit, { from: it.from, to: it.to, undecided: !!it.undecided, permanent: perm });
-      else list.push({ name: it.name, from: it.from, to: it.to, undecided: !!it.undecided, permanent: perm });
-    }
-    out[pk] = cats;
-  }
-  return out;
-}
-
+// ---------- 休止 ----------
 function renderClosures(closures, date, scheduleOnly) {
-  const box = document.createDocumentFragment();
-  box.appendChild(el('h2', null, `休止情報 — ${fmtDate(date)}`));
-  const day = (closures || {})[date];
-  if (!day) {
-    box.appendChild(el('p', 'muted', 'この日の休止情報がありません。'));
-    return box;
+  const frag = document.createDocumentFragment();
+  frag.appendChild(el('h2', null, '休止情報'));
+  if (!closures) {
+    frag.appendChild(el('p', 'note', 'この日の休止情報がありません。'));
+    return frag;
   }
   if (scheduleOnly) {
-    box.appendChild(el('div', 'warn',
+    frag.appendChild(el('div', 'alert info',
       '公式の日次ページを取得していない日なので、期間が決まっている長期休止だけを出しています。当日限りの休止は含まれません。'));
   }
   for (const [pk, name] of PARKS_()) {
-    const all = day[pk] || {};
-    // 「終了未定」のまま何年も経っているものは恒久終了。来園日の判断材料にならないので本体から外す。
-    const cats = {}, permanent = [];
-    for (const [k, items] of Object.entries(all)) {
-      for (const it of items) {
-        if (it.permanent) permanent.push({ ...it, category: k });
-        else (cats[k] = cats[k] || []).push(it);
-      }
-    }
-    const total = Object.values(cats).reduce((a, v) => a + v.length, 0);
-    const h = el('h3');
-    h.appendChild(parkTag(pk));
-    h.append(`${name}（${total}件）`);
-    box.appendChild(h);
-    if (!total && !permanent.length) { box.appendChild(el('p', 'muted', '休止なし')); continue; }
-    if (!total) box.appendChild(el('p', 'muted', '来園日に効く休止はありません'));
-    const wrap = el('div', 'panel');
+    const [live, permanent] = splitPermanent(closures[pk]);
+    const total = Object.values(live).reduce((a, v) => a + v.length, 0);
+    const card = el('div', 'card');
+    const head = el('div', 'cardHead');
+    head.appendChild(parkTag(pk));
+    head.appendChild(el('h3', null, `${name}　${total}件`));
+    card.appendChild(head);
+    if (!total) card.appendChild(el('div', 'cardBody')).appendChild(el('p', 'note', '来園日に効く休止はありません'));
     for (const key of Object.keys(CAT_JA)) {
-      const items = cats[key] || [];
+      const items = live[key] || [];
       if (!items.length) continue;
-      const c = el('div', 'cat');
-      c.appendChild(el('div', 'catName', `${CAT_JA[key]}（${items.length}）`));
+      const det = el('details');
+      if (key === 'attraction') det.open = true;   // 一番効くカテゴリだけ開けておく
+      const sm = el('summary');
+      sm.append(CAT_JA[key]);
+      sm.appendChild(el('span', 'cnt', `${items.length}件`));
+      det.appendChild(sm);
+      const body = el('div', 'detBody');
       const ul = el('ul');
       for (const it of items) {
         const li = el('li', null, it.name);
         let period = null;
         if (it.undecided) period = `${it.from || '?'} 〜 終了未定`;
         else if (it.from || it.to) period = `${it.from || '?'} 〜 ${it.to || '?'}`;
-        if (period) li.appendChild(el('span', 'period', '　' + period));
+        if (period) li.appendChild(el('span', 'period', period));
         ul.appendChild(li);
       }
-      c.appendChild(ul);
-      wrap.appendChild(c);
+      body.appendChild(ul);
+      det.appendChild(body);
+      card.appendChild(det);
     }
-    if (total) box.appendChild(wrap);
     if (permanent.length) {
       const det = el('details');
-      det.appendChild(el('summary', 'muted', `恒久的に終了しているもの（${permanent.length}件）`));
-      const pw = el('div', 'panel');
-      pw.appendChild(el('p', 'muted',
+      const sm = el('summary');
+      sm.append('恒久的に終了しているもの');
+      sm.appendChild(el('span', 'cnt', `${permanent.length}件`));
+      det.appendChild(sm);
+      const body = el('div', 'detBody');
+      body.appendChild(el('p', 'note',
         `${PERMANENT_YEARS}年以上「終了日未定」のまま休止しているため、来園日の判断材料から外しています。`));
       const ul = el('ul');
       for (const it of permanent) {
         const li = el('li', null, it.name);
-        li.appendChild(el('span', 'period', `　${CAT_JA[it.category] || it.category} / ${it.from || '?'} 〜`));
+        li.appendChild(el('span', 'period', `${CAT_JA[it.category] || it.category}　${it.from || '?'} 〜`));
         ul.appendChild(li);
       }
-      pw.appendChild(ul);
-      det.appendChild(pw);
-      box.appendChild(det);
+      body.appendChild(ul);
+      det.appendChild(body);
+      card.appendChild(det);
     }
+    frag.appendChild(card);
   }
-  return box;
+  return frag;
 }
 
-function bandOf(p) {
-  if (p == null) return null;
-  return p <= 30 ? '0-30' : p <= 60 ? '31-60' : p <= 80 ? '61-80' : '81-100';
-}
-
+// ---------- DPA ----------
 function renderDpa(d, date) {
-  const box = document.createDocumentFragment();
-  box.appendChild(el('h2', null, 'ディズニー・プレミアアクセス（DPA）'));
-  const names = Object.fromEntries((d.attractions || []).map((a) => [a.key, a]));
-  const active = PARKS_().map((x) => x[0]);
-
-  // 来園日：DPAを買う価値
-  box.appendChild(el('h3', null, `${fmtDate(date)} に買う価値があるか`));
+  const frag = document.createDocumentFragment();
+  frag.appendChild(el('h2', null, 'ディズニー・プレミアアクセス'));
+  const act = activeKeys();
   const meta = d.curve_meta || {};
-  const rows = [];
-  for (const a of d.attractions || []) {
-    if (!a.dpa || !active.includes(a.park)) continue;
-    rows.push({ a, adv: (d.dpa_advice || {})[a.key] || {}, curve: (d.wait_curve || {})[a.key] });
-  }
+  const rows = (d.attractions || [])
+    .filter((a) => a.dpa && act.includes(a.park))
+    .map((a) => ({ a, adv: (d.dpa_advice || {})[a.key] || {}, curve: (d.wait_curve || {})[a.key] }));
   const order = { buy: 0, depends: 1, skip: 2, insufficient: 3 };
   rows.sort((x, y) => (order[x.adv.verdict] ?? 9) - (order[y.adv.verdict] ?? 9)
     || (y.adv.saved_minutes || 0) - (x.adv.saved_minutes || 0));
 
-  const lacking = rows.filter((r) => r.adv.verdict === 'insufficient').length;
-  if (lacking === rows.length) {
-    box.appendChild(el('div', 'warn',
-      `同じ混雑度の日の待ち時間がまだ${meta.min_days || 3}日分たまっていないため、判定を出せません。`
+  if (rows.every((r) => r.adv.verdict === 'insufficient')) {
+    frag.appendChild(el('div', 'alert warn',
+      `同じ混雑度の日の待ち時間がまだ${meta.min_days || 3}日分たまっていないため、買う価値の判定を出せません。`
       + `現在${meta.days_used || 0}日分。たまり次第ここに出ます。`));
   }
-
-  const wrap = el('div', 'panel');
+  const card = el('div', 'card');
   for (const { a, adv, curve } of rows) {
     const item = el('div', 'item');
-    const head = el('div');
+    const head = el('div', 'badgeRow');
     head.appendChild(parkTag(a.park));
-    head.appendChild(el('b', null, a.name_ja));
+    const [label, kind] = VERDICT[adv.verdict] || VERDICT.insufficient;
+    head.appendChild(badge(label, kind));
+    if (adv.yen_per_minute && adv.verdict !== 'skip') head.appendChild(badge(`1分あたり約${adv.yen_per_minute}円`));
     item.appendChild(head);
-
+    item.appendChild(el('div', 'name', a.name_ja));
     const price = ((d.prices || {})[a.key] || {}).amount;
-    const line = el('div', 'kv');
-    line.appendChild(el('div', null, price ? `￥${price.toLocaleString()}` : '価格不明'));
-    if (adv.band) line.appendChild(el('div', null, `混雑帯 ${adv.band}%`));
-    if (adv.sold_out_at) line.appendChild(el('div', null, `売切目安 ${adv.sold_out_at}頃`));
-    item.appendChild(line);
-
-    const badge = el('span', 'badge v-' + (adv.verdict || 'insufficient'),
-      VERDICT[adv.verdict] || 'データ不足');
-    const brow = el('div');
-    brow.appendChild(badge);
-    // 「買わなくてよい」で単価を併記すると判定と矛盾して読めるので出さない
-    if (adv.yen_per_minute && adv.verdict !== 'skip') {
-      brow.appendChild(el('span', 'badge prov', `1分あたり約${adv.yen_per_minute}円`));
-    }
-    item.appendChild(brow);
-    if (adv.reason) item.appendChild(el('div', 'muted', adv.reason));
-
+    const meta2 = el('div', 'metaRow');
+    meta2.appendChild(el('span', null, price ? `¥${price.toLocaleString()}` : '価格不明'));
+    if (adv.band) meta2.appendChild(el('span', null, `混雑帯 ${adv.band}%`));
+    if (adv.sold_out_at) meta2.appendChild(el('span', null, `売切目安 ${adv.sold_out_at}頃`));
+    item.appendChild(meta2);
+    if (adv.reason) item.appendChild(el('div', 'note', adv.reason));
     if (curve && Object.keys(curve).length >= 2) {
       const sp = sparkline(curve);
       if (sp) item.appendChild(sp);
     }
-    wrap.appendChild(item);
+    card.appendChild(item);
   }
-  box.appendChild(wrap);
-  box.appendChild(el('p', 'muted',
+  frag.appendChild(card);
+  frag.appendChild(el('p', 'note',
     `待ち時間は、来園日と同じ混雑度帯の日を${meta.min_days || 3}日以上集めた時間帯別の中央値です。`
     + `「買わなくてよい」は${meta.late_from_hour || 15}時以降に並び直す前提の判定なので、閉園前に他を回る予定なら当てはまりません。`));
 
-  // 今日の実績
-  box.appendChild(el('h3', null, `今日（${fmtDate(d.dates.today)}）の販売状況`));
+  // 今日の販売状況
   const today = d.dpa_today;
-  if (!today || !today.attractions) {
-    box.appendChild(el('p', 'muted', 'まだ記録がありません。'));
-  } else {
-    const tbl = el('table');
-    const thead = el('tr');
-    ['施設', '価格', '最初の売切', '状態'].forEach((t) => thead.appendChild(el('th', null, t)));
-    tbl.appendChild(thead);
-    const entries = Object.entries(today.attractions)
-      .filter(([k]) => (names[k] || {}).dpa && active.includes((names[k] || {}).park))
-      .sort((a, b) => (a[1].first_sold_out_at || 'z').localeCompare(b[1].first_sold_out_at || 'z'));
-    for (const [k, rec] of entries) {
-      const tr = el('tr');
-      const td0 = el('td');
-      td0.appendChild(parkTag(rec.park || (names[k] || {}).park));
-      td0.append((names[k] || {}).name_ja || k);
-      tr.appendChild(td0);
-      tr.appendChild(el('td', 'num', rec.price ? '￥' + rec.price.toLocaleString() : '—'));
-      const t = fmtClock(rec.first_sold_out_at);
-      tr.appendChild(el('td', 'num', t ? t + '頃' : '—'));
-      const resale = (rec.events || []).some((e) => e.note === 'resale');
-      const st = rec.status_at_close === 'on_sale' ? '販売中' : '売切';
-      tr.appendChild(el('td', null, st + (resale ? '（再販あり）' : '')));
-      tbl.appendChild(tr);
-    }
-    const sc = el('div', 'scroll'); sc.appendChild(tbl);
-    box.appendChild(sc);
-  }
-
-  // 直近7日
-  const recent = (d.dpa_recent || []).filter((r) => Object.keys(r.attractions || {}).length);
-  if (recent.length) {
+  const names = Object.fromEntries((d.attractions || []).map((x) => [x.key, x]));
+  if (today && today.attractions) {
     const det = el('details');
-    det.appendChild(el('summary', 'muted', `直近の売切実績（${recent.length}日分）`));
-    const tbl = el('table');
-    const thead = el('tr');
-    ['日付', '混雑', '施設', '最初の売切'].forEach((t) => thead.appendChild(el('th', null, t)));
-    tbl.appendChild(thead);
-    for (const r of recent) {
-      for (const [k, v] of Object.entries(r.attractions)) {
-        const a = names[k] || {};
-        if (!active.includes(a.park)) continue;
-        const tr = el('tr');
-        tr.appendChild(el('td', null, r.date));
-        tr.appendChild(el('td', 'num', (r.crowd_pct || {})[a.park] != null ? r.crowd_pct[a.park] + '%' : '—'));
-        tr.appendChild(el('td', null, a.name_ja || k));
-        tr.appendChild(el('td', 'num', (fmtClock(v.first_sold_out_at) || '—') + (v.resale ? '（再販）' : '')));
-        tbl.appendChild(tr);
-      }
+    det.className = 'card';
+    const sm = el('summary');
+    sm.append(`今日（${fmtDate(d.dates.today)}）の販売状況`);
+    det.appendChild(sm);
+    const body = el('div', 'detBody');
+    const ul = el('ul');
+    const entries = Object.entries(today.attractions)
+      .filter(([k]) => (names[k] || {}).dpa && act.includes((names[k] || {}).park))
+      .sort((x, y) => (x[1].first_sold_out_at || 'z').localeCompare(y[1].first_sold_out_at || 'z'));
+    for (const [k, rec] of entries) {
+      const t = fmtClock(rec.first_sold_out_at);
+      const resale = (rec.events || []).some((e) => e.note === 'resale');
+      const li = el('li', null, (names[k] || {}).name_ja || k);
+      li.appendChild(el('span', 'period',
+        `${rec.status_at_close === 'on_sale' ? '販売中' : '売切'}${t ? `　最初の売切 ${t}頃` : ''}${resale ? '　再販あり' : ''}`));
+      ul.appendChild(li);
     }
-    const sc = el('div', 'scroll'); sc.appendChild(tbl);
-    det.appendChild(sc);
-    box.appendChild(det);
+    body.appendChild(ul);
+    det.appendChild(body);
+    frag.appendChild(det);
   }
-  return box;
+  return frag;
 }
 
+// ---------- 待ち時間 ----------
 function renderWaits(d) {
-  const box = document.createDocumentFragment();
-  box.appendChild(el('h2', null, `待ち時間 — 今日（${fmtDate(d.dates.today)}）`));
+  const frag = document.createDocumentFragment();
+  frag.appendChild(el('h2', null, `待ち時間（今日 ${fmtDate(d.dates.today)}）`));
   const names = Object.fromEntries((d.attractions || []).map((a) => [a.key, a]));
-  const waits = d.waits || {};
   let any = false;
   for (const [pk, name] of PARKS_()) {
-    const p = waits[pk];
+    const p = (d.waits || {})[pk];
     if (!p) continue;
     const max = p.daily_max || {};
     const last = (p.last || {}).waits || {};
@@ -581,81 +611,43 @@ function renderWaits(d) {
     const keys = Object.keys(max).filter((k) => (names[k] || {}).watch);
     if (!keys.length && !closed.length) continue;
     any = true;
-    const h = el('h3');
-    h.appendChild(parkTag(pk));
-    h.append(name);
-    box.appendChild(h);
     keys.sort((a, b) => (max[b].minutes || 0) - (max[a].minutes || 0));
-    const tbl = el('table');
-    const thead = el('tr');
-    ['施設', '当日最大', '現在'].forEach((t) => thead.appendChild(el('th', null, t)));
-    tbl.appendChild(thead);
+    const card = el('div', 'card');
+    const head = el('div', 'cardHead');
+    head.appendChild(parkTag(pk));
+    head.appendChild(el('h3', null, name));
+    card.appendChild(head);
     for (const k of keys) {
-      const tr = el('tr');
-      tr.appendChild(el('td', null, (names[k] || {}).name_ja || k));
-      tr.appendChild(el('td', 'num', `${max[k].minutes}分 (${fmtClock(max[k].at) || '—'})`));
-      tr.appendChild(el('td', 'num', last[k] != null ? `${last[k]}分` : '—'));
-      tbl.appendChild(tr);
+      const item = el('div', 'item');
+      item.appendChild(el('div', 'name', (names[k] || {}).name_ja || k));
+      const m = el('div', 'metaRow');
+      m.appendChild(el('span', null, `当日最大 ${max[k].minutes}分（${fmtClock(max[k].at) || '—'}）`));
+      m.appendChild(el('span', null, `現在 ${last[k] != null ? last[k] + '分' : '—'}`));
+      item.appendChild(m);
+      card.appendChild(item);
     }
-    const sc = el('div', 'scroll'); sc.appendChild(tbl);
-    box.appendChild(sc);
     if (closed.length) {
-      box.appendChild(el('p', 'muted', '運営休止中: ' + closed.map((k) => (names[k] || {}).name_ja || k).join('、')));
+      card.appendChild(el('div', 'item')).appendChild(el('div', 'note',
+        '運営休止中: ' + closed.map((k) => (names[k] || {}).name_ja || k).join('、')));
     }
+    frag.appendChild(card);
   }
-  if (!any) box.appendChild(el('p', 'muted', '今日の待ち時間はまだ記録されていません。'));
-  return box;
+  if (!any) frag.appendChild(el('p', 'note', '今日の待ち時間はまだ記録されていません。'));
+  return frag;
 }
 
 // ---------- 起動 ----------
-
 async function loadJson(path) {
   const r = await fetch(path, { cache: 'no-store' });
   if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
   return r.json();
 }
-
-function renderControls() {
-  const box = el('div', 'controls');
-
-  const row1 = el('div', 'ctlRow');
-  const prev = el('button', 'ctlBtn', '‹ 前日');
-  prev.onclick = () => go(shiftDate(currentDate, -1));
-  const input = el('input', 'ctlDate');
-  input.type = 'date';
-  input.value = currentDate;
-  input.onchange = () => { if (input.value) go(input.value); };
-  const next = el('button', 'ctlBtn', '翌日 ›');
-  next.onclick = () => go(shiftDate(currentDate, 1));
-  row1.append(prev, input, next);
-  box.appendChild(row1);
-
-  const row2 = el('div', 'ctlRow seg');
-  for (const [val, label] of [['tdl', 'ランド'], ['tds', 'シー'], ['both', '両方']]) {
-    const b = el('button', 'segBtn' + (parkMode === val ? ' on' : ''), label);
-    b.onclick = () => setPark(val);
-    row2.appendChild(b);
-  }
-  const t = el('button', 'ctlBtn', '来園日へ');
-  t.onclick = () => go(data.dates.target);
-  row2.appendChild(t);
-  box.appendChild(row2);
-  return box;
-}
-
-function go(date) {
-  currentDate = date;
-  syncUrl();
-  render();
-}
-
+function go(date) { currentDate = date; syncUrl(); render(); }
 function setPark(mode) {
   parkMode = mode;
   try { localStorage.setItem(STORE_KEY, mode); } catch (e) { /* プライベートモード等 */ }
-  syncUrl();
-  render();
+  syncUrl(); render();
 }
-
 function syncUrl() {
   const u = new URLSearchParams();
   u.set('date', currentDate);
@@ -666,31 +658,36 @@ function syncUrl() {
 async function render() {
   const app = document.getElementById('app');
   const d = data;
-
   let official = (d.official || {})[currentDate];
   if (official === undefined) {
-    // latest.json に無い日は、ファイルが実在するときだけ読む。
     if ((d.official_dates || []).includes(currentDate)) {
-      try { official = await loadJson(`data/official/${currentDate}.json`); }
-      catch { official = null; }
-    } else {
-      official = null;
-    }
+      try { official = await loadJson(`data/official/${currentDate}.json`); } catch { official = null; }
+    } else official = null;
   }
-
   let closures = (d.closures || {})[currentDate];
+  const scheduleOnly = !official;
   if (!closures) {
-    closures = official
-      ? closuresFromOfficial(official, currentDate)
+    closures = official ? closuresFromOfficial(official, currentDate)
       : closuresFromSchedule(d.closures_schedule, currentDate);
   }
 
   app.textContent = '';
   app.appendChild(renderControls());
-  app.appendChild(renderHeader(d, currentDate, official));
+
+  const title = el('div', 'dayTitle');
+  title.appendChild(el('h1', null, fmtDate(currentDate)
+    + (currentDate === d.dates.target ? ' — 来園日' : '')));
+  title.appendChild(el('span', 'muted sub',
+    `今日 ${fmtDate(d.dates.today)}　更新 ${fmtClock(d.generated_at) || '—'}`));
+  app.appendChild(title);
+
+  const kp = renderKeyPoints(keyPoints(d, currentDate, official, closures));
+  if (kp) app.appendChild(kp);
+  app.appendChild(renderParkStat(d, currentDate, official));
+  app.appendChild(renderFreshness(d, official));
   app.appendChild(renderChanges(d, currentDate));
   app.appendChild(renderShows(official, currentDate));
-  app.appendChild(renderClosures({ [currentDate]: closures }, currentDate, !official));
+  app.appendChild(renderClosures(closures, currentDate, scheduleOnly));
   app.appendChild(renderDpa(d, currentDate));
   app.appendChild(renderWaits(d));
   window.scrollTo(0, 0);
@@ -698,20 +695,17 @@ async function render() {
 
 async function main() {
   const app = document.getElementById('app');
-  try {
-    data = await loadJson('data/latest.json');
-  } catch (e) {
+  try { data = await loadJson('data/latest.json'); }
+  catch (e) {
     app.textContent = '';
-    app.appendChild(el('div', 'err', 'データを読み込めませんでした: ' + e.message));
+    app.appendChild(el('div', 'alert bad', 'データを読み込めませんでした: ' + e.message));
     return;
   }
-
   let stored = null;
   try { stored = localStorage.getItem(STORE_KEY); } catch (e) { /* 読めなくても既定で動く */ }
   const fromUrl = q('park');
-  parkMode = [...PARK_KEYS, 'both'].includes(fromUrl) ? fromUrl
-    : ([...PARK_KEYS, 'both'].includes(stored) ? stored : 'both');
-
+  const valid = [...PARK_KEYS, 'both'];
+  parkMode = valid.includes(fromUrl) ? fromUrl : (valid.includes(stored) ? stored : 'both');
   currentDate = /^\d{4}-\d{2}-\d{2}$/.test(q('date') || '') ? q('date') : data.dates.target;
   syncUrl();
   await render();
