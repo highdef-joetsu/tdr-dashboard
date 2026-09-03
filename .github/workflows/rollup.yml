@@ -2,7 +2,7 @@ name: 生サンプルの丸め (月1)
 
 on:
   schedule:
-    - cron: "0 19 1 * *"   # JST 毎月1日 4:00
+    - cron: "41 19 1 * *"   # JST 毎月1日 4:00
   workflow_dispatch:
 
 permissions:

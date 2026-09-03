@@ -2,7 +2,7 @@ name: 公式サイト (JST 6:00/12:00)
 
 on:
   schedule:
-    - cron: "0 21,3 * * *"
+    - cron: "37 21,3 * * *"
   workflow_dispatch:
 
 permissions:

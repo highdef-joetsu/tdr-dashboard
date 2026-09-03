@@ -5,6 +5,11 @@ on:
   # cron ではなくイベントなので、GitHub の schedule のような取りこぼしが起きない。
   repository_dispatch:
     types: [ingest]
+  # 予備の毎時実行。取り込みは D1 の当日分から毎回ゼロ組み立てし直すので、
+  # 回が飛んでも失うのは鮮度だけでデータは失われない（取得側は Worker が担保）。
+  # 毎時0分は GitHub 側が最も混むので意図的にずらす。
+  schedule:
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
