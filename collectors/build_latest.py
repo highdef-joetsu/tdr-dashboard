@@ -16,8 +16,24 @@ def target_date(today, watch_dates: list[str]) -> str:
     return future[0] if future else str(today + timedelta(days=1))
 
 
+def is_permanent(item: dict, day: str, years: int) -> bool:
+    """「終了未定」のまま長期間たっている休止は、恒久的な終了とみなす。
+
+    実データ（2026-09-17時点）では 2020-07-01〜2022-04-01 開始の7件と
+    2025-08-18 以降の在庫の間に3年以上の空白がある。閾値をその空白の中に置けば
+    どこで切っても結果が同じなので、区切りの良い2年にしてある。
+    """
+    if not item.get("undecided") or not item.get("from"):
+        return False
+    y, m, d = (int(x) for x in day.split("-"))
+    return item["from"] < f"{y - years:04d}-{m:02d}-{d:02d}"
+
+
 def closures_for(official: dict | None, park: str, day: str) -> dict:
-    """当日休止 と 期間休止 の和集合をカテゴリ別に返す。"""
+    """当日休止 と 期間休止 の和集合をカテゴリ別に返す。
+
+    恒久終了とみなしたものは permanent: True を立てる（落とさず印だけ付ける）。
+    """
     out: dict[str, list] = {}
     if not official:
         return out
@@ -35,16 +51,18 @@ def closures_for(official: dict | None, park: str, day: str) -> dict:
         if not frm and not item.get("undecided"):
             continue
         cat = item["category"]
+        perm = is_permanent(item, day, c.settings().get("permanent_closure_years", 2))
         names = {x["name"] for x in out.get(cat, [])}
         if item["name"] in names:
             for x in out[cat]:
                 if x["name"] == item["name"]:
                     x.update({"from": frm, "to": to, "undecided": item.get("undecided", False),
-                              "source": "both"})
+                              "source": "both", "permanent": perm})
         else:
             out.setdefault(cat, []).append({
                 "name": item["name"], "from": frm, "to": to,
-                "undecided": item.get("undecided", False), "source": "schedule"})
+                "undecided": item.get("undecided", False), "source": "schedule",
+                "permanent": perm})
     return out
 
 

@@ -62,3 +62,38 @@ def test_closures_merges_daily_and_schedule_without_duplicating():
 
 def test_closures_empty_when_official_missing():
     assert B.closures_for(None, "tds", "2026-09-17") == {}
+
+
+def _sched(name, frm, undecided=True, to=None):
+    return {"category": "attraction", "name": name, "from": frm, "to": to, "undecided": undecided}
+
+
+def test_long_undecided_closure_is_marked_permanent():
+    o = _official(schedule=[_sched("マーメイドラグーンシアター", "2020-07-01")])
+    out = B.closures_for(o, "tds", "2026-09-17")
+    assert out["attraction"][0]["permanent"] is True
+
+
+def test_recent_undecided_closure_is_not_permanent():
+    o = _official(schedule=[_sched("トゥーンポップ", "2026-07-01")])
+    out = B.closures_for(o, "tds", "2026-09-17")
+    assert out["attraction"][0]["permanent"] is False
+
+
+def test_closure_with_end_date_is_never_permanent():
+    o = _official(schedule=[_sched("旧い工事", "2019-01-01", undecided=False, to="2026-12-31")])
+    out = B.closures_for(o, "tds", "2026-09-17")
+    assert out["attraction"][0]["permanent"] is False
+
+
+def test_permanent_flag_survives_merge_with_daily_list():
+    o = _official(closures_today={"attraction": ["マーメイドラグーンシアター"]},
+                  schedule=[_sched("マーメイドラグーンシアター", "2020-07-01")])
+    out = B.closures_for(o, "tds", "2026-09-17")
+    assert len(out["attraction"]) == 1
+    assert out["attraction"][0]["permanent"] is True and out["attraction"][0]["source"] == "both"
+
+
+def test_is_permanent_boundary():
+    assert B.is_permanent({"undecided": True, "from": "2024-09-16"}, "2026-09-17", 2) is True
+    assert B.is_permanent({"undecided": True, "from": "2024-09-18"}, "2026-09-17", 2) is False

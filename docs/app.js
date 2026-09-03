@@ -321,6 +321,14 @@ function renderShows(official, date) {
 
 // latest.json に無い日を ?date= で開いたとき、個別の official ファイルから
 // 当日休止＋期間休止の和集合を組み立てる（build_latest.py の closures_for と同じ規則）。
+// 「終了未定」のまま長く経っているものは恒久終了とみなす（build_latest の is_permanent と同じ規則）。
+const PERMANENT_YEARS = 2;
+function isPermanent(it, date) {
+  if (!it.undecided || !it.from) return false;
+  const [y, m, d] = date.split('-');
+  return it.from < `${String(Number(y) - PERMANENT_YEARS).padStart(4, '0')}-${m}-${d}`;
+}
+
 // 公式の日次を取っていない日は、期間つき休止だけで判定する。
 function closuresFromSchedule(schedule, date) {
   const out = {};
@@ -331,7 +339,8 @@ function closuresFromSchedule(schedule, date) {
       if (it.to && it.to < date) continue;
       if (!it.from && !it.undecided) continue;
       (cats[it.category] = cats[it.category] || []).push(
-        { name: it.name, from: it.from, to: it.to, undecided: !!it.undecided });
+        { name: it.name, from: it.from, to: it.to, undecided: !!it.undecided,
+          permanent: isPermanent(it, date) });
     }
     out[pk] = cats;
   }
@@ -354,8 +363,9 @@ function closuresFromOfficial(official, date) {
       if (!it.from && !it.undecided) continue;
       const list = (cats[it.category] = cats[it.category] || []);
       const hit = list.find((x) => x.name === it.name);
-      if (hit) Object.assign(hit, { from: it.from, to: it.to, undecided: !!it.undecided });
-      else list.push({ name: it.name, from: it.from, to: it.to, undecided: !!it.undecided });
+      const perm = isPermanent(it, date);
+      if (hit) Object.assign(hit, { from: it.from, to: it.to, undecided: !!it.undecided, permanent: perm });
+      else list.push({ name: it.name, from: it.from, to: it.to, undecided: !!it.undecided, permanent: perm });
     }
     out[pk] = cats;
   }
@@ -375,13 +385,22 @@ function renderClosures(closures, date, scheduleOnly) {
       '公式の日次ページを取得していない日なので、期間が決まっている長期休止だけを出しています。当日限りの休止は含まれません。'));
   }
   for (const [pk, name] of PARKS_()) {
-    const cats = day[pk] || {};
+    const all = day[pk] || {};
+    // 「終了未定」のまま何年も経っているものは恒久終了。来園日の判断材料にならないので本体から外す。
+    const cats = {}, permanent = [];
+    for (const [k, items] of Object.entries(all)) {
+      for (const it of items) {
+        if (it.permanent) permanent.push({ ...it, category: k });
+        else (cats[k] = cats[k] || []).push(it);
+      }
+    }
     const total = Object.values(cats).reduce((a, v) => a + v.length, 0);
     const h = el('h3');
     h.appendChild(parkTag(pk));
     h.append(`${name}（${total}件）`);
     box.appendChild(h);
-    if (!total) { box.appendChild(el('p', 'muted', '休止なし')); continue; }
+    if (!total && !permanent.length) { box.appendChild(el('p', 'muted', '休止なし')); continue; }
+    if (!total) box.appendChild(el('p', 'muted', '来園日に効く休止はありません'));
     const wrap = el('div', 'panel');
     for (const key of Object.keys(CAT_JA)) {
       const items = cats[key] || [];
@@ -400,7 +419,23 @@ function renderClosures(closures, date, scheduleOnly) {
       c.appendChild(ul);
       wrap.appendChild(c);
     }
-    box.appendChild(wrap);
+    if (total) box.appendChild(wrap);
+    if (permanent.length) {
+      const det = el('details');
+      det.appendChild(el('summary', 'muted', `恒久的に終了しているもの（${permanent.length}件）`));
+      const pw = el('div', 'panel');
+      pw.appendChild(el('p', 'muted',
+        `${PERMANENT_YEARS}年以上「終了日未定」のまま休止しているため、来園日の判断材料から外しています。`));
+      const ul = el('ul');
+      for (const it of permanent) {
+        const li = el('li', null, it.name);
+        li.appendChild(el('span', 'period', `　${CAT_JA[it.category] || it.category} / ${it.from || '?'} 〜`));
+        ul.appendChild(li);
+      }
+      pw.appendChild(ul);
+      det.appendChild(pw);
+      box.appendChild(det);
+    }
   }
   return box;
 }
