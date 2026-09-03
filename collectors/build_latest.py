@@ -103,6 +103,13 @@ def build() -> dict:
     for d in dates:
         closures[d] = {park: closures_for(official.get(d), park, d) for park in PARKS}
 
+    # closures_schedule はどの日のファイルにも同じものが入っている。取れた最初の1つを使う。
+    schedule = {}
+    for doc in official.values():
+        if doc and doc.get("closures_schedule"):
+            schedule = doc["closures_schedule"]
+            break
+
     # 期間休止(closures_schedule)は3日分に同じものが入っており、
     # 日付判定済みの closures に畳んである。latest.json では落として二重持ちを避ける。
     slim = {}
@@ -126,13 +133,17 @@ def build() -> dict:
              "dpa": a.get("dpa", False), "watch": a.get("watch", True)}
             for a in attractions
         ],
-        "crowd": {
-            park: {d: ((crowd.get("parks", {}).get(park) or {}).get(d)) for d in dates}
-            for park in PARKS
-        },
+        # 取得済みの3日だけでなく当月全日を渡す。
+        # 公式の日次を取っていない日でも、混雑予想と開園時間は出せる。
+        "crowd": {park: (crowd.get("parks", {}).get(park) or {}) for park in PARKS},
         "crowd_fetched_at": crowd.get("fetched_at"),
         "official": official,
+        # 個別ファイルが実在する日。UIはこれに無い日を fetch しない（無駄な404を出さない）。
+        "official_dates": sorted(x.stem for x in (c.DATA / "official").glob("20*.json")),
         "closures": closures,
+        # 期間つき休止は日付に依らないので1組だけ持たせる。
+        # 公式の日次を取っていない日は、これだけで長期休止を判定する。
+        "closures_schedule": schedule,
         "waits": waits_summary(waits),
         "waits_fetched_at": ((waits or {}).get("parks", {}).get("tds", {}).get("last") or {}).get("at"),
         "dpa_today": dpa_today,

@@ -1,6 +1,17 @@
 'use strict';
 
-const PARKS = [['tdl', '東京ディズニーランド'], ['tds', '東京ディズニーシー']];
+const ALL_PARKS = [['tdl', '東京ディズニーランド'], ['tds', '東京ディズニーシー']];
+const PARK_KEYS = ALL_PARKS.map((p) => p[0]);
+const STORE_KEY = 'tdr.park';
+
+// 表示対象のパーク。'tdl' | 'tds' | 'both'
+let parkMode = 'both';
+let currentDate = null;
+let data = null;
+
+function PARKS_() {
+  return parkMode === 'both' ? ALL_PARKS : ALL_PARKS.filter((p) => p[0] === parkMode);
+}
 const CAT_JA = {
   attraction: 'アトラクション', show: 'パレード/ショー', greeting: 'キャラクターグリーティング',
   shop: 'ショップ', restaurant: 'レストラン', service: 'サービス施設',
@@ -31,6 +42,13 @@ function fmtDate(s) {
   const w = '日月火水木金土'[new Date(y, m - 1, d).getDay()];
   return `${y}年${m}月${d}日(${w})`;
 }
+function shiftDate(s, days) {
+  const [y, m, d] = s.split('-').map(Number);
+  const dt = new Date(y, m - 1, d + days);
+  const p2 = (n) => String(n).padStart(2, '0');
+  return `${dt.getFullYear()}-${p2(dt.getMonth() + 1)}-${p2(dt.getDate())}`;
+}
+
 function crowdClass(p) { return p == null ? '' : p <= 40 ? 'lo' : p <= 70 ? 'mid' : 'hi'; }
 function parkTag(p) { return el('span', 'parkTag ' + p, p === 'tdl' ? 'ランド' : 'シー'); }
 
@@ -56,7 +74,7 @@ function renderHeader(d, date, official) {
   const sub = el('p', 'muted', `今日: ${fmtDate(today)}　更新: ${fmtClock(d.generated_at) || '不明'}`);
   box.appendChild(sub);
 
-  for (const [pk, name] of PARKS) {
+  for (const [pk, name] of PARKS_()) {
     const panel = el('div', 'panel');
     const head = el('div');
     head.appendChild(parkTag(pk));
@@ -116,10 +134,12 @@ function renderShows(official, date) {
   const box = document.createDocumentFragment();
   box.appendChild(el('h2', null, `ショースケジュール — ${fmtDate(date)}`));
   if (!official) {
-    box.appendChild(el('div', 'err', 'この日のデータがありません。'));
+    box.appendChild(el('div', 'warn',
+      'この日の公式スケジュールは取得していません。取得するのは今日・明日・来園予定日の3日分です。'
+      + '来園日を変えるなら config/settings.json の watch_dates を直すと翌朝から取得します。'));
     return box;
   }
-  for (const [pk, name] of PARKS) {
+  for (const [pk, name] of PARKS_()) {
     const entry = ((official.parks || {})[pk]) || {};
     const h = el('h3');
     h.appendChild(parkTag(pk));
@@ -166,9 +186,26 @@ function renderShows(official, date) {
 
 // latest.json に無い日を ?date= で開いたとき、個別の official ファイルから
 // 当日休止＋期間休止の和集合を組み立てる（build_latest.py の closures_for と同じ規則）。
+// 公式の日次を取っていない日は、期間つき休止だけで判定する。
+function closuresFromSchedule(schedule, date) {
+  const out = {};
+  for (const [pk] of PARKS_()) {
+    const cats = {};
+    for (const it of (schedule || {})[pk] || []) {
+      if (it.from && it.from > date) continue;
+      if (it.to && it.to < date) continue;
+      if (!it.from && !it.undecided) continue;
+      (cats[it.category] = cats[it.category] || []).push(
+        { name: it.name, from: it.from, to: it.to, undecided: !!it.undecided });
+    }
+    out[pk] = cats;
+  }
+  return out;
+}
+
 function closuresFromOfficial(official, date) {
   const out = {};
-  for (const [pk] of PARKS) {
+  for (const [pk] of PARKS_()) {
     const cats = {};
     const entry = ((official.parks || {})[pk]) || {};
     for (const [cat, list] of Object.entries(entry.closures_today || {})) {
@@ -190,7 +227,7 @@ function closuresFromOfficial(official, date) {
   return out;
 }
 
-function renderClosures(closures, date) {
+function renderClosures(closures, date, scheduleOnly) {
   const box = document.createDocumentFragment();
   box.appendChild(el('h2', null, `休止情報 — ${fmtDate(date)}`));
   const day = (closures || {})[date];
@@ -198,7 +235,11 @@ function renderClosures(closures, date) {
     box.appendChild(el('p', 'muted', 'この日の休止情報がありません。'));
     return box;
   }
-  for (const [pk, name] of PARKS) {
+  if (scheduleOnly) {
+    box.appendChild(el('div', 'warn',
+      '公式の日次ページを取得していない日なので、期間が決まっている長期休止だけを出しています。当日限りの休止は含まれません。'));
+  }
+  for (const [pk, name] of PARKS_()) {
     const cats = day[pk] || {};
     const total = Object.values(cats).reduce((a, v) => a + v.length, 0);
     const h = el('h3');
@@ -243,8 +284,9 @@ function renderDpa(d, date) {
   // 来園日の売切目安
   box.appendChild(el('h3', null, `${fmtDate(date)} の売切目安`));
   const rows = [];
+  const active = PARKS_().map((x) => x[0]);
   for (const a of d.attractions || []) {
-    if (!a.dpa) continue;
+    if (!a.dpa || !active.includes(a.park)) continue;
     const pct = (((d.crowd || {})[a.park] || {})[date] || {}).crowd_pct;
     const band = bandOf(pct);
     const e = band ? (est[a.key] || {})[band] : null;
@@ -290,7 +332,7 @@ function renderDpa(d, date) {
     ['施設', '価格', '最初の売切', '状態'].forEach((t) => thead.appendChild(el('th', null, t)));
     tbl.appendChild(thead);
     const entries = Object.entries(today.attractions)
-      .filter(([k]) => (names[k] || {}).dpa)
+      .filter(([k]) => (names[k] || {}).dpa && active.includes((names[k] || {}).park))
       .sort((a, b) => (a[1].first_sold_out_at || 'z').localeCompare(b[1].first_sold_out_at || 'z'));
     for (const [k, rec] of entries) {
       const tr = el('tr');
@@ -322,6 +364,7 @@ function renderDpa(d, date) {
     for (const r of recent) {
       for (const [k, v] of Object.entries(r.attractions)) {
         const a = names[k] || {};
+        if (!active.includes(a.park)) continue;
         const tr = el('tr');
         tr.appendChild(el('td', null, r.date));
         tr.appendChild(el('td', 'num', (r.crowd_pct || {})[a.park] != null ? r.crowd_pct[a.park] + '%' : '—'));
@@ -343,7 +386,7 @@ function renderWaits(d) {
   const names = Object.fromEntries((d.attractions || []).map((a) => [a.key, a]));
   const waits = d.waits || {};
   let any = false;
-  for (const [pk, name] of PARKS) {
+  for (const [pk, name] of PARKS_()) {
     const p = waits[pk];
     if (!p) continue;
     const max = p.daily_max || {};
@@ -386,43 +429,105 @@ async function loadJson(path) {
   return r.json();
 }
 
+function renderControls() {
+  const box = el('div', 'controls');
+
+  const row1 = el('div', 'ctlRow');
+  const prev = el('button', 'ctlBtn', '‹ 前日');
+  prev.onclick = () => go(shiftDate(currentDate, -1));
+  const input = el('input', 'ctlDate');
+  input.type = 'date';
+  input.value = currentDate;
+  input.onchange = () => { if (input.value) go(input.value); };
+  const next = el('button', 'ctlBtn', '翌日 ›');
+  next.onclick = () => go(shiftDate(currentDate, 1));
+  row1.append(prev, input, next);
+  box.appendChild(row1);
+
+  const row2 = el('div', 'ctlRow seg');
+  for (const [val, label] of [['tdl', 'ランド'], ['tds', 'シー'], ['both', '両方']]) {
+    const b = el('button', 'segBtn' + (parkMode === val ? ' on' : ''), label);
+    b.onclick = () => setPark(val);
+    row2.appendChild(b);
+  }
+  const t = el('button', 'ctlBtn', '来園日へ');
+  t.onclick = () => go(data.dates.target);
+  row2.appendChild(t);
+  box.appendChild(row2);
+  return box;
+}
+
+function go(date) {
+  currentDate = date;
+  syncUrl();
+  render();
+}
+
+function setPark(mode) {
+  parkMode = mode;
+  try { localStorage.setItem(STORE_KEY, mode); } catch (e) { /* プライベートモード等 */ }
+  syncUrl();
+  render();
+}
+
+function syncUrl() {
+  const u = new URLSearchParams();
+  u.set('date', currentDate);
+  if (parkMode !== 'both') u.set('park', parkMode);
+  history.replaceState(null, '', '?' + u.toString());
+}
+
+async function render() {
+  const app = document.getElementById('app');
+  const d = data;
+
+  let official = (d.official || {})[currentDate];
+  if (official === undefined) {
+    // latest.json に無い日は、ファイルが実在するときだけ読む。
+    if ((d.official_dates || []).includes(currentDate)) {
+      try { official = await loadJson(`data/official/${currentDate}.json`); }
+      catch { official = null; }
+    } else {
+      official = null;
+    }
+  }
+
+  let closures = (d.closures || {})[currentDate];
+  if (!closures) {
+    closures = official
+      ? closuresFromOfficial(official, currentDate)
+      : closuresFromSchedule(d.closures_schedule, currentDate);
+  }
+
+  app.textContent = '';
+  app.appendChild(renderControls());
+  app.appendChild(renderHeader(d, currentDate, official));
+  app.appendChild(renderShows(official, currentDate));
+  app.appendChild(renderClosures({ [currentDate]: closures }, currentDate, !official));
+  app.appendChild(renderDpa(d, currentDate));
+  app.appendChild(renderWaits(d));
+  window.scrollTo(0, 0);
+}
+
 async function main() {
   const app = document.getElementById('app');
-  let d;
   try {
-    d = await loadJson('data/latest.json');
+    data = await loadJson('data/latest.json');
   } catch (e) {
     app.textContent = '';
     app.appendChild(el('div', 'err', 'データを読み込めませんでした: ' + e.message));
     return;
   }
 
-  const date = q('date') || d.dates.target;
-  let official = (d.official || {})[date];
-  if (official === undefined) {
-    // latest.json に含まれない日は個別ファイルを直接読む
-    try { official = await loadJson(`data/official/${date}.json`); }
-    catch { official = null; }
-  }
+  let stored = null;
+  try { stored = localStorage.getItem(STORE_KEY); } catch (e) { /* 読めなくても既定で動く */ }
+  const fromUrl = q('park');
+  parkMode = [...PARK_KEYS, 'both'].includes(fromUrl) ? fromUrl
+    : ([...PARK_KEYS, 'both'].includes(stored) ? stored : 'both');
 
-  app.textContent = '';
-  app.appendChild(renderHeader(d, date, official));
-  app.appendChild(renderShows(official, date));
-  let closures = d.closures || {};
-  if (!closures[date] && official) closures = { ...closures, [date]: closuresFromOfficial(official, date) };
-  app.appendChild(renderClosures(closures, date));
-  app.appendChild(renderDpa(d, date));
-  app.appendChild(renderWaits(d));
-
-  const nav = el('p', 'muted');
-  nav.append('別の日を見る: ');
-  for (const key of Object.keys(d.official || {})) {
-    const a = el('a', null, fmtDate(key));
-    a.href = `?date=${key}`;
-    nav.appendChild(a);
-    nav.append('　');
-  }
-  app.appendChild(nav);
+  currentDate = /^\d{4}-\d{2}-\d{2}$/.test(q('date') || '') ? q('date') : data.dates.target;
+  syncUrl();
+  await render();
 }
 
 main();

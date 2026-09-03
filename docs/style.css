@@ -51,3 +51,21 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 
 footer{border-top:1px solid var(--line);margin-top:32px;padding-top:12px;color:var(--sub);font-size:11px}
 footer p{margin:3px 0}
+
+/* --- 日付・パーク選択 --- */
+.controls{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 10px;border-bottom:1px solid var(--line)}
+.ctlRow{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.ctlRow:last-child{margin-bottom:0}
+.ctlBtn{flex:0 0 auto;font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--line);
+  background:var(--panel);color:var(--fg);border-radius:6px;cursor:pointer;-webkit-appearance:none}
+.ctlDate{flex:1 1 auto;min-width:0;font:inherit;font-size:15px;padding:6px 8px;
+  border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);
+  -webkit-appearance:none;text-align:center}
+.seg{gap:0}
+.segBtn{flex:1 1 0;font:inherit;font-size:13px;padding:7px 4px;border:1px solid var(--line);
+  background:var(--bg);color:var(--sub);cursor:pointer;-webkit-appearance:none}
+.segBtn:first-child{border-radius:6px 0 0 6px}
+.segBtn:nth-child(3){border-radius:0 6px 6px 0;border-right:1px solid var(--line)}
+.segBtn+.segBtn{border-left:none}
+.segBtn.on{background:var(--fg);color:#fff;border-color:var(--fg);font-weight:700}
+.seg .ctlBtn{margin-left:6px}
