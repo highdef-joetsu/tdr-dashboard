@@ -5,10 +5,17 @@
         {
           "at": "2026-09-03T18:46:48+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-03T19:00:20+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-03T19:00:20+09:00",
+      "first_sold_out_at": "2026-09-03T19:00:20+09:00",
       "park": "tdl",
-      "status_at_close": "on_sale"
+      "price": 1500,
+      "status_at_close": "sold_out"
     },
     "beauty_and_the_beast": {
       "events": [
@@ -66,6 +73,7 @@
         }
       ],
       "park": "tdl",
+      "price": 1000,
       "status_at_close": "sold_out"
     },
     "peter_pan": {
@@ -93,10 +101,17 @@
         {
           "at": "2026-09-03T18:46:48+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-03T19:00:20+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-03T19:00:20+09:00",
+      "first_sold_out_at": "2026-09-03T19:00:20+09:00",
       "park": "tds",
-      "status_at_close": "on_sale"
+      "price": 1500,
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -160,6 +175,6 @@
       "open": "2026-09-03T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-03T18:46:48+09:00",
+  "last_polled_at": "2026-09-03T19:00:20+09:00",
   "source": "themeparks.wiki"
 }

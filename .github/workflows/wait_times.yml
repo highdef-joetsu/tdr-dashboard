@@ -23,5 +23,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/collect
         with:
-          collector: "wait_times build_latest"
+          collector: "wait_times"
           browser: "false"

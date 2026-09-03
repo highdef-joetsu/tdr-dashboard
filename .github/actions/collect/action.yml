@@ -1,5 +1,5 @@
 name: collect
-description: コレクタを1本実行し、変更があればデータをコミットする
+description: コレクタを実行し、他ワークフローと衝突しない形でデータをコミットする
 inputs:
   collector:
     description: collectors 配下のモジュール名（複数はスペース区切り。左から順に実行）
@@ -33,8 +33,11 @@ runs:
     - name: コレクタを実行
       shell: bash
       # 公式サイトは headless Chromium を無応答でドロップするため headed + xvfb で動かす。
+      # TDR_WRITE_MANIFEST に「このジョブが書いたファイル」が溜まる。
       run: |
         set -e
+        export TDR_WRITE_MANIFEST="${RUNNER_TEMP}/written.txt"
+        : > "$TDR_WRITE_MANIFEST"
         for m in ${{ inputs.collector }}; do
           echo "::group::$m"
           if [ "${{ inputs.browser }}" = "true" ]; then
@@ -44,29 +47,45 @@ runs:
           fi
           echo "::endgroup::"
         done
+        sort -u "$TDR_WRITE_MANIFEST" -o "$TDR_WRITE_MANIFEST"
+        echo "このジョブが書いたファイル:"; cat "$TDR_WRITE_MANIFEST"
 
     - name: データをコミット
       shell: bash
       env:
         TZ: Asia/Tokyo
+      # 生成物は毎回中身が変わるので rebase は必ず衝突する。
+      # 代わりに「最新の origin/main に reset → 自分が書いたファイルだけ置き直す
+      # → latest.json を作り直す」を push が通るまで繰り返す。
+      # 自分が書いたファイルは他コレクタのものと重ならない（health もコレクタ別）。
       run: |
         set -e
+        MANIFEST="${RUNNER_TEMP}/written.txt"
+        SNAP="${RUNNER_TEMP}/snapshot"
+        rm -rf "$SNAP"; mkdir -p "$SNAP"
+        rsync -a --files-from="$MANIFEST" . "$SNAP"/
+
         git config user.name  "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git add -A docs/data
-        if git diff --cached --quiet; then
-          echo "変更なし。コミットしない。"
-          exit 0
-        fi
-        git commit -m "data: ${{ inputs.collector }} $(date '+%Y-%m-%d %H:%M') JST"
-        # 他のワークフローと同時に push が走るので、rebase して数回やり直す
+
         for i in 1 2 3 4 5; do
-          if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+          git fetch -q origin "${GITHUB_REF_NAME}"
+          git reset -q --hard "origin/${GITHUB_REF_NAME}"
+          rsync -a "$SNAP"/ .
+          python -m collectors.build_latest
+
+          git add -A docs/data
+          if git diff --cached --quiet; then
+            echo "変更なし。コミットしない。"
+            exit 0
+          fi
+          git commit -q -m "data: ${{ inputs.collector }} $(date '+%Y-%m-%d %H:%M') JST"
+          if git push -q origin "HEAD:${GITHUB_REF_NAME}"; then
             echo "push 成功 (試行 $i)"
             exit 0
           fi
-          echo "push 失敗 (試行 $i)。待って再試行する。"
-          sleep $((i * 7))
+          echo "push 失敗 (試行 $i)。他のワークフローが先に書いた。作り直して再試行する。"
+          sleep $((i * 5))
         done
         echo "push に5回失敗した。" >&2
         exit 1

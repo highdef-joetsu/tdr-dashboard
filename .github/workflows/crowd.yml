@@ -23,5 +23,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/collect
         with:
-          collector: "crowd_calendar estimates build_latest"
+          collector: "crowd_calendar estimates"
           browser: "false"

@@ -113,7 +113,12 @@ def read_json(path: pathlib.Path, default=None):
 
 
 def write_json(path: pathlib.Path, obj) -> None:
-    """一時ファイル → rename の原子的保存。途中で落ちても既存を壊さない。"""
+    """一時ファイル → rename の原子的保存。途中で落ちても既存を壊さない。
+
+    TDR_WRITE_MANIFEST が指定されていれば、書いたパスをそこに追記する。
+    CI は他のワークフローの push と衝突したとき、この一覧だけを
+    最新の origin/main の上に置き直して作り直す。
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_text(
@@ -121,13 +126,29 @@ def write_json(path: pathlib.Path, obj) -> None:
         encoding="utf-8",
     )
     os.replace(tmp, path)
+    manifest = os.environ.get("TDR_WRITE_MANIFEST")
+    if manifest:
+        with open(manifest, "a", encoding="utf-8") as f:
+            f.write(str(path.relative_to(ROOT)) + "\n")
 
 
 # ---------- ヘルス ----------
 
+def read_health() -> dict:
+    """コレクタごとの health ファイルを1つの辞書にまとめる。"""
+    out = {}
+    for p in sorted((DATA / "health").glob("*.json")):
+        v = read_json(p)
+        if v:
+            out[p.stem] = v
+    return out
+
+
 def record_health(collector: str, ok: bool, detail: str = "") -> None:
-    path = DATA / "health.json"
-    h = read_json(path, {}) or {}
+    # 1ファイルを全コレクタで共有すると、並行するワークフローの push が
+    # 必ず衝突する。コレクタごとに分けて衝突の芽を消す。
+    path = DATA / "health" / f"{collector}.json"
+    h = {collector: read_json(path, {}) or {}}
     entry = h.get(collector, {"consecutive_failures": 0})
     if ok:
         entry["consecutive_failures"] = 0
@@ -137,8 +158,7 @@ def record_health(collector: str, ok: bool, detail: str = "") -> None:
         entry["last_failure_at"] = iso(now_jst())
     entry["last_run_at"] = iso(now_jst())
     entry["last_detail"] = detail
-    h[collector] = entry
-    write_json(path, h)
+    write_json(path, entry)
 
 
 def run(collector: str, fn) -> int:

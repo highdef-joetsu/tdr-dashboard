@@ -20,4 +20,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/collect
         with:
-          collector: "rollup build_latest"
+          collector: "rollup"

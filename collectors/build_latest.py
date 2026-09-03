@@ -91,7 +91,7 @@ def build() -> dict:
     waits = c.read_json(c.DATA / "waits" / f"{today}.json")
     dpa_today = c.read_json(c.DATA / "dpa" / f"{today}.json")
     estimates = c.read_json(c.DATA / "dpa" / "estimates.json")
-    health = c.read_json(c.DATA / "health.json", {}) or {}
+    health = c.read_health()
 
     dates = sorted({str(today), tomorrow, tgt})
     official = {d: c.read_json(c.DATA / "official" / f"{d}.json") for d in dates}

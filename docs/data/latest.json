@@ -1307,7 +1307,18 @@
   },
   "dpa_recent": [
     {
-      "attractions": {},
+      "attractions": {
+        "baymax": {
+          "final_sold_out_at": "2026-09-03T19:00:20+09:00",
+          "first_sold_out_at": "2026-09-03T19:00:20+09:00",
+          "resale": false
+        },
+        "raging_spirits": {
+          "final_sold_out_at": "2026-09-03T19:00:20+09:00",
+          "first_sold_out_at": "2026-09-03T19:00:20+09:00",
+          "resale": false
+        }
+      },
       "crowd_pct": {
         "tdl": 48,
         "tds": 57
@@ -1322,10 +1333,17 @@
           {
             "at": "2026-09-03T18:46:48+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-03T19:00:20+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-03T19:00:20+09:00",
+        "first_sold_out_at": "2026-09-03T19:00:20+09:00",
         "park": "tdl",
-        "status_at_close": "on_sale"
+        "price": 1500,
+        "status_at_close": "sold_out"
       },
       "beauty_and_the_beast": {
         "events": [
@@ -1383,6 +1401,7 @@
           }
         ],
         "park": "tdl",
+        "price": 1000,
         "status_at_close": "sold_out"
       },
       "peter_pan": {
@@ -1410,10 +1429,17 @@
           {
             "at": "2026-09-03T18:46:48+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-03T19:00:20+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-03T19:00:20+09:00",
+        "first_sold_out_at": "2026-09-03T19:00:20+09:00",
         "park": "tds",
-        "status_at_close": "on_sale"
+        "price": 1500,
+        "status_at_close": "sold_out"
       },
       "rapunzel_lantern": {
         "events": [
@@ -1477,9 +1503,10 @@
         "open": "2026-09-03T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-03T18:46:48+09:00",
+    "last_polled_at": "2026-09-03T19:00:20+09:00",
     "source": "themeparks.wiki"
   },
+<<<<<<< Updated upstream
   "generated_at": "2026-09-03T19:01:10+09:00",
   "health": {
     "build_latest": {
@@ -1511,12 +1538,26 @@
       "last_detail": "3日分 (2026-09-03, 2026-09-04, 2026-09-17)",
       "last_run_at": "2026-09-03T19:01:10+09:00",
       "last_success_at": "2026-09-03T19:01:10+09:00"
+=======
+  "generated_at": "2026-09-03T19:00:20+09:00",
+  "health": {
+    "dpa": {
+      "consecutive_failures": 0,
+      "last_detail": "2026-09-03 監視16件 販売中5件",
+      "last_run_at": "2026-09-03T19:00:20+09:00",
+      "last_success_at": "2026-09-03T19:00:20+09:00"
+>>>>>>> Stashed changes
     },
     "wait_times": {
       "consecutive_failures": 0,
       "last_detail": "2026-09-03 tdl=6件 tds=8件",
+<<<<<<< Updated upstream
       "last_run_at": "2026-09-03T18:57:05+09:00",
       "last_success_at": "2026-09-03T18:57:05+09:00"
+=======
+      "last_run_at": "2026-09-03T19:00:20+09:00",
+      "last_success_at": "2026-09-03T19:00:20+09:00"
+>>>>>>> Stashed changes
     }
   },
   "official": {
@@ -2476,7 +2517,11 @@
           "minutes": 40
         },
         "big_thunder": {
+<<<<<<< Updated upstream
           "at": "2026-09-03T18:57:05+09:00",
+=======
+          "at": "2026-09-03T19:00:19+09:00",
+>>>>>>> Stashed changes
           "minutes": 30
         },
         "monsters_inc": {
@@ -2493,7 +2538,11 @@
         }
       },
       "last": {
+<<<<<<< Updated upstream
         "at": "2026-09-03T18:57:05+09:00",
+=======
+        "at": "2026-09-03T19:00:19+09:00",
+>>>>>>> Stashed changes
         "closed": [
           "haunted_mansion"
         ],
@@ -2543,7 +2592,11 @@
         }
       },
       "last": {
+<<<<<<< Updated upstream
         "at": "2026-09-03T18:57:05+09:00",
+=======
+        "at": "2026-09-03T19:00:19+09:00",
+>>>>>>> Stashed changes
         "closed": [
           "indiana_jones"
         ],
@@ -2553,12 +2606,16 @@
           "peter_pan": 20,
           "raging_spirits": 50,
           "rapunzel_lantern": 40,
-          "soaring": 120,
+          "soaring": 100,
           "tower_of_terror": 120,
-          "toy_story_mania": 100
+          "toy_story_mania": 90
         }
       }
     }
   },
+<<<<<<< Updated upstream
   "waits_fetched_at": "2026-09-03T18:57:05+09:00"
+=======
+  "waits_fetched_at": "2026-09-03T19:00:19+09:00"
+>>>>>>> Stashed changes
 }
