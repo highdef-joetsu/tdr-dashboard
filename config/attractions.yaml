@@ -1,0 +1,149 @@
+# 施設対応表 — Queue-Times(英語) / ThemeParks.wiki / 公式サイト(日本語) の突き合わせ
+# 生成: Phase 0 で3系統の実データから自動生成し、名称一致を目視確認済み。
+# dpa: 2026-09-03 時点で ThemeParks.wiki の live に PAID_RETURN_TIME が返ったか。
+
+- key: frozen_journey
+  park: tds
+  name_ja: アナとエルサのフローズンジャーニー
+  name_en: "Anna and Elsa's Frozen Journey"
+  queue_times_id: 13559
+  themeparks_id: 9fb0c97c-ebf7-4c25-8ea7-a3f4fe2aa9ec
+  dpa: true
+  watch: true
+
+- key: rapunzel_lantern
+  park: tds
+  name_ja: ラプンツェルのランタンフェスティバル
+  name_en: "Rapunzel's Lantern Festival"
+  queue_times_id: 13560
+  themeparks_id: 10b5b89e-02a6-4456-9ddd-69e06c2bded4
+  dpa: true
+  watch: true
+
+- key: peter_pan
+  park: tds
+  name_ja: ピーターパンのネバーランドアドベンチャー
+  name_en: "Peter Pan's Never Land Adventure"
+  queue_times_id: 13561
+  themeparks_id: e8c15bc6-aaab-44ef-8285-1d92ebd2c47d
+  dpa: true
+  watch: true
+
+- key: soaring
+  park: tds
+  name_ja: ソアリン：ファンタスティック・フライト
+  name_en: "Soaring: Fantastic Flight"
+  queue_times_id: 8024
+  themeparks_id: 3407ebac-c575-4c31-b794-1d271014d303
+  dpa: true
+  watch: true
+
+- key: toy_story_mania
+  park: tds
+  name_ja: トイ・ストーリー・マニア！
+  name_en: "Toy Story Mania!"
+  queue_times_id: 8023
+  themeparks_id: abb5d6ec-469e-4ab0-8685-5f04e9749653
+  dpa: true
+  watch: true
+
+- key: tower_of_terror
+  park: tds
+  name_ja: タワー・オブ・テラー
+  name_en: "Tower of Terror"
+  queue_times_id: 8047
+  themeparks_id: 4ca7254c-7abc-4e52-82e0-9c562c096494
+  dpa: true
+  watch: true
+
+- key: center_of_the_earth
+  park: tds
+  name_ja: センター・オブ・ジ・アース
+  name_en: "Journey to the Center of the Earth"
+  queue_times_id: 8028
+  themeparks_id: c8526be3-e82c-4692-ae44-e8f2d1142c8a
+  dpa: true
+  watch: true
+
+- key: raging_spirits
+  park: tds
+  name_ja: レイジングスピリッツ
+  name_en: "Raging Spirits"
+  queue_times_id: 8046
+  themeparks_id: dd942cd2-b364-4262-af12-ca1a5012528b
+  dpa: true
+  watch: true
+
+- key: indiana_jones
+  park: tds
+  name_ja: インディ・ジョーンズ・アドベンチャー：クリスタルスカルの魔宮
+  name_en: "Indiana Jones Adventure®: Temple of the Crystal Skull"
+  queue_times_id: 8027
+  themeparks_id: f66e072d-8bab-48e5-b8cf-6d1947bd291b
+  dpa: false
+  watch: true
+  # 2025/8/18 - 2026/11/29 長期休止（stop.html 実測）。来園日 2026-09-17 は休止中。
+
+- key: beauty_and_the_beast
+  park: tdl
+  name_ja: 美女と野獣“魔法のものがたり”
+  name_en: "Enchanted Tale of Beauty and the Beast"
+  queue_times_id: 8255
+  themeparks_id: e76670f0-9f5f-4918-8491-9bf51e73a596
+  dpa: true
+  watch: true
+
+- key: baymax
+  park: tdl
+  name_ja: ベイマックスのハッピーライド
+  name_en: "The Happy Ride with Baymax"
+  queue_times_id: 8254
+  themeparks_id: ca00a0e8-f069-4d0a-9d5e-10cb63010956
+  dpa: true
+  watch: true
+
+- key: splash_mountain
+  park: tdl
+  name_ja: スプラッシュ・マウンテン
+  name_en: "Splash Mountain"
+  queue_times_id: 7996
+  themeparks_id: dfe25d8e-e234-4020-a261-30c6825d0680
+  dpa: true
+  watch: true
+
+- key: big_thunder
+  park: tdl
+  name_ja: ビッグサンダー・マウンテン
+  name_en: "Big Thunder Mountain"
+  queue_times_id: 7994
+  themeparks_id: e3577b4a-f1d9-4ec5-aacf-b99977ea88c9
+  dpa: true
+  watch: true
+
+- key: pooh
+  park: tdl
+  name_ja: プーさんのハニーハント
+  name_en: "Pooh's Hunny Hunt"
+  queue_times_id: 8008
+  themeparks_id: a88464b5-2cf5-4ef1-b38f-96e07b233bf2
+  dpa: true
+  watch: true
+
+- key: haunted_mansion
+  park: tdl
+  name_ja: ホーンテッドマンション
+  name_en: "Haunted Mansion"
+  queue_times_id: 8005
+  themeparks_id: 8fce6b54-e3e4-40bb-a574-93c8327c3fab
+  dpa: false
+  watch: true
+  # DPA対象外（live に PAID_RETURN_TIME なし）
+
+- key: monsters_inc
+  park: tdl
+  name_ja: モンスターズ・インク“ライド＆ゴーシーク！”
+  name_en: "Monsters, Inc. Ride & Go Seek!"
+  queue_times_id: 8018
+  themeparks_id: 4ed6a812-df04-4aa8-acb9-c6b164dbb706
+  dpa: true
+  watch: true

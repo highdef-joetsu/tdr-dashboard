@@ -1,0 +1,23 @@
+name: 生サンプルの丸め (月1)
+
+on:
+  schedule:
+    - cron: "0 19 1 * *"   # JST 毎月1日 4:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-rollup
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/collect
+        with:
+          collector: "rollup build_latest"

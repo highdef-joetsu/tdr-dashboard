@@ -1,0 +1,27 @@
+name: 混雑カレンダー (JST 5:00)
+
+on:
+  schedule:
+    - cron: "0 20 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# ワークフローごとに別グループにする。
+# 全部を同じグループにすると、GitHub はグループあたり待機ジョブを1本しか保持せず
+# 古い待機ジョブを黙ってキャンセルするため、5分間隔のDPAが取りこぼされる。
+concurrency:
+  group: data-crowd
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/collect
+        with:
+          collector: "crowd_calendar estimates build_latest"
+          browser: "false"

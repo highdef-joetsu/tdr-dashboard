@@ -1,0 +1,72 @@
+name: collect
+description: コレクタを1本実行し、変更があればデータをコミットする
+inputs:
+  collector:
+    description: collectors 配下のモジュール名（複数はスペース区切り。左から順に実行）
+    required: true
+  browser:
+    description: "true なら Playwright の Chromium を入れて xvfb 配下で実行する"
+    required: false
+    default: "false"
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+        cache: pip
+
+    - name: 依存をインストール
+      shell: bash
+      run: pip install -r requirements.txt
+
+    - name: Chromium をインストール
+      if: inputs.browser == 'true'
+      shell: bash
+      run: |
+        sudo apt-get update -qq
+        sudo apt-get install -y -qq xvfb
+        python -m playwright install --with-deps chromium
+
+    - name: コレクタを実行
+      shell: bash
+      # 公式サイトは headless Chromium を無応答でドロップするため headed + xvfb で動かす。
+      run: |
+        set -e
+        for m in ${{ inputs.collector }}; do
+          echo "::group::$m"
+          if [ "${{ inputs.browser }}" = "true" ]; then
+            xvfb-run -a --server-args="-screen 0 1280x1024x24" python -m collectors."$m"
+          else
+            python -m collectors."$m"
+          fi
+          echo "::endgroup::"
+        done
+
+    - name: データをコミット
+      shell: bash
+      env:
+        TZ: Asia/Tokyo
+      run: |
+        set -e
+        git config user.name  "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -A docs/data
+        if git diff --cached --quiet; then
+          echo "変更なし。コミットしない。"
+          exit 0
+        fi
+        git commit -m "data: ${{ inputs.collector }} $(date '+%Y-%m-%d %H:%M') JST"
+        # 他のワークフローと同時に push が走るので、rebase して数回やり直す
+        for i in 1 2 3 4 5; do
+          if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+            echo "push 成功 (試行 $i)"
+            exit 0
+          fi
+          echo "push 失敗 (試行 $i)。待って再試行する。"
+          sleep $((i * 7))
+        done
+        echo "push に5回失敗した。" >&2
+        exit 1

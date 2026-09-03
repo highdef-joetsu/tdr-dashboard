@@ -1,0 +1,27 @@
+name: 待ち時間 (10分ごと)
+
+on:
+  schedule:
+    - cron: "*/10 23,0-12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# ワークフローごとに別グループにする。
+# 全部を同じグループにすると、GitHub はグループあたり待機ジョブを1本しか保持せず
+# 古い待機ジョブを黙ってキャンセルするため、5分間隔のDPAが取りこぼされる。
+concurrency:
+  group: data-wait_times
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/collect
+        with:
+          collector: "wait_times build_latest"
+          browser: "false"

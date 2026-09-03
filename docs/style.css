@@ -1,0 +1,53 @@
+:root{
+  --fg:#1a1a1a; --sub:#666; --line:#e2e2e2; --bg:#fff; --panel:#f7f7f8;
+  --warn-bg:#fff8e1; --warn-line:#e6c34a; --danger:#c62828; --ok:#2e7d32;
+  --tdl:#1565c0; --tds:#00796b;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 12px 40px;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;color:var(--fg);background:var(--bg);-webkit-text-size-adjust:100%}
+h1{font-size:19px;margin:16px 0 4px}
+h2{font-size:16px;margin:26px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--line)}
+h3{font-size:14px;margin:14px 0 6px}
+p{margin:4px 0}
+a{color:#0b5fa5}
+.loading{padding:40px 0;text-align:center;color:var(--sub)}
+.muted{color:var(--sub);font-size:12px}
+.panel{background:var(--panel);border-radius:8px;padding:10px 12px;margin:8px 0}
+.warn{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:8px;padding:8px 12px;margin:8px 0;font-size:13px}
+.err{background:#fdecea;border:1px solid #e5a29b;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:13px}
+
+.parkTag{display:inline-block;color:#fff;border-radius:4px;padding:1px 7px;font-size:12px;font-weight:700;margin-right:6px}
+.parkTag.tdl{background:var(--tdl)} .parkTag.tds{background:var(--tds)}
+
+.kv{display:flex;flex-wrap:wrap;gap:4px 16px;margin:6px 0}
+.kv div{font-size:13px}
+.kv b{font-size:15px}
+
+.crowd{font-weight:700}
+.crowd.lo{color:var(--ok)} .crowd.mid{color:#ef6c00} .crowd.hi{color:var(--danger)}
+
+.item{border-bottom:1px solid var(--line);padding:8px 0}
+.item:last-child{border-bottom:none}
+.item .name{font-weight:600}
+.item .times{font-variant-numeric:tabular-nums;margin-top:2px}
+.item .times.changed{color:var(--danger);font-weight:700}
+.badge{display:inline-block;font-size:11px;border-radius:3px;padding:1px 6px;margin:2px 4px 0 0;border:1px solid}
+.badge.dpa{color:#6a1b9a;border-color:#6a1b9a}
+.badge.entry{color:#00695c;border-color:#00695c}
+.badge.yoyaku{color:#ad1457;border-color:#ad1457}
+.badge.prov{color:#8d6e63;border-color:#8d6e63}
+
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+th,td{text-align:left;padding:5px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--sub);font-weight:600;font-size:12px}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto}
+
+.cat{margin:6px 0}
+.cat .catName{font-size:12px;color:var(--sub);font-weight:700}
+.cat ul{margin:2px 0 0;padding-left:18px}
+.cat li{font-size:13px}
+.cat li .period{color:var(--sub);font-size:11px}
+
+footer{border-top:1px solid var(--line);margin-top:32px;padding-top:12px;color:var(--sub);font-size:11px}
+footer p{margin:3px 0}
