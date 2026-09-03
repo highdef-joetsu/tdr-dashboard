@@ -69,3 +69,14 @@ footer p{margin:3px 0}
 .segBtn+.segBtn{border-left:none}
 .segBtn.on{background:var(--fg);color:#fff;border-color:var(--fg);font-weight:700}
 .seg .ctlBtn{margin-left:6px}
+
+/* --- 待ちカーブのスパークライン --- */
+.spark{display:block;width:100%;max-width:340px;height:auto;margin:6px 0 2px}
+.sparkLabel{font-size:10px;fill:var(--fg);font-weight:700}
+.sparkAxis{font-size:9px;fill:var(--sub)}
+
+/* --- DPA判定バッジ（色だけに意味を持たせず必ず文言を出す） --- */
+.badge.v-buy{color:#1b5e20;border-color:#1b5e20;font-weight:700}
+.badge.v-skip{color:#37474f;border-color:#37474f}
+.badge.v-depends{color:#e65100;border-color:#e65100}
+.badge.v-insufficient{color:var(--sub);border-color:var(--line)}

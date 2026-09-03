@@ -13,6 +13,7 @@ from __future__ import annotations
 import time
 from datetime import timedelta
 
+from . import changes as CH
 from . import common as c
 from . import official_parse as P
 
@@ -110,17 +111,32 @@ def collect() -> str:
             except Exception as e:  # noqa: BLE001
                 errors.append(f"{park}/stop: {type(e).__name__}")
 
-    written = 0
+    written, changed = 0, 0
     for day in days:
         if not any((park, day) in pages for park in PARKS):
             continue  # 両パークとも取れていない日は既存ファイルを壊さない
-        c.write_json(c.DATA / "official" / f"{day}.json",
-                     build_day_doc(pages, stops, day, fetched_at))
+        path = c.DATA / "official" / f"{day}.json"
+        old_doc = c.read_json(path)
+        new_doc = build_day_doc(pages, stops, day, fetched_at)
+
+        # 前回との差分を台帳に積む。公開サイトは「今」しか出さないので、
+        # 「前回から何が変わったか」は蓄積している側だけが出せる。
+        diffs = CH.diff_day(old_doc, new_doc, day)
+        if diffs:
+            led = c.DATA / "changes" / f"{day}.json"
+            ledger = c.read_json(led) or {"date": day, "entries": []}
+            for d in diffs:
+                ledger["entries"].append({"at": fetched_at, **d})
+            ledger["entries"] = ledger["entries"][-200:]
+            c.write_json(led, ledger)
+            changed += len(diffs)
+
+        c.write_json(path, new_doc)
         written += 1
 
     if errors:
         raise RuntimeError(f"{written}日分を書き出したが失敗あり: {'; '.join(errors)}")
-    return f"{written}日分 ({', '.join(days)})"
+    return f"{written}日分 変更{changed}件 ({', '.join(days)})"
 
 
 if __name__ == "__main__":

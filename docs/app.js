@@ -63,6 +63,141 @@ function freshness(label, iso) {
   return { text: `${label}: ${t}`, stale: false };
 }
 
+
+// ---------- 待ちカーブのスパークライン ----------
+// 単系列（1施設・1混雑帯）。系列名は行のタイトルとパークタグが担うので凡例は置かない。
+// 直接ラベルはピークと夕方の最小の2点だけに絞る（全点に数字を置かない）。
+const SPARK = { w: 300, h: 62, padT: 14, padB: 16, padX: 8, hue: '#1565c0' };
+
+function sparkline(curve) {
+  const hours = Object.keys(curve).map(Number).sort((a, b) => a - b);
+  if (hours.length < 2) return null;
+  const vals = hours.map((h) => curve[h]);
+  const maxV = Math.max(...vals);
+  const minH = hours[0], maxH = hours[hours.length - 1];
+  const { w, h, padT, padB, padX, hue } = SPARK;
+  const x = (hr) => padX + (w - padX * 2) * (maxH === minH ? 0.5 : (hr - minH) / (maxH - minH));
+  const y = (v) => padT + (h - padT - padB) * (1 - v / (maxV || 1));
+
+  const peakH = hours.reduce((a, b) => (curve[b] > curve[a] ? b : a));
+  const late = hours.filter((hr) => hr >= 15);
+  const lateH = late.length ? late.reduce((a, b) => (curve[b] < curve[a] ? b : a)) : null;
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svg.setAttribute('class', 'spark');
+  svg.setAttribute('role', 'img');
+  svg.setAttribute('aria-label',
+    `時間帯別の待ち時間。ピークは${peakH}時台の${curve[peakH]}分` +
+    (lateH !== null ? `、${lateH}時台は${curve[lateH]}分。` : '。'));
+
+  const mk = (tag, attrs) => {
+    const n = document.createElementNS(ns, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  };
+  // 基準線（控えめ）
+  svg.appendChild(mk('line', { x1: 0, y1: h - padB, x2: w, y2: h - padB,
+    stroke: '#e2e2e2', 'stroke-width': 1 }));
+  const pts = hours.map((hr) => `${x(hr)},${y(curve[hr])}`).join(' ');
+  svg.appendChild(mk('polygon', {
+    points: `${x(minH)},${h - padB} ${pts} ${x(maxH)},${h - padB}`,
+    fill: hue, 'fill-opacity': 0.10 }));
+  svg.appendChild(mk('polyline', { points: pts, fill: 'none',
+    stroke: hue, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+
+  // ホバー用に全点へ透明な当たり判定と title を置く
+  for (const hr of hours) {
+    const g = mk('circle', { cx: x(hr), cy: y(curve[hr]), r: 9, fill: 'transparent' });
+    const t = document.createElementNS(ns, 'title');
+    t.textContent = `${hr}時台 ${curve[hr]}分`;
+    g.appendChild(t);
+    svg.appendChild(g);
+  }
+  // 直接ラベルはこの2点だけ。点が下寄りのときは下に置くと軸ラベルとぶつかるので上に出す。
+  const mid = padT + (h - padT - padB) / 2;
+  for (const hr of [peakH, lateH]) {
+    if (hr === null || hr === undefined) continue;
+    const py = y(curve[hr]);
+    svg.appendChild(mk('circle', { cx: x(hr), cy: py, r: 4,
+      fill: hue, stroke: '#fff', 'stroke-width': 2 }));
+    const above = py > mid;   // 下寄りの点ほど上にラベルを出す
+    const lbl = mk('text', {
+      x: Math.min(w - 30, Math.max(26, x(hr))),
+      y: above ? Math.max(10, py - 8) : Math.min(h - padB - 4, py + 16),
+      'text-anchor': 'middle', class: 'sparkLabel' });
+    lbl.textContent = `${hr}時 ${curve[hr]}分`;
+    svg.appendChild(lbl);
+  }
+  // 直接ラベルが端の時刻を既に言っているなら、軸ラベルは重ねない
+  if (peakH !== minH && lateH !== minH) {
+    const ax = mk('text', { x: 0, y: h - 3, class: 'sparkAxis' });
+    ax.textContent = `${minH}時`;
+    svg.appendChild(ax);
+  }
+  if (peakH !== maxH && lateH !== maxH) {
+    const ax2 = mk('text', { x: w, y: h - 3, 'text-anchor': 'end', class: 'sparkAxis' });
+    ax2.textContent = `${maxH}時`;
+    svg.appendChild(ax2);
+  }
+  return svg;
+}
+
+const VERDICT = {
+  buy: '買う価値あり', skip: '買わなくてよい',
+  depends: '滞在計画次第', insufficient: 'データ不足',
+};
+
+// ---------- 変更差分 ----------
+const CHANGE_JA = {
+  published: 'スケジュール掲載', hours: '開園時間', ticket: 'チケット価格',
+  ticket_status: 'チケット販売状況', show_added: 'ショー追加', show_removed: 'ショー削除',
+  show_times: '公演時刻', show_badges: '対象制度', closure_added: '休止に追加',
+  closure_removed: '休止から復帰', long_closure_added: '長期休止に追加',
+  long_closure_removed: '長期休止から復帰', long_closure_period: '休止期間',
+};
+
+function fmtVal(v) {
+  if (Array.isArray(v)) return v.length ? v.join(' / ') : '（なし）';
+  if (v === null || v === undefined) return '—';
+  return String(v);
+}
+
+function renderChanges(d, date) {
+  const rows = (d.changes || {})[date] || [];
+  const active = PARKS_().map((x) => x[0]);
+  const mine = rows.filter((r) => active.includes(r.park));
+  const box = document.createDocumentFragment();
+  box.appendChild(el('h2', null, `この日の変更（${mine.length}件）`));
+  if (!mine.length) {
+    box.appendChild(el('p', 'muted',
+      '前回の取得から変更はありません。公式サイトは現在の状態しか出さないので、ここは蓄積した過去との差分です。'));
+    return box;
+  }
+  const wrap = el('div', 'panel');
+  for (const r of mine.slice(0, 30)) {
+    const item = el('div', 'item');
+    const head = el('div');
+    head.appendChild(parkTag(r.park));
+    head.appendChild(el('span', 'badge prov', CHANGE_JA[r.kind] || r.kind));
+    item.appendChild(head);
+    item.appendChild(el('div', 'name', r.label + (r.category ? `（${r.category}）` : '')));
+    if (r.before !== undefined || r.after !== undefined) {
+      const line = el('div', 'times');
+      if (r.before !== undefined) { line.append(fmtVal(r.before)); line.append(' → '); }
+      line.append(fmtVal(r.after));
+      item.appendChild(line);
+    }
+    const at = new Date(r.at);
+    item.appendChild(el('div', 'muted',
+      isNaN(at) ? '' : `${at.getMonth() + 1}/${at.getDate()} ${fmtClock(r.at)} 検知`));
+    wrap.appendChild(item);
+  }
+  box.appendChild(wrap);
+  return box;
+}
+
 // ---------- 各セクション ----------
 
 function renderHeader(d, date, official) {
@@ -279,52 +414,63 @@ function renderDpa(d, date) {
   const box = document.createDocumentFragment();
   box.appendChild(el('h2', null, 'ディズニー・プレミアアクセス（DPA）'));
   const names = Object.fromEntries((d.attractions || []).map((a) => [a.key, a]));
-  const est = (d.dpa_estimates || {}).attractions || {};
-
-  // 来園日の売切目安
-  box.appendChild(el('h3', null, `${fmtDate(date)} の売切目安`));
-  const rows = [];
   const active = PARKS_().map((x) => x[0]);
+
+  // 来園日：DPAを買う価値
+  box.appendChild(el('h3', null, `${fmtDate(date)} に買う価値があるか`));
+  const meta = d.curve_meta || {};
+  const rows = [];
   for (const a of d.attractions || []) {
     if (!a.dpa || !active.includes(a.park)) continue;
-    const pct = (((d.crowd || {})[a.park] || {})[date] || {}).crowd_pct;
-    const band = bandOf(pct);
-    const e = band ? (est[a.key] || {})[band] : null;
-    rows.push({ a, band, pct, e });
+    rows.push({ a, adv: (d.dpa_advice || {})[a.key] || {}, curve: (d.wait_curve || {})[a.key] });
   }
-  if (!rows.length) {
-    box.appendChild(el('p', 'muted', 'DPA対象施設がありません。'));
-  } else {
-    const tbl = el('table');
-    const thead = el('tr');
-    ['施設', '混雑帯', '売切目安', '根拠'].forEach((t) => thead.appendChild(el('th', null, t)));
-    tbl.appendChild(thead);
-    for (const { a, band, pct, e } of rows) {
-      const tr = el('tr');
-      const td0 = el('td');
-      td0.appendChild(parkTag(a.park));
-      td0.append(a.name_ja);
-      tr.appendChild(td0);
-      tr.appendChild(el('td', null, band ? `${band}%（予想${pct}%）` : '—'));
-      const v = e && e.median;
-      const td2 = el('td', 'num', v ? `${v}頃` : 'データなし');
-      tr.appendChild(td2);
-      const td3 = el('td');
-      if (e && e.source === 'observed') {
-        td3.append(`実績${e.samples}件`);
-      } else if (v) {
-        td3.appendChild(el('span', 'badge prov', '暫定'));
-        if (e.note) td3.appendChild(el('div', 'muted', e.note));
-      } else {
-        td3.append('—');
-      }
-      tr.appendChild(td3);
-      tbl.appendChild(tr);
+  const order = { buy: 0, depends: 1, skip: 2, insufficient: 3 };
+  rows.sort((x, y) => (order[x.adv.verdict] ?? 9) - (order[y.adv.verdict] ?? 9)
+    || (y.adv.saved_minutes || 0) - (x.adv.saved_minutes || 0));
+
+  const lacking = rows.filter((r) => r.adv.verdict === 'insufficient').length;
+  if (lacking === rows.length) {
+    box.appendChild(el('div', 'warn',
+      `同じ混雑度の日の待ち時間がまだ${meta.min_days || 3}日分たまっていないため、判定を出せません。`
+      + `現在${meta.days_used || 0}日分。たまり次第ここに出ます。`));
+  }
+
+  const wrap = el('div', 'panel');
+  for (const { a, adv, curve } of rows) {
+    const item = el('div', 'item');
+    const head = el('div');
+    head.appendChild(parkTag(a.park));
+    head.appendChild(el('b', null, a.name_ja));
+    item.appendChild(head);
+
+    const price = ((d.prices || {})[a.key] || {}).amount;
+    const line = el('div', 'kv');
+    line.appendChild(el('div', null, price ? `￥${price.toLocaleString()}` : '価格不明'));
+    if (adv.band) line.appendChild(el('div', null, `混雑帯 ${adv.band}%`));
+    if (adv.sold_out_at) line.appendChild(el('div', null, `売切目安 ${adv.sold_out_at}頃`));
+    item.appendChild(line);
+
+    const badge = el('span', 'badge v-' + (adv.verdict || 'insufficient'),
+      VERDICT[adv.verdict] || 'データ不足');
+    const brow = el('div');
+    brow.appendChild(badge);
+    // 「買わなくてよい」で単価を併記すると判定と矛盾して読めるので出さない
+    if (adv.yen_per_minute && adv.verdict !== 'skip') {
+      brow.appendChild(el('span', 'badge prov', `1分あたり約${adv.yen_per_minute}円`));
     }
-    const sc = el('div', 'scroll'); sc.appendChild(tbl);
-    box.appendChild(sc);
-    box.appendChild(el('p', 'muted', `目安は蓄積した実績の中央値。実績が${(d.dpa_estimates || {}).min_samples || 3}件に満たない帯は初期値（暫定）を出し、初期値が未設定なら「データなし」と表示します。時刻は取得間隔ぶん粗い値です。`));
+    item.appendChild(brow);
+    if (adv.reason) item.appendChild(el('div', 'muted', adv.reason));
+
+    if (curve && Object.keys(curve).length >= 2) {
+      const sp = sparkline(curve);
+      if (sp) item.appendChild(sp);
+    }
+    wrap.appendChild(item);
   }
+  box.appendChild(wrap);
+  box.appendChild(el('p', 'muted',
+    `待ち時間は、来園日と同じ混雑度帯の日を${meta.min_days || 3}日以上集めた時間帯別の中央値です。`
+    + `「買わなくてよい」は${meta.late_from_hour || 15}時以降に並び直す前提の判定なので、閉園前に他を回る予定なら当てはまりません。`));
 
   // 今日の実績
   box.appendChild(el('h3', null, `今日（${fmtDate(d.dates.today)}）の販売状況`));
@@ -507,6 +653,7 @@ async function render() {
   app.textContent = '';
   app.appendChild(renderControls());
   app.appendChild(renderHeader(d, currentDate, official));
+  app.appendChild(renderChanges(d, currentDate));
   app.appendChild(renderShows(official, currentDate));
   app.appendChild(renderClosures({ [currentDate]: closures }, currentDate, !official));
   app.appendChild(renderDpa(d, currentDate));

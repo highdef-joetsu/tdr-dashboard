@@ -114,6 +114,27 @@ def within_operating(hours: dict | None, at) -> bool:
     return o <= at <= cl
 
 
+def update_price_ledger(ledger: dict, snap: dict, at: str) -> tuple[dict, list[dict]]:
+    """価格の最後に取れた値を持ち越す（純関数）。
+
+    ThemeParks.wiki は同じ施設でも時々 amount:0 / "Unknown" を返す。
+    「今回取れなかった」を「価格なし」と混同しないよう、取れた値を台帳に残す。
+    ついでに価格改定を検知する。
+    """
+    ledger = {k: dict(v) for k, v in (ledger or {}).items()}
+    events = []
+    for key, cur in snap.items():
+        price = cur.get("price")
+        if not price:
+            continue
+        prev = ledger.get(key)
+        if prev and prev.get("amount") != price:
+            events.append({"at": at, "key": key,
+                           "before": prev.get("amount"), "after": price})
+        ledger[key] = {"amount": price, "at": at}
+    return ledger, events
+
+
 def collect() -> str:
     cfg = c.settings()["themeparks"]
     mapping = c.by_themeparks_id()
@@ -138,6 +159,23 @@ def collect() -> str:
     for park in cfg["parks"]:
         sub = {k: v for k, v in snap.items() if v["park"] == park}
         doc = apply_snapshot(doc, sub, at, open_parks[park])
+
+    # 価格は断続的に欠ける。台帳に持ち越して、今日の記録にも埋め戻す。
+    lpath = c.DATA / "dpa" / "prices.json"
+    ledger_doc = c.read_json(lpath) or {"prices": {}, "changes": []}
+    ledger, price_events = update_price_ledger(ledger_doc.get("prices"), snap, at)
+    if price_events:
+        ledger_doc["changes"] = (ledger_doc.get("changes") or []) + price_events
+        ledger_doc["changes"] = ledger_doc["changes"][-100:]
+        c.log(f"  価格改定を検知: {price_events}")
+    ledger_doc["prices"] = ledger
+    ledger_doc["updated_at"] = at
+    c.write_json(lpath, ledger_doc)
+
+    for key, rec in doc["attractions"].items():
+        if not rec.get("price") and ledger.get(key):
+            rec["price"] = ledger[key]["amount"]
+            rec["price_source"] = "ledger"
 
     doc["last_polled_at"] = at
     c.write_json(path, doc)

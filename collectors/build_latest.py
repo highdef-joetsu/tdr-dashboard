@@ -4,6 +4,8 @@ from __future__ import annotations
 from datetime import timedelta
 
 from . import common as c
+from .estimates import band_of
+from .waitcurve import advise
 
 PARKS = ("tdl", "tds")
 
@@ -125,8 +127,41 @@ def build() -> dict:
         slim[d] = doc
     official = slim
 
+    # 来園日の混雑帯ごとに、待ちカーブとDPAの費用対効果をまとめる
+    curves_doc = c.read_json(c.DATA / "waits" / "curves.json", {}) or {}
+    curves = curves_doc.get("curves") or {}
+    prices = (c.read_json(c.DATA / "dpa" / "prices.json", {}) or {}).get("prices") or {}
+    est = (estimates or {}).get("attractions") or {}
+
+    advice, curve_for_target = {}, {}
+    for a in attractions:
+        if not a.get("dpa"):
+            continue
+        pct = ((crowd.get("parks", {}).get(a["park"]) or {}).get(tgt) or {}).get("crowd_pct")
+        band = band_of(pct)
+        cb = ((curves.get(a["key"]) or {}).get(band)) if band else None
+        sold = ((est.get(a["key"]) or {}).get(band) or {}).get("median") if band else None
+        advice[a["key"]] = {
+            "band": band,
+            **advise(cb, (prices.get(a["key"]) or {}).get("amount"), sold),
+        }
+        if cb:
+            curve_for_target[a["key"]] = {h: v["median"] for h, v in sorted(cb.items(), key=lambda x: int(x[0]))}
+
+    # 変更履歴（新しい順）。公開サイトが出せない「前回から何が変わったか」。
+    change_log = {}
+    for d in dates:
+        led = c.read_json(c.DATA / "changes" / f"{d}.json")
+        if led and led.get("entries"):
+            change_log[d] = list(reversed(led["entries"]))[:40]
+
     return {
         "generated_at": c.iso(c.now_jst()),
+        "changes": change_log,
+        "dpa_advice": advice,
+        "wait_curve": curve_for_target,
+        "curve_meta": {k: curves_doc.get(k) for k in ("min_days", "late_from_hour", "days_used", "generated_at")},
+        "prices": prices,
         "dates": {"today": str(today), "tomorrow": tomorrow, "target": tgt},
         "attractions": [
             {"key": a["key"], "park": a["park"], "name_ja": a["name_ja"],
