@@ -2206,7 +2206,7 @@
         },
         "31-60": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2316,7 +2316,7 @@
         },
         "31-60": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2382,7 +2382,7 @@
         },
         "31-60": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2426,7 +2426,7 @@
         },
         "31-60": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2470,7 +2470,7 @@
         },
         "31-60": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2485,7 +2485,7 @@
         }
       }
     },
-    "generated_at": "2026-09-03T19:07:57+09:00",
+    "generated_at": "2026-09-03T20:57:12+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -2755,13 +2755,13 @@
     "last_polled_at": "2026-09-03T20:53:35+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-03T20:53:44+09:00",
+  "generated_at": "2026-09-03T20:57:13+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-17",
-      "last_run_at": "2026-09-03T20:53:36+09:00",
-      "last_success_at": "2026-09-03T20:53:36+09:00"
+      "last_run_at": "2026-09-03T20:53:44+09:00",
+      "last_success_at": "2026-09-03T20:53:44+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -2778,14 +2778,14 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数1 observed帯0",
-      "last_run_at": "2026-09-03T19:07:57+09:00",
-      "last_success_at": "2026-09-03T19:07:57+09:00"
+      "last_run_at": "2026-09-03T20:57:12+09:00",
+      "last_success_at": "2026-09-03T20:57:12+09:00"
     },
     "official": {
       "consecutive_failures": 0,
       "last_detail": "3日分 変更0件 (2026-09-03, 2026-09-04, 2026-09-17)",
-      "last_run_at": "2026-09-03T20:46:24+09:00",
-      "last_success_at": "2026-09-03T20:46:24+09:00"
+      "last_run_at": "2026-09-03T20:57:12+09:00",
+      "last_success_at": "2026-09-03T20:57:12+09:00"
     },
     "wait_times": {
       "consecutive_failures": 0,
@@ -2803,7 +2803,7 @@
   "official": {
     "2026-09-03": {
       "date": "2026-09-03",
-      "fetched_at": "2026-09-03T20:43:37+09:00",
+      "fetched_at": "2026-09-03T20:54:06+09:00",
       "parks": {
         "tdl": {
           "greetings": [
@@ -2942,8 +2942,8 @@
             }
           ],
           "ticket": {
-            "adult_1day": 8900,
-            "status": "販売中"
+            "adult_1day": null,
+            "status": null
           }
         },
         "tds": {
@@ -3101,7 +3101,7 @@
     },
     "2026-09-04": {
       "date": "2026-09-04",
-      "fetched_at": "2026-09-03T20:43:37+09:00",
+      "fetched_at": "2026-09-03T20:54:06+09:00",
       "parks": {
         "tdl": {
           "greetings": [
@@ -3399,7 +3399,7 @@
     },
     "2026-09-17": {
       "date": "2026-09-17",
-      "fetched_at": "2026-09-03T20:43:37+09:00",
+      "fetched_at": "2026-09-03T20:54:06+09:00",
       "parks": {
         "tdl": {
           "greetings": [
