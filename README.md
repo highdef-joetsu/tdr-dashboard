@@ -5,7 +5,7 @@ GitHub Actions がデータを収集してリポジトリにコミットし、Gi
 
 **非公式。東京ディズニーリゾートおよび関連会社とは一切関係がない。**
 
-- ダッシュボード: `docs/index.html`（Pages 有効化後は `https://<owner>.github.io/<repo>/`）
+- ダッシュボード: https://highdef-joetsu.github.io/tdr-dashboard/ （ソースは `docs/index.html`）
 - 日付を変える: `?date=YYYY-MM-DD`
 - 来園予定日: `config/settings.json` の `watch_dates` に入れる（現在 `2026-09-17`）
 
@@ -101,15 +101,16 @@ cd docs && python3 -m http.server 8791   # http://127.0.0.1:8791/
 > データは `docs/data/` に置いてある。`/docs` 配信では docs 配下がサイトのルートになるため、
 > リポジトリ直下の `data/` はブラウザから読めない。当初仕様の `data/` から移動しているのはこのため。
 
-### public / private について
+### public にしている理由
 
-**Actions の実行時間の都合で、実質 public でないと運用できない。**
+**Actions の実行時間の都合で public にしてある。**
 DPA が5分ごと・待ち時間が10分ごとで、JST 8:00〜21:30 だけ回しても月およそ7,500分になる。
-private リポジトリの無料枠は月2,000分なので数日で尽きる。public リポジトリは Actions 無料・Pages 無料。
+private リポジトリの無料枠は月2,000分（Pro でも3,000分）なので、private のままでは
+この頻度を維持できない。public リポジトリは Actions 無料・Pages 無料。
 
-public にすると **来園予定日（`config/settings.json` の `watch_dates`）が公開される**。
-それが困る場合は、頻度を落として private のままにするか、`watch_dates` を空にして
-`?date=2026-09-17` で見る運用にする。
+その代わり `config/settings.json` の `watch_dates`（来園予定日）と収集データは公開される。
+伏せたい場合は `watch_dates` を空にして `?date=YYYY-MM-DD` で見る運用にできるが、
+`docs/data/official/<date>.json` が残るので完全には隠れない。
 
 ## リポジトリ構成
 
