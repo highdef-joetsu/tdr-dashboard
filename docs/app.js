@@ -25,6 +25,9 @@ const CHANGE_JA = {
 let parkMode = 'both';
 let currentDate = null;
 let data = null;
+// Worker が5分ごとに取っている最新値。GitHub 経由の取り込みは遅れるので、
+// 「現在」だけはここから直接読む。取れなくても repo のデータで動く。
+let live = null;
 
 const PARKS_ = () => (parkMode === 'both' ? ALL_PARKS : ALL_PARKS.filter((p) => p[0] === parkMode));
 const activeKeys = () => PARKS_().map((p) => p[0]);
@@ -66,6 +69,51 @@ function badge(text, kind) {
   if (kind) b.appendChild(el('span', 'dot'));
   b.append(text);
   return b;
+}
+
+// ---------- 最新値（Worker の /live） ----------
+async function loadLive(d) {
+  if (!d.live_endpoint) return null;
+  try {
+    const r = await fetch(d.live_endpoint, { cache: 'no-store' });
+    if (!r.ok) return null;
+    const j = await r.json();
+    return j && j.at ? j : null;
+  } catch (e) {
+    return null;   // 取れなくても repo 側のデータで表示できる
+  }
+}
+
+/** /live の生値を内部キーに対応付ける。対応表は latest.json 側が持っている。 */
+function liveWaits(d) {
+  if (!live) return null;
+  const byId = {};
+  for (const a of d.attractions || []) if (a.queue_times_id) byId[a.queue_times_id] = a;
+  const waits = {}, closed = {};
+  for (const [park, rides] of Object.entries(live.waits || {})) {
+    for (const r of rides || []) {
+      const a = byId[r.id];
+      if (!a || a.park !== park) continue;
+      if (r.is_open) waits[a.key] = r.wait_time;
+      else (closed[park] = closed[park] || []).push(a.key);
+    }
+  }
+  return { waits, closed };
+}
+
+function liveDpa(d) {
+  if (!live || !live.dpa) return null;
+  const byId = {};
+  for (const a of d.attractions || []) if (a.themeparks_id) byId[a.themeparks_id] = a;
+  const out = {};
+  for (const x of live.dpa) {
+    const a = byId[x.id];
+    if (!a) continue;
+    const paid = (x.queue || {}).PAID_RETURN_TIME;
+    out[a.key] = { state: paid ? paid.state : null, status: x.status,
+                   price: paid && paid.price ? paid.price.amount : null };
+  }
+  return out;
 }
 
 // ---------- スパークライン（単系列。識別は行の見出しとパークタグが担う） ----------
@@ -322,6 +370,7 @@ function renderParkStat(d, date, official) {
 // ---------- 鮮度 ----------
 function renderFreshness(d, official) {
   const rows = [
+    ['最新値（Worker）', live ? live.at : null],
     ['公式サイト', (official || {}).fetched_at],
     ['待ち時間', d.waits_fetched_at],
     ['DPA', (d.dpa_today || {}).last_polled_at],
@@ -575,18 +624,23 @@ function renderDpa(d, date) {
     det.className = 'card';
     const sm = el('summary');
     sm.append(`今日（${fmtDate(d.dates.today)}）の販売状況`);
+    if (live) sm.appendChild(el('span', 'cnt', `${fmtClock(live.at)} 時点`));
     det.appendChild(sm);
     const body = el('div', 'detBody');
     const ul = el('ul');
     const entries = Object.entries(today.attractions)
       .filter(([k]) => (names[k] || {}).dpa && act.includes((names[k] || {}).park))
       .sort((x, y) => (x[1].first_sold_out_at || 'z').localeCompare(y[1].first_sold_out_at || 'z'));
+    const ld = liveDpa(d);
     for (const [k, rec] of entries) {
       const t = fmtClock(rec.first_sold_out_at);
       const resale = (rec.events || []).some((e) => e.note === 'resale');
+      const cur = ld && ld[k] ? ld[k].state : null;
+      const nowLabel = cur === null ? (rec.status_at_close === 'on_sale' ? '販売中' : '売切')
+        : (cur === 'AVAILABLE' ? '販売中' : '売切');
       const li = el('li', null, (names[k] || {}).name_ja || k);
       li.appendChild(el('span', 'period',
-        `${rec.status_at_close === 'on_sale' ? '販売中' : '売切'}${t ? `　最初の売切 ${t}頃` : ''}${resale ? '　再販あり' : ''}`));
+        `${nowLabel}${t ? `　最初の売切 ${t}頃` : ''}${resale ? '　再販あり' : ''}`));
       ul.appendChild(li);
     }
     body.appendChild(ul);
@@ -600,14 +654,19 @@ function renderDpa(d, date) {
 function renderWaits(d) {
   const frag = document.createDocumentFragment();
   frag.appendChild(el('h2', null, `待ち時間（今日 ${fmtDate(d.dates.today)}）`));
+  if (live) {
+    frag.appendChild(el('p', 'muted',
+      `「現在」は ${fmtClock(live.at)} 時点（5分ごとに取得）。「当日最大」は取り込み済みの範囲。`));
+  }
   const names = Object.fromEntries((d.attractions || []).map((a) => [a.key, a]));
   let any = false;
   for (const [pk, name] of PARKS_()) {
     const p = (d.waits || {})[pk];
     if (!p) continue;
     const max = p.daily_max || {};
-    const last = (p.last || {}).waits || {};
-    const closed = (p.last || {}).closed || [];
+    const lw = liveWaits(data);
+    const last = lw ? lw.waits : ((p.last || {}).waits || {});
+    const closed = lw ? (lw.closed[pk] || []) : ((p.last || {}).closed || []);
     const keys = Object.keys(max).filter((k) => (names[k] || {}).watch);
     if (!keys.length && !closed.length) continue;
     any = true;
@@ -707,6 +766,7 @@ async function main() {
   const valid = [...PARK_KEYS, 'both'];
   parkMode = valid.includes(fromUrl) ? fromUrl : (valid.includes(stored) ? stored : 'both');
   currentDate = /^\d{4}-\d{2}-\d{2}$/.test(q('date') || '') ? q('date') : data.dates.target;
+  live = await loadLive(data);
   syncUrl();
   await render();
 }

@@ -117,6 +117,31 @@ export default {
 
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    // 最新1件だけを認証なしで返す。中身は Queue-Times と ThemeParks.wiki の
+    // 公開データそのままなので秘匿するものが無い。ダッシュボードはこれを読んで
+    // 「現在の待ち時間」と「今日のDPA販売状況」を出し、GitHub 経由の遅延を回避する。
+    // 施設の対応付けは行わない（対応表はダッシュボード側が latest.json から持つ）。
+    if (url.pathname === '/live') {
+      const date = parkDate(jstNow());
+      const { results } = await env.DB.prepare(
+        `SELECT at, kind, payload FROM samples
+          WHERE park_date = ?1 AND at = (SELECT MAX(at) FROM samples WHERE park_date = ?1)`
+      ).bind(date).all();
+      const out = { date, at: results.length ? results[0].at : null, waits: {}, dpa: null };
+      for (const r of results) {
+        const d = JSON.parse(r.payload);
+        if (r.kind === 'wait') out.waits[d.park] = d.rides;
+        else out.dpa = d.liveData;
+      }
+      return Response.json(out, {
+        headers: {
+          'Cache-Control': 'public, max-age=60',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+
     const auth = request.headers.get('Authorization') || '';
     if (auth !== `Bearer ${env.INGEST_TOKEN}`) {
       return new Response('unauthorized', { status: 401 });

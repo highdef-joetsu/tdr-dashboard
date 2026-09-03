@@ -60,6 +60,19 @@ gh secret set TDR_WORKER_URL   --body "https://tdr-collector.<サブドメイン
 gh secret set TDR_INGEST_TOKEN --body "<INGEST_TOKEN と同じ値>"
 ```
 
+## エンドポイント
+
+| パス | 認証 | 用途 |
+|---|---|---|
+| `/live` | **不要** | 最新1件の生値。ダッシュボードがこれを読んで「現在の待ち時間」「今のDPA販売状況」を出す |
+| `/samples?date=` | Bearer | 当日の全生サンプル。GitHub の取り込みが使う |
+| `/health` | Bearer | cron ごとの発火実績 |
+
+`/live` を認証なしにしているのは、中身が Queue-Times と ThemeParks.wiki の
+公開データそのままで、秘匿するものが無いため。60秒キャッシュを付けてある。
+**施設の対応付けはここでは行わない**（対応表は latest.json 側が持ち、ブラウザが突き合わせる）。
+Worker にロジックを持たせない方針を崩さないため。
+
 ## 動いているかの確認
 
 **「登録した」は証拠にならない。** 発火の物証を D1 の `heartbeat` に残してある。

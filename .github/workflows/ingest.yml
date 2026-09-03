@@ -9,7 +9,7 @@ on:
   # 回が飛んでも失うのは鮮度だけでデータは失われない（取得側は Worker が担保）。
   # 毎時0分は GitHub 側が最も混むので意図的にずらす。
   schedule:
-    - cron: "17 * * * *"
+    - cron: "17,47 * * * *"
   workflow_dispatch:
 
 permissions:

@@ -175,6 +175,7 @@ def build() -> dict:
 
     return {
         "generated_at": c.iso(c.now_jst()),
+        "live_endpoint": c.settings().get("live_endpoint"),
         "changes": change_log,
         "dpa_advice": advice,
         "wait_curve": curve_for_target,
@@ -182,8 +183,12 @@ def build() -> dict:
         "prices": prices,
         "dates": {"today": str(today), "tomorrow": tomorrow, "target": tgt},
         "attractions": [
+            # queue_times_id / themeparks_id も渡す。ダッシュボードが Worker の
+            # /live（生値）を直接読んで対応付けられるようにするため。
             {"key": a["key"], "park": a["park"], "name_ja": a["name_ja"],
-             "dpa": a.get("dpa", False), "watch": a.get("watch", True)}
+             "dpa": a.get("dpa", False), "watch": a.get("watch", True),
+             "queue_times_id": a.get("queue_times_id"),
+             "themeparks_id": a.get("themeparks_id")}
             for a in attractions
         ],
         # 取得済みの3日だけでなく当月全日を渡す。
