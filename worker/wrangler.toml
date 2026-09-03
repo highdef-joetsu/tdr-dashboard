@@ -1,0 +1,27 @@
+name = "tdr-collector"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true      # cron専用だが /health と /samples を叩くため公開する（Bearer必須）
+preview_urls = false    # プレビューURLは要らない。露出面を増やさない
+
+# GitHub の cron は高頻度スケジュールの大半を捨てる（実測: 期待168本に対し発火1本、
+# しかも87分遅れ）。取得だけを Cloudflare の Cron Triggers に移す。
+# 加工・統合は GitHub 側の Python のまま（ロジックを2つ持たない）。
+[triggers]
+crons = [
+  "*/5 * * * *",    # 収集（JST 8:00-22:00 の間だけ実行。判定はコード側）
+  "*/20 * * * *",   # GitHub に repository_dispatch を投げて取り込ませる
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tdr_samples"
+database_id = "4cb66a41-8533-4900-83cf-091b82bc4293"
+
+[vars]
+GITHUB_REPO = "highdef-joetsu/tdr-dashboard"
+
+# --- シークレット（値はコードにもmdにも書かない）---
+# GITHUB_TOKEN : repository_dispatch を投げるための fine-grained PAT（contents:write）
+# INGEST_TOKEN : /samples エンドポイントの共有シークレット
+# 設定: npx wrangler secret put GITHUB_TOKEN

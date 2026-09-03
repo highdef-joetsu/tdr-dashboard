@@ -125,6 +125,33 @@ private リポジトリの無料枠は月2,000分（Pro でも3,000分）なの�
 伏せたい場合は `watch_dates` を空にして `?date=YYYY-MM-DD` で見る運用にできるが、
 `docs/data/official/<date>.json` が残るので完全には隠れない。
 
+## 取得は Cloudflare Worker が行う
+
+GitHub Actions の `schedule` は高頻度 cron をほとんど実行しない。実測
+（2026-09-03、JST 8:00–22:00 の稼働枠）: DPA は期待168本に対し**発火1本**、
+待ち時間は期待84本に対し**1本**。しかも唯一の発火が 23:20 JST で、
+最終スロット（21:55）から **87分遅れ**だった。この歩留まりでは
+待ち時間カーブもDPA売切時刻も成立しない。
+
+そこで取得だけを Cloudflare の Cron Triggers に移した（`worker/`）。
+
+| 担当 | 何をするか | 間隔 |
+|---|---|---|
+| Worker | Queue-Times / ThemeParks.wiki を叩き、**生のまま** D1 に入れる | 5分 |
+| Worker | GitHub に `repository_dispatch` を投げ、4日より前の行を消す | 20分 |
+| `ingest.yml` | 生サンプルから日次ファイルを**毎回ゼロから組み直す** | 上の通知で起動 |
+| `official.yml` / `crowd.yml` | 公式サイト・混雑カレンダー（GitHub の cron のまま） | 1日1〜2回 |
+
+`repository_dispatch` は cron ではなくイベントなので、GitHub の schedule の
+ような取りこぼしが起きない。公式サイトは1日2回で、多少ずれても実害がないため
+GitHub 側に残してある。
+
+Worker は施設の対応付けも売切判定もしない。**同じロジックを2箇所に持たない**ため、
+加工は既存の Python（`wait_times.py` / `dpa.py`）をそのまま使う。取り込みは
+サンプル列に対する純粋な関数なので、何度動いても二重に追記されない。
+
+セットアップと動作確認の手順は `worker/README.md`。
+
 ## 他のサイトに無い部分
 
 待ち時間サイトもDPA完売時刻サイトも混雑予想サイトも既にある。このツールが持つのは、
