@@ -63,7 +63,11 @@ runs:
         MANIFEST="${RUNNER_TEMP}/written.txt"
         SNAP="${RUNNER_TEMP}/snapshot"
         rm -rf "$SNAP"; mkdir -p "$SNAP"
-        rsync -a --files-from="$MANIFEST" . "$SNAP"/
+        # --ignore-times: rsync の既定はサイズ＋mtime での高速判定だが、
+        # 生成JSONは時刻の桁数が同じでサイズが変わらず、git reset と書き込みが
+        # 同一秒に入ると「変更なし」と誤判定されて復元が黙ってスキップされる
+        # （実測: 混雑カレンダーの取得結果が3回連続でコミットされていなかった）。
+        rsync -a --ignore-times --files-from="$MANIFEST" . "$SNAP"/
 
         git config user.name  "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -71,7 +75,17 @@ runs:
         for i in 1 2 3 4 5; do
           git fetch -q origin "${GITHUB_REF_NAME}"
           git reset -q --hard "origin/${GITHUB_REF_NAME}"
-          rsync -a "$SNAP"/ .
+          rsync -a --ignore-times "$SNAP"/ .
+
+          # 復元されたことを実際に突き合わせる。落ちたことに気づけない状態を作らない。
+          while IFS= read -r f; do
+            [ -n "$f" ] || continue
+            if ! cmp -s "$SNAP/$f" "$f"; then
+              echo "復元に失敗した: $f" >&2
+              exit 1
+            fi
+          done < "$MANIFEST"
+
           python -m collectors.build_latest
 
           git add -A docs/data
