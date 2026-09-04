@@ -4,7 +4,6 @@ const ALL_PARKS = [['tdl', '東京ディズニーランド'], ['tds', '東京デ
 const PARK_KEYS = ALL_PARKS.map((p) => p[0]);
 const PARK_SHORT = { tdl: 'ランド', tds: 'シー' };
 const STORE_KEY = 'tdr.park';
-const STALE_MIN = 30;
 const PERMANENT_YEARS = 2;
 const CAT_JA = {
   attraction: 'アトラクション', show: 'パレード/ショー', greeting: 'キャラクターグリーティング',
@@ -44,6 +43,19 @@ function fmtClock(iso) {
   if (!iso) return null;
   const d = new Date(iso);
   return isNaN(d) ? null : `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+}
+/** 取得時刻。今日でなければ日付も付ける（時刻だけだと前日の値を今の値と読む）。 */
+function fmtStamp(iso) {
+  const t = fmtClock(iso);
+  if (!t) return null;
+  const x = new Date(iso), n = new Date();
+  const sameDay = x.getFullYear() === n.getFullYear() && x.getMonth() === n.getMonth() && x.getDate() === n.getDate();
+  return sameDay ? t : `${x.getMonth() + 1}/${x.getDate()} ${t}`;
+}
+function fmtAge(min) {
+  if (min < 90) return `${min}分`;
+  const h = Math.floor(min / 60);
+  return h < 48 ? `${h}時間` : `${Math.floor(h / 24)}日`;
 }
 function ageMinutes(iso) {
   if (!iso) return null;
@@ -373,21 +385,25 @@ function renderParkStat(d, date, official) {
 
 // ---------- 鮮度 ----------
 function renderFreshness(d, official) {
+  // 取得の間隔は情報源ごとに違う。ひとつの閾値で測ると、1日2回しか見に行かない
+  // 公式サイトと毎日1回の混雑カレンダーが毎日「古い」と鳴り、警告が意味を失う。
+  // 各行に「この間隔までは正常」を持たせ、それを超えたときだけ鳴らす。
   const rows = [
-    ['最新値（Worker）', live ? live.at : null],
-    ['公式サイト', (official || {}).fetched_at],
-    ['待ち時間', d.waits_fetched_at],
-    ['DPA', (d.dpa_today || {}).last_polled_at],
-    ['混雑カレンダー', d.crowd_fetched_at],
+    ['最新値（Worker）', live ? live.at : null, 30],
+    ['公式サイト', (official || {}).fetched_at, 20 * 60],
+    ['待ち時間', d.waits_fetched_at, 60],
+    ['DPA', (d.dpa_today || {}).last_polled_at, 60],
+    ['混雑カレンダー', d.crowd_fetched_at, 36 * 60],
   ];
   const frag = document.createDocumentFragment();
-  const stale = rows.filter(([, iso]) => {
+  const stale = rows.filter(([, iso, limit]) => {
     const a = ageMinutes(iso);
-    return a === null || a >= STALE_MIN;
+    return a === null || a >= limit;
   });
   if (stale.length) {
     frag.appendChild(el('div', 'alert warn',
-      `${stale.length}件のデータが${STALE_MIN}分以上古いか未取得です。表示中の値は最新でない可能性があります。`));
+      `${stale.length}件のデータが予定の間隔を過ぎても更新されていません（${
+        stale.map(([label]) => label).join('、')}）。表示中の値は最新でない可能性があります。`));
   }
   const failing = Object.entries(d.health || {}).filter(([, v]) => (v.consecutive_failures || 0) >= 2);
   if (failing.length) {
@@ -402,10 +418,11 @@ function renderFreshness(d, official) {
   det.appendChild(sm);
   const body = el('div', 'detBody');
   const ul = el('ul');
-  for (const [label, iso] of rows) {
+  for (const [label, iso, limit] of rows) {
     const age = ageMinutes(iso);
-    const t = fmtClock(iso);
-    const li = el('li', null, `${label}　${t ? t + (age >= STALE_MIN ? `（${age}分前）` : '') : '取得できていません'}`);
+    const t = fmtStamp(iso);
+    const over = age !== null && age >= limit;
+    const li = el('li', null, `${label}　${t ? t + (over ? `（${fmtAge(age)}前）` : '') : '取得できていません'}`);
     ul.appendChild(li);
   }
   body.appendChild(ul);
