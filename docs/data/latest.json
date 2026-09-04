@@ -2242,7 +2242,7 @@
   "crowd_fetched_at": "2026-09-04T07:10:55+09:00",
   "curve_meta": {
     "days_used": 2,
-    "generated_at": "2026-09-04T19:40:50+09:00",
+    "generated_at": "2026-09-04T20:00:52+09:00",
     "late_from_hour": 15,
     "min_days": 3
   },
@@ -2355,7 +2355,7 @@
         },
         "31-60": {
           "median": null,
-          "samples": 1,
+          "samples": 2,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2575,7 +2575,7 @@
         },
         "31-60": {
           "median": null,
-          "samples": 1,
+          "samples": 2,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2634,7 +2634,7 @@
         }
       }
     },
-    "generated_at": "2026-09-04T19:40:50+09:00",
+    "generated_at": "2026-09-04T20:00:52+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -2643,6 +2643,11 @@
         "baymax": {
           "final_sold_out_at": "2026-09-04T18:50:35+09:00",
           "first_sold_out_at": "2026-09-04T18:50:35+09:00",
+          "resale": false
+        },
+        "beauty_and_the_beast": {
+          "final_sold_out_at": "2026-09-04T20:00:35+09:00",
+          "first_sold_out_at": "2026-09-04T20:00:35+09:00",
           "resale": false
         },
         "big_thunder": {
@@ -2679,6 +2684,11 @@
           "final_sold_out_at": "2026-09-04T12:50:35+09:00",
           "first_sold_out_at": "2026-09-04T12:50:35+09:00",
           "resale": false
+        },
+        "splash_mountain": {
+          "final_sold_out_at": "2026-09-04T19:50:35+09:00",
+          "first_sold_out_at": "2026-09-04T19:50:35+09:00",
+          "resale": true
         },
         "tower_of_terror": {
           "final_sold_out_at": "2026-09-04T19:05:35+09:00",
@@ -2766,11 +2776,17 @@
           {
             "at": "2026-09-04T08:00:35+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-04T20:00:35+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-04T20:00:35+09:00",
+        "first_sold_out_at": "2026-09-04T20:00:35+09:00",
         "park": "tdl",
         "price": 2500,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "big_thunder": {
         "events": [
@@ -3003,11 +3019,17 @@
             "at": "2026-09-04T10:00:35+09:00",
             "note": "resale",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-04T19:50:35+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-04T19:50:35+09:00",
+        "first_sold_out_at": "2026-09-04T19:50:35+09:00",
         "park": "tdl",
         "price": 1500,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "tower_of_terror": {
         "events": [
@@ -3055,16 +3077,16 @@
         "open": "2026-09-04T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-04T19:40:35+09:00",
+    "last_polled_at": "2026-09-04T20:00:35+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-04T19:40:50+09:00",
+  "generated_at": "2026-09-04T20:00:53+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-17",
-      "last_run_at": "2026-09-04T19:20:52+09:00",
-      "last_success_at": "2026-09-04T19:20:52+09:00"
+      "last_run_at": "2026-09-04T19:40:50+09:00",
+      "last_success_at": "2026-09-04T19:40:50+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -3081,15 +3103,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数2 observed帯0",
-      "last_run_at": "2026-09-04T19:40:50+09:00",
-      "last_success_at": "2026-09-04T19:40:50+09:00"
+      "last_run_at": "2026-09-04T20:00:52+09:00",
+      "last_success_at": "2026-09-04T20:00:52+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-04 待ち282件 DPA141件 から再構成",
+      "last_detail": "2026-09-04 待ち290件 DPA145件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-04T19:40:49+09:00",
-      "last_success_at": "2026-09-04T19:40:49+09:00"
+      "last_run_at": "2026-09-04T20:00:52+09:00",
+      "last_success_at": "2026-09-04T20:00:52+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -3106,8 +3128,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "2日分から 0施設 / 時間帯0枠",
-      "last_run_at": "2026-09-04T19:40:50+09:00",
-      "last_success_at": "2026-09-04T19:40:50+09:00"
+      "last_run_at": "2026-09-04T20:00:52+09:00",
+      "last_success_at": "2026-09-04T20:00:52+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -4150,17 +4172,17 @@
         }
       },
       "last": {
-        "at": "2026-09-04T19:40:35+09:00",
+        "at": "2026-09-04T20:00:35+09:00",
         "closed": [
           "haunted_mansion"
         ],
         "waits": {
           "baymax": 70,
           "beauty_and_the_beast": 50,
-          "big_thunder": 5,
-          "monsters_inc": 20,
-          "pooh": 14,
-          "splash_mountain": 15
+          "big_thunder": 25,
+          "monsters_inc": 40,
+          "pooh": 25,
+          "splash_mountain": 50
         }
       }
     },
@@ -4200,22 +4222,22 @@
         }
       },
       "last": {
-        "at": "2026-09-04T19:40:35+09:00",
+        "at": "2026-09-04T20:00:35+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
           "center_of_the_earth": 0,
-          "frozen_journey": 80,
-          "peter_pan": 30,
-          "raging_spirits": 30,
-          "rapunzel_lantern": 25,
-          "soaring": 90,
+          "frozen_journey": 70,
+          "peter_pan": 20,
+          "raging_spirits": 15,
+          "rapunzel_lantern": 10,
+          "soaring": 80,
           "tower_of_terror": 90,
-          "toy_story_mania": 100
+          "toy_story_mania": 90
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-04T19:40:35+09:00"
+  "waits_fetched_at": "2026-09-04T20:00:35+09:00"
 }
