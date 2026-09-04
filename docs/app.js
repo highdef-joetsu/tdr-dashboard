@@ -659,18 +659,22 @@ function renderWaits(d) {
       `「現在」は ${fmtClock(live.at)} 時点（5分ごとに取得）。「当日最大」は取り込み済みの範囲。`));
   }
   const names = Object.fromEntries((d.attractions || []).map((a) => [a.key, a]));
+  const lw = liveWaits(data);
   let any = false;
   for (const [pk, name] of PARKS_()) {
     const p = (d.waits || {})[pk];
     if (!p) continue;
     const max = p.daily_max || {};
-    const lw = liveWaits(data);
     const last = lw ? lw.waits : ((p.last || {}).waits || {});
     const closed = lw ? (lw.closed[pk] || []) : ((p.last || {}).closed || []);
-    const keys = Object.keys(max).filter((k) => (names[k] || {}).watch);
+    // 当日最大は取り込み済み（最大20分遅れ）、現在は /live（5分遅れ）。
+    // 当日最大だけで行を組むと、開園直後の「まだ取り込まれていないが今は動いている」
+    // 時間帯にアトラクションが1件も出ない。両方の和集合で組む。
+    const keys = [...new Set([...Object.keys(max), ...Object.keys(last)])]
+      .filter((k) => (names[k] || {}).watch && (names[k] || {}).park === pk);
     if (!keys.length && !closed.length) continue;
     any = true;
-    keys.sort((a, b) => (max[b].minutes || 0) - (max[a].minutes || 0));
+    keys.sort((a, b) => ((max[b] || {}).minutes || last[b] || 0) - ((max[a] || {}).minutes || last[a] || 0));
     const card = el('div', 'card');
     const head = el('div', 'cardHead');
     head.appendChild(parkTag(pk));
@@ -680,7 +684,9 @@ function renderWaits(d) {
       const item = el('div', 'item');
       item.appendChild(el('div', 'name', (names[k] || {}).name_ja || k));
       const m = el('div', 'metaRow');
-      m.appendChild(el('span', null, `当日最大 ${max[k].minutes}分（${fmtClock(max[k].at) || '—'}）`));
+      m.appendChild(el('span', null, max[k]
+        ? `当日最大 ${max[k].minutes}分（${fmtClock(max[k].at) || '—'}）`
+        : '当日最大 —'));
       m.appendChild(el('span', null, `現在 ${last[k] != null ? last[k] + '分' : '—'}`));
       item.appendChild(m);
       card.appendChild(item);
