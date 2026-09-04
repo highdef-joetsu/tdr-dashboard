@@ -896,17 +896,17 @@
       }
     ]
   },
-  "date": "2026-09-17",
+  "date": "2026-09-05",
   "fetched_at": "2026-09-04T17:11:54+09:00",
   "parks": {
     "tdl": {
       "closures_today": {
         "attraction": [
           "スイスファミリー・ツリーハウス",
-          "ウエスタンランド・シューティングギャラリー",
+          "ビーバーブラザーズのカヌー探険",
           "白雪姫と七人のこびと",
           "空飛ぶダンボ",
-          "ベイマックスのハッピーライド"
+          "ホーンテッドマンション"
         ],
         "greeting": [
           "メインストリート・ハウス前（キャラクターグリーティング）"
@@ -916,8 +916,10 @@
           "ザ・ダイヤモンドホースシュー",
           "プラザパビリオン・レストラン",
           "ペコスビル・カフェ",
+          "ビレッジペイストリー",
           "トゥーンポップ",
           "フードブース（アドベンチャーランド側）",
+          "フードブース（トゥモローランド側）",
           "キャリッジハウス・リフレッシュメント"
         ],
         "service": [
@@ -989,14 +991,16 @@
       "shows": [
         {
           "changed": false,
-          "dpa": true,
+          "dpa": false,
           "entry": false,
-          "name": "ザ・ヴィランズ・ハロウィーン“Into the Frenzy”",
+          "name": "ベイマックスのミッション・クールダウン",
           "reservation_only": false,
           "times": [
-            "16:50"
+            "10:00",
+            "12:50",
+            "14:55"
           ],
-          "url": "/tdl/show/detail/944/"
+          "url": "/tdl/show/detail/7201/"
         },
         {
           "changed": false,
@@ -1005,7 +1009,7 @@
           "name": "ディズニー・ハーモニー・イン・カラー",
           "reservation_only": false,
           "times": [
-            "13:00"
+            "17:00"
           ],
           "url": "/tdl/show/detail/7000/"
         },
@@ -1016,20 +1020,20 @@
           "name": "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
           "reservation_only": false,
           "times": [
-            "19:35"
+            "20:25"
           ],
           "url": "/tdl/show/detail/913/"
         },
         {
           "changed": false,
-          "dpa": false,
+          "dpa": true,
           "entry": false,
-          "name": "ナイトハイ・ハロウィーン",
+          "name": "Reach for the Stars: Everlasting Dreams",
           "reservation_only": false,
           "times": [
-            "20:50"
+            "19:15"
           ],
-          "url": "/tdl/show/detail/945/"
+          "url": "/tdl/show/detail/7202/"
         },
         {
           "changed": false,
@@ -1038,10 +1042,9 @@
           "name": "ジャンボリミッキー！レッツ・ダンス！",
           "reservation_only": false,
           "times": [
-            "14:40",
-            "15:55",
-            "17:45",
-            "19:00"
+            "17:40",
+            "18:55",
+            "20:10"
           ],
           "url": "/tdl/show/detail/985/"
         },
@@ -1061,11 +1064,11 @@
           "name": "ミッキーのマジカルミュージックワールド",
           "reservation_only": false,
           "times": [
-            "11:20",
-            "12:45",
-            "14:10",
-            "16:15",
-            "17:40"
+            "10:50",
+            "12:15",
+            "13:40",
+            "15:45",
+            "17:10"
           ],
           "url": "/tdl/show/detail/895/"
         }
@@ -1079,13 +1082,14 @@
       "closures_today": {
         "attraction": [
           "ディズニーシー・トランジットスチーマーライン（メディテレーニアンハーバー）",
+          "フォートレス・エクスプロレーション“ザ・レオナルドチャレンジ”",
           "インディ・ジョーンズ・アドベンチャー：クリスタルスカルの魔宮",
           "マーメイドラグーンシアター"
         ],
         "greeting": [],
         "restaurant": [
+          "スパークリング・ジュビリーワゴン",
           "テディ・ルーズヴェルト・ラウンジ テラス席",
-          "パパダキス・フレッシュフルーツ",
           "アイスクリームワゴン（リバティ・ランディング・ダイナー前）"
         ],
         "service": [
@@ -1161,35 +1165,11 @@
           "changed": false,
           "dpa": false,
           "entry": false,
-          "name": "ロストリバーデルタ（ミゲル　～13:00）",
-          "reservation_only": false,
-          "times": [
-            "9:00 - 13:00"
-          ],
-          "url": "/tds/greeting/detail/911/"
-        },
-        {
-          "changed": false,
-          "dpa": false,
-          "entry": false,
-          "name": "ロストリバーデルタ（ミゲル　13:30～）",
-          "reservation_only": false,
-          "times": [
-            "13:30 - 16:20",
-            "17:30 - 21:00"
-          ],
-          "url": "/tds/greeting/detail/912/"
-        },
-        {
-          "changed": false,
-          "dpa": false,
-          "entry": false,
           "name": "ディズニーシー・プラザ（キャラクターグリーティング）",
           "reservation_only": false,
           "times": [
-            "9:15 - 11:15",
-            "12:00 - 13:00",
-            "13:35 - 14:55"
+            "9:15 - 11:35",
+            "12:20 - 15:20"
           ],
           "url": "/tds/greeting/detail/921/"
         }
@@ -1203,36 +1183,12 @@
           "changed": false,
           "dpa": false,
           "entry": false,
-          "name": "ナイトハイ・ハロウィーン",
-          "reservation_only": false,
-          "times": [
-            "20:50"
-          ],
-          "url": "/tds/show/detail/949/"
-        },
-        {
-          "changed": false,
-          "dpa": false,
-          "entry": false,
           "name": "スパークリング・ジュビリー・セレブレーション",
           "reservation_only": false,
           "times": [
-            "11:30",
-            "15:00"
+            "17:00"
           ],
           "url": "/tds/show/detail/7404/"
-        },
-        {
-          "changed": false,
-          "dpa": false,
-          "entry": false,
-          "name": "ディズニー・ハロウィーン・グリーティング",
-          "reservation_only": false,
-          "times": [
-            "13:15",
-            "16:15"
-          ],
-          "url": "/tds/show/detail/950/"
         },
         {
           "changed": false,
@@ -1241,7 +1197,7 @@
           "name": "【環境演出】スパークリング・ジュビリー・ナイト",
           "reservation_only": false,
           "times": [
-            "20:35"
+            "20:55"
           ],
           "url": "/tds/show/detail/7405/"
         },
@@ -1252,7 +1208,7 @@
           "name": "ビリーヴ！～シー・オブ・ドリームス～",
           "reservation_only": false,
           "times": [
-            "19:50"
+            "20:15"
           ],
           "url": "/tds/show/detail/967/"
         },
@@ -1272,10 +1228,8 @@
           "name": "ダンス・ザ・グローブ！",
           "reservation_only": false,
           "times": [
-            "12:40",
-            "14:25",
-            "16:45",
-            "18:30"
+            "17:55",
+            "19:40"
           ],
           "url": "/tds/show/detail/7604/"
         },
