@@ -60,6 +60,24 @@ gh secret set TDR_WORKER_URL   --body "https://tdr-collector.<サブドメイン
 gh secret set TDR_INGEST_TOKEN --body "<INGEST_TOKEN と同じ値>"
 ```
 
+### 値の正本
+
+Cloudflare も GitHub もシークレットは**書き込み専用**で、入れた値を後から読み出せない。
+そのため `INGEST_TOKEN` の正本は Infisical に置く（キー名 `TDR_INGEST_TOKEN`）。
+`/health` や `/samples` を手で叩くときはここから取る。
+
+```bash
+# 値を画面に出さずに health を見る
+TOK=$(infisical secrets get TDR_INGEST_TOKEN --plain)
+curl -s -H "Authorization: Bearer $TOK" "$(infisical secrets get TDR_WORKER_URL --plain)/health"
+```
+
+`GITHUB_TOKEN`（fine-grained PAT）は Infisical に入れていない。
+GitHub は発行時にしか値を見せないので、必要になったら**作り直して入れ直す**。
+権限は Contents: read/write ＋ このリポジトリのみ、有効期限は90日。
+切れると `publish` の heartbeat が `401 Bad credentials` を出し続けるので、そこで気づける
+（取り込み自体は毎時の予備スケジュールが引き継ぐので止まらない）。
+
 ## エンドポイント
 
 | パス | 認証 | 用途 |
