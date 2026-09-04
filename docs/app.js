@@ -78,7 +78,11 @@ async function loadLive(d) {
     const r = await fetch(d.live_endpoint, { cache: 'no-store' });
     if (!r.ok) return null;
     const j = await r.json();
-    return j && j.at ? j : null;
+    // Worker は 22:00〜翌8:00 は取得しないので、朝いちばんに前夜の値が返る。
+    // 日付が今日でなければ「現在」として使わない（時刻だけ見せると前夜の値を
+    // 今の値と読み違える）。
+    if (!j || !j.at || (j.date && d.dates && j.date !== d.dates.today)) return null;
+    return j;
   } catch (e) {
     return null;   // 取れなくても repo 側のデータで表示できる
   }
