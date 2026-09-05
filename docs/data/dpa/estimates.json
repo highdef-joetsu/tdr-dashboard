@@ -79,7 +79,7 @@
       },
       "61-80": {
         "median": null,
-        "samples": 1,
+        "samples": 2,
         "source": "bootstrap"
       },
       "81-100": {
@@ -188,9 +188,9 @@
         "source": "bootstrap"
       },
       "61-80": {
-        "median": null,
-        "samples": 2,
-        "source": "bootstrap"
+        "median": "19:00",
+        "samples": 3,
+        "source": "observed"
       },
       "81-100": {
         "median": null,
@@ -309,6 +309,6 @@
       }
     }
   },
-  "generated_at": "2026-09-05T18:41:21+09:00",
+  "generated_at": "2026-09-05T19:00:56+09:00",
   "min_samples": 3
 }
