@@ -160,13 +160,18 @@
         {
           "at": "2026-09-06T12:05:24+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-09-06T13:25:24+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "final_sold_out_at": "2026-09-06T12:05:24+09:00",
       "first_sold_out_at": "2026-09-06T12:05:24+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     }
   },
   "date": "2026-09-06",
@@ -180,6 +185,6 @@
       "open": "2026-09-06T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-06T13:20:25+09:00",
+  "last_polled_at": "2026-09-06T13:35:24+09:00",
   "source": "themeparks.wiki"
 }
