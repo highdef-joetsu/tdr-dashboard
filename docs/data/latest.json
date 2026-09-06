@@ -1696,7 +1696,7 @@
         "hours": "09:00-21:00"
       },
       "2026-09-06": {
-        "crowd_pct": 54,
+        "crowd_pct": 15,
         "hours": "09:00-21:00"
       },
       "2026-09-07": {
@@ -1720,7 +1720,7 @@
         "hours": "09:00-21:00"
       },
       "2026-09-12": {
-        "crowd_pct": 73,
+        "crowd_pct": 64,
         "hours": "09:00-21:00"
       },
       "2026-09-13": {
@@ -1728,7 +1728,7 @@
         "hours": "09:00-21:00"
       },
       "2026-09-14": {
-        "crowd_pct": 70,
+        "crowd_pct": 69,
         "hours": "09:00-21:00"
       },
       "2026-09-15": {
@@ -1744,7 +1744,7 @@
         "hours": "09:00-21:00"
       },
       "2026-09-18": {
-        "crowd_pct": 70,
+        "crowd_pct": 69,
         "hours": "09:00-21:00"
       },
       "2026-09-19": {
@@ -1772,7 +1772,7 @@
         "hours": "09:00-21:00"
       },
       "2026-09-25": {
-        "crowd_pct": 75,
+        "crowd_pct": 74,
         "hours": "09:00-21:00"
       },
       "2026-09-26": {
@@ -1814,11 +1814,11 @@
         "hours": "09:00-21:00"
       },
       "2026-09-05": {
-        "crowd_pct": 68,
+        "crowd_pct": 69,
         "hours": "09:00-21:00"
       },
       "2026-09-06": {
-        "crowd_pct": 62,
+        "crowd_pct": 16,
         "hours": "09:00-21:00"
       },
       "2026-09-07": {
@@ -1830,15 +1830,15 @@
         "hours": "09:00-21:00"
       },
       "2026-09-09": {
-        "crowd_pct": 58,
+        "crowd_pct": 57,
         "hours": "09:00-21:00"
       },
       "2026-09-10": {
-        "crowd_pct": 61,
+        "crowd_pct": 60,
         "hours": "09:00-21:00"
       },
       "2026-09-11": {
-        "crowd_pct": 75,
+        "crowd_pct": 66,
         "hours": "09:00-21:00"
       },
       "2026-09-12": {
@@ -1919,10 +1919,10 @@
       }
     }
   },
-  "crowd_fetched_at": "2026-09-06T07:05:05+09:00",
+  "crowd_fetched_at": "2026-09-07T07:09:22+09:00",
   "curve_meta": {
     "days_used": 4,
-    "generated_at": "2026-09-07T07:00:57+09:00",
+    "generated_at": "2026-09-07T07:09:23+09:00",
     "late_from_hour": 15,
     "min_days": 3
   },
@@ -1949,39 +1949,39 @@
     },
     "center_of_the_earth": {
       "band": "61-80",
-      "hours_covered": 13,
+      "hours_covered": 2,
       "late": {
-        "hour": 21,
+        "hour": 20,
         "minutes": 0
       },
       "peak": {
-        "hour": 10,
-        "minutes": 140
+        "hour": 19,
+        "minutes": 95
       },
       "price": 2000,
-      "reason": "21時台なら並んでも約0分。買わずに後で並べば足りる",
-      "saved_minutes": 140,
-      "sold_out_at": "19:00",
+      "reason": "20時台なら並んでも約0分。買わずに後で並べば足りる",
+      "saved_minutes": 95,
+      "sold_out_at": null,
       "verdict": "skip",
-      "yen_per_minute": 14
+      "yen_per_minute": 21
     },
     "frozen_journey": {
       "band": "61-80",
-      "hours_covered": 12,
+      "hours_covered": 2,
       "late": {
-        "hour": 21,
+        "hour": 20,
         "minutes": 0
       },
       "peak": {
-        "hour": 14,
-        "minutes": 160
+        "hour": 19,
+        "minutes": 95
       },
       "price": 2500,
-      "reason": "21時台なら並んでも約0分。買わずに後で並べば足りる",
-      "saved_minutes": 160,
-      "sold_out_at": "09:40",
+      "reason": "20時台なら並んでも約0分。買わずに後で並べば足りる",
+      "saved_minutes": 95,
+      "sold_out_at": null,
       "verdict": "skip",
-      "yen_per_minute": 16
+      "yen_per_minute": 26
     },
     "monsters_inc": {
       "band": "61-80",
@@ -1990,21 +1990,21 @@
     },
     "peter_pan": {
       "band": "61-80",
-      "hours_covered": 12,
+      "hours_covered": 2,
       "late": {
-        "hour": 21,
-        "minutes": 5
+        "hour": 20,
+        "minutes": 18
       },
       "peak": {
-        "hour": 10,
-        "minutes": 60
+        "hour": 19,
+        "minutes": 30
       },
       "price": 2000,
-      "reason": "21時台なら並んでも約5分。買わずに後で並べば足りる",
-      "saved_minutes": 55,
-      "sold_out_at": "20:02",
+      "reason": "20時台なら並んでも約18分。買わずに後で並べば足りる",
+      "saved_minutes": 12,
+      "sold_out_at": "20:05",
       "verdict": "skip",
-      "yen_per_minute": 36
+      "yen_per_minute": 167
     },
     "pooh": {
       "band": "61-80",
@@ -2013,57 +2013,57 @@
     },
     "raging_spirits": {
       "band": "61-80",
-      "hours_covered": 13,
+      "hours_covered": 2,
       "late": {
-        "hour": 21,
-        "minutes": 0
+        "hour": 20,
+        "minutes": 15
       },
       "peak": {
-        "hour": 10,
-        "minutes": 60
+        "hour": 19,
+        "minutes": 50
       },
       "price": 1500,
-      "reason": "21時台なら並んでも約0分。買わずに後で並べば足りる",
-      "saved_minutes": 60,
+      "reason": "20時台なら並んでも約15分。買わずに後で並べば足りる",
+      "saved_minutes": 35,
       "sold_out_at": "19:00",
       "verdict": "skip",
-      "yen_per_minute": 25
+      "yen_per_minute": 43
     },
     "rapunzel_lantern": {
       "band": "61-80",
-      "hours_covered": 13,
+      "hours_covered": 2,
       "late": {
-        "hour": 21,
-        "minutes": 5
+        "hour": 20,
+        "minutes": 10
       },
       "peak": {
-        "hour": 10,
-        "minutes": 70
+        "hour": 19,
+        "minutes": 30
       },
       "price": 2000,
-      "reason": "21時台なら並んでも約5分。買わずに後で並べば足りる",
-      "saved_minutes": 65,
+      "reason": "20時台なら並んでも約10分。買わずに後で並べば足りる",
+      "saved_minutes": 20,
       "sold_out_at": "20:05",
       "verdict": "skip",
-      "yen_per_minute": 31
+      "yen_per_minute": 100
     },
     "soaring": {
       "band": "61-80",
-      "hours_covered": 13,
+      "hours_covered": 2,
       "late": {
         "hour": 20,
         "minutes": 0
       },
       "peak": {
-        "hour": 10,
-        "minutes": 160
+        "hour": 19,
+        "minutes": 100
       },
       "price": 2500,
       "reason": "20時台なら並んでも約0分。買わずに後で並べば足りる",
-      "saved_minutes": 160,
-      "sold_out_at": "12:50",
+      "saved_minutes": 100,
+      "sold_out_at": null,
       "verdict": "skip",
-      "yen_per_minute": 16
+      "yen_per_minute": 25
     },
     "splash_mountain": {
       "band": "61-80",
@@ -2072,39 +2072,39 @@
     },
     "tower_of_terror": {
       "band": "61-80",
-      "hours_covered": 13,
+      "hours_covered": 2,
       "late": {
-        "hour": 21,
+        "hour": 20,
         "minutes": 0
       },
       "peak": {
-        "hour": 10,
-        "minutes": 100
+        "hour": 19,
+        "minutes": 90
       },
       "price": 1500,
-      "reason": "21時台なら並んでも約0分。買わずに後で並べば足りる",
-      "saved_minutes": 100,
-      "sold_out_at": "19:05",
+      "reason": "20時台なら並んでも約0分。買わずに後で並べば足りる",
+      "saved_minutes": 90,
+      "sold_out_at": null,
       "verdict": "skip",
-      "yen_per_minute": 15
+      "yen_per_minute": 17
     },
     "toy_story_mania": {
       "band": "61-80",
-      "hours_covered": 10,
+      "hours_covered": 2,
       "late": {
-        "hour": 21,
+        "hour": 20,
         "minutes": 0
       },
       "peak": {
-        "hour": 16,
-        "minutes": 140
+        "hour": 19,
+        "minutes": 100
       },
       "price": 2000,
-      "reason": "21時台なら並んでも約0分。買わずに後で並べば足りる",
-      "saved_minutes": 140,
-      "sold_out_at": "15:18",
+      "reason": "20時台なら並んでも約0分。買わずに後で並べば足りる",
+      "saved_minutes": 100,
+      "sold_out_at": "17:40",
       "verdict": "skip",
-      "yen_per_minute": 14
+      "yen_per_minute": 20
     }
   },
   "dpa_estimates": {
@@ -2112,13 +2112,13 @@
       "baymax": {
         "0-30": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
-          "median": "19:00",
-          "samples": 3,
-          "source": "observed"
+          "median": null,
+          "samples": 2,
+          "source": "bootstrap"
         },
         "61-80": {
           "median": null,
@@ -2134,13 +2134,13 @@
       "beauty_and_the_beast": {
         "0-30": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
-          "median": "20:05",
-          "samples": 3,
-          "source": "observed"
+          "median": null,
+          "samples": 2,
+          "source": "bootstrap"
         },
         "61-80": {
           "median": null,
@@ -2156,12 +2156,12 @@
       "big_thunder": {
         "0-30": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
           "median": null,
-          "samples": 2,
+          "samples": 1,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2178,7 +2178,7 @@
       "center_of_the_earth": {
         "0-30": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
@@ -2187,9 +2187,9 @@
           "source": "bootstrap"
         },
         "61-80": {
-          "median": "19:00",
-          "samples": 3,
-          "source": "observed"
+          "median": null,
+          "samples": 2,
+          "source": "bootstrap"
         },
         "81-100": {
           "median": null,
@@ -2200,7 +2200,7 @@
       "frozen_journey": {
         "0-30": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
@@ -2209,9 +2209,9 @@
           "source": "bootstrap"
         },
         "61-80": {
-          "median": "09:40",
-          "samples": 3,
-          "source": "observed"
+          "median": null,
+          "samples": 2,
+          "source": "bootstrap"
         },
         "81-100": {
           "median": null,
@@ -2222,12 +2222,12 @@
       "monsters_inc": {
         "0-30": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
           "median": null,
-          "samples": 2,
+          "samples": 1,
           "source": "bootstrap"
         },
         "61-80": {
@@ -2244,7 +2244,7 @@
       "peter_pan": {
         "0-30": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
@@ -2253,8 +2253,8 @@
           "source": "bootstrap"
         },
         "61-80": {
-          "median": "20:02",
-          "samples": 4,
+          "median": "20:05",
+          "samples": 3,
           "source": "observed"
         },
         "81-100": {
@@ -2266,7 +2266,95 @@
       "pooh": {
         "0-30": {
           "median": null,
+          "samples": 1,
+          "source": "bootstrap"
+        },
+        "31-60": {
+          "median": null,
+          "samples": 1,
+          "source": "bootstrap"
+        },
+        "61-80": {
+          "median": null,
+          "samples": 1,
+          "source": "bootstrap"
+        },
+        "81-100": {
+          "median": null,
           "samples": 0,
+          "source": "bootstrap"
+        }
+      },
+      "raging_spirits": {
+        "0-30": {
+          "median": null,
+          "samples": 1,
+          "source": "bootstrap"
+        },
+        "31-60": {
+          "median": null,
+          "samples": 0,
+          "source": "bootstrap"
+        },
+        "61-80": {
+          "median": "19:00",
+          "samples": 3,
+          "source": "observed"
+        },
+        "81-100": {
+          "median": null,
+          "samples": 0,
+          "source": "bootstrap"
+        }
+      },
+      "rapunzel_lantern": {
+        "0-30": {
+          "median": null,
+          "samples": 1,
+          "source": "bootstrap"
+        },
+        "31-60": {
+          "median": null,
+          "samples": 0,
+          "source": "bootstrap"
+        },
+        "61-80": {
+          "median": "20:05",
+          "samples": 3,
+          "source": "observed"
+        },
+        "81-100": {
+          "median": null,
+          "samples": 0,
+          "source": "bootstrap"
+        }
+      },
+      "soaring": {
+        "0-30": {
+          "median": null,
+          "samples": 1,
+          "source": "bootstrap"
+        },
+        "31-60": {
+          "median": null,
+          "samples": 0,
+          "source": "bootstrap"
+        },
+        "61-80": {
+          "median": null,
+          "samples": 2,
+          "source": "bootstrap"
+        },
+        "81-100": {
+          "median": null,
+          "samples": 0,
+          "source": "bootstrap"
+        }
+      },
+      "splash_mountain": {
+        "0-30": {
+          "median": null,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
@@ -2285,109 +2373,21 @@
           "source": "bootstrap"
         }
       },
-      "raging_spirits": {
+      "tower_of_terror": {
         "0-30": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        },
-        "31-60": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        },
-        "61-80": {
-          "median": "19:00",
-          "samples": 4,
-          "source": "observed"
-        },
-        "81-100": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        }
-      },
-      "rapunzel_lantern": {
-        "0-30": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        },
-        "31-60": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        },
-        "61-80": {
-          "median": "20:05",
-          "samples": 4,
-          "source": "observed"
-        },
-        "81-100": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        }
-      },
-      "soaring": {
-        "0-30": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        },
-        "31-60": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        },
-        "61-80": {
-          "median": "12:50",
-          "samples": 3,
-          "source": "observed"
-        },
-        "81-100": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        }
-      },
-      "splash_mountain": {
-        "0-30": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        },
-        "31-60": {
-          "median": "19:50",
-          "samples": 3,
-          "source": "observed"
-        },
-        "61-80": {
           "median": null,
           "samples": 1,
           "source": "bootstrap"
         },
-        "81-100": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        }
-      },
-      "tower_of_terror": {
-        "0-30": {
-          "median": null,
-          "samples": 0,
-          "source": "bootstrap"
-        },
         "31-60": {
           "median": null,
           "samples": 0,
           "source": "bootstrap"
         },
         "61-80": {
-          "median": "19:05",
-          "samples": 3,
-          "source": "observed"
+          "median": null,
+          "samples": 2,
+          "source": "bootstrap"
         },
         "81-100": {
           "median": null,
@@ -2398,7 +2398,7 @@
       "toy_story_mania": {
         "0-30": {
           "median": null,
-          "samples": 0,
+          "samples": 1,
           "source": "bootstrap"
         },
         "31-60": {
@@ -2407,8 +2407,8 @@
           "source": "bootstrap"
         },
         "61-80": {
-          "median": "15:18",
-          "samples": 4,
+          "median": "17:40",
+          "samples": 3,
           "source": "observed"
         },
         "81-100": {
@@ -2418,7 +2418,7 @@
         }
       }
     },
-    "generated_at": "2026-09-07T07:00:57+09:00",
+    "generated_at": "2026-09-07T07:09:22+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -2496,8 +2496,8 @@
         }
       },
       "crowd_pct": {
-        "tdl": 54,
-        "tds": 62
+        "tdl": 15,
+        "tds": 16
       },
       "date": "2026-09-06"
     },
@@ -2576,7 +2576,7 @@
       },
       "crowd_pct": {
         "tdl": 69,
-        "tds": 68
+        "tds": 69
       },
       "date": "2026-09-05"
     },
@@ -2705,19 +2705,19 @@
     }
   ],
   "dpa_today": null,
-  "generated_at": "2026-09-07T07:00:58+09:00",
+  "generated_at": "2026-09-07T07:09:23+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-17",
-      "last_run_at": "2026-09-07T06:40:41+09:00",
-      "last_success_at": "2026-09-07T06:40:41+09:00"
+      "last_run_at": "2026-09-07T07:00:58+09:00",
+      "last_success_at": "2026-09-07T07:00:58+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
       "last_detail": "tdl=30日 tds=30日",
-      "last_run_at": "2026-09-06T07:05:05+09:00",
-      "last_success_at": "2026-09-06T07:05:05+09:00"
+      "last_run_at": "2026-09-07T07:09:22+09:00",
+      "last_success_at": "2026-09-07T07:09:22+09:00"
     },
     "dpa": {
       "consecutive_failures": 0,
@@ -2727,9 +2727,9 @@
     },
     "estimates": {
       "consecutive_failures": 0,
-      "last_detail": "実績日数4 observed帯11",
-      "last_run_at": "2026-09-07T07:00:57+09:00",
-      "last_success_at": "2026-09-07T07:00:57+09:00"
+      "last_detail": "実績日数4 observed帯4",
+      "last_run_at": "2026-09-07T07:09:22+09:00",
+      "last_success_at": "2026-09-07T07:09:22+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
@@ -2752,9 +2752,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "4日分から 14施設 / 時間帯111枠",
-      "last_run_at": "2026-09-07T07:00:57+09:00",
-      "last_success_at": "2026-09-07T07:00:57+09:00"
+      "last_detail": "4日分から 8施設 / 時間帯16枠",
+      "last_run_at": "2026-09-07T07:09:23+09:00",
+      "last_success_at": "2026-09-07T07:09:23+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -3474,119 +3474,36 @@
   },
   "wait_curve": {
     "center_of_the_earth": {
-      "10": 140,
-      "11": 120,
-      "12": 100,
-      "13": 140,
-      "14": 120,
-      "15": 140,
-      "16": 120,
-      "17": 120,
-      "18": 90,
-      "19": 92,
-      "20": 15,
-      "21": 0,
-      "9": 95
+      "19": 95,
+      "20": 0
     },
     "frozen_journey": {
-      "11": 130,
-      "12": 140,
-      "13": 140,
-      "14": 160,
-      "15": 140,
-      "16": 120,
-      "17": 110,
-      "18": 140,
-      "19": 90,
-      "20": 11,
-      "21": 0,
-      "9": 140
+      "19": 95,
+      "20": 0
     },
     "peter_pan": {
-      "10": 60,
-      "11": 50,
-      "12": 50,
-      "13": 50,
-      "14": 50,
-      "16": 45,
-      "17": 40,
-      "18": 40,
-      "19": 25,
-      "20": 11,
-      "21": 5,
-      "9": 20
+      "19": 30,
+      "20": 18
     },
     "raging_spirits": {
-      "10": 60,
-      "11": 50,
-      "12": 60,
-      "13": 50,
-      "14": 55,
-      "15": 50,
-      "16": 60,
-      "17": 45,
-      "18": 40,
-      "19": 40,
-      "20": 10,
-      "21": 0,
-      "9": 8
+      "19": 50,
+      "20": 15
     },
     "rapunzel_lantern": {
-      "10": 70,
-      "11": 60,
-      "12": 50,
-      "13": 50,
-      "14": 50,
-      "15": 50,
-      "16": 40,
-      "17": 40,
-      "18": 30,
-      "19": 29,
-      "20": 10,
-      "21": 5,
-      "9": 15
+      "19": 30,
+      "20": 10
     },
     "soaring": {
-      "10": 160,
-      "11": 120,
-      "12": 140,
-      "13": 130,
-      "14": 120,
-      "15": 140,
-      "16": 140,
-      "17": 140,
-      "18": 140,
       "19": 100,
-      "20": 0,
-      "21": 0,
-      "9": 140
+      "20": 0
     },
     "tower_of_terror": {
-      "10": 100,
-      "11": 70,
-      "12": 60,
-      "13": 70,
-      "14": 70,
-      "15": 75,
-      "16": 80,
-      "17": 85,
-      "18": 80,
-      "19": 85,
-      "20": 12,
-      "21": 0,
-      "9": 55
+      "19": 90,
+      "20": 0
     },
     "toy_story_mania": {
-      "11": 120,
-      "13": 120,
-      "14": 100,
-      "15": 110,
-      "16": 140,
-      "17": 140,
-      "18": 130,
-      "19": 98,
-      "20": 15,
-      "21": 0
+      "19": 100,
+      "20": 0
     }
   },
   "waits": {},
