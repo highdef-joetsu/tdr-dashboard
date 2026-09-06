@@ -5,11 +5,17 @@
         {
           "at": "2026-09-06T08:00:40+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-06T19:05:27+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-06T19:05:27+09:00",
+      "first_sold_out_at": "2026-09-06T19:05:27+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "beauty_and_the_beast": {
       "events": [
@@ -44,11 +50,17 @@
         {
           "at": "2026-09-06T08:00:40+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-06T19:10:32+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-06T19:10:32+09:00",
+      "first_sold_out_at": "2026-09-06T19:10:32+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "frozen_journey": {
       "events": [
@@ -91,11 +103,17 @@
         {
           "at": "2026-09-06T08:00:40+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-06T19:05:27+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-06T19:05:27+09:00",
+      "first_sold_out_at": "2026-09-06T19:05:27+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "pooh": {
       "events": [
@@ -153,33 +171,51 @@
         {
           "at": "2026-09-06T08:00:40+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-06T19:05:27+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-06T19:05:27+09:00",
+      "first_sold_out_at": "2026-09-06T19:05:27+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "splash_mountain": {
       "events": [
         {
           "at": "2026-09-06T08:00:40+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-06T19:20:31+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-06T19:20:31+09:00",
+      "first_sold_out_at": "2026-09-06T19:20:31+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "tower_of_terror": {
       "events": [
         {
           "at": "2026-09-06T08:00:40+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-06T19:20:31+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-06T19:20:31+09:00",
+      "first_sold_out_at": "2026-09-06T19:20:31+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "toy_story_mania": {
       "events": [
@@ -215,6 +251,6 @@
       "open": "2026-09-06T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-06T19:00:44+09:00",
+  "last_polled_at": "2026-09-06T19:20:31+09:00",
   "source": "themeparks.wiki"
 }
