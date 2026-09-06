@@ -2242,7 +2242,7 @@
   "crowd_fetched_at": "2026-09-06T07:05:05+09:00",
   "curve_meta": {
     "days_used": 4,
-    "generated_at": "2026-09-06T13:00:46+09:00",
+    "generated_at": "2026-09-06T13:20:40+09:00",
     "late_from_hour": 15,
     "min_days": 3
   },
@@ -2410,7 +2410,7 @@
     },
     "toy_story_mania": {
       "band": "61-80",
-      "hours_covered": 3,
+      "hours_covered": 4,
       "late": {
         "hour": 20,
         "minutes": 0
@@ -2738,7 +2738,7 @@
         }
       }
     },
-    "generated_at": "2026-09-06T13:00:46+09:00",
+    "generated_at": "2026-09-06T13:20:40+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -3141,16 +3141,16 @@
         "open": "2026-09-06T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-06T13:00:31+09:00",
+    "last_polled_at": "2026-09-06T13:20:25+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-06T13:00:47+09:00",
+  "generated_at": "2026-09-06T13:20:41+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-17",
-      "last_run_at": "2026-09-06T12:40:49+09:00",
-      "last_success_at": "2026-09-06T12:40:49+09:00"
+      "last_run_at": "2026-09-06T13:00:47+09:00",
+      "last_success_at": "2026-09-06T13:00:47+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -3167,15 +3167,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数4 observed帯4",
-      "last_run_at": "2026-09-06T13:00:46+09:00",
-      "last_success_at": "2026-09-06T13:00:46+09:00"
+      "last_run_at": "2026-09-06T13:20:40+09:00",
+      "last_success_at": "2026-09-06T13:20:40+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-06 待ち122件 DPA61件 から再構成",
+      "last_detail": "2026-09-06 待ち130件 DPA65件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-06T13:00:46+09:00",
-      "last_success_at": "2026-09-06T13:00:46+09:00"
+      "last_run_at": "2026-09-06T13:20:40+09:00",
+      "last_success_at": "2026-09-06T13:20:40+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -3191,9 +3191,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "4日分から 8施設 / 時間帯51枠",
-      "last_run_at": "2026-09-06T13:00:46+09:00",
-      "last_success_at": "2026-09-06T13:00:46+09:00"
+      "last_detail": "4日分から 8施設 / 時間帯52枠",
+      "last_run_at": "2026-09-06T13:20:40+09:00",
+      "last_success_at": "2026-09-06T13:20:40+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -4273,6 +4273,7 @@
     },
     "toy_story_mania": {
       "11": 120,
+      "13": 120,
       "19": 100,
       "20": 0
     }
@@ -4306,16 +4307,16 @@
         }
       },
       "last": {
-        "at": "2026-09-06T13:00:31+09:00",
+        "at": "2026-09-06T13:20:25+09:00",
         "closed": [
           "haunted_mansion"
         ],
         "waits": {
           "baymax": 40,
-          "beauty_and_the_beast": 40,
-          "big_thunder": 5,
+          "beauty_and_the_beast": 30,
+          "big_thunder": 10,
           "monsters_inc": 30,
-          "pooh": 25,
+          "pooh": 30,
           "splash_mountain": 5
         }
       }
@@ -4351,27 +4352,27 @@
           "minutes": 60
         },
         "toy_story_mania": {
-          "at": "2026-09-06T11:55:24+09:00",
-          "minutes": 20
+          "at": "2026-09-06T13:20:25+09:00",
+          "minutes": 50
         }
       },
       "last": {
-        "at": "2026-09-06T13:00:31+09:00",
+        "at": "2026-09-06T13:20:25+09:00",
         "closed": [
-          "indiana_jones",
-          "toy_story_mania"
+          "indiana_jones"
         ],
         "waits": {
-          "center_of_the_earth": 60,
+          "center_of_the_earth": 50,
           "frozen_journey": 100,
           "peter_pan": 30,
           "raging_spirits": 5,
           "rapunzel_lantern": 10,
-          "soaring": 70,
-          "tower_of_terror": 25
+          "soaring": 120,
+          "tower_of_terror": 20,
+          "toy_story_mania": 50
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-06T13:00:31+09:00"
+  "waits_fetched_at": "2026-09-06T13:20:25+09:00"
 }
