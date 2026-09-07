@@ -10,9 +10,15 @@ const CAT_JA = {
   shop: 'ショップ', restaurant: 'レストラン', service: 'サービス施設',
 };
 const VERDICT = {
-  buy: ['買う価値あり', 'b-good'], skip: ['買わなくてよい', 'b-info'],
-  depends: ['滞在計画次第', 'b-warn'], insufficient: ['データ不足', ''],
+  worth: ['買う価値あり', 'b-good'], skip: ['買わなくていい', 'b-info'],
+  depends: ['滞在計画次第', 'b-warn'], sold_out: ['売切の見込み', 'b-warn'],
+  contested: ['枠の取り合い', 'b-warn'], insufficient: ['データ不足', ''],
 };
+// アトラクションのDPAは、購入から60分後または利用開始時刻のいずれか早い時刻まで
+// 次を買えない（公式FAQ）。だから同じ時刻に推せるのは常に1つで、選ぶには施設を
+// 横断して比べる必要がある。この横断だけは画面側の仕事。
+const DPA_REBUY_MINUTES = 60;
+const SOON_HOURS = 1;   // 売切目安までこれ以下なら「先に取る」側に回す
 const CHANGE_JA = {
   published: 'スケジュール掲載', hours: '開園時間', ticket: 'チケット価格',
   ticket_status: 'チケット販売状況', show_added: 'ショー追加', show_removed: 'ショー削除',
@@ -23,6 +29,8 @@ const CHANGE_JA = {
 
 let parkMode = 'both';
 let currentDate = null;
+// DPA判定の基準時刻。null は自動（今日なら現在時刻、他の日は開園時刻）。
+let dpaHour = null;
 let data = null;
 // Worker が5分ごとに取っている最新値。GitHub 経由の取り込みは遅れるので、
 // 「現在」だけはここから直接読む。取れなくても repo のデータで動く。
@@ -296,12 +304,13 @@ function keyPoints(d, date, official, closures) {
       }
     }
   }
-  // 買う価値ありのDPA
-  const buys = Object.entries(d.dpa_advice || {})
-    .filter(([k, v]) => v.verdict === 'buy' && act.includes((names[k] || {}).park));
-  if (buys.length) {
-    out.push({ mark: 'good', html: [`DPAは${buys.length}施設で「買う価値あり」`,
-      `（${buys.map(([k]) => (names[k] || {}).name_ja).slice(0, 2).join('・')}${buys.length > 2 ? ' ほか' : ''}）`] });
+  // いま買うならどれか。DPAは60分に1つしか買えないので、挙げるのも1つ。
+  const rk = dpaRanking(d, date);
+  if (rk && rk.pick) {
+    out.push({ mark: 'good', html: [
+      `${rk.isNow ? 'いま' : `${rk.base}時に`}買うなら${rk.pick.a.name_ja}`,
+      rk.pick.r.yen_per_minute ? `（1分あたり約${rk.pick.r.yen_per_minute}円`
+        + (rk.worth.length > 1 ? `・ほかに待てるものが${rk.worth.length - 1}件` : '') + '）' : ''] });
   }
   // 変更
   const ch = ((d.changes || {})[date] || []).filter((r) => act.includes(r.park));
@@ -610,50 +619,184 @@ function renderClosures(closures, date, scheduleOnly, official) {
 }
 
 // ---------- DPA ----------
+function dpaBaseHour(d, date, hours) {
+  // 判定の基準時刻。今日を見ているなら「今」、それ以外の日は開園時刻から。
+  // 手で選び直したらそれを使う（来園日の計画を時刻ごとに見るため）。
+  const span = hours.tdl || hours.tds;
+  if (!span) return null;
+  const [openH, closeH] = span;
+  if (dpaHour !== null) return Math.min(closeH, Math.max(openH, dpaHour));
+  if (date !== d.dates.today) return openH;
+  const now = Number(new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Tokyo', hour: 'numeric', hour12: false }).format(new Date())) % 24;
+  return Math.min(closeH, Math.max(openH, now));
+}
+
+function dpaRow(x, d) {
+  const item = el('div', 'item');
+  const head = el('div', 'badgeRow');
+  head.appendChild(parkTag(x.a.park));
+  if (x.r && x.r.yen_per_minute && x.verdict !== 'skip') {
+    head.appendChild(badge(`1分あたり約${x.r.yen_per_minute}円`));
+  }
+  item.appendChild(head);
+  item.appendChild(el('div', 'name', x.a.name_ja));
+  const m = el('div', 'metaRow');
+  m.appendChild(el('span', null, x.e.price ? `¥${x.e.price.toLocaleString()}` : '価格不明'));
+  if (x.e.sold_out_at) m.appendChild(el('span', null, `売切目安 ${x.e.sold_out_at}頃`));
+  item.appendChild(m);
+  if (x.r && x.r.reason) item.appendChild(el('div', 'note', x.r.reason));
+  return item;
+}
+
+// 施設を横断して「いま買うならどれか」まで決める。要点欄とDPA欄が別々に順位を
+// 付けると食い違うので、順位付けはここ1箇所だけにする。
+function dpaRanking(d, date) {
+  const day = (d.dpa_advice || {})[date];
+  if (!day) return { reason: 'no_day' };
+  const hours = day.hours || {};
+  const span = hours.tdl || hours.tds;
+  const base = dpaBaseHour(d, date, hours);
+  if (base === null) return { reason: 'no_hours' };
+  const act = activeKeys();
+
+  const rows = (d.attractions || [])
+    .filter((a) => a.dpa && act.includes(a.park))
+    .map((a) => {
+      const e = (day.attractions || {})[a.key] || {};
+      const r = (e.by_hour || {})[String(base)] || null;
+      return { a, e, r, verdict: r ? r.verdict : 'insufficient' };
+    });
+
+  // 閉園前の1時間で並べるのは1施設だけ。その枠を根拠に「買わなくていい」と
+  // 言えるのは最短の1つで、残りは根拠を他に取られている。
+  const contested = rows.filter((x) => x.verdict === 'skip' && (x.r.best || {}).lastcall);
+  if (contested.length > 1) {
+    contested.sort((x, y) => x.r.best.minutes - y.r.best.minutes
+      || x.a.name_ja.localeCompare(y.a.name_ja, 'ja'));
+    for (const x of contested.slice(1)) x.verdict = 'contested';
+  }
+
+  // 買えるのは60分に1つ。売切目安が近いものを先に取り、同条件なら1分あたりが安い順。
+  const soon = (x) => (x.r.hours_left_to_buy != null && x.r.hours_left_to_buy <= SOON_HOURS ? 0 : 1);
+  const worth = rows.filter((x) => x.verdict === 'worth');
+  worth.sort((x, y) => soon(x) - soon(y)
+    || (x.r.yen_per_minute || 1e9) - (y.r.yen_per_minute || 1e9));
+  const pick = worth[0] || null;
+
+  return {
+    day, hours, span, base, rows, worth, pick,
+    isNow: date === d.dates.today && dpaHour === null,
+    pickedForSoon: pick ? soon(pick) === 0 : false,
+  };
+}
+
+function renderDpaAdvice(d, date) {
+  const frag = document.createDocumentFragment();
+  const meta = d.curve_meta || {};
+  const rk = dpaRanking(d, date);
+  if (rk.reason === 'no_day') {
+    frag.appendChild(el('div', 'alert info',
+      'この日のDPA判定は出していません。判定には公式の開園時間が要るので、今日・明日・来園予定日の3日分だけです。'));
+    return frag;
+  }
+  if (rk.reason === 'no_hours') {
+    frag.appendChild(el('div', 'alert warn',
+      'この日の開園時間を取得できていないため、判定を出せません。閉園前の枠がどこから始まるかを決められません。'));
+    return frag;
+  }
+  const { span, base, rows, worth, pick, isNow } = rk;
+
+  const bar = el('div', 'ctlRow');
+  bar.appendChild(el('span', 'muted', isNow ? 'いま' : '基準'));
+  const sel = el('select', 'ctlDate hourSel');
+  sel.setAttribute('aria-label', 'DPA判定の基準時刻');
+  for (let h = span[0]; h <= span[1]; h++) {
+    const o = el('option', null, `${h}時`);
+    o.value = String(h);
+    if (h === base) o.selected = true;
+    sel.appendChild(o);
+  }
+  sel.onchange = () => { dpaHour = Number(sel.value); render(); };
+  bar.appendChild(sel);
+  bar.appendChild(el('span', 'muted', 'から先の時間帯だけで判定'));
+  frag.appendChild(bar);
+
+  if (rows.length && rows.every((x) => x.verdict === 'insufficient')) {
+    frag.appendChild(el('div', 'alert warn',
+      `同じ混雑度の日の待ち時間がまだ${meta.min_days || 3}日分たまっていないため、判定を出せません。`
+      + `現在${meta.days_used || 0}日分。たまり次第ここに出ます。`));
+  } else if (pick) {
+    const card = el('div', 'card');
+    const body = el('div', 'cardBody');
+    const head = el('div', 'badgeRow');
+    head.appendChild(parkTag(pick.a.park));
+    head.appendChild(badge(isNow ? 'いま買うならこれ' : `${base}時に買うならこれ`, 'b-good'));
+    if (pick.r.yen_per_minute) head.appendChild(badge(`1分あたり約${pick.r.yen_per_minute}円`));
+    body.appendChild(head);
+    body.appendChild(el('div', 'name', pick.a.name_ja));
+    const m = el('div', 'metaRow');
+    m.appendChild(el('span', null, pick.e.price ? `¥${pick.e.price.toLocaleString()}` : '価格不明'));
+    if (pick.e.band) m.appendChild(el('span', null, `混雑帯 ${pick.e.band}%`));
+    if (pick.e.sold_out_at) m.appendChild(el('span', null, `売切目安 ${pick.e.sold_out_at}頃`));
+    body.appendChild(m);
+    body.appendChild(el('div', 'note', pick.r.reason));
+    body.appendChild(el('div', 'note', rk.pickedForSoon
+      ? `売切目安が近いので、この時間帯ではこれを先に取る（残り約${pick.r.hours_left_to_buy}時間）。`
+      : '買う価値があるもののうち、1分あたりが一番安い。'));
+    body.appendChild(el('div', 'note',
+      `次に買えるのは ${Math.min(span[1], base + 1)}時以降。アトラクションのDPAは購入から`
+      + `${DPA_REBUY_MINUTES}分、または利用開始時刻のいずれか早い時刻まで次を買えない。`));
+    const curve = ((d.wait_curve || {})[date] || {})[pick.a.key];
+    if (curve && Object.keys(curve).length >= 2) {
+      const sp = sparkline(curve);
+      if (sp) body.appendChild(sp);
+    }
+    card.appendChild(body);
+    frag.appendChild(card);
+  } else {
+    frag.appendChild(el('p', 'note',
+      `${base}時から先で「買う価値あり」に届くものはありません。下の分類を見てください。`));
+  }
+
+  const groups = [
+    ['まだ待てる', worth.slice(1), '買う価値はあるが、いま推している1つより後でよい。DPAは60分に1つしか買えない。', true],
+    ['買わなくていい', rows.filter((x) => x.verdict === 'skip'), null, true],
+    ['枠の取り合い', rows.filter((x) => x.verdict === 'contested'),
+      '閉園前の空く時間帯を根拠にしているが、その枠で並べるのは1施設だけ。あてにできない。', false],
+    ['滞在計画次第', rows.filter((x) => x.verdict === 'depends'), null, false],
+    ['売切の見込み', rows.filter((x) => x.verdict === 'sold_out'), null, false],
+    ['データ不足', rows.filter((x) => x.verdict === 'insufficient'), null, false],
+  ];
+  for (const [label, items, note, open] of groups) {
+    if (!items.length) continue;
+    const det = el('details');
+    det.className = 'card';
+    det.open = open;
+    const sm = el('summary');
+    sm.append(label);
+    sm.appendChild(el('span', 'cnt', `${items.length}件`));
+    det.appendChild(sm);
+    const bodyEl = el('div', 'detBody');
+    if (note) bodyEl.appendChild(el('p', 'note', note));
+    for (const x of items) bodyEl.appendChild(dpaRow(x, d));
+    det.appendChild(bodyEl);
+    frag.appendChild(det);
+  }
+
+  frag.appendChild(el('p', 'note',
+    `待ち時間は、この日と同じ混雑度帯の日を${meta.min_days || 3}日以上集めた時間帯別の中央値です。`
+    + '判定は基準時刻より前の時間帯を使いません（その時刻にはもう戻れないため）。'
+    + `閉園前${meta.lastcall_hours || 1}時間の枠は全施設で取り合いになるので、そこを根拠に`
+    + '「買わなくていい」と言えるのは最短の1施設だけにしてあります。'));
+  return frag;
+}
+
 function renderDpa(d, date) {
   const frag = document.createDocumentFragment();
   frag.appendChild(el('h2', null, 'ディズニー・プレミアアクセス'));
   const act = activeKeys();
-  const meta = d.curve_meta || {};
-  const rows = (d.attractions || [])
-    .filter((a) => a.dpa && act.includes(a.park))
-    .map((a) => ({ a, adv: (d.dpa_advice || {})[a.key] || {}, curve: (d.wait_curve || {})[a.key] }));
-  const order = { buy: 0, depends: 1, skip: 2, insufficient: 3 };
-  rows.sort((x, y) => (order[x.adv.verdict] ?? 9) - (order[y.adv.verdict] ?? 9)
-    || (y.adv.saved_minutes || 0) - (x.adv.saved_minutes || 0));
-
-  if (rows.every((r) => r.adv.verdict === 'insufficient')) {
-    frag.appendChild(el('div', 'alert warn',
-      `同じ混雑度の日の待ち時間がまだ${meta.min_days || 3}日分たまっていないため、買う価値の判定を出せません。`
-      + `現在${meta.days_used || 0}日分。たまり次第ここに出ます。`));
-  }
-  const card = el('div', 'card');
-  for (const { a, adv, curve } of rows) {
-    const item = el('div', 'item');
-    const head = el('div', 'badgeRow');
-    head.appendChild(parkTag(a.park));
-    const [label, kind] = VERDICT[adv.verdict] || VERDICT.insufficient;
-    head.appendChild(badge(label, kind));
-    if (adv.yen_per_minute && adv.verdict !== 'skip') head.appendChild(badge(`1分あたり約${adv.yen_per_minute}円`));
-    item.appendChild(head);
-    item.appendChild(el('div', 'name', a.name_ja));
-    const price = ((d.prices || {})[a.key] || {}).amount;
-    const meta2 = el('div', 'metaRow');
-    meta2.appendChild(el('span', null, price ? `¥${price.toLocaleString()}` : '価格不明'));
-    if (adv.band) meta2.appendChild(el('span', null, `混雑帯 ${adv.band}%`));
-    if (adv.sold_out_at) meta2.appendChild(el('span', null, `売切目安 ${adv.sold_out_at}頃`));
-    item.appendChild(meta2);
-    if (adv.reason) item.appendChild(el('div', 'note', adv.reason));
-    if (curve && Object.keys(curve).length >= 2) {
-      const sp = sparkline(curve);
-      if (sp) item.appendChild(sp);
-    }
-    card.appendChild(item);
-  }
-  frag.appendChild(card);
-  frag.appendChild(el('p', 'note',
-    `待ち時間は、来園日と同じ混雑度帯の日を${meta.min_days || 3}日以上集めた時間帯別の中央値です。`
-    + `「買わなくてよい」は${meta.late_from_hour || 15}時以降に並び直す前提の判定なので、閉園前に他を回る予定なら当てはまりません。`));
+  frag.appendChild(renderDpaAdvice(d, date));
 
   // 今日の販売状況
   const today = d.dpa_today;
@@ -746,7 +889,7 @@ async function loadJson(path) {
   if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
   return r.json();
 }
-function go(date) { currentDate = date; syncUrl(); render(); }
+function go(date) { currentDate = date; dpaHour = null; syncUrl(); render(); }
 function setPark(mode) {
   parkMode = mode;
   try { localStorage.setItem(STORE_KEY, mode); } catch (e) { /* プライベートモード等 */ }

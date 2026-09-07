@@ -75,6 +75,8 @@ ul{margin:0;padding:0;list-style:none}
   font:700 17px/1 var(--font-ui);font-variant-numeric:tabular-nums;
   padding:0 var(--sp-2);border:1.5px solid var(--line-strong);border-radius:var(--radius);
   background:var(--surface);color:var(--ink-strong);-webkit-appearance:none;text-align:center}
+/* DPAの基準時刻。日付入力と同じ見た目にしつつ、横幅は中身ぶんに留める */
+.hourSel{flex:0 0 auto;text-align:left;padding-right:var(--sp-3)}
 .seg{gap:0;background:var(--surface);border:1.5px solid var(--primary-line);
   border-radius:var(--radius);overflow:hidden;flex:1 1 auto}
 .segBtn{flex:1 1 0;min-height:var(--tap-min);font:600 14px/1 var(--font-ui);

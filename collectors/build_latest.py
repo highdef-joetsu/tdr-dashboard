@@ -5,7 +5,7 @@ from datetime import timedelta
 
 from . import common as c
 from .estimates import band_of
-from .waitcurve import advise
+from .waitcurve import advise_by_hour
 
 PARKS = ("tdl", "tds")
 
@@ -99,6 +99,24 @@ def dpa_recent(days: list[dict], crowd: dict, park_of: dict, limit: int = 7) -> 
     return out
 
 
+def park_hours(official_doc: dict | None) -> dict:
+    """パークごとの (開園時, 閉園時) を時単位で返す。取れない日は入れない。
+
+    分は捨てる。判定の粒度が時間帯（時）なので、分を持つと使わない精度が混ざる。
+    """
+    out = {}
+    for park, entry in ((official_doc or {}).get("parks") or {}).items():
+        hh = (entry or {}).get("hours") or {}
+        try:
+            open_h = int(str(hh["open"]).split(":")[0])
+            close_h = int(str(hh["close"]).split(":")[0])
+        except (KeyError, ValueError, TypeError):
+            continue
+        if close_h > open_h:
+            out[park] = (open_h, close_h)
+    return out
+
+
 def build() -> dict:
     today = c.park_date()
     st = c.settings()
@@ -151,20 +169,36 @@ def build() -> dict:
     prices = (c.read_json(c.DATA / "dpa" / "prices.json", {}) or {}).get("prices") or {}
     est = (estimates or {}).get("attractions") or {}
 
-    advice, curve_for_target = {}, {}
-    for a in attractions:
-        if not a.get("dpa"):
-            continue
-        pct = ((crowd.get("parks", {}).get(a["park"]) or {}).get(tgt) or {}).get("crowd_pct")
-        band = band_of(pct)
-        cb = ((curves.get(a["key"]) or {}).get(band)) if band else None
-        sold = ((est.get(a["key"]) or {}).get(band) or {}).get("median") if band else None
-        advice[a["key"]] = {
-            "band": band,
-            **advise(cb, (prices.get(a["key"]) or {}).get("amount"), sold),
-        }
-        if cb:
-            curve_for_target[a["key"]] = {h: v["median"] for h, v in sorted(cb.items(), key=lambda x: int(x[0]))}
+    # 判定は日付ごと・時刻ごとに作る。混雑帯は日で変わり、閉園前の枠がどこから
+    # かは開園時間で変わるので、来園日ぶんだけ作っても他の日には使えない。
+    # 「今」はブラウザにしか無いため、表を先に作って渡し、画面は行を引くだけにする。
+    # カーブは日ごとに持つ。混雑帯が日で変わるので、来園日のぶんを他の日に
+    # 出すと、判定と絵が別の日を指す。
+    advice, curve_by_date = {}, {}
+    for d in dates:
+        hours = park_hours(official.get(d))
+        per_day = {}
+        for a in attractions:
+            if not a.get("dpa"):
+                continue
+            pct = ((crowd.get("parks", {}).get(a["park"]) or {}).get(d) or {}).get("crowd_pct")
+            band = band_of(pct)
+            cb = ((curves.get(a["key"]) or {}).get(band)) if band else None
+            sold = ((est.get(a["key"]) or {}).get(band) or {}).get("median") if band else None
+            price = (prices.get(a["key"]) or {}).get("amount")
+            entry = {"band": band, "price": price, "sold_out_at": sold}
+            span = hours.get(a["park"])
+            if span:
+                entry["by_hour"] = advise_by_hour(cb, price, sold, span[0], span[1])
+            else:
+                # 開園時間が無い日は、閉園前の枠がどこからか決められない。
+                # 判定を出さず、出せない理由を持たせる。
+                entry["no_hours"] = True
+            per_day[a["key"]] = entry
+            if cb:
+                curve_by_date.setdefault(d, {})[a["key"]] = {
+                    h: v["median"] for h, v in sorted(cb.items(), key=lambda x: int(x[0]))}
+        advice[d] = {"hours": hours, "attractions": per_day}
 
     # 変更履歴（新しい順）。公開サイトが出せない「前回から何が変わったか」。
     change_log = {}
@@ -178,7 +212,7 @@ def build() -> dict:
         "live_endpoint": c.settings().get("live_endpoint"),
         "changes": change_log,
         "dpa_advice": advice,
-        "wait_curve": curve_for_target,
+        "wait_curve": curve_by_date,
         "curve_meta": {k: curves_doc.get(k) for k in ("min_days", "late_from_hour", "days_used", "generated_at")},
         "prices": prices,
         "dates": {"today": str(today), "tomorrow": tomorrow, "target": tgt},

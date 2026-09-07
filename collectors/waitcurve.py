@@ -13,7 +13,11 @@ from . import common as c
 from .estimates import BANDS, band_of
 
 MIN_DAYS = 3          # この日数そろわない時間帯は出さない
-LATE_FROM_HOUR = 15   # 「夕方に並び直す」の起点
+SKIP_MINUTES = 40     # これ以下で並べるならDPAは要らない
+BUY_MINUTES = 60      # これ以上待つならDPAを検討する
+YEN_PER_MINUTE = 40   # 1分あたりこれ以下なら割に合う
+LASTCALL_HOURS = 1    # 閉園前のこの時間は全施設で枠を取り合う
+MIN_HOURS_AHEAD = 2   # これから先がこの数の時間帯に満たないなら判定を出さない
 
 # Queue-Times は列を締め切ったあとも is_open=true のまま wait_time を 0 にする。
 # 実測（2026-09-05 TDS）: ソアリンは 19:55 に 80分 → 20:00 に 0分 へ1ステップで落ち、
@@ -106,46 +110,95 @@ def build_curves(wait_docs: list[dict], crowd: dict, attractions: list[dict]) ->
     return curves
 
 
-def advise(curve_band: dict | None, price: int | None, sold_out_at: str | None) -> dict:
-    """1施設・1混雑帯についてDPAを買う価値を計算する（純関数）。
+def advise(curve_band: dict | None, price: int | None, sold_out_at: str | None,
+           from_hour: int, close_hour: int) -> dict:
+    """ある時刻から先を見て、その施設のDPAに価値があるかを計算する（純関数）。
 
-    判定の閾値は説明可能な形で持ち、根拠になる数値も一緒に返す。
-    UI は判定だけでなく計算に使った数値も出す。
+    比べる相手は「一日で一番空く時間帯」ではなく「これから先で一番空く時間帯」。
+    過ぎた時間帯を根拠にしても、その時刻にはもう戻れない。
+
+    ここで出すのは1施設の話だけで、「今この1枠をどれに使うか」は決めない。
+    アトラクションのDPAは購入から60分（または利用開始時刻）が過ぎるまで次を
+    買えないため、選ぶのは常に1つで、それは施設を横断して比べないと決まらない。
+    横断の順位付けと、閉園前の枠の取り合いは画面側が行う。
     """
+    out: dict = {"price": price, "sold_out_at": sold_out_at}
     if not curve_band:
-        return {"verdict": "insufficient", "reason": "同じ混雑度の日のデータがまだ足りない"}
+        return {**out, "verdict": "insufficient", "reason": "同じ混雑度の日のデータがまだ足りない"}
 
     hours = {int(h): v["median"] for h, v in curve_band.items()}
-    peak_h = max(hours, key=lambda h: hours[h])
-    late = {h: m for h, m in hours.items() if h >= LATE_FROM_HOUR}
-    if not late:
-        return {"verdict": "insufficient", "reason": f"{LATE_FROM_HOUR}時以降のデータがまだ足りない"}
-    late_h = min(late, key=lambda h: late[h])
+    remaining = {h: m for h, m in hours.items() if h >= from_hour}
+    if not remaining:
+        return {**out, "verdict": "insufficient",
+                "reason": f"{from_hour}時以降のデータがまだ足りない"}
 
-    peak, late_min = hours[peak_h], late[late_h]
-    saved = peak - late_min
-    out = {
-        "peak": {"hour": peak_h, "minutes": peak},
-        "late": {"hour": late_h, "minutes": late_min},
-        "saved_minutes": saved,
-        "price": price,
-        "sold_out_at": sold_out_at,
-        "hours_covered": len(hours),
-    }
-    if price and saved > 0:
-        out["yen_per_minute"] = round(price / saved)
+    # 閉園前の1時間は全施設で枠を取り合う。ここしか残っていない施設は、
+    # 「並べば足りる」の根拠が他の施設と重なっていることを示す印を付ける。
+    lastcall_from = close_hour - LASTCALL_HOURS
+    normal = {h: m for h, m in remaining.items() if h < lastcall_from}
+    pool = normal or remaining
+    best_h = min(pool, key=lambda h: (pool[h], h))
+    best_m = pool[best_h]
+    out["best"] = {"hour": best_h, "minutes": best_m, "lastcall": not normal}
+    out["hours_covered"] = len(remaining)
+    if price and best_m > 0:
+        # DPAを買えば並ばずに済むので、浮くのは best_m まるごと。
+        out["yen_per_minute"] = round(price / best_m)
 
-    # 判定ルール（数値は上に出しているので、納得できなければ自分で読み替えられる）
-    if late_min <= 40:
+    sold_out_hour = None
+    if sold_out_at:
+        try:
+            sold_out_hour = int(sold_out_at.split(":")[0])
+        except ValueError:
+            sold_out_hour = None
+    if sold_out_hour is not None:
+        out["hours_left_to_buy"] = sold_out_hour - from_hour
+
+    if sold_out_hour is not None and sold_out_hour <= from_hour:
+        out["verdict"] = "sold_out"
+        out["reason"] = f"売切目安 {sold_out_at} を過ぎている。並ぶなら{best_h}時台が最短で約{best_m}分"
+        return out
+
+    # 「これから先で一番空く時間帯」は、先の時間帯が複数埋まって初めて言える。
+    # 1枠しか埋まっていない施設をそのまま比べると、まだ見えていない空き時間を
+    # 無視して「最短でも◯分」と大きく出てしまい、順位の先頭に来る。
+    #
+    # ただし「カーブに穴がある」と「もう時間帯が残っていない」は別物。
+    # 夜に近づけば選べる時間帯は自然に減るので、そこで黙ると使えなくなる。
+    # 埋まっている数が、そもそも選べる数より少ないときだけ穴とみなす。
+    # 売切の判定はカーブの厚みと関係なく決まるので、この前に返してある。
+    selectable = max(0, lastcall_from - from_hour)
+    if normal and len(normal) < MIN_HOURS_AHEAD <= selectable:
+        return {**out, "verdict": "insufficient",
+                "reason": f"{from_hour}時から先で埋まっている時間帯が{len(normal)}つしかない"}
+
+    if best_m <= SKIP_MINUTES:
         out["verdict"] = "skip"
-        out["reason"] = f"{late_h}時台なら並んでも約{late_min}分。買わずに後で並べば足りる"
-    elif saved >= 60 and out.get("yen_per_minute", 999) <= 40:
-        out["verdict"] = "buy"
-        out["reason"] = f"ピーク{peak}分に対し{late_h}時台でも{late_min}分。{saved}分短縮で1分あたり約{out['yen_per_minute']}円"
-    else:
-        out["verdict"] = "depends"
-        out["reason"] = f"ピーク{peak}分／{late_h}時台{late_min}分。短縮{saved}分で、価値は滞在計画次第"
+        out["reason"] = f"{best_h}時台なら約{best_m}分で並べる"
+        return out
+
+    if price and best_m >= BUY_MINUTES and out.get("yen_per_minute", 10 ** 9) <= YEN_PER_MINUTE:
+        out["verdict"] = "worth"
+        out["reason"] = (f"これから並ぶと最短でも{best_m}分（{best_h}時台）。"
+                         f"1分あたり約{out['yen_per_minute']}円")
+        return out
+
+    out["verdict"] = "depends"
+    out["reason"] = f"これから並ぶと最短{best_m}分（{best_h}時台）。短縮の価値は滞在計画次第"
     return out
+
+
+def advise_by_hour(curve_band: dict | None, price: int | None, sold_out_at: str | None,
+                   open_hour: int, close_hour: int) -> dict:
+    """開園から閉園までの各時刻について advise() を回す。
+
+    「今」はブラウザにしか無いので、判定表を先に作って渡し、画面は現在時刻の行を
+    引くだけにする。判定のロジックをJS側に写さないため。
+    """
+    drop = ("price", "sold_out_at", "hours_covered")  # 施設ごとに1つでよい値は行に持たせない
+    return {str(h): {k: v for k, v in advise(curve_band, price, sold_out_at, h, close_hour).items()
+                     if k not in drop}
+            for h in range(open_hour, close_hour + 1)}
 
 
 def collect() -> str:
@@ -156,7 +209,10 @@ def collect() -> str:
     c.write_json(c.DATA / "waits" / "curves.json", {
         "generated_at": c.iso(c.now_jst()),
         "min_days": MIN_DAYS,
-        "late_from_hour": LATE_FROM_HOUR,
+        "skip_minutes": SKIP_MINUTES,
+        "buy_minutes": BUY_MINUTES,
+        "yen_per_minute": YEN_PER_MINUTE,
+        "lastcall_hours": LASTCALL_HOURS,
         "days_used": len(wait_docs),
         "curves": curves,
     })

@@ -39,28 +39,67 @@ def test_repeated_samples_in_one_day_do_not_outweigh_other_days():
     assert c["a"]["61-80"]["12"]["median"] == 100, "1日の中の連打が日をまたぐ中央値を動かしている"
 
 
+# ---------- advise（基準時刻から先だけで判定する）----------
+OPEN, CLOSE = 9, 21
+
+
 def test_advise_needs_data():
-    assert W.advise(None, 2500, None)["verdict"] == "insufficient"
-    assert W.advise({"10": {"median": 90}}, 2500, None)["verdict"] == "insufficient"
+    assert W.advise(None, 2500, None, 9, CLOSE)["verdict"] == "insufficient"
 
 
-def test_advise_skip_when_late_wait_is_short():
+def test_advise_ignores_hours_already_past():
+    # 10時の90分は、16時に立っている人には使えない。
+    cb = {"10": {"median": 90}, "17": {"median": 100}, "18": {"median": 110}}
+    assert W.advise(cb, 2500, None, 16, CLOSE)["best"] == {
+        "hour": 17, "minutes": 100, "lastcall": False}
+    assert W.advise(cb, 2500, None, 22, CLOSE)["verdict"] == "insufficient"
+
+
+def test_advise_skip_when_a_short_wait_is_still_ahead():
     cb = {"12": {"median": 120}, "17": {"median": 30}}
-    r = W.advise(cb, 2500, None)
-    assert r["verdict"] == "skip" and r["late"]["minutes"] == 30
+    r = W.advise(cb, 2500, None, 9, CLOSE)
+    assert r["verdict"] == "skip" and r["best"]["minutes"] == 30
 
 
-def test_advise_buy_when_saving_is_large_and_cheap():
+def test_advise_worth_when_cheap_per_minute():
+    # DPAを買えば並ばずに済むので、浮くのは「これから先の最短待ち」まるごと。
     cb = {"12": {"median": 180}, "17": {"median": 100}}
-    r = W.advise(cb, 2000, None)
-    assert r["verdict"] == "buy"
-    assert r["saved_minutes"] == 80 and r["yen_per_minute"] == 25
+    r = W.advise(cb, 2000, None, 9, CLOSE)
+    assert r["verdict"] == "worth" and r["yen_per_minute"] == 20
 
 
 def test_advise_depends_when_expensive_per_minute():
     cb = {"12": {"median": 120}, "17": {"median": 60}}
-    r = W.advise(cb, 2500, None)
+    r = W.advise(cb, 2500, None, 9, CLOSE)
     assert r["verdict"] == "depends"
+
+
+def test_advise_marks_lastcall_when_only_the_closing_hour_is_left():
+    # 閉園前1時間しか残っていないなら、その根拠は他の施設と取り合いになる。
+    cb = {"12": {"median": 120}, "20": {"median": 20}}
+    r = W.advise(cb, 2500, None, 19, CLOSE)
+    assert r["verdict"] == "skip" and r["best"]["lastcall"] is True
+    # 20時より前が残っていれば取り合いではない
+    cb2 = {"17": {"median": 40}, "18": {"median": 30}, "20": {"median": 20}}
+    assert W.advise(cb2, 2500, None, 17, CLOSE)["best"] == {
+        "hour": 18, "minutes": 30, "lastcall": False}
+
+
+def test_advise_sold_out_when_the_estimate_has_passed():
+    cb = {"18": {"median": 120}, "19": {"median": 110}}
+    r = W.advise(cb, 2000, "17:40", 18, CLOSE)
+    assert r["verdict"] == "sold_out"
+    r2 = W.advise(cb, 2000, "17:40", 16, CLOSE)
+    assert r2["verdict"] == "worth" and r2["hours_left_to_buy"] == 1
+
+
+def test_advise_by_hour_covers_open_to_close_and_drops_repeated_fields():
+    table = W.advise_by_hour({"12": {"median": 120}, "15": {"median": 100}},
+                             2000, "17:40", OPEN, CLOSE)
+    assert sorted(int(h) for h in table) == list(range(OPEN, CLOSE + 1))
+    assert "price" not in table["9"] and "sold_out_at" not in table["9"]
+    assert table["9"]["verdict"] == "worth"
+    assert table["16"]["verdict"] == "insufficient", "過ぎた時間帯だけなら判定は出さない"
 
 
 # ---------- 案内終了（Queue-Times が 0 を返し続ける区間）を落とす ----------
@@ -117,3 +156,27 @@ def test_close_zeros_do_not_become_the_quietest_hour():
     curves = W.build_curves(docs, crowd, ATTRS)
     assert "20" not in curves["a"]["61-80"], "案内終了の0が時間帯として残っている"
     assert curves["a"]["61-80"]["19"]["median"] == 90
+
+
+def test_advise_needs_more_than_one_hour_ahead():
+    # 先の時間帯が1つしか埋まっていない施設は、まだ見えていない空き時間を
+    # 無視して「最短でも◯分」と大きく出るため、順位に混ぜない。
+    cb = {"9": {"median": 140}}
+    assert W.advise(cb, 2500, None, 9, CLOSE)["verdict"] == "insufficient"
+    cb2 = {"9": {"median": 140}, "12": {"median": 100}}
+    assert W.advise(cb2, 2500, None, 9, CLOSE)["verdict"] == "worth"
+
+
+def test_late_hour_with_few_slots_left_still_gets_a_verdict():
+    # 19時で閉園21時なら、閉園前枠を除くと選べるのは19時だけ。
+    # データの穴ではなく本当に選択肢が1つなので、黙らずに判定する。
+    cb = {"10": {"median": 140}, "19": {"median": 90}, "20": {"median": 20}}
+    r = W.advise(cb, 1500, None, 19, CLOSE)
+    assert r["verdict"] == "worth" and r["best"] == {"hour": 19, "minutes": 90, "lastcall": False}
+
+
+def test_lastcall_slot_still_gets_a_verdict():
+    # 閉園前の枠しか残っていないなら、選べる時間帯が本当に1つなので判定する。
+    cb = {"9": {"median": 140}, "20": {"median": 10}}
+    r = W.advise(cb, 2500, None, 20, CLOSE)
+    assert r["verdict"] == "skip" and r["best"]["lastcall"] is True
