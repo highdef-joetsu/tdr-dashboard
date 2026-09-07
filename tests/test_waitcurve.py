@@ -90,7 +90,15 @@ def test_advise_sold_out_when_the_estimate_has_passed():
     r = W.advise(cb, 2000, "17:40", 18, CLOSE)
     assert r["verdict"] == "sold_out"
     r2 = W.advise(cb, 2000, "17:40", 16, CLOSE)
-    assert r2["verdict"] == "worth" and r2["hours_left_to_buy"] == 1
+    assert r2["verdict"] == "worth" and r2["minutes_left_to_buy"] == 100
+
+
+def test_sold_out_estimate_is_compared_in_minutes():
+    # 09:40 売切の施設を、9時に立っている人へ「もう売切」と言わない。
+    cb = {"9": {"median": 140}, "12": {"median": 100}}
+    r = W.advise(cb, 2500, "09:40", 9, CLOSE)
+    assert r["verdict"] == "worth" and r["minutes_left_to_buy"] == 40
+    assert W.advise(cb, 2500, "09:40", 10, CLOSE)["verdict"] == "sold_out"
 
 
 def test_advise_by_hour_covers_open_to_close_and_drops_repeated_fields():

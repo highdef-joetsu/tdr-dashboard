@@ -9,6 +9,19 @@ BANDS = [("0-30", 0, 30), ("31-60", 31, 60), ("61-80", 61, 80), ("81-100", 81, 1
 MIN_SAMPLES = 3
 
 
+def band_pct(entry: dict | None) -> int | None:
+    """帯の判定に使う混雑度。予想値を優先する。
+
+    Queue-Times は過去日の混雑度を実績値で上書きするが、来園日には実績が無い。
+    蓄積側を実績・来園日を予想で突き合わせると別の物差しを比べることになるので、
+    どちらも「初めて見た値＝予想」で揃える。正本は crowd_calendar.keep_forecast。
+    """
+    if not entry:
+        return None
+    pct = entry.get("forecast_pct")
+    return pct if pct is not None else entry.get("crowd_pct")
+
+
 def band_of(pct: int | None) -> str | None:
     if pct is None:
         return None
@@ -58,7 +71,7 @@ def compute(days: list[dict], crowd: dict, attractions: list[dict]) -> dict:
             if not ts:
                 continue
             park = park_of.get(key)
-            pct = ((crowd.get("parks", {}).get(park) or {}).get(date) or {}).get("crowd_pct")
+            pct = band_pct((crowd.get("parks", {}).get(park) or {}).get(date))
             band = band_of(pct)
             if not band:
                 continue

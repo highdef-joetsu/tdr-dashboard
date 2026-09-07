@@ -18,7 +18,7 @@ const VERDICT = {
 // 次を買えない（公式FAQ）。だから同じ時刻に推せるのは常に1つで、選ぶには施設を
 // 横断して比べる必要がある。この横断だけは画面側の仕事。
 const DPA_REBUY_MINUTES = 60;
-const SOON_HOURS = 1;   // 売切目安までこれ以下なら「先に取る」側に回す
+const SOON_MINUTES = 90;   // 売切目安までこれ以下なら「先に取る」側に回す
 const CHANGE_JA = {
   published: 'スケジュール掲載', hours: '開園時間', ticket: 'チケット価格',
   ticket_status: 'チケット販売状況', show_added: 'ショー追加', show_removed: 'ショー削除',
@@ -678,7 +678,7 @@ function dpaRanking(d, date) {
   }
 
   // 買えるのは60分に1つ。売切目安が近いものを先に取り、同条件なら1分あたりが安い順。
-  const soon = (x) => (x.r.hours_left_to_buy != null && x.r.hours_left_to_buy <= SOON_HOURS ? 0 : 1);
+  const soon = (x) => (x.r.minutes_left_to_buy != null && x.r.minutes_left_to_buy <= SOON_MINUTES ? 0 : 1);
   const worth = rows.filter((x) => x.verdict === 'worth');
   worth.sort((x, y) => soon(x) - soon(y)
     || (x.r.yen_per_minute || 1e9) - (y.r.yen_per_minute || 1e9));
@@ -741,8 +741,10 @@ function renderDpaAdvice(d, date) {
     if (pick.e.sold_out_at) m.appendChild(el('span', null, `売切目安 ${pick.e.sold_out_at}頃`));
     body.appendChild(m);
     body.appendChild(el('div', 'note', pick.r.reason));
+    const left = pick.r.minutes_left_to_buy;
     body.appendChild(el('div', 'note', rk.pickedForSoon
-      ? `売切目安が近いので、この時間帯ではこれを先に取る（残り約${pick.r.hours_left_to_buy}時間）。`
+      ? `売切目安が近いので、この時間帯ではこれを先に取る（残り約${
+        left >= 60 ? `${Math.floor(left / 60)}時間${left % 60 ? `${left % 60}分` : ''}` : `${left}分`}）。`
       : '買う価値があるもののうち、1分あたりが一番安い。'));
     body.appendChild(el('div', 'note',
       `次に買えるのは ${Math.min(span[1], base + 1)}時以降。アトラクションのDPAは購入から`

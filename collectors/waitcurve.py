@@ -10,7 +10,7 @@ import statistics
 from datetime import datetime
 
 from . import common as c
-from .estimates import BANDS, band_of
+from .estimates import BANDS, band_of, band_pct
 
 MIN_DAYS = 3          # この日数そろわない時間帯は出さない
 SKIP_MINUTES = 40     # これ以下で並べるならDPAは要らない
@@ -82,7 +82,7 @@ def build_curves(wait_docs: list[dict], crowd: dict, attractions: list[dict]) ->
     for doc in wait_docs:
         date = doc.get("date")
         for park, p in (doc.get("parks") or {}).items():
-            pct = ((crowd.get("parks", {}).get(park) or {}).get(date) or {}).get("crowd_pct")
+            pct = band_pct((crowd.get("parks", {}).get(park) or {}).get(date))
             band = band_of(pct)
             if not band:
                 continue
@@ -145,16 +145,19 @@ def advise(curve_band: dict | None, price: int | None, sold_out_at: str | None,
         # DPAを買えば並ばずに済むので、浮くのは best_m まるごと。
         out["yen_per_minute"] = round(price / best_m)
 
-    sold_out_hour = None
+    # 売切目安は分まで持っている。時に丸めると 09:40 が「9時」になり、9時台に
+    # 立っている人に「もう売切」と言ってしまう（実測: フローズンジャーニー 09:40）。
+    left = None
     if sold_out_at:
         try:
-            sold_out_hour = int(sold_out_at.split(":")[0])
+            hh, mm = (int(x) for x in sold_out_at.split(":"))
+            left = hh * 60 + mm - from_hour * 60
         except ValueError:
-            sold_out_hour = None
-    if sold_out_hour is not None:
-        out["hours_left_to_buy"] = sold_out_hour - from_hour
+            left = None
+    if left is not None:
+        out["minutes_left_to_buy"] = left
 
-    if sold_out_hour is not None and sold_out_hour <= from_hour:
+    if left is not None and left <= 0:
         out["verdict"] = "sold_out"
         out["reason"] = f"売切目安 {sold_out_at} を過ぎている。並ぶなら{best_h}時台が最短で約{best_m}分"
         return out

@@ -4,7 +4,7 @@ from __future__ import annotations
 from datetime import timedelta
 
 from . import common as c
-from .estimates import band_of
+from .estimates import band_of, band_pct
 from .waitcurve import advise_by_hour
 
 PARKS = ("tdl", "tds")
@@ -181,7 +181,7 @@ def build() -> dict:
         for a in attractions:
             if not a.get("dpa"):
                 continue
-            pct = ((crowd.get("parks", {}).get(a["park"]) or {}).get(d) or {}).get("crowd_pct")
+            pct = band_pct((crowd.get("parks", {}).get(a["park"]) or {}).get(d))
             band = band_of(pct)
             cb = ((curves.get(a["key"]) or {}).get(band)) if band else None
             sold = ((est.get(a["key"]) or {}).get(band) or {}).get("median") if band else None
