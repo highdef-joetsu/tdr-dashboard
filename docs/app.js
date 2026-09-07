@@ -268,9 +268,11 @@ function renderControls() {
     b.onclick = () => setPark(val);
     seg.appendChild(b);
   }
+  const today = el('button', 'ctlBtn', '今日');
+  today.onclick = () => go(data.dates.today);
   const t = el('button', 'ctlBtn', '来園日');
   t.onclick = () => go(data.dates.target);
-  r2.append(seg, t);
+  r2.append(seg, today, t);
   box.append(r1, r2);
   return box;
 }
@@ -752,9 +754,10 @@ function setPark(mode) {
 }
 function syncUrl() {
   const u = new URLSearchParams();
-  u.set('date', currentDate);
+  if (currentDate !== data.dates.today) u.set('date', currentDate);
   if (parkMode !== 'both') u.set('park', parkMode);
-  history.replaceState(null, '', '?' + u.toString());
+  const qs = u.toString();
+  history.replaceState(null, '', qs ? '?' + qs : location.pathname);
 }
 
 async function render() {
@@ -808,7 +811,11 @@ async function main() {
   const fromUrl = q('park');
   const valid = [...PARK_KEYS, 'both'];
   parkMode = valid.includes(fromUrl) ? fromUrl : (valid.includes(stored) ? stored : 'both');
-  currentDate = /^\d{4}-\d{2}-\d{2}$/.test(q('date') || '') ? q('date') : data.dates.target;
+  // 既定は今日。?date= に過去日が残っていても今日で開く。
+  // syncUrl が毎回 ?date= を書き戻すため、一度開いた日がブックマークやタブ復元に
+  // 貼り付き、翌日以降もその日で開いてしまっていた。
+  const wanted = /^\d{4}-\d{2}-\d{2}$/.test(q('date') || '') ? q('date') : null;
+  currentDate = wanted && wanted >= data.dates.today ? wanted : data.dates.today;
   live = await loadLive(data);
   syncUrl();
   await render();
