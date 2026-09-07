@@ -390,7 +390,10 @@ function renderFreshness(d, official) {
   // 各行に「この間隔までは正常」を持たせ、それを超えたときだけ鳴らす。
   const rows = [
     ['最新値（Worker）', live ? live.at : null, 30],
-    ['公式サイト', (official || {}).fetched_at, 20 * 60],
+    // 公式サイトの行は「この日のデータ」ではなく「収集そのもの」の鮮度を見る。
+    // 取得対象は今日・明日・来園日の3日だけで、それ以外の日は official が null に
+    // なる。日付側を見ると、収集が成功していても「公式サイトが古い」と鳴る。
+    ['公式サイト', ((d.health || {}).official || {}).last_success_at, 20 * 60],
     ['待ち時間', d.waits_fetched_at, 60],
     ['DPA', (d.dpa_today || {}).last_polled_at, 60],
     ['混雑カレンダー', d.crowd_fetched_at, 36 * 60],
@@ -434,13 +437,16 @@ function renderFreshness(d, official) {
 // ---------- 変更 ----------
 const fmtVal = (v) => (Array.isArray(v) ? (v.length ? v.join(' / ') : '（なし）') : (v == null ? '—' : String(v)));
 
-function renderChanges(d, date) {
+function renderChanges(d, date, fetched) {
   const rows = ((d.changes || {})[date] || []).filter((r) => activeKeys().includes(r.park));
   const frag = document.createDocumentFragment();
   frag.appendChild(el('h2', null, 'この日の変更'));
   if (!rows.length) {
-    frag.appendChild(el('p', 'note',
-      '前回の取得から変更はありません。公式サイトは現在の状態しか出さないので、ここは蓄積した過去との差分です。'));
+    // 差分が空である理由は2つある。「取得したが変わっていない」と
+    // 「そもそも取得していない」で、後者を「変更なし」と書くと嘘になる。
+    frag.appendChild(el('p', 'note', fetched
+      ? '前回の取得から変更はありません。公式サイトは現在の状態しか出さないので、ここは蓄積した過去との差分です。'
+      : 'この日は公式サイトを取得していないので、差分がありません。取得するのは今日・明日・来園予定日の3日分です。'));
     return frag;
   }
   const card = el('div', 'card');
@@ -771,7 +777,7 @@ async function render() {
   if (kp) app.appendChild(kp);
   app.appendChild(renderParkStat(d, currentDate, official));
   app.appendChild(renderFreshness(d, official));
-  app.appendChild(renderChanges(d, currentDate));
+  app.appendChild(renderChanges(d, currentDate, Boolean(official)));
   app.appendChild(renderShows(official, currentDate));
   app.appendChild(renderClosures(closures, currentDate, scheduleOnly));
   app.appendChild(renderDpa(d, currentDate));
