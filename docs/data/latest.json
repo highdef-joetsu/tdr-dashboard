@@ -2302,7 +2302,7 @@
   "crowd_fetched_at": "2026-09-07T07:09:22+09:00",
   "curve_meta": {
     "days_used": 5,
-    "generated_at": "2026-09-07T20:21:01+09:00",
+    "generated_at": "2026-09-07T20:40:54+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2717,12 +2717,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 20
+                "minutes": 18
               },
               "minutes_left_to_buy": -115,
-              "reason": "売切目安 18:05 を過ぎている。並ぶなら20時台が最短で約20分",
+              "reason": "売切目安 18:05 を過ぎている。並ぶなら20時台が最短で約18分",
               "verdict": "sold_out",
-              "yen_per_minute": 75
+              "yen_per_minute": 83
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -3575,12 +3575,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 12
+                "minutes": 10
               },
               "minutes_left_to_buy": -58,
-              "reason": "売切目安 19:02 を過ぎている。並ぶなら20時台が最短で約12分",
+              "reason": "売切目安 19:02 を過ぎている。並ぶなら20時台が最短で約10分",
               "verdict": "sold_out",
-              "yen_per_minute": 125
+              "yen_per_minute": 150
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -4154,12 +4154,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 48
+                "minutes": 45
               },
               "minutes_left_to_buy": -48,
-              "reason": "売切目安 19:12 を過ぎている。並ぶなら20時台が最短で約48分",
+              "reason": "売切目安 19:12 を過ぎている。並ぶなら20時台が最短で約45分",
               "verdict": "sold_out",
-              "yen_per_minute": 31
+              "yen_per_minute": 33
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -4740,12 +4740,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 20
+                "minutes": 18
               },
               "minutes_left_to_buy": -115,
-              "reason": "売切目安 18:05 を過ぎている。並ぶなら20時台が最短で約20分",
+              "reason": "売切目安 18:05 を過ぎている。並ぶなら20時台が最短で約18分",
               "verdict": "sold_out",
-              "yen_per_minute": 75
+              "yen_per_minute": 83
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -6522,12 +6522,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 12
+                "minutes": 10
               },
               "minutes_left_to_buy": -58,
-              "reason": "売切目安 19:02 を過ぎている。並ぶなら20時台が最短で約12分",
+              "reason": "売切目安 19:02 を過ぎている。並ぶなら20時台が最短で約10分",
               "verdict": "sold_out",
-              "yen_per_minute": 125
+              "yen_per_minute": 150
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -7017,12 +7017,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 48
+                "minutes": 45
               },
               "minutes_left_to_buy": -48,
-              "reason": "売切目安 19:12 を過ぎている。並ぶなら20時台が最短で約48分",
+              "reason": "売切目安 19:12 を過ぎている。並ぶなら20時台が最短で約45分",
               "verdict": "sold_out",
-              "yen_per_minute": 31
+              "yen_per_minute": 33
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -7510,7 +7510,7 @@
         }
       }
     },
-    "generated_at": "2026-09-07T20:21:01+09:00",
+    "generated_at": "2026-09-07T20:40:55+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -8135,16 +8135,16 @@
         "open": "2026-09-07T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-07T20:20:48+09:00",
+    "last_polled_at": "2026-09-07T20:40:39+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-07T20:21:02+09:00",
+  "generated_at": "2026-09-07T20:40:55+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-17",
-      "last_run_at": "2026-09-07T20:01:09+09:00",
-      "last_success_at": "2026-09-07T20:01:09+09:00"
+      "last_run_at": "2026-09-07T20:21:02+09:00",
+      "last_success_at": "2026-09-07T20:21:02+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -8161,15 +8161,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数5 observed帯14",
-      "last_run_at": "2026-09-07T20:21:01+09:00",
-      "last_success_at": "2026-09-07T20:21:01+09:00"
+      "last_run_at": "2026-09-07T20:40:55+09:00",
+      "last_success_at": "2026-09-07T20:40:55+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-07 待ち298件 DPA149件 から再構成",
+      "last_detail": "2026-09-07 待ち306件 DPA153件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-07T20:21:01+09:00",
-      "last_success_at": "2026-09-07T20:21:01+09:00"
+      "last_run_at": "2026-09-07T20:40:54+09:00",
+      "last_success_at": "2026-09-07T20:40:54+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -8186,8 +8186,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "5日分から 14施設 / 時間帯167枠",
-      "last_run_at": "2026-09-07T20:21:01+09:00",
-      "last_success_at": "2026-09-07T20:21:01+09:00"
+      "last_run_at": "2026-09-07T20:40:54+09:00",
+      "last_success_at": "2026-09-07T20:40:54+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -9244,7 +9244,7 @@
         "17": 25,
         "18": 20,
         "19": 22,
-        "20": 20,
+        "20": 18,
         "9": 42
       },
       "center_of_the_earth": {
@@ -9328,7 +9328,7 @@
         "17": 38,
         "18": 30,
         "19": 25,
-        "20": 12,
+        "20": 10,
         "9": 9
       },
       "rapunzel_lantern": {
@@ -9385,7 +9385,7 @@
         "17": 68,
         "18": 62,
         "19": 60,
-        "20": 48,
+        "20": 45,
         "9": 50
       },
       "toy_story_mania": {
@@ -9441,7 +9441,7 @@
         "17": 25,
         "18": 20,
         "19": 22,
-        "20": 20,
+        "20": 18,
         "9": 42
       },
       "monsters_inc": {
@@ -9541,7 +9541,7 @@
         "17": 38,
         "18": 30,
         "19": 25,
-        "20": 12,
+        "20": 10,
         "9": 9
       },
       "rapunzel_lantern": {
@@ -9584,7 +9584,7 @@
         "17": 68,
         "18": 62,
         "19": 60,
-        "20": 48,
+        "20": 45,
         "9": 50
       },
       "toy_story_mania": {
@@ -9630,17 +9630,17 @@
         }
       },
       "last": {
-        "at": "2026-09-07T20:20:48+09:00",
+        "at": "2026-09-07T20:40:39+09:00",
         "closed": [
           "haunted_mansion"
         ],
         "waits": {
           "baymax": 45,
-          "beauty_and_the_beast": 25,
+          "beauty_and_the_beast": 20,
           "big_thunder": 20,
-          "monsters_inc": 20,
+          "monsters_inc": 10,
           "pooh": 8,
-          "splash_mountain": 30
+          "splash_mountain": 20
         }
       }
     },
@@ -9680,22 +9680,22 @@
         }
       },
       "last": {
-        "at": "2026-09-07T20:20:48+09:00",
+        "at": "2026-09-07T20:40:39+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
-          "center_of_the_earth": 30,
-          "frozen_journey": 35,
+          "center_of_the_earth": 25,
+          "frozen_journey": 20,
           "peter_pan": 5,
           "raging_spirits": 5,
           "rapunzel_lantern": 5,
-          "soaring": 50,
-          "tower_of_terror": 40,
+          "soaring": 30,
+          "tower_of_terror": 30,
           "toy_story_mania": 40
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-07T20:20:48+09:00"
+  "waits_fetched_at": "2026-09-07T20:40:39+09:00"
 }
