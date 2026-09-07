@@ -490,8 +490,11 @@ function renderShows(official, date) {
     head.appendChild(el('h3', null, name));
     card.appendChild(head);
     if (!shows.length) {
-      card.appendChild(el('div', 'cardBody')).appendChild(
-        el('p', 'note', entry.note === 'not_published' ? '未掲載' : '公演の掲載がありません。'));
+      // 公演が無いのか、そのパークのページを取れなかったのかを混ぜない。
+      const why = entry.note === 'not_published' ? '未掲載'
+        : entry.note === 'fetch_failed' ? 'このパークの公式ページを取得できていません。掲載が無いのではなく、取れていません。'
+          : '公演の掲載がありません。';
+      card.appendChild(el('div', 'cardBody')).appendChild(el('p', 'note', why));
     }
     for (const s of shows) {
       const item = el('div', 'item');
@@ -530,7 +533,7 @@ function renderShows(official, date) {
 }
 
 // ---------- 休止 ----------
-function renderClosures(closures, date, scheduleOnly) {
+function renderClosures(closures, date, scheduleOnly, official) {
   const frag = document.createDocumentFragment();
   frag.appendChild(el('h2', null, '休止情報'));
   if (!closures) {
@@ -549,7 +552,14 @@ function renderClosures(closures, date, scheduleOnly) {
     head.appendChild(parkTag(pk));
     head.appendChild(el('h3', null, `${name}　${total}件`));
     card.appendChild(head);
-    if (!total) card.appendChild(el('div', 'cardBody')).appendChild(el('p', 'note', '来園日に効く休止はありません'));
+    // 取得できなかったパークは「当日限りの休止」が丸ごと落ちる。件数0を
+    // 「休止なし」と読ませると、休止中の施設を目当てに行くことになる。
+    if ((((official || {}).parks || {})[pk] || {}).note === 'fetch_failed') {
+      card.appendChild(el('div', 'cardBody')).appendChild(el('p', 'note',
+        'このパークの公式ページを取得できていないので、当日限りの休止は含まれていません。下は期間が決まっている長期休止だけです。'));
+    } else if (!total) {
+      card.appendChild(el('div', 'cardBody')).appendChild(el('p', 'note', '来園日に効く休止はありません'));
+    }
     for (const key of Object.keys(CAT_JA)) {
       const items = live[key] || [];
       if (!items.length) continue;
@@ -779,7 +789,7 @@ async function render() {
   app.appendChild(renderFreshness(d, official));
   app.appendChild(renderChanges(d, currentDate, Boolean(official)));
   app.appendChild(renderShows(official, currentDate));
-  app.appendChild(renderClosures(closures, currentDate, scheduleOnly));
+  app.appendChild(renderClosures(closures, currentDate, scheduleOnly, official));
   app.appendChild(renderDpa(d, currentDate));
   app.appendChild(renderWaits(d));
   window.scrollTo(0, 0);
