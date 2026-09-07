@@ -2,19 +2,41 @@
   "date": "2026-09-07",
   "parks": {
     "tdl": {
-      "daily_max": {},
+      "daily_max": {
+        "baymax": {
+          "at": "2026-09-07T09:20:31+09:00",
+          "minutes": 50
+        },
+        "beauty_and_the_beast": {
+          "at": "2026-09-07T09:20:31+09:00",
+          "minutes": 80
+        },
+        "monsters_inc": {
+          "at": "2026-09-07T09:20:31+09:00",
+          "minutes": 20
+        },
+        "pooh": {
+          "at": "2026-09-07T09:10:35+09:00",
+          "minutes": 8
+        },
+        "splash_mountain": {
+          "at": "2026-09-07T09:20:31+09:00",
+          "minutes": 15
+        }
+      },
       "last": {
-        "at": "2026-09-07T09:00:38+09:00",
+        "at": "2026-09-07T09:20:31+09:00",
         "closed": [
-          "baymax",
-          "beauty_and_the_beast",
           "big_thunder",
-          "haunted_mansion",
-          "monsters_inc",
-          "pooh",
-          "splash_mountain"
+          "haunted_mansion"
         ],
-        "waits": {}
+        "waits": {
+          "baymax": 50,
+          "beauty_and_the_beast": 80,
+          "monsters_inc": 20,
+          "pooh": 8,
+          "splash_mountain": 15
+        }
       },
       "samples": [
         {
@@ -185,6 +207,61 @@
             "splash_mountain"
           ],
           "waits": {}
+        },
+        {
+          "at": "2026-09-07T09:05:24+09:00",
+          "closed": [
+            "baymax",
+            "beauty_and_the_beast",
+            "big_thunder",
+            "haunted_mansion",
+            "monsters_inc",
+            "pooh",
+            "splash_mountain"
+          ],
+          "waits": {}
+        },
+        {
+          "at": "2026-09-07T09:10:35+09:00",
+          "closed": [
+            "big_thunder",
+            "haunted_mansion"
+          ],
+          "waits": {
+            "baymax": 30,
+            "beauty_and_the_beast": 40,
+            "monsters_inc": 10,
+            "pooh": 8,
+            "splash_mountain": 10
+          }
+        },
+        {
+          "at": "2026-09-07T09:15:24+09:00",
+          "closed": [
+            "big_thunder",
+            "haunted_mansion"
+          ],
+          "waits": {
+            "baymax": 40,
+            "beauty_and_the_beast": 60,
+            "monsters_inc": 15,
+            "pooh": 8,
+            "splash_mountain": 10
+          }
+        },
+        {
+          "at": "2026-09-07T09:20:31+09:00",
+          "closed": [
+            "big_thunder",
+            "haunted_mansion"
+          ],
+          "waits": {
+            "baymax": 50,
+            "beauty_and_the_beast": 80,
+            "monsters_inc": 20,
+            "pooh": 8,
+            "splash_mountain": 15
+          }
         }
       ],
       "unmapped": [
@@ -221,21 +298,47 @@
       ]
     },
     "tds": {
-      "daily_max": {},
+      "daily_max": {
+        "frozen_journey": {
+          "at": "2026-09-07T09:20:31+09:00",
+          "minutes": 160
+        },
+        "peter_pan": {
+          "at": "2026-09-07T09:05:24+09:00",
+          "minutes": 10
+        },
+        "raging_spirits": {
+          "at": "2026-09-07T09:15:24+09:00",
+          "minutes": 10
+        },
+        "soaring": {
+          "at": "2026-09-07T09:15:24+09:00",
+          "minutes": 100
+        },
+        "tower_of_terror": {
+          "at": "2026-09-07T09:15:24+09:00",
+          "minutes": 30
+        },
+        "toy_story_mania": {
+          "at": "2026-09-07T09:20:31+09:00",
+          "minutes": 90
+        }
+      },
       "last": {
-        "at": "2026-09-07T09:00:38+09:00",
+        "at": "2026-09-07T09:20:31+09:00",
         "closed": [
           "center_of_the_earth",
-          "frozen_journey",
           "indiana_jones",
-          "peter_pan",
-          "raging_spirits",
-          "rapunzel_lantern",
-          "soaring",
-          "tower_of_terror",
-          "toy_story_mania"
+          "rapunzel_lantern"
         ],
-        "waits": {}
+        "waits": {
+          "frozen_journey": 160,
+          "peter_pan": 10,
+          "raging_spirits": 10,
+          "soaring": 100,
+          "tower_of_terror": 30,
+          "toy_story_mania": 90
+        }
       },
       "samples": [
         {
@@ -432,6 +535,70 @@
             "toy_story_mania"
           ],
           "waits": {}
+        },
+        {
+          "at": "2026-09-07T09:05:24+09:00",
+          "closed": [
+            "center_of_the_earth",
+            "indiana_jones",
+            "raging_spirits",
+            "rapunzel_lantern",
+            "tower_of_terror"
+          ],
+          "waits": {
+            "frozen_journey": 80,
+            "peter_pan": 10,
+            "soaring": 80,
+            "toy_story_mania": 60
+          }
+        },
+        {
+          "at": "2026-09-07T09:10:35+09:00",
+          "closed": [
+            "center_of_the_earth",
+            "indiana_jones",
+            "rapunzel_lantern"
+          ],
+          "waits": {
+            "frozen_journey": 100,
+            "peter_pan": 5,
+            "raging_spirits": 5,
+            "soaring": 90,
+            "tower_of_terror": 20,
+            "toy_story_mania": 70
+          }
+        },
+        {
+          "at": "2026-09-07T09:15:24+09:00",
+          "closed": [
+            "center_of_the_earth",
+            "indiana_jones",
+            "rapunzel_lantern"
+          ],
+          "waits": {
+            "frozen_journey": 140,
+            "peter_pan": 10,
+            "raging_spirits": 10,
+            "soaring": 100,
+            "tower_of_terror": 30,
+            "toy_story_mania": 80
+          }
+        },
+        {
+          "at": "2026-09-07T09:20:31+09:00",
+          "closed": [
+            "center_of_the_earth",
+            "indiana_jones",
+            "rapunzel_lantern"
+          ],
+          "waits": {
+            "frozen_journey": 160,
+            "peter_pan": 10,
+            "raging_spirits": 10,
+            "soaring": 100,
+            "tower_of_terror": 30,
+            "toy_story_mania": 90
+          }
         }
       ],
       "unmapped": [
