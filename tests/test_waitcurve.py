@@ -61,3 +61,59 @@ def test_advise_depends_when_expensive_per_minute():
     cb = {"12": {"median": 120}, "17": {"median": 60}}
     r = W.advise(cb, 2500, None)
     assert r["verdict"] == "depends"
+
+
+# ---------- 案内終了（Queue-Times が 0 を返し続ける区間）を落とす ----------
+def _s(t, v):
+    return {"at": f"2026-08-10T{t}:00+09:00", "waits": {"a": v}}
+
+
+def test_queue_close_zeros_are_dropped():
+    # 80分 → 0 に落ちて 0 が続く。これは「空いた」ではなく「締め切った」。
+    kept = W.drop_after_queue_close([_s("19:55", 80), _s("20:00", 0), _s("20:30", 0)])
+    assert [s["waits"].get("a") for s in kept] == [80, None, None]
+
+
+def test_single_zero_is_not_treated_as_close():
+    # 0 が1回だけならノイズとみなして残す（締め切りは戻らない）。
+    kept = W.drop_after_queue_close([_s("19:55", 80), _s("20:00", 0), _s("20:30", 40)])
+    assert [s["waits"].get("a") for s in kept] == [80, 0, 40]
+
+
+def test_morning_zero_is_kept():
+    # 直前に待ちが無い朝一の 0 は本物。
+    kept = W.drop_after_queue_close([_s("09:00", 0), _s("09:05", 0), _s("10:00", 30)])
+    assert [s["waits"].get("a") for s in kept] == [0, 0, 30]
+
+
+def test_zero_after_a_short_wait_is_kept():
+    # もともと5分しか待っていない施設が 0 になるのは、締め切りではなく本当に空。
+    kept = W.drop_after_queue_close([_s("19:55", 5), _s("20:00", 0), _s("20:30", 0)])
+    assert [s["waits"].get("a") for s in kept] == [5, 0, 0]
+
+
+def test_close_is_per_attraction():
+    # 施設ごとに締め切る時刻が違う（実データで 20:00 / 20:40 が同居する）。
+    samples = [
+        {"at": "2026-08-10T19:55:00+09:00", "waits": {"a": 80, "b": 50}},
+        {"at": "2026-08-10T20:00:00+09:00", "waits": {"a": 0, "b": 50}},
+        {"at": "2026-08-10T20:30:00+09:00", "waits": {"a": 0, "b": 40}},
+        {"at": "2026-08-10T20:40:00+09:00", "waits": {"a": 0, "b": 0}},
+        {"at": "2026-08-10T20:50:00+09:00", "waits": {"a": 0, "b": 0}},
+    ]
+    kept = W.drop_after_queue_close(samples)
+    assert [s["waits"].get("a") for s in kept] == [80, None, None, None, None]
+    assert [s["waits"].get("b") for s in kept] == [50, 50, 40, None, None]
+
+
+def test_close_zeros_do_not_become_the_quietest_hour():
+    # 集計まで通したとき、締め切りの 0 が「一番空く時間帯」にならないこと。
+    crowd = {"parks": {"tds": {f"2026-08-{d:02d}": {"crowd_pct": 70} for d in range(10, 13)}}}
+    docs = [{"date": f"2026-08-{d:02d}", "parks": {"tds": {"samples": [
+        {"at": f"2026-08-{d:02d}T19:00:00+09:00", "waits": {"a": 90}},
+        {"at": f"2026-08-{d:02d}T20:00:00+09:00", "waits": {"a": 0}},
+        {"at": f"2026-08-{d:02d}T20:30:00+09:00", "waits": {"a": 0}},
+    ]}}} for d in range(10, 13)]
+    curves = W.build_curves(docs, crowd, ATTRS)
+    assert "20" not in curves["a"]["61-80"], "案内終了の0が時間帯として残っている"
+    assert curves["a"]["61-80"]["19"]["median"] == 90

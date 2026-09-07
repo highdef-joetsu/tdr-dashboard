@@ -15,9 +15,58 @@ from .estimates import BANDS, band_of
 MIN_DAYS = 3          # この日数そろわない時間帯は出さない
 LATE_FROM_HOUR = 15   # 「夕方に並び直す」の起点
 
+# Queue-Times は列を締め切ったあとも is_open=true のまま wait_time を 0 にする。
+# 実測（2026-09-05 TDS）: ソアリンは 19:55 に 80分 → 20:00 に 0分 へ1ステップで落ち、
+# is_open が false になったのは 21:05（閉園後）だった。この 0 は「待たずに乗れる」
+# ではなく「もう並べない」を意味する。集計に入れると、案内終了の時刻がその施設の
+# 「一番空く時間帯」として採用され、DPAの判定が全施設 skip に倒れる。
+CLOSED_DROP_FROM = 15   # 直前がこれ以上あって 0 に落ちたら案内終了とみなす
+CLOSED_ZERO_RUN = 2     # その 0 がこの回数以上続いたら確定（単発のノイズは拾わない）
+
 
 def _hour(iso_ts: str) -> int:
     return datetime.fromisoformat(iso_ts).astimezone(c.JST).hour
+
+
+def drop_after_queue_close(samples: list[dict]) -> list[dict]:
+    """施設ごとに「案内終了以降の 0」を落とす（純関数）。
+
+    朝一番の本物の 0（直前に有効値が無い）は残す。落とすのは、まとまった待ちが
+    あった施設が 0 に落ち、そのまま 0 が続いた場合だけ。判断は施設ごとに独立で、
+    締め切る時刻が施設によって違う実態（同日 20:00 / 20:40 / 20:45）に合わせる。
+    """
+    series: dict[str, list[int]] = {}
+    for i, s in enumerate(samples):
+        for key, minutes in (s.get("waits") or {}).items():
+            if minutes is not None:
+                series.setdefault(key, []).append(i)
+
+    cut: dict[str, int] = {}
+    for key, idxs in series.items():
+        last_positive = None
+        for n, i in enumerate(idxs):
+            minutes = samples[i]["waits"][key]
+            if minutes > 0:
+                last_positive = minutes
+                continue
+            if last_positive is None or last_positive < CLOSED_DROP_FROM:
+                continue
+            run = 0
+            for j in idxs[n:]:
+                if samples[j]["waits"][key] != 0:
+                    break
+                run += 1
+            if run >= CLOSED_ZERO_RUN:
+                cut[key] = i
+                break
+
+    if not cut:
+        return samples
+    out = []
+    for i, s in enumerate(samples):
+        waits = {k: v for k, v in (s.get("waits") or {}).items() if i < cut.get(k, 1 << 30)}
+        out.append({**s, "waits": waits})
+    return out
 
 
 def build_curves(wait_docs: list[dict], crowd: dict, attractions: list[dict]) -> dict:
@@ -33,7 +82,7 @@ def build_curves(wait_docs: list[dict], crowd: dict, attractions: list[dict]) ->
             band = band_of(pct)
             if not band:
                 continue
-            for s in p.get("samples") or []:
+            for s in drop_after_queue_close(p.get("samples") or []):
                 try:
                     h = _hour(s["at"])
                 except (KeyError, ValueError):
