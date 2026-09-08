@@ -160,11 +160,17 @@
         {
           "at": "2026-09-08T08:00:28+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-08T20:05:36+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-08T20:05:36+09:00",
+      "first_sold_out_at": "2026-09-08T20:05:36+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "pooh": {
       "events": [
@@ -205,11 +211,17 @@
         {
           "at": "2026-09-08T08:00:28+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-08T20:05:36+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-08T20:05:36+09:00",
+      "first_sold_out_at": "2026-09-08T20:05:36+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "soaring": {
       "events": [
@@ -291,6 +303,6 @@
       "open": "2026-09-08T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-08T20:01:12+09:00",
+  "last_polled_at": "2026-09-08T20:20:34+09:00",
   "source": "themeparks.wiki"
 }
