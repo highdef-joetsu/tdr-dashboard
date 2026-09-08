@@ -72,11 +72,16 @@
         {
           "at": "2026-09-08T08:55:24+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-09-08T09:15:31+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "park": "tdl",
       "price": 1000,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "peter_pan": {
       "events": [
@@ -178,6 +183,6 @@
       "open": "2026-09-08T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-08T09:00:33+09:00",
+  "last_polled_at": "2026-09-08T09:20:35+09:00",
   "source": "themeparks.wiki"
 }
