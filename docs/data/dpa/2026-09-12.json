@@ -33,11 +33,17 @@
         {
           "at": "2026-09-12T08:01:11+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-12T17:50:50+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-12T17:50:50+09:00",
+      "first_sold_out_at": "2026-09-12T17:50:50+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "center_of_the_earth": {
       "events": [
@@ -267,6 +273,6 @@
       "open": "2026-09-12T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-12T17:40:53+09:00",
+  "last_polled_at": "2026-09-12T18:01:34+09:00",
   "source": "themeparks.wiki"
 }
