@@ -59,9 +59,18 @@
         {
           "at": "2026-09-12T09:40:44+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-09-12T13:15:35+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-12T13:20:45+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-09-12T09:40:44+09:00",
+      "final_sold_out_at": "2026-09-12T13:20:45+09:00",
       "first_sold_out_at": "2026-09-12T09:40:44+09:00",
       "park": "tds",
       "price": 2500,
@@ -80,11 +89,17 @@
         {
           "at": "2026-09-12T08:01:11+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-12T13:10:42+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-12T13:10:42+09:00",
+      "first_sold_out_at": "2026-09-12T13:10:42+09:00",
       "park": "tdl",
       "price": 1000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "peter_pan": {
       "events": [
@@ -183,13 +198,17 @@
           "at": "2026-09-12T12:55:32+09:00",
           "note": "resale",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-12T13:05:37+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-09-12T12:31:01+09:00",
+      "final_sold_out_at": "2026-09-12T13:05:37+09:00",
       "first_sold_out_at": "2026-09-12T12:31:01+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     }
   },
   "date": "2026-09-12",
@@ -203,6 +222,6 @@
       "open": "2026-09-12T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-12T13:01:26+09:00",
+  "last_polled_at": "2026-09-12T13:20:45+09:00",
   "source": "themeparks.wiki"
 }
