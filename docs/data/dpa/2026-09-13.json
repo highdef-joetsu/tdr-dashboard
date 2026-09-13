@@ -22,11 +22,17 @@
         {
           "at": "2026-09-13T08:01:01+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-13T20:01:18+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-13T20:01:18+09:00",
+      "first_sold_out_at": "2026-09-13T20:01:18+09:00",
       "park": "tdl",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "big_thunder": {
       "events": [
@@ -50,11 +56,17 @@
         {
           "at": "2026-09-13T08:01:01+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-13T20:01:18+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-13T20:01:18+09:00",
+      "first_sold_out_at": "2026-09-13T20:01:18+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "frozen_journey": {
       "events": [
@@ -148,11 +160,17 @@
         {
           "at": "2026-09-13T08:01:01+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-13T20:01:18+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-13T20:01:18+09:00",
+      "first_sold_out_at": "2026-09-13T20:01:18+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "pooh": {
       "events": [
@@ -279,6 +297,6 @@
       "open": "2026-09-13T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-13T19:40:51+09:00",
+  "last_polled_at": "2026-09-13T20:01:18+09:00",
   "source": "themeparks.wiki"
 }
