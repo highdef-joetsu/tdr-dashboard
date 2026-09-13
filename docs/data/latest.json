@@ -2329,7 +2329,7 @@
   "crowd_fetched_at": "2026-09-13T07:22:44+09:00",
   "curve_meta": {
     "days_used": 11,
-    "generated_at": "2026-09-13T15:01:13+09:00",
+    "generated_at": "2026-09-13T15:21:07+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2350,7 +2350,7 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 545,
+              "minutes_left_to_buy": 542,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
@@ -2361,7 +2361,7 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 485,
+              "minutes_left_to_buy": 482,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
@@ -2372,7 +2372,7 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 425,
+              "minutes_left_to_buy": 422,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
@@ -2383,7 +2383,7 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 365,
+              "minutes_left_to_buy": 362,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
@@ -2394,7 +2394,7 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 305,
+              "minutes_left_to_buy": 302,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
@@ -2405,7 +2405,7 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 245,
+              "minutes_left_to_buy": 242,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
@@ -2416,7 +2416,7 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 185,
+              "minutes_left_to_buy": 182,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
@@ -2427,7 +2427,7 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 125,
+              "minutes_left_to_buy": 122,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
@@ -2438,7 +2438,7 @@
                 "lastcall": false,
                 "minutes": 60
               },
-              "minutes_left_to_buy": 65,
+              "minutes_left_to_buy": 62,
               "reason": "これから並ぶと最短でも60分（18時台）。1分あたり約25円",
               "verdict": "worth",
               "yen_per_minute": 25
@@ -2449,7 +2449,7 @@
                 "lastcall": false,
                 "minutes": 60
               },
-              "minutes_left_to_buy": 5,
+              "minutes_left_to_buy": 2,
               "reason": "これから並ぶと最短でも60分（19時台）。1分あたり約25円",
               "verdict": "worth",
               "yen_per_minute": 25
@@ -2460,8 +2460,8 @@
                 "lastcall": true,
                 "minutes": 60
               },
-              "minutes_left_to_buy": -55,
-              "reason": "売切目安 19:05 を過ぎている。並ぶなら20時台が最短で約60分",
+              "minutes_left_to_buy": -58,
+              "reason": "売切目安 19:02 を過ぎている。並ぶなら20時台が最短で約60分",
               "verdict": "sold_out",
               "yen_per_minute": 25
             },
@@ -2475,14 +2475,14 @@
                 "lastcall": false,
                 "minutes": 45
               },
-              "minutes_left_to_buy": 605,
+              "minutes_left_to_buy": 602,
               "reason": "これから並ぶと最短45分（17時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 33
             }
           },
           "price": 1500,
-          "sold_out_at": "19:05"
+          "sold_out_at": "19:02"
         },
         "beauty_and_the_beast": {
           "band": "31-60",
@@ -7480,8 +7480,8 @@
           "source": "bootstrap"
         },
         "31-60": {
-          "median": "19:05",
-          "samples": 9,
+          "median": "19:02",
+          "samples": 10,
           "source": "observed"
         },
         "61-80": {
@@ -7782,12 +7782,17 @@
         }
       }
     },
-    "generated_at": "2026-09-13T15:01:13+09:00",
+    "generated_at": "2026-09-13T15:21:07+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
     {
       "attractions": {
+        "baymax": {
+          "final_sold_out_at": "2026-09-13T15:05:34+09:00",
+          "first_sold_out_at": "2026-09-13T15:05:34+09:00",
+          "resale": false
+        },
         "frozen_journey": {
           "final_sold_out_at": "2026-09-13T14:20:48+09:00",
           "first_sold_out_at": "2026-09-13T09:45:40+09:00",
@@ -8287,11 +8292,17 @@
           {
             "at": "2026-09-13T08:01:01+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-13T15:05:34+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-13T15:05:34+09:00",
+        "first_sold_out_at": "2026-09-13T15:05:34+09:00",
         "park": "tdl",
         "price": 1500,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "beauty_and_the_beast": {
         "events": [
@@ -8486,16 +8497,16 @@
         "open": "2026-09-13T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-13T15:00:56+09:00",
+    "last_polled_at": "2026-09-13T15:20:54+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-13T15:01:13+09:00",
+  "generated_at": "2026-09-13T15:21:08+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-17",
-      "last_run_at": "2026-09-13T14:41:16+09:00",
-      "last_success_at": "2026-09-13T14:41:16+09:00"
+      "last_run_at": "2026-09-13T15:01:13+09:00",
+      "last_success_at": "2026-09-13T15:01:13+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -8512,15 +8523,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数11 observed帯18",
-      "last_run_at": "2026-09-13T15:01:13+09:00",
-      "last_success_at": "2026-09-13T15:01:13+09:00"
+      "last_run_at": "2026-09-13T15:21:07+09:00",
+      "last_success_at": "2026-09-13T15:21:07+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-13 待ち170件 DPA85件 から再構成",
+      "last_detail": "2026-09-13 待ち178件 DPA89件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-13T15:01:12+09:00",
-      "last_success_at": "2026-09-13T15:01:12+09:00"
+      "last_run_at": "2026-09-13T15:21:07+09:00",
+      "last_success_at": "2026-09-13T15:21:07+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -8537,8 +8548,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "11日分から 14施設 / 時間帯188枠",
-      "last_run_at": "2026-09-13T15:01:13+09:00",
-      "last_success_at": "2026-09-13T15:01:13+09:00"
+      "last_run_at": "2026-09-13T15:21:07+09:00",
+      "last_success_at": "2026-09-13T15:21:07+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -10030,12 +10041,12 @@
         }
       },
       "last": {
-        "at": "2026-09-13T15:00:56+09:00",
+        "at": "2026-09-13T15:20:54+09:00",
         "closed": [
           "haunted_mansion"
         ],
         "waits": {
-          "baymax": 80,
+          "baymax": 90,
           "beauty_and_the_beast": 90,
           "big_thunder": 40,
           "monsters_inc": 40,
@@ -10080,22 +10091,22 @@
         }
       },
       "last": {
-        "at": "2026-09-13T15:00:56+09:00",
+        "at": "2026-09-13T15:20:54+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
-          "center_of_the_earth": 120,
+          "center_of_the_earth": 140,
           "frozen_journey": 140,
           "peter_pan": 40,
           "raging_spirits": 50,
           "rapunzel_lantern": 40,
-          "soaring": 100,
+          "soaring": 120,
           "tower_of_terror": 60,
           "toy_story_mania": 100
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-13T15:00:56+09:00"
+  "waits_fetched_at": "2026-09-13T15:20:54+09:00"
 }
