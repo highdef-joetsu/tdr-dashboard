@@ -106,13 +106,17 @@
           "at": "2026-09-13T18:10:52+09:00",
           "note": "resale",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-13T18:46:07+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-09-13T17:20:47+09:00",
+      "final_sold_out_at": "2026-09-13T18:46:07+09:00",
       "first_sold_out_at": "2026-09-13T09:45:40+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "haunted_mansion": {
       "events": [],
@@ -172,11 +176,17 @@
         {
           "at": "2026-09-13T08:01:01+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-13T19:00:59+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-13T19:00:59+09:00",
+      "first_sold_out_at": "2026-09-13T19:00:59+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -263,6 +273,6 @@
       "open": "2026-09-13T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-13T18:40:31+09:00",
+  "last_polled_at": "2026-09-13T19:00:59+09:00",
   "source": "themeparks.wiki"
 }
