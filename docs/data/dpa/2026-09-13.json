@@ -33,11 +33,17 @@
         {
           "at": "2026-09-13T08:01:01+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-13T18:01:46+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-13T18:01:46+09:00",
+      "first_sold_out_at": "2026-09-13T18:01:46+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "center_of_the_earth": {
       "events": [
@@ -116,11 +122,17 @@
         {
           "at": "2026-09-13T08:01:01+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-13T18:01:46+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-13T18:01:46+09:00",
+      "first_sold_out_at": "2026-09-13T18:01:46+09:00",
       "park": "tdl",
       "price": 1000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "peter_pan": {
       "events": [
@@ -138,11 +150,17 @@
         {
           "at": "2026-09-13T08:01:01+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-13T18:01:46+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-13T18:01:46+09:00",
+      "first_sold_out_at": "2026-09-13T18:01:46+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "raging_spirits": {
       "events": [
@@ -234,6 +252,6 @@
       "open": "2026-09-13T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-13T17:40:50+09:00",
+  "last_polled_at": "2026-09-13T18:01:46+09:00",
   "source": "themeparks.wiki"
 }
