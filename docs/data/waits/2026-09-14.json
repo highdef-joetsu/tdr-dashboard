@@ -24,12 +24,12 @@
           "minutes": 70
         },
         "splash_mountain": {
-          "at": "2026-09-14T09:35:31+09:00",
-          "minutes": 70
+          "at": "2026-09-14T16:10:45+09:00",
+          "minutes": 80
         }
       },
       "last": {
-        "at": "2026-09-14T16:05:58+09:00",
+        "at": "2026-09-14T16:20:49+09:00",
         "closed": [
           "haunted_mansion"
         ],
@@ -37,9 +37,9 @@
           "baymax": 60,
           "beauty_and_the_beast": 60,
           "big_thunder": 40,
-          "monsters_inc": 40,
+          "monsters_inc": 50,
           "pooh": 40,
-          "splash_mountain": 70
+          "splash_mountain": 80
         }
       },
       "samples": [
@@ -1400,6 +1400,48 @@
             "pooh": 40,
             "splash_mountain": 70
           }
+        },
+        {
+          "at": "2026-09-14T16:10:45+09:00",
+          "closed": [
+            "haunted_mansion"
+          ],
+          "waits": {
+            "baymax": 60,
+            "beauty_and_the_beast": 60,
+            "big_thunder": 40,
+            "monsters_inc": 50,
+            "pooh": 40,
+            "splash_mountain": 80
+          }
+        },
+        {
+          "at": "2026-09-14T16:15:39+09:00",
+          "closed": [
+            "haunted_mansion"
+          ],
+          "waits": {
+            "baymax": 60,
+            "beauty_and_the_beast": 50,
+            "big_thunder": 40,
+            "monsters_inc": 50,
+            "pooh": 40,
+            "splash_mountain": 80
+          }
+        },
+        {
+          "at": "2026-09-14T16:20:49+09:00",
+          "closed": [
+            "haunted_mansion"
+          ],
+          "waits": {
+            "baymax": 60,
+            "beauty_and_the_beast": 60,
+            "big_thunder": 40,
+            "monsters_inc": 50,
+            "pooh": 40,
+            "splash_mountain": 80
+          }
         }
       ],
       "unmapped": [
@@ -1471,16 +1513,16 @@
         }
       },
       "last": {
-        "at": "2026-09-14T16:05:58+09:00",
+        "at": "2026-09-14T16:20:49+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
           "center_of_the_earth": 140,
-          "frozen_journey": 140,
+          "frozen_journey": 160,
           "peter_pan": 50,
-          "raging_spirits": 80,
-          "rapunzel_lantern": 40,
+          "raging_spirits": 70,
+          "rapunzel_lantern": 50,
           "soaring": 140,
           "tower_of_terror": 100,
           "toy_story_mania": 120
@@ -3037,6 +3079,54 @@
             "peter_pan": 50,
             "raging_spirits": 80,
             "rapunzel_lantern": 40,
+            "soaring": 140,
+            "tower_of_terror": 100,
+            "toy_story_mania": 120
+          }
+        },
+        {
+          "at": "2026-09-14T16:10:45+09:00",
+          "closed": [
+            "indiana_jones"
+          ],
+          "waits": {
+            "center_of_the_earth": 140,
+            "frozen_journey": 140,
+            "peter_pan": 50,
+            "raging_spirits": 70,
+            "rapunzel_lantern": 50,
+            "soaring": 140,
+            "tower_of_terror": 100,
+            "toy_story_mania": 120
+          }
+        },
+        {
+          "at": "2026-09-14T16:15:39+09:00",
+          "closed": [
+            "indiana_jones"
+          ],
+          "waits": {
+            "center_of_the_earth": 140,
+            "frozen_journey": 160,
+            "peter_pan": 50,
+            "raging_spirits": 70,
+            "rapunzel_lantern": 50,
+            "soaring": 140,
+            "tower_of_terror": 100,
+            "toy_story_mania": 120
+          }
+        },
+        {
+          "at": "2026-09-14T16:20:49+09:00",
+          "closed": [
+            "indiana_jones"
+          ],
+          "waits": {
+            "center_of_the_earth": 140,
+            "frozen_journey": 160,
+            "peter_pan": 50,
+            "raging_spirits": 70,
+            "rapunzel_lantern": 50,
             "soaring": 140,
             "tower_of_terror": 100,
             "toy_story_mania": 120
