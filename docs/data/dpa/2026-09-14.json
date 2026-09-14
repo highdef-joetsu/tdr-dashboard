@@ -62,9 +62,18 @@
         {
           "at": "2026-09-14T11:15:39+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-09-14T14:25:32+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-14T14:31:06+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-09-14T11:15:39+09:00",
+      "final_sold_out_at": "2026-09-14T14:31:06+09:00",
       "first_sold_out_at": "2026-09-14T09:50:56+09:00",
       "park": "tds",
       "price": 2500,
@@ -138,11 +147,17 @@
         {
           "at": "2026-09-14T08:01:21+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-14T14:31:06+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-14T14:31:06+09:00",
+      "first_sold_out_at": "2026-09-14T14:31:06+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "splash_mountain": {
       "events": [
@@ -189,6 +204,6 @@
       "open": "2026-09-14T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-14T14:20:59+09:00",
+  "last_polled_at": "2026-09-14T14:40:35+09:00",
   "source": "themeparks.wiki"
 }
