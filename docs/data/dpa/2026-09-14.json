@@ -27,11 +27,17 @@
         {
           "at": "2026-09-14T08:01:21+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-14T18:01:49+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-14T18:01:49+09:00",
+      "first_sold_out_at": "2026-09-14T18:01:49+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "center_of_the_earth": {
       "events": [
@@ -95,13 +101,18 @@
         {
           "at": "2026-09-14T16:20:49+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-09-14T18:01:49+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "final_sold_out_at": "2026-09-14T16:20:49+09:00",
       "first_sold_out_at": "2026-09-14T09:50:56+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "haunted_mansion": {
       "events": [],
@@ -116,11 +127,17 @@
         {
           "at": "2026-09-14T08:01:21+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-14T18:01:49+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-14T18:01:49+09:00",
+      "first_sold_out_at": "2026-09-14T18:01:49+09:00",
       "park": "tdl",
       "price": 1000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "peter_pan": {
       "events": [
@@ -234,6 +251,6 @@
       "open": "2026-09-14T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-14T17:40:46+09:00",
+  "last_polled_at": "2026-09-14T18:01:49+09:00",
   "source": "themeparks.wiki"
 }
