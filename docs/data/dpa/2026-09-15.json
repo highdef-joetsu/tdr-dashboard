@@ -81,11 +81,17 @@
         {
           "at": "2026-09-15T08:01:19+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-15T18:51:09+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-15T18:51:09+09:00",
+      "first_sold_out_at": "2026-09-15T18:51:09+09:00",
       "park": "tdl",
       "price": 1000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "peter_pan": {
       "events": [
@@ -147,11 +153,17 @@
         {
           "at": "2026-09-15T08:01:19+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-15T18:55:39+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-15T18:55:39+09:00",
+      "first_sold_out_at": "2026-09-15T18:55:39+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "tower_of_terror": {
       "events": [
@@ -187,6 +199,6 @@
       "open": "2026-09-15T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-15T18:40:44+09:00",
+  "last_polled_at": "2026-09-15T19:01:57+09:00",
   "source": "themeparks.wiki"
 }
