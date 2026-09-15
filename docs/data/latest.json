@@ -2250,7 +2250,7 @@
   "crowd_fetched_at": "2026-09-15T08:11:26+09:00",
   "curve_meta": {
     "days_used": 13,
-    "generated_at": "2026-09-15T21:21:38+09:00",
+    "generated_at": "2026-09-15T21:41:29+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -8256,7 +8256,7 @@
         }
       }
     },
-    "generated_at": "2026-09-15T21:21:38+09:00",
+    "generated_at": "2026-09-15T21:41:29+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -9085,16 +9085,16 @@
         "open": "2026-09-15T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-15T21:21:18+09:00",
+    "last_polled_at": "2026-09-15T21:41:13+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-15T21:21:39+09:00",
+  "generated_at": "2026-09-15T21:41:30+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-17",
-      "last_run_at": "2026-09-15T21:00:57+09:00",
-      "last_success_at": "2026-09-15T21:00:57+09:00"
+      "last_run_at": "2026-09-15T21:21:39+09:00",
+      "last_success_at": "2026-09-15T21:21:39+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -9111,15 +9111,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数13 observed帯18",
-      "last_run_at": "2026-09-15T21:21:38+09:00",
-      "last_success_at": "2026-09-15T21:21:38+09:00"
+      "last_run_at": "2026-09-15T21:41:29+09:00",
+      "last_success_at": "2026-09-15T21:41:29+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-15 待ち322件 DPA161件 から再構成",
+      "last_detail": "2026-09-15 待ち330件 DPA165件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-15T21:21:38+09:00",
-      "last_success_at": "2026-09-15T21:21:38+09:00"
+      "last_run_at": "2026-09-15T21:41:29+09:00",
+      "last_success_at": "2026-09-15T21:41:29+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -9136,8 +9136,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "13日分から 14施設 / 時間帯189枠",
-      "last_run_at": "2026-09-15T21:21:38+09:00",
-      "last_success_at": "2026-09-15T21:21:38+09:00"
+      "last_run_at": "2026-09-15T21:41:29+09:00",
+      "last_success_at": "2026-09-15T21:41:29+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -10820,7 +10820,7 @@
         }
       },
       "last": {
-        "at": "2026-09-15T21:21:18+09:00",
+        "at": "2026-09-15T21:41:13+09:00",
         "closed": [
           "baymax",
           "beauty_and_the_beast",
@@ -10869,7 +10869,7 @@
         }
       },
       "last": {
-        "at": "2026-09-15T21:21:18+09:00",
+        "at": "2026-09-15T21:41:13+09:00",
         "closed": [
           "center_of_the_earth",
           "frozen_journey",
@@ -10885,5 +10885,5 @@
       }
     }
   },
-  "waits_fetched_at": "2026-09-15T21:21:18+09:00"
+  "waits_fetched_at": "2026-09-15T21:41:13+09:00"
 }
