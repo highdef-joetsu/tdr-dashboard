@@ -33,11 +33,17 @@
         {
           "at": "2026-09-16T08:00:34+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-16T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-16T20:01:30+09:00",
+      "first_sold_out_at": "2026-09-16T20:01:30+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "frozen_journey": {
       "events": [
@@ -55,10 +61,16 @@
         {
           "at": "2026-09-16T08:00:34+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-16T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-16T20:01:30+09:00",
+      "first_sold_out_at": "2026-09-16T20:01:30+09:00",
       "park": "tdl",
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "indiana_jones": {
       "events": [],
@@ -102,11 +114,17 @@
         {
           "at": "2026-09-16T08:00:34+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-16T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-16T20:01:30+09:00",
+      "first_sold_out_at": "2026-09-16T20:01:30+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -124,11 +142,17 @@
         {
           "at": "2026-09-16T08:00:34+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-16T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-16T20:01:30+09:00",
+      "first_sold_out_at": "2026-09-16T20:01:30+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "splash_mountain": {
       "events": [
@@ -152,22 +176,34 @@
         {
           "at": "2026-09-16T08:00:34+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-16T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-16T20:01:30+09:00",
+      "first_sold_out_at": "2026-09-16T20:01:30+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "toy_story_mania": {
       "events": [
         {
           "at": "2026-09-16T08:00:34+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-16T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-16T20:01:30+09:00",
+      "first_sold_out_at": "2026-09-16T20:01:30+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     }
   },
   "date": "2026-09-16",
@@ -181,6 +217,6 @@
       "open": "2026-09-16T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-16T19:41:05+09:00",
+  "last_polled_at": "2026-09-16T20:01:30+09:00",
   "source": "themeparks.wiki"
 }
