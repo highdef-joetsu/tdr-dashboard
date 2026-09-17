@@ -1930,7 +1930,7 @@
   "crowd_fetched_at": "2026-09-17T08:00:22+09:00",
   "curve_meta": {
     "days_used": 15,
-    "generated_at": "2026-09-17T10:40:59+09:00",
+    "generated_at": "2026-09-17T11:01:38+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2006,17 +2006,23 @@
           "by_hour": {
             "10": {
               "best": {
-                "hour": 10,
+                "hour": 11,
                 "lastcall": false,
-                "minutes": 120
+                "minutes": 90
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
-              "yen_per_minute": 21
+              "reason": "これから並ぶと最短でも90分（11時台）。1分あたり約28円",
+              "verdict": "worth",
+              "yen_per_minute": 28
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 90
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 28
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -2060,13 +2066,13 @@
             },
             "9": {
               "best": {
-                "hour": 9,
+                "hour": 11,
                 "lastcall": false,
-                "minutes": 120
+                "minutes": 90
               },
-              "reason": "これから並ぶと最短でも120分（9時台）。1分あたり約21円",
+              "reason": "これから並ぶと最短でも90分（11時台）。1分あたり約28円",
               "verdict": "worth",
-              "yen_per_minute": 21
+              "yen_per_minute": 28
             }
           },
           "price": 2500,
@@ -2433,13 +2439,19 @@
                 "lastcall": false,
                 "minutes": 40
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "10時台なら約40分で並べる",
+              "verdict": "skip",
               "yen_per_minute": 25
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 40
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 25
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -2654,13 +2666,19 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "これから並ぶと最短50分（10時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
               "yen_per_minute": 30
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 50
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 30
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -3168,13 +3186,19 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "これから並ぶと最短50分（10時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
               "yen_per_minute": 30
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 27
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -3594,17 +3618,23 @@
           "by_hour": {
             "10": {
               "best": {
-                "hour": 10,
+                "hour": 11,
                 "lastcall": false,
-                "minutes": 120
+                "minutes": 90
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
-              "yen_per_minute": 21
+              "reason": "これから並ぶと最短でも90分（11時台）。1分あたり約28円",
+              "verdict": "worth",
+              "yen_per_minute": 28
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 90
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 28
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -3648,13 +3678,13 @@
             },
             "9": {
               "best": {
-                "hour": 9,
+                "hour": 11,
                 "lastcall": false,
-                "minutes": 120
+                "minutes": 90
               },
-              "reason": "これから並ぶと最短でも120分（9時台）。1分あたり約21円",
+              "reason": "これから並ぶと最短でも90分（11時台）。1分あたり約28円",
               "verdict": "worth",
-              "yen_per_minute": 21
+              "yen_per_minute": 28
             }
           },
           "price": 2500,
@@ -4021,13 +4051,19 @@
                 "lastcall": false,
                 "minutes": 40
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "10時台なら約40分で並べる",
+              "verdict": "skip",
               "yen_per_minute": 25
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 40
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 25
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -4242,13 +4278,19 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "これから並ぶと最短50分（10時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
               "yen_per_minute": 30
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 50
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 30
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -4756,13 +4798,19 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "これから並ぶと最短50分（10時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
               "yen_per_minute": 30
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 27
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -5428,7 +5476,7 @@
         }
       }
     },
-    "generated_at": "2026-09-17T10:41:00+09:00",
+    "generated_at": "2026-09-17T11:01:38+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -6092,16 +6140,16 @@
         "open": "2026-09-17T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-17T10:40:45+09:00",
+    "last_polled_at": "2026-09-17T11:01:21+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-17T10:41:00+09:00",
+  "generated_at": "2026-09-17T11:01:39+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-17",
-      "last_run_at": "2026-09-17T10:20:49+09:00",
-      "last_success_at": "2026-09-17T10:20:49+09:00"
+      "last_run_at": "2026-09-17T10:41:00+09:00",
+      "last_success_at": "2026-09-17T10:41:00+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -6118,15 +6166,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数15 observed帯18",
-      "last_run_at": "2026-09-17T10:41:00+09:00",
-      "last_success_at": "2026-09-17T10:41:00+09:00"
+      "last_run_at": "2026-09-17T11:01:38+09:00",
+      "last_success_at": "2026-09-17T11:01:38+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-17 待ち66件 DPA33件 から再構成",
+      "last_detail": "2026-09-17 待ち74件 DPA37件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-17T10:40:59+09:00",
-      "last_success_at": "2026-09-17T10:40:59+09:00"
+      "last_run_at": "2026-09-17T11:01:37+09:00",
+      "last_success_at": "2026-09-17T11:01:37+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -6142,9 +6190,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "15日分から 14施設 / 時間帯197枠",
-      "last_run_at": "2026-09-17T10:40:59+09:00",
-      "last_success_at": "2026-09-17T10:40:59+09:00"
+      "last_detail": "15日分から 14施設 / 時間帯201枠",
+      "last_run_at": "2026-09-17T11:01:38+09:00",
+      "last_success_at": "2026-09-17T11:01:38+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -6924,6 +6972,7 @@
     "2026-09-17": {
       "beauty_and_the_beast": {
         "10": 120,
+        "11": 90,
         "9": 120
       },
       "center_of_the_earth": {
@@ -6957,11 +7006,12 @@
       },
       "monsters_inc": {
         "10": 40,
+        "11": 40,
         "9": 45
       },
       "peter_pan": {
         "10": 58,
-        "11": 50,
+        "11": 52,
         "12": 50,
         "13": 50,
         "14": 45,
@@ -6976,6 +7026,7 @@
       },
       "pooh": {
         "10": 50,
+        "11": 50,
         "9": 50
       },
       "raging_spirits": {
@@ -6995,7 +7046,7 @@
       },
       "rapunzel_lantern": {
         "10": 60,
-        "11": 50,
+        "11": 55,
         "12": 40,
         "13": 40,
         "14": 40,
@@ -7024,6 +7075,7 @@
       },
       "splash_mountain": {
         "10": 50,
+        "11": 55,
         "9": 55
       },
       "tower_of_terror": {
@@ -7058,6 +7110,7 @@
     "2026-09-18": {
       "beauty_and_the_beast": {
         "10": 120,
+        "11": 90,
         "9": 120
       },
       "center_of_the_earth": {
@@ -7091,11 +7144,12 @@
       },
       "monsters_inc": {
         "10": 40,
+        "11": 40,
         "9": 45
       },
       "peter_pan": {
         "10": 58,
-        "11": 50,
+        "11": 52,
         "12": 50,
         "13": 50,
         "14": 45,
@@ -7110,6 +7164,7 @@
       },
       "pooh": {
         "10": 50,
+        "11": 50,
         "9": 50
       },
       "raging_spirits": {
@@ -7129,7 +7184,7 @@
       },
       "rapunzel_lantern": {
         "10": 60,
-        "11": 50,
+        "11": 55,
         "12": 40,
         "13": 40,
         "14": 40,
@@ -7158,6 +7213,7 @@
       },
       "splash_mountain": {
         "10": 50,
+        "11": 55,
         "9": 55
       },
       "tower_of_terror": {
@@ -7215,13 +7271,13 @@
         }
       },
       "last": {
-        "at": "2026-09-17T10:40:45+09:00",
+        "at": "2026-09-17T11:01:21+09:00",
         "closed": [
           "baymax",
           "big_thunder"
         ],
         "waits": {
-          "beauty_and_the_beast": 120,
+          "beauty_and_the_beast": 90,
           "haunted_mansion": 40,
           "monsters_inc": 40,
           "pooh": 50,
@@ -7232,8 +7288,8 @@
     "tds": {
       "daily_max": {
         "center_of_the_earth": {
-          "at": "2026-09-17T10:40:45+09:00",
-          "minutes": 60
+          "at": "2026-09-17T10:45:40+09:00",
+          "minutes": 160
         },
         "frozen_journey": {
           "at": "2026-09-17T09:30:54+09:00",
@@ -7265,22 +7321,22 @@
         }
       },
       "last": {
-        "at": "2026-09-17T10:40:45+09:00",
+        "at": "2026-09-17T11:01:21+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
-          "center_of_the_earth": 60,
-          "frozen_journey": 120,
-          "peter_pan": 50,
-          "raging_spirits": 80,
+          "center_of_the_earth": 160,
+          "frozen_journey": 140,
+          "peter_pan": 60,
+          "raging_spirits": 60,
           "rapunzel_lantern": 60,
-          "soaring": 140,
-          "tower_of_terror": 100,
-          "toy_story_mania": 90
+          "soaring": 120,
+          "tower_of_terror": 90,
+          "toy_story_mania": 60
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-17T10:40:45+09:00"
+  "waits_fetched_at": "2026-09-17T11:01:21+09:00"
 }
