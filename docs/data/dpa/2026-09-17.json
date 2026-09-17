@@ -11,11 +11,17 @@
         {
           "at": "2026-09-17T08:00:38+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-17T17:20:45+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-17T17:20:45+09:00",
+      "first_sold_out_at": "2026-09-17T17:20:45+09:00",
       "park": "tdl",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "big_thunder": {
       "events": [
@@ -152,11 +158,17 @@
         {
           "at": "2026-09-17T08:00:38+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-17T17:11:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-17T17:11:30+09:00",
+      "first_sold_out_at": "2026-09-17T17:11:30+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "toy_story_mania": {
       "events": [
@@ -181,6 +193,6 @@
       "open": "2026-09-17T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-17T17:01:55+09:00",
+  "last_polled_at": "2026-09-17T17:20:45+09:00",
   "source": "themeparks.wiki"
 }
