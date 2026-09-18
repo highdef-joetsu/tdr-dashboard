@@ -11,11 +11,17 @@
         {
           "at": "2026-09-18T08:00:51+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-18T20:02:14+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-18T20:02:14+09:00",
+      "first_sold_out_at": "2026-09-18T20:02:14+09:00",
       "park": "tdl",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "big_thunder": {
       "events": [
@@ -39,11 +45,17 @@
         {
           "at": "2026-09-18T08:00:51+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-18T20:02:14+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-18T20:02:14+09:00",
+      "first_sold_out_at": "2026-09-18T20:02:14+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "frozen_journey": {
       "events": [
@@ -86,13 +98,17 @@
           "at": "2026-09-18T15:05:58+09:00",
           "note": "resale",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-18T20:02:14+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-09-18T13:41:04+09:00",
+      "final_sold_out_at": "2026-09-18T20:02:14+09:00",
       "first_sold_out_at": "2026-09-18T10:45:37+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "haunted_mansion": {
       "events": [
@@ -164,11 +180,17 @@
         {
           "at": "2026-09-18T08:00:51+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-18T19:56:20+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-18T19:56:20+09:00",
+      "first_sold_out_at": "2026-09-18T19:56:20+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -186,11 +208,17 @@
         {
           "at": "2026-09-18T08:00:51+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-18T20:02:14+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-18T20:02:14+09:00",
+      "first_sold_out_at": "2026-09-18T20:02:14+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "splash_mountain": {
       "events": [
@@ -214,22 +242,34 @@
         {
           "at": "2026-09-18T08:00:51+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-18T19:51:05+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-18T19:51:05+09:00",
+      "first_sold_out_at": "2026-09-18T19:51:05+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "toy_story_mania": {
       "events": [
         {
           "at": "2026-09-18T08:00:51+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-18T20:02:14+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-18T20:02:14+09:00",
+      "first_sold_out_at": "2026-09-18T20:02:14+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     }
   },
   "date": "2026-09-18",
@@ -243,6 +283,6 @@
       "open": "2026-09-18T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-18T19:40:37+09:00",
+  "last_polled_at": "2026-09-18T20:02:14+09:00",
   "source": "themeparks.wiki"
 }
