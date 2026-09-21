@@ -130,11 +130,16 @@
         {
           "at": "2026-09-21T08:00:38+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-09-21T12:20:38+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "raging_spirits": {
       "events": [
@@ -232,6 +237,6 @@
       "open": "2026-09-21T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-21T12:00:38+09:00",
+  "last_polled_at": "2026-09-21T12:20:38+09:00",
   "source": "themeparks.wiki"
 }
