@@ -833,7 +833,7 @@
       }
     ]
   },
-  "date": "2026-09-24",
+  "date": "2026-09-25",
   "fetched_at": "2026-09-24T08:55:20+09:00",
   "parks": {
     "tdl": {
@@ -952,7 +952,7 @@
           "name": "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
           "reservation_only": false,
           "times": [
-            "19:35"
+            "19:25"
           ],
           "url": "/tdl/show/detail/913/"
         },
@@ -963,7 +963,7 @@
           "name": "ナイトハイ・ハロウィーン",
           "reservation_only": false,
           "times": [
-            "20:50"
+            "20:25"
           ],
           "url": "/tdl/show/detail/945/"
         },
@@ -1034,7 +1034,10 @@
           "ペドラーズ・アウトポスト"
         ],
         "show": [
-          "スカイ・フル・オブ・カラーズ"
+          "ナイトハイ・ハロウィーン",
+          "スカイ・フル・オブ・カラーズ",
+          "【環境演出】スパークリング・ジュビリー・ナイト",
+          "ビリーヴ！～シー・オブ・ドリームス～"
         ]
       },
       "greetings": [
@@ -1045,7 +1048,7 @@
           "name": "ヴィレッジ・グリーティングプレイス",
           "reservation_only": false,
           "times": [
-            "9:30 - 20:00"
+            "9:30 - 18:00"
           ],
           "url": "/tds/greeting/detail/905/"
         },
@@ -1056,7 +1059,7 @@
           "name": "“サルードス・アミーゴス！”グリーティングドック",
           "reservation_only": false,
           "times": [
-            "9:30 - 20:00"
+            "9:30 - 18:00"
           ],
           "url": "/tds/greeting/detail/904/"
         },
@@ -1067,7 +1070,7 @@
           "name": "ミッキー＆フレンズ・グリーティングトレイル（ミッキー）",
           "reservation_only": false,
           "times": [
-            "9:30 - 20:00"
+            "9:30 - 18:00"
           ],
           "url": "/tds/greeting/detail/901/"
         },
@@ -1078,7 +1081,7 @@
           "name": "ミッキー＆フレンズ・グリーティングトレイル（ミニー）",
           "reservation_only": false,
           "times": [
-            "9:30 - 20:00"
+            "9:30 - 18:00"
           ],
           "url": "/tds/greeting/detail/902/"
         },
@@ -1089,7 +1092,7 @@
           "name": "ミッキー＆フレンズ・グリーティングトレイル（ドナルド）",
           "reservation_only": false,
           "times": [
-            "9:30 - 20:00"
+            "9:30 - 18:00"
           ],
           "url": "/tds/greeting/detail/903/"
         },
@@ -1111,8 +1114,7 @@
           "name": "ロストリバーデルタ（ミゲル　13:30～）",
           "reservation_only": false,
           "times": [
-            "13:30 - 16:20",
-            "17:30 - 21:00"
+            "13:30 - 18:30"
           ],
           "url": "/tds/greeting/detail/912/"
         },
@@ -1123,29 +1125,18 @@
           "name": "ディズニーシー・プラザ（キャラクターグリーティング）",
           "reservation_only": false,
           "times": [
-            "9:15 - 11:15",
-            "12:00 - 13:00",
+            "9:30 - 11:10",
+            "11:55 - 13:10",
             "13:35 - 14:55"
           ],
           "url": "/tds/greeting/detail/921/"
         }
       ],
       "hours": {
-        "close": "21:00",
+        "close": "18:30",
         "open": "09:00"
       },
       "shows": [
-        {
-          "changed": false,
-          "dpa": false,
-          "entry": false,
-          "name": "ナイトハイ・ハロウィーン",
-          "reservation_only": false,
-          "times": [
-            "20:50"
-          ],
-          "url": "/tds/show/detail/949/"
-        },
         {
           "changed": false,
           "dpa": false,
@@ -1174,28 +1165,6 @@
           "changed": false,
           "dpa": false,
           "entry": false,
-          "name": "【環境演出】スパークリング・ジュビリー・ナイト",
-          "reservation_only": false,
-          "times": [
-            "20:35"
-          ],
-          "url": "/tds/show/detail/7405/"
-        },
-        {
-          "changed": false,
-          "dpa": true,
-          "entry": false,
-          "name": "ビリーヴ！～シー・オブ・ドリームス～",
-          "reservation_only": false,
-          "times": [
-            "19:50"
-          ],
-          "url": "/tds/show/detail/967/"
-        },
-        {
-          "changed": false,
-          "dpa": false,
-          "entry": false,
           "name": "ダッフィー＆フレンズのワンダフル・フレンドシップ",
           "reservation_only": true,
           "times": [],
@@ -1210,8 +1179,7 @@
           "times": [
             "12:40",
             "14:25",
-            "16:45",
-            "18:30"
+            "16:45"
           ],
           "url": "/tds/show/detail/7604/"
         },
@@ -1222,7 +1190,6 @@
           "name": "ドリームス・テイク・フライト",
           "reservation_only": false,
           "times": [
-            "11:00",
             "12:25",
             "13:50",
             "15:55",
