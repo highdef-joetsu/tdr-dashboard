@@ -1896,7 +1896,7 @@
   "crowd_fetched_at": "2026-09-24T07:59:04+09:00",
   "curve_meta": {
     "days_used": 22,
-    "generated_at": "2026-09-24T20:20:48+09:00",
+    "generated_at": "2026-09-24T20:40:47+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -5923,7 +5923,7 @@
         }
       }
     },
-    "generated_at": "2026-09-24T20:20:48+09:00",
+    "generated_at": "2026-09-24T20:40:48+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -6753,16 +6753,16 @@
         "open": "2026-09-24T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-24T20:20:31+09:00",
+    "last_polled_at": "2026-09-24T20:40:31+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-24T20:20:49+09:00",
+  "generated_at": "2026-09-24T20:40:48+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-25",
-      "last_run_at": "2026-09-24T20:00:47+09:00",
-      "last_success_at": "2026-09-24T20:00:47+09:00"
+      "last_run_at": "2026-09-24T20:20:49+09:00",
+      "last_success_at": "2026-09-24T20:20:49+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -6779,15 +6779,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数22 observed帯23",
-      "last_run_at": "2026-09-24T20:20:48+09:00",
-      "last_success_at": "2026-09-24T20:20:48+09:00"
+      "last_run_at": "2026-09-24T20:40:48+09:00",
+      "last_success_at": "2026-09-24T20:40:48+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-24 待ち290件 DPA145件 から再構成",
+      "last_detail": "2026-09-24 待ち298件 DPA149件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-24T20:20:48+09:00",
-      "last_success_at": "2026-09-24T20:20:48+09:00"
+      "last_run_at": "2026-09-24T20:40:47+09:00",
+      "last_success_at": "2026-09-24T20:40:47+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -6804,8 +6804,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "22日分から 15施設 / 時間帯264枠",
-      "last_run_at": "2026-09-24T20:20:48+09:00",
-      "last_success_at": "2026-09-24T20:20:48+09:00"
+      "last_run_at": "2026-09-24T20:40:47+09:00",
+      "last_success_at": "2026-09-24T20:40:47+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -7651,7 +7651,7 @@
         "17": 40,
         "18": 30,
         "19": 22,
-        "20": 22,
+        "20": 25,
         "21": 11,
         "9": 60
       },
@@ -7841,7 +7841,7 @@
         "17": 40,
         "18": 30,
         "19": 22,
-        "20": 22,
+        "20": 25,
         "21": 11,
         "9": 60
       },
@@ -7963,17 +7963,17 @@
         }
       },
       "last": {
-        "at": "2026-09-24T20:20:31+09:00",
+        "at": "2026-09-24T20:40:31+09:00",
         "closed": [
-          "baymax"
+          "baymax",
+          "splash_mountain"
         ],
         "waits": {
-          "beauty_and_the_beast": 50,
+          "beauty_and_the_beast": 40,
           "big_thunder": 40,
-          "haunted_mansion": 50,
+          "haunted_mansion": 0,
           "monsters_inc": 30,
-          "pooh": 30,
-          "splash_mountain": 0
+          "pooh": 25
         }
       }
     },
@@ -8013,22 +8013,22 @@
         }
       },
       "last": {
-        "at": "2026-09-24T20:20:31+09:00",
+        "at": "2026-09-24T20:40:31+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
           "center_of_the_earth": 0,
-          "frozen_journey": 60,
-          "peter_pan": 20,
-          "raging_spirits": 50,
-          "rapunzel_lantern": 25,
+          "frozen_journey": 0,
+          "peter_pan": 15,
+          "raging_spirits": 0,
+          "rapunzel_lantern": 20,
           "soaring": 0,
           "tower_of_terror": 0,
-          "toy_story_mania": 70
+          "toy_story_mania": 0
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-24T20:20:31+09:00"
+  "waits_fetched_at": "2026-09-24T20:40:31+09:00"
 }
