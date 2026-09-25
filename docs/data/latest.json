@@ -1410,12 +1410,12 @@
         "hours": "09:00-21:00"
       },
       "2026-09-25": {
-        "crowd_pct": 71,
+        "crowd_pct": 65,
         "forecast_pct": 72,
         "hours": "09:00-21:00"
       },
       "2026-09-26": {
-        "crowd_pct": 80,
+        "crowd_pct": 79,
         "forecast_pct": 80,
         "hours": "09:00-21:00"
       },
@@ -1457,7 +1457,7 @@
         "hours": "09:00-21:00"
       },
       "2026-09-04": {
-        "crowd_pct": 65,
+        "crowd_pct": 66,
         "forecast_pct": 61,
         "hours": "09:00-21:00"
       },
@@ -1562,7 +1562,7 @@
         "hours": "09:00-21:00"
       },
       "2026-09-25": {
-        "crowd_pct": 79,
+        "crowd_pct": 22,
         "forecast_pct": 79,
         "hours": "09:00-18:30"
       },
@@ -1593,10 +1593,10 @@
       }
     }
   },
-  "crowd_fetched_at": "2026-09-25T08:14:49+09:00",
+  "crowd_fetched_at": "2026-09-26T08:20:15+09:00",
   "curve_meta": {
     "days_used": 24,
-    "generated_at": "2026-09-26T08:01:29+09:00",
+    "generated_at": "2026-09-26T08:20:16+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -3274,14 +3274,14 @@
         }
       }
     },
-    "generated_at": "2026-09-26T08:01:30+09:00",
+    "generated_at": "2026-09-26T08:20:16+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
     {
       "attractions": {},
       "crowd_pct": {
-        "tdl": 80,
+        "tdl": 79,
         "tds": 85
       },
       "date": "2026-09-26"
@@ -3360,8 +3360,8 @@
         }
       },
       "crowd_pct": {
-        "tdl": 71,
-        "tds": 79
+        "tdl": 65,
+        "tds": 22
       },
       "date": "2026-09-25"
     },
@@ -3929,19 +3929,19 @@
     "last_polled_at": "2026-09-26T08:00:31+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-26T08:01:30+09:00",
+  "generated_at": "2026-09-26T08:20:16+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-27",
-      "last_run_at": "2026-09-26T07:40:50+09:00",
-      "last_success_at": "2026-09-26T07:40:50+09:00"
+      "last_run_at": "2026-09-26T08:01:30+09:00",
+      "last_success_at": "2026-09-26T08:01:30+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
       "last_detail": "tdl=30日 tds=30日",
-      "last_run_at": "2026-09-25T08:14:49+09:00",
-      "last_success_at": "2026-09-25T08:14:49+09:00"
+      "last_run_at": "2026-09-26T08:20:15+09:00",
+      "last_success_at": "2026-09-26T08:20:15+09:00"
     },
     "dpa": {
       "consecutive_failures": 0,
@@ -3952,8 +3952,8 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数24 observed帯23",
-      "last_run_at": "2026-09-26T08:01:30+09:00",
-      "last_success_at": "2026-09-26T08:01:30+09:00"
+      "last_run_at": "2026-09-26T08:20:16+09:00",
+      "last_success_at": "2026-09-26T08:20:16+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
@@ -3977,8 +3977,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "24日分から 15施設 / 時間帯264枠",
-      "last_run_at": "2026-09-26T08:01:29+09:00",
-      "last_success_at": "2026-09-26T08:01:29+09:00"
+      "last_run_at": "2026-09-26T08:20:16+09:00",
+      "last_success_at": "2026-09-26T08:20:16+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
