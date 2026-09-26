@@ -1857,7 +1857,7 @@
   "crowd_fetched_at": "2026-09-26T08:20:15+09:00",
   "curve_meta": {
     "days_used": 24,
-    "generated_at": "2026-09-26T09:09:42+09:00",
+    "generated_at": "2026-09-26T09:20:58+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2218,56 +2218,62 @@
           "band": "81-100",
           "by_hour": {
             "10": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "10時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "11": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "11時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "12": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "12時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "13": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "13時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "14": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "14時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "15": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "15時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "16": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "16時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "17": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "17時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "18": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "18時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "19": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "19時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "20": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "20時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "21": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "21時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "9": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 9,
+                "lastcall": false,
+                "minutes": 75
+              },
+              "reason": "9時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 27
             }
           },
           "price": 2000,
@@ -2700,56 +2706,62 @@
           "band": "81-100",
           "by_hour": {
             "10": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "10時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "11": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "11時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "12": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "12時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "13": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "13時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "14": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "14時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "15": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "15時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "16": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "16時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "17": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "17時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "18": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "18時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "19": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "19時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "20": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "20時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "21": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "21時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "9": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 9,
+                "lastcall": false,
+                "minutes": 8
+              },
+              "reason": "9時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 188
             }
           },
           "price": 1500,
@@ -3032,56 +3044,62 @@
           "band": "81-100",
           "by_hour": {
             "10": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "10時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "11": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "11時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "12": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "12時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "13": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "13時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "14": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "14時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "15": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "15時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "16": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "16時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "17": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "17時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "18": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "18時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "19": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "19時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "20": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "20時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "21": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "21時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "9": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 9,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "reason": "9時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 27
             }
           },
           "price": 1500,
@@ -5450,7 +5468,7 @@
         }
       }
     },
-    "generated_at": "2026-09-26T09:09:42+09:00",
+    "generated_at": "2026-09-26T09:20:59+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -6089,16 +6107,16 @@
         "open": "2026-09-26T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-26T09:05:31+09:00",
+    "last_polled_at": "2026-09-26T09:20:31+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-26T09:09:42+09:00",
+  "generated_at": "2026-09-26T09:20:59+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-27",
-      "last_run_at": "2026-09-26T09:08:28+09:00",
-      "last_success_at": "2026-09-26T09:08:28+09:00"
+      "last_run_at": "2026-09-26T09:09:42+09:00",
+      "last_success_at": "2026-09-26T09:09:42+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -6115,15 +6133,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数24 observed帯23",
-      "last_run_at": "2026-09-26T09:09:42+09:00",
-      "last_success_at": "2026-09-26T09:09:42+09:00"
+      "last_run_at": "2026-09-26T09:20:59+09:00",
+      "last_success_at": "2026-09-26T09:20:59+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-26 待ち28件 DPA14件 から再構成",
+      "last_detail": "2026-09-26 待ち34件 DPA17件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-26T09:09:41+09:00",
-      "last_success_at": "2026-09-26T09:09:41+09:00"
+      "last_run_at": "2026-09-26T09:20:58+09:00",
+      "last_success_at": "2026-09-26T09:20:58+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -6139,9 +6157,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "24日分から 15施設 / 時間帯269枠",
-      "last_run_at": "2026-09-26T09:09:42+09:00",
-      "last_success_at": "2026-09-26T09:09:42+09:00"
+      "last_detail": "24日分から 15施設 / 時間帯272枠",
+      "last_run_at": "2026-09-26T09:20:58+09:00",
+      "last_success_at": "2026-09-26T09:20:58+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -6956,6 +6974,9 @@
         "20": 40,
         "9": 42
       },
+      "center_of_the_earth": {
+        "9": 75
+      },
       "frozen_journey": {
         "9": 100
       },
@@ -6971,7 +6992,7 @@
         "18": 40,
         "19": 26,
         "20": 28,
-        "9": 48
+        "9": 50
       },
       "peter_pan": {
         "9": 22
@@ -6990,6 +7011,9 @@
         "20": 25,
         "21": 11,
         "9": 60
+      },
+      "raging_spirits": {
+        "9": 8
       },
       "rapunzel_lantern": {
         "9": 20
@@ -7010,6 +7034,9 @@
         "19": 30,
         "20": 28,
         "9": 40
+      },
+      "tower_of_terror": {
+        "9": 55
       },
       "toy_story_mania": {
         "9": 140
@@ -7085,7 +7112,7 @@
         "18": 40,
         "19": 26,
         "20": 28,
-        "9": 48
+        "9": 50
       },
       "peter_pan": {
         "10": 60,
@@ -7210,35 +7237,47 @@
     "tdl": {
       "daily_max": {
         "beauty_and_the_beast": {
-          "at": "2026-09-26T09:05:31+09:00",
-          "minutes": 140
+          "at": "2026-09-26T09:10:31+09:00",
+          "minutes": 180
         },
         "big_thunder": {
-          "at": "2026-09-26T09:05:31+09:00",
-          "minutes": 5
+          "at": "2026-09-26T09:20:31+09:00",
+          "minutes": 40
+        },
+        "haunted_mansion": {
+          "at": "2026-09-26T09:15:31+09:00",
+          "minutes": 70
+        },
+        "monsters_inc": {
+          "at": "2026-09-26T09:20:31+09:00",
+          "minutes": 80
         },
         "splash_mountain": {
-          "at": "2026-09-26T09:05:31+09:00",
-          "minutes": 30
+          "at": "2026-09-26T09:15:31+09:00",
+          "minutes": 40
         }
       },
       "last": {
-        "at": "2026-09-26T09:05:31+09:00",
+        "at": "2026-09-26T09:20:31+09:00",
         "closed": [
           "baymax",
-          "haunted_mansion",
-          "monsters_inc",
           "pooh"
         ],
         "waits": {
-          "beauty_and_the_beast": 140,
-          "big_thunder": 5,
-          "splash_mountain": 30
+          "beauty_and_the_beast": 160,
+          "big_thunder": 40,
+          "haunted_mansion": 70,
+          "monsters_inc": 80,
+          "splash_mountain": 40
         }
       }
     },
     "tds": {
       "daily_max": {
+        "center_of_the_earth": {
+          "at": "2026-09-26T09:20:31+09:00",
+          "minutes": 70
+        },
         "frozen_journey": {
           "at": "2026-09-26T09:05:31+09:00",
           "minutes": 80
@@ -7247,36 +7286,44 @@
           "at": "2026-09-26T09:05:31+09:00",
           "minutes": 10
         },
+        "raging_spirits": {
+          "at": "2026-09-26T09:10:31+09:00",
+          "minutes": 5
+        },
         "rapunzel_lantern": {
           "at": "2026-09-26T09:05:31+09:00",
           "minutes": 5
         },
         "soaring": {
-          "at": "2026-09-26T09:05:31+09:00",
-          "minutes": 100
+          "at": "2026-09-26T09:10:31+09:00",
+          "minutes": 140
+        },
+        "tower_of_terror": {
+          "at": "2026-09-26T09:15:31+09:00",
+          "minutes": 30
         },
         "toy_story_mania": {
-          "at": "2026-09-26T09:05:31+09:00",
-          "minutes": 60
+          "at": "2026-09-26T09:15:31+09:00",
+          "minutes": 100
         }
       },
       "last": {
-        "at": "2026-09-26T09:05:31+09:00",
+        "at": "2026-09-26T09:20:31+09:00",
         "closed": [
-          "center_of_the_earth",
-          "indiana_jones",
-          "raging_spirits",
-          "tower_of_terror"
+          "indiana_jones"
         ],
         "waits": {
+          "center_of_the_earth": 70,
           "frozen_journey": 80,
-          "peter_pan": 10,
+          "peter_pan": 5,
+          "raging_spirits": 5,
           "rapunzel_lantern": 5,
-          "soaring": 100,
-          "toy_story_mania": 60
+          "soaring": 140,
+          "tower_of_terror": 30,
+          "toy_story_mania": 100
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-26T09:05:31+09:00"
+  "waits_fetched_at": "2026-09-26T09:20:31+09:00"
 }
