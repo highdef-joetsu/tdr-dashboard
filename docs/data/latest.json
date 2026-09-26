@@ -1857,7 +1857,7 @@
   "crowd_fetched_at": "2026-09-26T08:20:15+09:00",
   "curve_meta": {
     "days_used": 24,
-    "generated_at": "2026-09-26T19:40:27+09:00",
+    "generated_at": "2026-09-26T20:00:26+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -1937,7 +1937,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 480,
+              "minutes_left_to_buy": 520,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -1948,7 +1948,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 420,
+              "minutes_left_to_buy": 460,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -1959,7 +1959,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 360,
+              "minutes_left_to_buy": 400,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -1970,7 +1970,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 300,
+              "minutes_left_to_buy": 340,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -1981,7 +1981,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 240,
+              "minutes_left_to_buy": 280,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -1992,7 +1992,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 180,
+              "minutes_left_to_buy": 220,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -2003,7 +2003,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 120,
+              "minutes_left_to_buy": 160,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -2014,7 +2014,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 60,
+              "minutes_left_to_buy": 100,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -2025,9 +2025,9 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 0,
-              "reason": "売切目安 18:00 を過ぎている。並ぶなら19時台が最短で約50分",
-              "verdict": "sold_out",
+              "minutes_left_to_buy": 40,
+              "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
               "yen_per_minute": 50
             },
             "19": {
@@ -2036,8 +2036,8 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": -60,
-              "reason": "売切目安 18:00 を過ぎている。並ぶなら19時台が最短で約50分",
+              "minutes_left_to_buy": -20,
+              "reason": "売切目安 18:40 を過ぎている。並ぶなら19時台が最短で約50分",
               "verdict": "sold_out",
               "yen_per_minute": 50
             },
@@ -2047,8 +2047,8 @@
                 "lastcall": true,
                 "minutes": 50
               },
-              "minutes_left_to_buy": -120,
-              "reason": "売切目安 18:00 を過ぎている。並ぶなら20時台が最短で約50分",
+              "minutes_left_to_buy": -80,
+              "reason": "売切目安 18:40 を過ぎている。並ぶなら20時台が最短で約50分",
               "verdict": "sold_out",
               "yen_per_minute": 50
             },
@@ -2062,14 +2062,14 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 540,
+              "minutes_left_to_buy": 580,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
             }
           },
           "price": 2500,
-          "sold_out_at": "18:00"
+          "sold_out_at": "18:40"
         },
         "big_thunder": {
           "band": "61-80",
@@ -2223,6 +2223,7 @@
                 "lastcall": false,
                 "minutes": 95
               },
+              "minutes_left_to_buy": 600,
               "reason": "これから並ぶと最短でも95分（11時台）。1分あたり約21円",
               "verdict": "worth",
               "yen_per_minute": 21
@@ -2233,6 +2234,7 @@
                 "lastcall": false,
                 "minutes": 95
               },
+              "minutes_left_to_buy": 540,
               "reason": "11時から先で埋まっている時間帯が1つしかない",
               "verdict": "insufficient",
               "yen_per_minute": 21
@@ -2283,13 +2285,14 @@
                 "lastcall": false,
                 "minutes": 90
               },
+              "minutes_left_to_buy": 660,
               "reason": "これから並ぶと最短でも90分（9時台）。1分あたり約22円",
               "verdict": "worth",
               "yen_per_minute": 22
             }
           },
           "price": 2000,
-          "sold_out_at": null
+          "sold_out_at": "20:00"
         },
         "frozen_journey": {
           "band": "81-100",
@@ -2298,111 +2301,111 @@
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": 1,
-              "reason": "これから並ぶと最短でも90分（19時台）。1分あたり約28円",
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約31円",
               "verdict": "worth",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "11": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -59,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "12": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -119,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "13": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -179,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "14": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -239,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "15": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -299,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "16": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -359,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "17": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -419,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "18": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -479,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "19": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": -539,
-              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約90分",
+              "reason": "売切目安 10:01 を過ぎている。並ぶなら19時台が最短で約80分",
               "verdict": "sold_out",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             },
             "20": {
               "reason": "20時以降のデータがまだ足りない",
@@ -2416,12 +2419,12 @@
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 90
+                "minutes": 80
               },
               "minutes_left_to_buy": 61,
-              "reason": "これから並ぶと最短でも90分（19時台）。1分あたり約28円",
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約31円",
               "verdict": "worth",
-              "yen_per_minute": 28
+              "yen_per_minute": 31
             }
           },
           "price": 2500,
@@ -2544,12 +2547,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 28
+                "minutes": 30
               },
               "minutes_left_to_buy": -116,
-              "reason": "売切目安 18:04 を過ぎている。並ぶなら20時台が最短で約28分",
+              "reason": "売切目安 18:04 を過ぎている。並ぶなら20時台が最短で約30分",
               "verdict": "sold_out",
-              "yen_per_minute": 36
+              "yen_per_minute": 33
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -2577,105 +2580,122 @@
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 602,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "11": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 542,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "12": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 482,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "13": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 422,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "14": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 362,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "15": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 302,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "16": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 242,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "17": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 182,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "18": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 122,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "19": {
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 62,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             },
             "20": {
-              "reason": "20時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 5
+              },
+              "minutes_left_to_buy": 2,
+              "reason": "20時台なら約5分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 400
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -2685,15 +2705,16 @@
               "best": {
                 "hour": 19,
                 "lastcall": false,
-                "minutes": 20
+                "minutes": 15
               },
-              "reason": "19時台なら約20分で並べる",
+              "minutes_left_to_buy": 662,
+              "reason": "19時台なら約15分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 100
+              "yen_per_minute": 133
             }
           },
           "price": 2000,
-          "sold_out_at": null
+          "sold_out_at": "20:02"
         },
         "pooh": {
           "band": "61-80",
@@ -2854,6 +2875,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 595,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2864,6 +2886,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 535,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2874,6 +2897,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 475,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2884,6 +2908,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 415,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2894,6 +2919,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 355,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2904,6 +2930,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 295,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2914,6 +2941,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 235,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2924,6 +2952,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 175,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2934,6 +2963,7 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 115,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
@@ -2944,13 +2974,21 @@
                 "lastcall": false,
                 "minutes": 30
               },
+              "minutes_left_to_buy": 55,
               "reason": "19時台なら約30分で並べる",
               "verdict": "skip",
               "yen_per_minute": 50
             },
             "20": {
-              "reason": "20時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 15
+              },
+              "minutes_left_to_buy": -5,
+              "reason": "売切目安 19:55 を過ぎている。並ぶなら20時台が最短で約15分",
+              "verdict": "sold_out",
+              "yen_per_minute": 100
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -2962,13 +3000,14 @@
                 "lastcall": false,
                 "minutes": 8
               },
+              "minutes_left_to_buy": 655,
               "reason": "9時台なら約8分で並べる",
               "verdict": "skip",
               "yen_per_minute": 188
             }
           },
           "price": 1500,
-          "sold_out_at": null
+          "sold_out_at": "19:55"
         },
         "rapunzel_lantern": {
           "band": "81-100",
@@ -3074,8 +3113,14 @@
               "yen_per_minute": 100
             },
             "20": {
-              "reason": "20時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 5
+              },
+              "reason": "20時台なら約5分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 400
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -3209,8 +3254,15 @@
               "yen_per_minute": 28
             },
             "20": {
-              "reason": "20時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 70
+              },
+              "minutes_left_to_buy": -325,
+              "reason": "売切目安 14:35 を過ぎている。並ぶなら20時台が最短で約70分",
+              "verdict": "sold_out",
+              "yen_per_minute": 36
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -3348,12 +3400,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 28
+                "minutes": 30
               },
               "minutes_left_to_buy": -65,
-              "reason": "売切目安 18:55 を過ぎている。並ぶなら20時台が最短で約28分",
+              "reason": "売切目安 18:55 を過ぎている。並ぶなら20時台が最短で約30分",
               "verdict": "sold_out",
-              "yen_per_minute": 54
+              "yen_per_minute": 50
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -3383,6 +3435,7 @@
                 "lastcall": false,
                 "minutes": 55
               },
+              "minutes_left_to_buy": 590,
               "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 27
@@ -3393,6 +3446,7 @@
                 "lastcall": false,
                 "minutes": 55
               },
+              "minutes_left_to_buy": 530,
               "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 27
@@ -3403,6 +3457,7 @@
                 "lastcall": false,
                 "minutes": 55
               },
+              "minutes_left_to_buy": 470,
               "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 27
@@ -3413,6 +3468,7 @@
                 "lastcall": false,
                 "minutes": 55
               },
+              "minutes_left_to_buy": 410,
               "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 27
@@ -3423,6 +3479,7 @@
                 "lastcall": false,
                 "minutes": 55
               },
+              "minutes_left_to_buy": 350,
               "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 27
@@ -3433,6 +3490,7 @@
                 "lastcall": false,
                 "minutes": 70
               },
+              "minutes_left_to_buy": 290,
               "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
               "verdict": "worth",
               "yen_per_minute": 21
@@ -3443,6 +3501,7 @@
                 "lastcall": false,
                 "minutes": 70
               },
+              "minutes_left_to_buy": 230,
               "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
               "verdict": "worth",
               "yen_per_minute": 21
@@ -3453,6 +3512,7 @@
                 "lastcall": false,
                 "minutes": 70
               },
+              "minutes_left_to_buy": 170,
               "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
               "verdict": "worth",
               "yen_per_minute": 21
@@ -3463,6 +3523,7 @@
                 "lastcall": false,
                 "minutes": 70
               },
+              "minutes_left_to_buy": 110,
               "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
               "verdict": "worth",
               "yen_per_minute": 21
@@ -3473,13 +3534,21 @@
                 "lastcall": false,
                 "minutes": 70
               },
+              "minutes_left_to_buy": 50,
               "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
               "verdict": "worth",
               "yen_per_minute": 21
             },
             "20": {
-              "reason": "20時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 60
+              },
+              "minutes_left_to_buy": -10,
+              "reason": "売切目安 19:50 を過ぎている。並ぶなら20時台が最短で約60分",
+              "verdict": "sold_out",
+              "yen_per_minute": 25
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -3491,13 +3560,14 @@
                 "lastcall": false,
                 "minutes": 55
               },
+              "minutes_left_to_buy": 650,
               "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 27
             }
           },
           "price": 1500,
-          "sold_out_at": null
+          "sold_out_at": "19:50"
         },
         "toy_story_mania": {
           "band": "81-100",
@@ -3613,8 +3683,15 @@
               "yen_per_minute": 22
             },
             "20": {
-              "reason": "20時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 70
+              },
+              "minutes_left_to_buy": -99,
+              "reason": "売切目安 18:21 を過ぎている。並ぶなら20時台が最短で約70分",
+              "verdict": "sold_out",
+              "yen_per_minute": 29
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -3717,7 +3794,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 480,
+              "minutes_left_to_buy": 520,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -3728,7 +3805,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 420,
+              "minutes_left_to_buy": 460,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -3739,7 +3816,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 360,
+              "minutes_left_to_buy": 400,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -3750,7 +3827,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 300,
+              "minutes_left_to_buy": 340,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -3761,7 +3838,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 240,
+              "minutes_left_to_buy": 280,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -3772,7 +3849,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 180,
+              "minutes_left_to_buy": 220,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -3783,7 +3860,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 120,
+              "minutes_left_to_buy": 160,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -3794,7 +3871,7 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 60,
+              "minutes_left_to_buy": 100,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
@@ -3805,9 +3882,9 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 0,
-              "reason": "売切目安 18:00 を過ぎている。並ぶなら19時台が最短で約50分",
-              "verdict": "sold_out",
+              "minutes_left_to_buy": 40,
+              "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
               "yen_per_minute": 50
             },
             "19": {
@@ -3816,8 +3893,8 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": -60,
-              "reason": "売切目安 18:00 を過ぎている。並ぶなら19時台が最短で約50分",
+              "minutes_left_to_buy": -20,
+              "reason": "売切目安 18:40 を過ぎている。並ぶなら19時台が最短で約50分",
               "verdict": "sold_out",
               "yen_per_minute": 50
             },
@@ -3827,8 +3904,8 @@
                 "lastcall": true,
                 "minutes": 50
               },
-              "minutes_left_to_buy": -120,
-              "reason": "売切目安 18:00 を過ぎている。並ぶなら20時台が最短で約50分",
+              "minutes_left_to_buy": -80,
+              "reason": "売切目安 18:40 を過ぎている。並ぶなら20時台が最短で約50分",
               "verdict": "sold_out",
               "yen_per_minute": 50
             },
@@ -3842,14 +3919,14 @@
                 "lastcall": false,
                 "minutes": 50
               },
-              "minutes_left_to_buy": 540,
+              "minutes_left_to_buy": 580,
               "reason": "これから並ぶと最短50分（19時台）。短縮の価値は滞在計画次第",
               "verdict": "depends",
               "yen_per_minute": 50
             }
           },
           "price": 2500,
-          "sold_out_at": "18:00"
+          "sold_out_at": "18:40"
         },
         "big_thunder": {
           "band": "61-80",
@@ -4404,12 +4481,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 28
+                "minutes": 30
               },
               "minutes_left_to_buy": -116,
-              "reason": "売切目安 18:04 を過ぎている。並ぶなら20時台が最短で約28分",
+              "reason": "売切目安 18:04 を過ぎている。並ぶなら20時台が最短で約30分",
               "verdict": "sold_out",
-              "yen_per_minute": 36
+              "yen_per_minute": 33
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -5290,12 +5367,12 @@
               "best": {
                 "hour": 20,
                 "lastcall": true,
-                "minutes": 28
+                "minutes": 30
               },
               "minutes_left_to_buy": -65,
-              "reason": "売切目安 18:55 を過ぎている。並ぶなら20時台が最短で約28分",
+              "reason": "売切目安 18:55 を過ぎている。並ぶなら20時台が最短で約30分",
               "verdict": "sold_out",
-              "yen_per_minute": 54
+              "yen_per_minute": 50
             },
             "21": {
               "reason": "21時以降のデータがまだ足りない",
@@ -5658,8 +5735,8 @@
           "source": "observed"
         },
         "61-80": {
-          "median": "18:00",
-          "samples": 10,
+          "median": "18:40",
+          "samples": 11,
           "source": "observed"
         },
         "81-100": {
@@ -5707,9 +5784,9 @@
           "source": "observed"
         },
         "81-100": {
-          "median": null,
-          "samples": 2,
-          "source": "bootstrap"
+          "median": "20:00",
+          "samples": 3,
+          "source": "observed"
         }
       },
       "frozen_journey": {
@@ -5773,9 +5850,9 @@
           "source": "observed"
         },
         "81-100": {
-          "median": null,
-          "samples": 2,
-          "source": "bootstrap"
+          "median": "20:02",
+          "samples": 3,
+          "source": "observed"
         }
       },
       "pooh": {
@@ -5817,9 +5894,9 @@
           "source": "observed"
         },
         "81-100": {
-          "median": null,
-          "samples": 2,
-          "source": "bootstrap"
+          "median": "19:55",
+          "samples": 3,
+          "source": "observed"
         }
       },
       "rapunzel_lantern": {
@@ -5905,9 +5982,9 @@
           "source": "observed"
         },
         "81-100": {
-          "median": null,
-          "samples": 2,
-          "source": "bootstrap"
+          "median": "19:50",
+          "samples": 3,
+          "source": "observed"
         }
       },
       "toy_story_mania": {
@@ -5933,20 +6010,45 @@
         }
       }
     },
-    "generated_at": "2026-09-26T19:40:27+09:00",
+    "generated_at": "2026-09-26T20:00:26+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
     {
       "attractions": {
+        "beauty_and_the_beast": {
+          "final_sold_out_at": "2026-09-26T20:00:11+09:00",
+          "first_sold_out_at": "2026-09-26T20:00:11+09:00",
+          "resale": false
+        },
+        "center_of_the_earth": {
+          "final_sold_out_at": "2026-09-26T20:00:11+09:00",
+          "first_sold_out_at": "2026-09-26T20:00:11+09:00",
+          "resale": false
+        },
         "frozen_journey": {
           "final_sold_out_at": "2026-09-26T18:00:17+09:00",
           "first_sold_out_at": "2026-09-26T10:15:31+09:00",
           "resale": true
         },
+        "haunted_mansion": {
+          "final_sold_out_at": "2026-09-26T20:00:11+09:00",
+          "first_sold_out_at": "2026-09-26T20:00:11+09:00",
+          "resale": false
+        },
+        "peter_pan": {
+          "final_sold_out_at": "2026-09-26T20:00:11+09:00",
+          "first_sold_out_at": "2026-09-26T20:00:11+09:00",
+          "resale": false
+        },
         "pooh": {
           "final_sold_out_at": "2026-09-26T16:00:10+09:00",
           "first_sold_out_at": "2026-09-26T16:00:10+09:00",
+          "resale": false
+        },
+        "raging_spirits": {
+          "final_sold_out_at": "2026-09-26T19:55:10+09:00",
+          "first_sold_out_at": "2026-09-26T19:55:10+09:00",
           "resale": false
         },
         "soaring": {
@@ -5957,6 +6059,11 @@
         "splash_mountain": {
           "final_sold_out_at": "2026-09-26T19:00:11+09:00",
           "first_sold_out_at": "2026-09-26T19:00:11+09:00",
+          "resale": false
+        },
+        "tower_of_terror": {
+          "final_sold_out_at": "2026-09-26T19:50:11+09:00",
+          "first_sold_out_at": "2026-09-26T19:50:11+09:00",
           "resale": false
         },
         "toy_story_mania": {
@@ -6434,11 +6541,17 @@
           {
             "at": "2026-09-26T08:00:31+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-26T20:00:11+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-26T20:00:11+09:00",
+        "first_sold_out_at": "2026-09-26T20:00:11+09:00",
         "park": "tdl",
         "price": 2500,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "big_thunder": {
         "events": [
@@ -6456,11 +6569,17 @@
           {
             "at": "2026-09-26T08:00:31+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-26T20:00:11+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-26T20:00:11+09:00",
+        "first_sold_out_at": "2026-09-26T20:00:11+09:00",
         "park": "tds",
         "price": 2000,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "frozen_journey": {
         "events": [
@@ -6538,10 +6657,16 @@
           {
             "at": "2026-09-26T08:00:31+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-26T20:00:11+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-26T20:00:11+09:00",
+        "first_sold_out_at": "2026-09-26T20:00:11+09:00",
         "park": "tdl",
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "indiana_jones": {
         "events": [],
@@ -6563,11 +6688,17 @@
           {
             "at": "2026-09-26T08:00:31+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-26T20:00:11+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-26T20:00:11+09:00",
+        "first_sold_out_at": "2026-09-26T20:00:11+09:00",
         "park": "tds",
         "price": 2000,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "pooh": {
         "events": [
@@ -6591,11 +6722,17 @@
           {
             "at": "2026-09-26T08:00:31+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-26T19:55:10+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-26T19:55:10+09:00",
+        "first_sold_out_at": "2026-09-26T19:55:10+09:00",
         "park": "tds",
         "price": 1500,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "rapunzel_lantern": {
         "events": [
@@ -6647,11 +6784,17 @@
           {
             "at": "2026-09-26T08:00:31+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-26T19:50:11+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-26T19:50:11+09:00",
+        "first_sold_out_at": "2026-09-26T19:50:11+09:00",
         "park": "tds",
         "price": 1500,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "toy_story_mania": {
         "events": [
@@ -6682,16 +6825,16 @@
         "open": "2026-09-26T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-26T19:40:10+09:00",
+    "last_polled_at": "2026-09-26T20:00:11+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-26T19:40:28+09:00",
+  "generated_at": "2026-09-26T20:00:27+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-27",
-      "last_run_at": "2026-09-26T19:20:27+09:00",
-      "last_success_at": "2026-09-26T19:20:27+09:00"
+      "last_run_at": "2026-09-26T19:40:28+09:00",
+      "last_success_at": "2026-09-26T19:40:28+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -6707,16 +6850,16 @@
     },
     "estimates": {
       "consecutive_failures": 0,
-      "last_detail": "実績日数24 observed帯26",
-      "last_run_at": "2026-09-26T19:40:27+09:00",
-      "last_success_at": "2026-09-26T19:40:27+09:00"
+      "last_detail": "実績日数24 observed帯30",
+      "last_run_at": "2026-09-26T20:00:26+09:00",
+      "last_success_at": "2026-09-26T20:00:26+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-26 待ち282件 DPA141件 から再構成",
+      "last_detail": "2026-09-26 待ち290件 DPA145件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-26T19:40:26+09:00",
-      "last_success_at": "2026-09-26T19:40:26+09:00"
+      "last_run_at": "2026-09-26T20:00:26+09:00",
+      "last_success_at": "2026-09-26T20:00:26+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -6732,9 +6875,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "24日分から 15施設 / 時間帯344枠",
-      "last_run_at": "2026-09-26T19:40:27+09:00",
-      "last_success_at": "2026-09-26T19:40:27+09:00"
+      "last_detail": "24日分から 15施設 / 時間帯350枠",
+      "last_run_at": "2026-09-26T20:00:26+09:00",
+      "last_success_at": "2026-09-26T20:00:26+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -7564,7 +7707,7 @@
         "16": 140,
         "17": 120,
         "18": 100,
-        "19": 90,
+        "19": 80,
         "9": 120
       },
       "monsters_inc": {
@@ -7578,7 +7721,7 @@
         "17": 45,
         "18": 40,
         "19": 28,
-        "20": 28,
+        "20": 30,
         "9": 50
       },
       "peter_pan": {
@@ -7591,7 +7734,8 @@
         "16": 40,
         "17": 40,
         "18": 28,
-        "19": 20,
+        "19": 15,
+        "20": 5,
         "9": 22
       },
       "pooh": {
@@ -7620,6 +7764,7 @@
         "17": 50,
         "18": 40,
         "19": 30,
+        "20": 15,
         "9": 8
       },
       "rapunzel_lantern": {
@@ -7633,6 +7778,7 @@
         "17": 30,
         "18": 28,
         "19": 20,
+        "20": 5,
         "9": 20
       },
       "soaring": {
@@ -7646,6 +7792,7 @@
         "17": 120,
         "18": 120,
         "19": 90,
+        "20": 70,
         "9": 140
       },
       "splash_mountain": {
@@ -7659,7 +7806,7 @@
         "17": 50,
         "18": 50,
         "19": 30,
-        "20": 28,
+        "20": 30,
         "9": 40
       },
       "tower_of_terror": {
@@ -7673,6 +7820,7 @@
         "17": 75,
         "18": 80,
         "19": 70,
+        "20": 60,
         "9": 65
       },
       "toy_story_mania": {
@@ -7686,6 +7834,7 @@
         "17": 120,
         "18": 110,
         "19": 90,
+        "20": 70,
         "9": 140
       }
     },
@@ -7758,7 +7907,7 @@
         "17": 45,
         "18": 40,
         "19": 28,
-        "20": 28,
+        "20": 30,
         "9": 50
       },
       "peter_pan": {
@@ -7846,7 +7995,7 @@
         "17": 50,
         "18": 50,
         "19": 30,
-        "20": 28,
+        "20": 30,
         "9": 40
       },
       "tower_of_terror": {
@@ -7909,12 +8058,12 @@
         }
       },
       "last": {
-        "at": "2026-09-26T19:40:10+09:00",
+        "at": "2026-09-26T20:00:11+09:00",
         "closed": [
           "baymax"
         ],
         "waits": {
-          "beauty_and_the_beast": 60,
+          "beauty_and_the_beast": 50,
           "big_thunder": 25,
           "haunted_mansion": 25,
           "monsters_inc": 40,
@@ -7959,22 +8108,22 @@
         }
       },
       "last": {
-        "at": "2026-09-26T19:40:10+09:00",
+        "at": "2026-09-26T20:00:11+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
-          "center_of_the_earth": 70,
-          "frozen_journey": 70,
-          "peter_pan": 10,
-          "raging_spirits": 30,
+          "center_of_the_earth": 50,
+          "frozen_journey": 60,
+          "peter_pan": 5,
+          "raging_spirits": 25,
           "rapunzel_lantern": 30,
-          "soaring": 80,
-          "tower_of_terror": 70,
-          "toy_story_mania": 80
+          "soaring": 70,
+          "tower_of_terror": 60,
+          "toy_story_mania": 70
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-26T19:40:10+09:00"
+  "waits_fetched_at": "2026-09-26T20:00:11+09:00"
 }
