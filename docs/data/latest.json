@@ -1611,7 +1611,7 @@
   "crowd_fetched_at": "2026-09-27T07:56:45+09:00",
   "curve_meta": {
     "days_used": 25,
-    "generated_at": "2026-09-28T05:00:40+09:00",
+    "generated_at": "2026-09-28T05:20:31+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -3933,7 +3933,7 @@
         }
       }
     },
-    "generated_at": "2026-09-28T05:00:40+09:00",
+    "generated_at": "2026-09-28T05:20:31+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -4467,13 +4467,13 @@
     }
   ],
   "dpa_today": null,
-  "generated_at": "2026-09-28T05:00:41+09:00",
+  "generated_at": "2026-09-28T05:20:31+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
-      "last_detail": "target=2026-09-28",
-      "last_run_at": "2026-09-28T04:40:29+09:00",
-      "last_success_at": "2026-09-28T04:40:29+09:00"
+      "last_detail": "target=2026-09-29",
+      "last_run_at": "2026-09-28T05:00:41+09:00",
+      "last_success_at": "2026-09-28T05:00:41+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -4490,15 +4490,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数25 observed帯31",
-      "last_run_at": "2026-09-28T05:00:40+09:00",
-      "last_success_at": "2026-09-28T05:00:40+09:00"
+      "last_run_at": "2026-09-28T05:20:31+09:00",
+      "last_success_at": "2026-09-28T05:20:31+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
       "last_detail": "2026-09-28 サンプル0件（営業時間外か、Worker がまだ動いていない）",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-28T05:00:40+09:00",
-      "last_success_at": "2026-09-28T05:00:40+09:00"
+      "last_run_at": "2026-09-28T05:20:30+09:00",
+      "last_success_at": "2026-09-28T05:20:30+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -4515,8 +4515,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "25日分から 15施設 / 時間帯356枠",
-      "last_run_at": "2026-09-28T05:00:40+09:00",
-      "last_success_at": "2026-09-28T05:00:40+09:00"
+      "last_run_at": "2026-09-28T05:20:31+09:00",
+      "last_success_at": "2026-09-28T05:20:31+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
