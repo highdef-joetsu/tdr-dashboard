@@ -11,33 +11,51 @@
         {
           "at": "2026-09-27T08:00:26+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-27T20:00:13+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-27T20:00:13+09:00",
+      "first_sold_out_at": "2026-09-27T20:00:13+09:00",
       "park": "tdl",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "big_thunder": {
       "events": [
         {
           "at": "2026-09-27T08:00:26+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-27T20:00:13+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-27T20:00:13+09:00",
+      "first_sold_out_at": "2026-09-27T20:00:13+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "center_of_the_earth": {
       "events": [
         {
           "at": "2026-09-27T08:00:26+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-27T20:00:13+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-27T20:00:13+09:00",
+      "first_sold_out_at": "2026-09-27T20:00:13+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "frozen_journey": {
       "events": [
@@ -107,23 +125,33 @@
           "at": "2026-09-27T17:05:09+09:00",
           "note": "resale",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-27T20:00:13+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-09-27T16:35:09+09:00",
+      "final_sold_out_at": "2026-09-27T20:00:13+09:00",
       "first_sold_out_at": "2026-09-27T10:10:15+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "haunted_mansion": {
       "events": [
         {
           "at": "2026-09-27T08:00:26+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-27T20:00:13+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-27T20:00:13+09:00",
+      "first_sold_out_at": "2026-09-27T20:00:13+09:00",
       "park": "tdl",
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "indiana_jones": {
       "events": [],
@@ -179,11 +207,17 @@
         {
           "at": "2026-09-27T08:00:26+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-27T19:55:09+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-27T19:55:09+09:00",
+      "first_sold_out_at": "2026-09-27T19:55:09+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -252,11 +286,17 @@
         {
           "at": "2026-09-27T08:00:26+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-27T20:00:13+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-27T20:00:13+09:00",
+      "first_sold_out_at": "2026-09-27T20:00:13+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     }
   },
   "date": "2026-09-27",
@@ -270,6 +310,6 @@
       "open": "2026-09-27T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-27T19:40:09+09:00",
+  "last_polled_at": "2026-09-27T20:00:13+09:00",
   "source": "themeparks.wiki"
 }
