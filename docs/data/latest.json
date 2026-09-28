@@ -1923,7 +1923,7 @@
   "crowd_fetched_at": "2026-09-28T08:07:12+09:00",
   "curve_meta": {
     "days_used": 26,
-    "generated_at": "2026-09-28T16:40:24+09:00",
+    "generated_at": "2026-09-28T17:00:26+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2354,29 +2354,36 @@
             },
             "15": {
               "best": {
-                "hour": 15,
+                "hour": 17,
                 "lastcall": false,
-                "minutes": 110
+                "minutes": 100
               },
               "minutes_left_to_buy": 232,
-              "reason": "これから並ぶと最短でも110分（15時台）。1分あたり約18円",
+              "reason": "これから並ぶと最短でも100分（17時台）。1分あたり約20円",
               "verdict": "worth",
-              "yen_per_minute": 18
+              "yen_per_minute": 20
             },
             "16": {
               "best": {
-                "hour": 16,
+                "hour": 17,
                 "lastcall": false,
-                "minutes": 110
+                "minutes": 100
               },
               "minutes_left_to_buy": 172,
-              "reason": "16時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
-              "yen_per_minute": 18
+              "reason": "これから並ぶと最短でも100分（17時台）。1分あたり約20円",
+              "verdict": "worth",
+              "yen_per_minute": 20
             },
             "17": {
-              "reason": "17時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 17,
+                "lastcall": false,
+                "minutes": 100
+              },
+              "minutes_left_to_buy": 112,
+              "reason": "17時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 20
             },
             "18": {
               "reason": "18時以降のデータがまだ足りない",
@@ -6193,7 +6200,7 @@
         }
       }
     },
-    "generated_at": "2026-09-28T16:40:24+09:00",
+    "generated_at": "2026-09-28T17:00:26+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -6913,16 +6920,16 @@
         "open": "2026-09-28T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-28T16:40:09+09:00",
+    "last_polled_at": "2026-09-28T17:00:11+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-28T16:40:25+09:00",
+  "generated_at": "2026-09-28T17:00:27+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-29",
-      "last_run_at": "2026-09-28T16:20:28+09:00",
-      "last_success_at": "2026-09-28T16:20:28+09:00"
+      "last_run_at": "2026-09-28T16:40:25+09:00",
+      "last_success_at": "2026-09-28T16:40:25+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -6939,15 +6946,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数26 observed帯31",
-      "last_run_at": "2026-09-28T16:40:24+09:00",
-      "last_success_at": "2026-09-28T16:40:24+09:00"
+      "last_run_at": "2026-09-28T17:00:26+09:00",
+      "last_success_at": "2026-09-28T17:00:26+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-28 待ち210件 DPA105件 から再構成",
+      "last_detail": "2026-09-28 待ち218件 DPA109件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-28T16:40:24+09:00",
-      "last_success_at": "2026-09-28T16:40:24+09:00"
+      "last_run_at": "2026-09-28T17:00:26+09:00",
+      "last_success_at": "2026-09-28T17:00:26+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -6963,9 +6970,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "26日分から 15施設 / 時間帯361枠",
-      "last_run_at": "2026-09-28T16:40:24+09:00",
-      "last_success_at": "2026-09-28T16:40:24+09:00"
+      "last_detail": "26日分から 15施設 / 時間帯362枠",
+      "last_run_at": "2026-09-28T17:00:26+09:00",
+      "last_success_at": "2026-09-28T17:00:26+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -7794,6 +7801,7 @@
         "14": 95,
         "15": 110,
         "16": 110,
+        "17": 100,
         "9": 92
       },
       "frozen_journey": {
@@ -7817,7 +7825,7 @@
         "14": 50,
         "15": 50,
         "16": 38,
-        "17": 50,
+        "17": 45,
         "18": 40,
         "19": 29,
         "20": 30,
@@ -7862,7 +7870,7 @@
         "14": 48,
         "15": 50,
         "16": 45,
-        "17": 50,
+        "17": 52,
         "18": 40,
         "19": 30,
         "20": 15,
@@ -7891,7 +7899,7 @@
         "14": 140,
         "15": 150,
         "16": 140,
-        "17": 120,
+        "17": 140,
         "18": 120,
         "19": 90,
         "20": 70,
@@ -8009,7 +8017,7 @@
         "14": 50,
         "15": 50,
         "16": 38,
-        "17": 50,
+        "17": 45,
         "18": 40,
         "19": 29,
         "20": 30,
@@ -8165,7 +8173,7 @@
         }
       },
       "last": {
-        "at": "2026-09-28T16:40:09+09:00",
+        "at": "2026-09-28T17:00:11+09:00",
         "closed": [
           "baymax"
         ],
@@ -8173,9 +8181,9 @@
           "beauty_and_the_beast": 90,
           "big_thunder": 30,
           "haunted_mansion": 50,
-          "monsters_inc": 30,
-          "pooh": 30,
-          "splash_mountain": 40
+          "monsters_inc": 40,
+          "pooh": 50,
+          "splash_mountain": 50
         }
       }
     },
@@ -8211,7 +8219,7 @@
         }
       },
       "last": {
-        "at": "2026-09-28T16:40:09+09:00",
+        "at": "2026-09-28T17:00:11+09:00",
         "closed": [
           "indiana_jones",
           "tower_of_terror"
@@ -8220,13 +8228,13 @@
           "center_of_the_earth": 140,
           "frozen_journey": 140,
           "peter_pan": 50,
-          "raging_spirits": 100,
-          "rapunzel_lantern": 50,
+          "raging_spirits": 80,
+          "rapunzel_lantern": 40,
           "soaring": 160,
-          "toy_story_mania": 140
+          "toy_story_mania": 120
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-28T16:40:09+09:00"
+  "waits_fetched_at": "2026-09-28T17:00:11+09:00"
 }
