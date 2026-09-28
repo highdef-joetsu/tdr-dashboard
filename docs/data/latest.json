@@ -1923,7 +1923,7 @@
   "crowd_fetched_at": "2026-09-28T08:07:12+09:00",
   "curve_meta": {
     "days_used": 26,
-    "generated_at": "2026-09-28T16:00:30+09:00",
+    "generated_at": "2026-09-28T16:20:27+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2303,7 +2303,7 @@
                 "lastcall": false,
                 "minutes": 90
               },
-              "minutes_left_to_buy": 600,
+              "minutes_left_to_buy": 532,
               "reason": "これから並ぶと最短でも90分（13時台）。1分あたり約22円",
               "verdict": "worth",
               "yen_per_minute": 22
@@ -2314,7 +2314,7 @@
                 "lastcall": false,
                 "minutes": 90
               },
-              "minutes_left_to_buy": 540,
+              "minutes_left_to_buy": 472,
               "reason": "これから並ぶと最短でも90分（13時台）。1分あたり約22円",
               "verdict": "worth",
               "yen_per_minute": 22
@@ -2325,7 +2325,7 @@
                 "lastcall": false,
                 "minutes": 90
               },
-              "minutes_left_to_buy": 480,
+              "minutes_left_to_buy": 412,
               "reason": "これから並ぶと最短でも90分（13時台）。1分あたり約22円",
               "verdict": "worth",
               "yen_per_minute": 22
@@ -2336,7 +2336,7 @@
                 "lastcall": false,
                 "minutes": 90
               },
-              "minutes_left_to_buy": 420,
+              "minutes_left_to_buy": 352,
               "reason": "これから並ぶと最短でも90分（13時台）。1分あたり約22円",
               "verdict": "worth",
               "yen_per_minute": 22
@@ -2347,7 +2347,7 @@
                 "lastcall": false,
                 "minutes": 95
               },
-              "minutes_left_to_buy": 360,
+              "minutes_left_to_buy": 292,
               "reason": "これから並ぶと最短でも95分（14時台）。1分あたり約21円",
               "verdict": "worth",
               "yen_per_minute": 21
@@ -2358,7 +2358,7 @@
                 "lastcall": false,
                 "minutes": 110
               },
-              "minutes_left_to_buy": 300,
+              "minutes_left_to_buy": 232,
               "reason": "これから並ぶと最短でも110分（15時台）。1分あたり約18円",
               "verdict": "worth",
               "yen_per_minute": 18
@@ -2369,7 +2369,7 @@
                 "lastcall": false,
                 "minutes": 110
               },
-              "minutes_left_to_buy": 240,
+              "minutes_left_to_buy": 172,
               "reason": "16時から先で埋まっている時間帯が1つしかない",
               "verdict": "insufficient",
               "yen_per_minute": 18
@@ -2400,14 +2400,14 @@
                 "lastcall": false,
                 "minutes": 90
               },
-              "minutes_left_to_buy": 660,
+              "minutes_left_to_buy": 592,
               "reason": "これから並ぶと最短でも90分（13時台）。1分あたり約22円",
               "verdict": "worth",
               "yen_per_minute": 22
             }
           },
           "price": 2000,
-          "sold_out_at": "20:00"
+          "sold_out_at": "18:52"
         },
         "frozen_journey": {
           "band": "81-100",
@@ -5967,8 +5967,8 @@
           "source": "observed"
         },
         "81-100": {
-          "median": "20:00",
-          "samples": 3,
+          "median": "18:52",
+          "samples": 4,
           "source": "observed"
         }
       },
@@ -6193,12 +6193,17 @@
         }
       }
     },
-    "generated_at": "2026-09-28T16:00:30+09:00",
+    "generated_at": "2026-09-28T16:20:27+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
     {
       "attractions": {
+        "center_of_the_earth": {
+          "final_sold_out_at": "2026-09-28T16:05:09+09:00",
+          "first_sold_out_at": "2026-09-28T16:05:09+09:00",
+          "resale": false
+        },
         "frozen_journey": {
           "final_sold_out_at": "2026-09-28T13:15:09+09:00",
           "first_sold_out_at": "2026-09-28T10:20:16+09:00",
@@ -6726,11 +6731,17 @@
           {
             "at": "2026-09-28T08:00:23+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-09-28T16:05:09+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-09-28T16:05:09+09:00",
+        "first_sold_out_at": "2026-09-28T16:05:09+09:00",
         "park": "tds",
         "price": 2000,
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "frozen_journey": {
         "events": [
@@ -6902,16 +6913,16 @@
         "open": "2026-09-28T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-09-28T16:00:11+09:00",
+    "last_polled_at": "2026-09-28T16:20:06+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-09-28T16:00:31+09:00",
+  "generated_at": "2026-09-28T16:20:28+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-09-29",
-      "last_run_at": "2026-09-28T15:40:25+09:00",
-      "last_success_at": "2026-09-28T15:40:25+09:00"
+      "last_run_at": "2026-09-28T16:00:31+09:00",
+      "last_success_at": "2026-09-28T16:00:31+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -6928,15 +6939,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数26 observed帯31",
-      "last_run_at": "2026-09-28T16:00:30+09:00",
-      "last_success_at": "2026-09-28T16:00:30+09:00"
+      "last_run_at": "2026-09-28T16:20:27+09:00",
+      "last_success_at": "2026-09-28T16:20:27+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-09-28 待ち194件 DPA97件 から再構成",
+      "last_detail": "2026-09-28 待ち202件 DPA101件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-09-28T16:00:30+09:00",
-      "last_success_at": "2026-09-28T16:00:30+09:00"
+      "last_run_at": "2026-09-28T16:20:26+09:00",
+      "last_success_at": "2026-09-28T16:20:26+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -6953,8 +6964,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "26日分から 15施設 / 時間帯361枠",
-      "last_run_at": "2026-09-28T16:00:30+09:00",
-      "last_success_at": "2026-09-28T16:00:30+09:00"
+      "last_run_at": "2026-09-28T16:20:27+09:00",
+      "last_success_at": "2026-09-28T16:20:27+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -7792,7 +7803,7 @@
         "13": 130,
         "14": 150,
         "15": 150,
-        "16": 135,
+        "16": 140,
         "17": 120,
         "18": 100,
         "19": 80,
@@ -7893,7 +7904,7 @@
         "13": 40,
         "14": 50,
         "15": 45,
-        "16": 40,
+        "16": 45,
         "17": 50,
         "18": 50,
         "19": 30,
@@ -8086,7 +8097,7 @@
         "13": 40,
         "14": 50,
         "15": 45,
-        "16": 40,
+        "16": 45,
         "17": 50,
         "18": 50,
         "19": 30,
@@ -8154,17 +8165,17 @@
         }
       },
       "last": {
-        "at": "2026-09-28T16:00:11+09:00",
+        "at": "2026-09-28T16:20:06+09:00",
         "closed": [
           "baymax"
         ],
         "waits": {
           "beauty_and_the_beast": 70,
-          "big_thunder": 40,
-          "haunted_mansion": 40,
-          "monsters_inc": 60,
-          "pooh": 50,
-          "splash_mountain": 40
+          "big_thunder": 30,
+          "haunted_mansion": 30,
+          "monsters_inc": 50,
+          "pooh": 40,
+          "splash_mountain": 50
         }
       }
     },
@@ -8191,8 +8202,8 @@
           "minutes": 80
         },
         "soaring": {
-          "at": "2026-09-28T09:25:14+09:00",
-          "minutes": 160
+          "at": "2026-09-28T16:10:09+09:00",
+          "minutes": 180
         },
         "toy_story_mania": {
           "at": "2026-09-28T10:25:12+09:00",
@@ -8200,22 +8211,22 @@
         }
       },
       "last": {
-        "at": "2026-09-28T16:00:11+09:00",
+        "at": "2026-09-28T16:20:06+09:00",
         "closed": [
           "indiana_jones",
           "tower_of_terror"
         ],
         "waits": {
-          "center_of_the_earth": 180,
-          "frozen_journey": 120,
+          "center_of_the_earth": 140,
+          "frozen_journey": 140,
           "peter_pan": 50,
           "raging_spirits": 100,
-          "rapunzel_lantern": 50,
+          "rapunzel_lantern": 40,
           "soaring": 160,
           "toy_story_mania": 140
         }
       }
     }
   },
-  "waits_fetched_at": "2026-09-28T16:00:11+09:00"
+  "waits_fetched_at": "2026-09-28T16:20:06+09:00"
 }
