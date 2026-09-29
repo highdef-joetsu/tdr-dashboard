@@ -28,11 +28,17 @@
         {
           "at": "2026-09-29T08:00:16+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-29T20:05:09+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-29T20:05:09+09:00",
+      "first_sold_out_at": "2026-09-29T20:05:09+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "center_of_the_earth": {
       "events": [
@@ -110,13 +116,17 @@
           "at": "2026-09-29T16:25:06+09:00",
           "note": "resale",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-29T20:05:09+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-09-29T16:05:08+09:00",
+      "final_sold_out_at": "2026-09-29T20:05:09+09:00",
       "first_sold_out_at": "2026-09-29T10:50:19+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "haunted_mansion": {
       "events": [
@@ -143,22 +153,34 @@
         {
           "at": "2026-09-29T08:00:16+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-29T20:05:09+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-29T20:05:09+09:00",
+      "first_sold_out_at": "2026-09-29T20:05:09+09:00",
       "park": "tdl",
       "price": 1000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "peter_pan": {
       "events": [
         {
           "at": "2026-09-29T08:00:16+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-29T20:05:09+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-29T20:05:09+09:00",
+      "first_sold_out_at": "2026-09-29T20:05:09+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "pooh": {
       "events": [
@@ -199,11 +221,17 @@
         {
           "at": "2026-09-29T08:00:16+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-09-29T20:05:09+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-09-29T20:05:09+09:00",
+      "first_sold_out_at": "2026-09-29T20:05:09+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "soaring": {
       "events": [
@@ -274,6 +302,6 @@
       "open": "2026-09-29T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-09-29T20:00:10+09:00",
+  "last_polled_at": "2026-09-29T20:20:06+09:00",
   "source": "themeparks.wiki"
 }
