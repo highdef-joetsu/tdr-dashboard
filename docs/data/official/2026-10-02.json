@@ -815,7 +815,7 @@
       }
     ]
   },
-  "date": "2026-10-01",
+  "date": "2026-10-02",
   "fetched_at": "2026-10-01T09:47:42+09:00",
   "parks": {
     "tdl": {
@@ -847,6 +847,8 @@
           "コズミック・エンカウンター"
         ],
         "show": [
+          "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
+          "ナイトハイ・ハロウィーン",
           "スカイ・フル・オブ・カラーズ",
           "レッツ・パーティグラ！",
           "ザ・ダイヤモンド・バラエティマスター"
@@ -860,7 +862,7 @@
           "name": "ウッドチャック・グリーティングトレイル（ドナルド）",
           "reservation_only": false,
           "times": [
-            "9:00 - 19:15"
+            "9:00 - 18:00"
           ],
           "url": "/tdl/greeting/detail/916/"
         },
@@ -871,7 +873,7 @@
           "name": "ウッドチャック・グリーティングトレイル（デイジー）",
           "reservation_only": false,
           "times": [
-            "9:00 - 19:15"
+            "9:00 - 18:00"
           ],
           "url": "/tdl/greeting/detail/917/"
         },
@@ -882,7 +884,7 @@
           "name": "ミッキーの家とミート・ミッキー",
           "reservation_only": false,
           "times": [
-            "9:00 - 21:00"
+            "9:00 - 18:30"
           ],
           "url": "/tdl/greeting/detail/909/"
         },
@@ -893,13 +895,13 @@
           "name": "ミニーのスタイルスタジオ",
           "reservation_only": false,
           "times": [
-            "9:00 - 21:00"
+            "9:00 - 18:30"
           ],
           "url": "/tdl/greeting/detail/890/"
         }
       ],
       "hours": {
-        "close": "21:00",
+        "close": "18:30",
         "open": "09:00"
       },
       "shows": [
@@ -910,7 +912,7 @@
           "name": "ザ・ヴィランズ・ハロウィーン“Into the Frenzy”",
           "reservation_only": false,
           "times": [
-            "16:20"
+            "15:40"
           ],
           "url": "/tdl/show/detail/944/"
         },
@@ -927,38 +929,16 @@
         },
         {
           "changed": false,
-          "dpa": true,
-          "entry": false,
-          "name": "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
-          "reservation_only": false,
-          "times": [
-            "19:20"
-          ],
-          "url": "/tdl/show/detail/913/"
-        },
-        {
-          "changed": false,
-          "dpa": false,
-          "entry": false,
-          "name": "ナイトハイ・ハロウィーン",
-          "reservation_only": false,
-          "times": [
-            "20:40"
-          ],
-          "url": "/tdl/show/detail/945/"
-        },
-        {
-          "changed": false,
           "dpa": false,
           "entry": true,
           "name": "ジャンボリミッキー！レッツ・ダンス！",
           "reservation_only": false,
           "times": [
-            "11:30",
-            "12:45",
-            "14:00",
-            "15:50",
-            "17:05"
+            "11:10",
+            "12:25",
+            "13:40",
+            "15:30",
+            "16:45"
           ],
           "url": "/tdl/show/detail/985/"
         },
@@ -978,11 +958,10 @@
           "name": "ミッキーのマジカルミュージックワールド",
           "reservation_only": false,
           "times": [
-            "11:20",
-            "12:45",
-            "14:10",
-            "16:15",
-            "17:40"
+            "12:15",
+            "13:40",
+            "15:45",
+            "17:10"
           ],
           "url": "/tdl/show/detail/895/"
         },
@@ -994,10 +973,9 @@
           "reservation_only": false,
           "times": [
             "12:30",
-            "13:55",
-            "15:20",
-            "17:25",
-            "18:50"
+            "14:25",
+            "16:30",
+            "17:55"
           ],
           "url": "/tdl/show/detail/7204/"
         }
