@@ -815,7 +815,7 @@
       }
     ]
   },
-  "date": "2026-10-02",
+  "date": "2026-10-03",
   "fetched_at": "2026-10-02T10:03:58+09:00",
   "parks": {
     "tdl": {
@@ -847,8 +847,6 @@
           "コズミック・エンカウンター"
         ],
         "show": [
-          "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
-          "ナイトハイ・ハロウィーン",
           "スカイ・フル・オブ・カラーズ",
           "レッツ・パーティグラ！",
           "ザ・ダイヤモンド・バラエティマスター"
@@ -862,7 +860,7 @@
           "name": "ウッドチャック・グリーティングトレイル（ドナルド）",
           "reservation_only": false,
           "times": [
-            "9:00 - 18:00"
+            "9:00 - 19:15"
           ],
           "url": "/tdl/greeting/detail/916/"
         },
@@ -873,7 +871,7 @@
           "name": "ウッドチャック・グリーティングトレイル（デイジー）",
           "reservation_only": false,
           "times": [
-            "9:00 - 18:00"
+            "9:00 - 19:15"
           ],
           "url": "/tdl/greeting/detail/917/"
         },
@@ -884,7 +882,7 @@
           "name": "ミッキーの家とミート・ミッキー",
           "reservation_only": false,
           "times": [
-            "9:00 - 18:30"
+            "9:00 - 21:00"
           ],
           "url": "/tdl/greeting/detail/909/"
         },
@@ -895,13 +893,13 @@
           "name": "ミニーのスタイルスタジオ",
           "reservation_only": false,
           "times": [
-            "9:00 - 18:30"
+            "9:00 - 21:00"
           ],
           "url": "/tdl/greeting/detail/890/"
         }
       ],
       "hours": {
-        "close": "18:30",
+        "close": "21:00",
         "open": "09:00"
       },
       "shows": [
@@ -912,7 +910,7 @@
           "name": "ザ・ヴィランズ・ハロウィーン“Into the Frenzy”",
           "reservation_only": false,
           "times": [
-            "15:40"
+            "16:20"
           ],
           "url": "/tdl/show/detail/944/"
         },
@@ -929,16 +927,38 @@
         },
         {
           "changed": false,
+          "dpa": true,
+          "entry": false,
+          "name": "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
+          "reservation_only": false,
+          "times": [
+            "19:20"
+          ],
+          "url": "/tdl/show/detail/913/"
+        },
+        {
+          "changed": false,
+          "dpa": false,
+          "entry": false,
+          "name": "ナイトハイ・ハロウィーン",
+          "reservation_only": false,
+          "times": [
+            "20:40"
+          ],
+          "url": "/tdl/show/detail/945/"
+        },
+        {
+          "changed": false,
           "dpa": false,
           "entry": true,
           "name": "ジャンボリミッキー！レッツ・ダンス！",
           "reservation_only": false,
           "times": [
-            "11:10",
-            "12:25",
-            "13:40",
-            "15:30",
-            "16:45"
+            "11:30",
+            "12:45",
+            "14:00",
+            "15:50",
+            "17:05"
           ],
           "url": "/tdl/show/detail/985/"
         },
@@ -958,10 +978,11 @@
           "name": "ミッキーのマジカルミュージックワールド",
           "reservation_only": false,
           "times": [
-            "12:15",
-            "13:40",
-            "15:45",
-            "17:10"
+            "11:20",
+            "12:45",
+            "14:10",
+            "16:15",
+            "17:40"
           ],
           "url": "/tdl/show/detail/895/"
         },
@@ -973,15 +994,16 @@
           "reservation_only": false,
           "times": [
             "12:30",
-            "14:25",
-            "16:30",
-            "17:55"
+            "13:55",
+            "15:20",
+            "17:25",
+            "18:50"
           ],
           "url": "/tdl/show/detail/7204/"
         }
       ],
       "ticket": {
-        "adult_1day": 9900,
+        "adult_1day": 10900,
         "status": "販売中"
       }
     },
@@ -1001,7 +1023,6 @@
         ],
         "service": [
           "パークインフォメーションボード",
-          "ベビーセンター / 授乳室",
           "団体チケットブース"
         ],
         "shop": [
@@ -1100,9 +1121,9 @@
           "name": "ディズニーシー・プラザ（キャラクターグリーティング）",
           "reservation_only": false,
           "times": [
-            "9:15 - 11:15",
-            "12:00 - 13:00",
-            "13:35 - 14:55"
+            "9:00 - 11:20",
+            "12:05 - 13:05",
+            "13:35 - 14:35"
           ],
           "url": "/tds/greeting/detail/921/"
         }
@@ -1209,7 +1230,7 @@
         }
       ],
       "ticket": {
-        "adult_1day": 9900,
+        "adult_1day": 10900,
         "status": "販売中"
       }
     }
