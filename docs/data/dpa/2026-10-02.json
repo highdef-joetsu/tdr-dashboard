@@ -77,9 +77,18 @@
         {
           "at": "2026-10-02T12:11:00+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-02T14:05:50+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-02T14:10:55+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-02T12:11:00+09:00",
+      "final_sold_out_at": "2026-10-02T14:10:55+09:00",
       "first_sold_out_at": "2026-10-02T09:35:49+09:00",
       "park": "tds",
       "price": 2500,
@@ -193,11 +202,17 @@
         {
           "at": "2026-10-02T08:01:26+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-02T14:15:50+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-02T14:15:50+09:00",
+      "first_sold_out_at": "2026-10-02T14:15:50+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     }
   },
   "date": "2026-10-02",
@@ -211,6 +226,6 @@
       "open": "2026-10-02T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-02T14:00:56+09:00",
+  "last_polled_at": "2026-10-02T14:20:56+09:00",
   "source": "themeparks.wiki"
 }
