@@ -62,9 +62,18 @@
         {
           "at": "2026-10-03T15:15:52+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-03T16:05:50+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-03T16:20:54+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-03T15:15:52+09:00",
+      "final_sold_out_at": "2026-10-03T16:20:54+09:00",
       "first_sold_out_at": "2026-10-03T11:40:57+09:00",
       "park": "tdl",
       "price": 2500,
@@ -152,9 +161,18 @@
         {
           "at": "2026-10-03T15:10:54+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-03T16:05:50+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-03T16:15:55+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-03T15:10:54+09:00",
+      "final_sold_out_at": "2026-10-03T16:15:55+09:00",
       "first_sold_out_at": "2026-10-03T09:26:00+09:00",
       "park": "tds",
       "price": 2500,
@@ -201,11 +219,17 @@
         {
           "at": "2026-10-03T08:01:06+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-03T16:10:50+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-03T16:10:50+09:00",
+      "first_sold_out_at": "2026-10-03T16:10:50+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "raging_spirits": {
       "events": [
@@ -292,6 +316,6 @@
       "open": "2026-10-03T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-03T16:00:57+09:00",
+  "last_polled_at": "2026-10-03T16:20:54+09:00",
   "source": "themeparks.wiki"
 }
