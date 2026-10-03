@@ -42,11 +42,16 @@
         {
           "at": "2026-10-03T08:10:57+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-03T08:45:59+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "park": "tds",
       "price": 2000,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "frozen_journey": {
       "events": [
@@ -57,11 +62,16 @@
         {
           "at": "2026-10-03T08:06:01+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-03T08:51:02+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "park": "tds",
       "price": 2500,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "haunted_mansion": {
       "events": [
@@ -183,6 +193,6 @@
       "open": "2026-10-03T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-03T08:40:59+09:00",
+  "last_polled_at": "2026-10-03T09:01:00+09:00",
   "source": "themeparks.wiki"
 }
