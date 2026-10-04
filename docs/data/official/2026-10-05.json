@@ -788,7 +788,7 @@
       }
     ]
   },
-  "date": "2026-10-04",
+  "date": "2026-10-05",
   "fetched_at": "2026-10-04T09:00:06+09:00",
   "parks": {
     "tdl": {
@@ -799,9 +799,7 @@
           "シンデレラのフェアリーテイル・ホール",
           "空飛ぶダンボ"
         ],
-        "greeting": [
-          "メインストリート・ハウス前（キャラクターグリーティング）"
-        ],
+        "greeting": [],
         "restaurant": [
           "ザ・ダイヤモンドホースシュー",
           "プラザパビリオン・レストラン",
@@ -826,6 +824,18 @@
         ]
       },
       "greetings": [
+        {
+          "changed": false,
+          "dpa": false,
+          "entry": false,
+          "name": "メインストリート・ハウス前（キャラクターグリーティング）",
+          "reservation_only": false,
+          "times": [
+            "9:30 - 12:30",
+            "13:50 - 14:50"
+          ],
+          "url": "/tdl/greeting/detail/908/"
+        },
         {
           "changed": false,
           "dpa": false,
@@ -883,7 +893,7 @@
           "name": "ザ・ヴィランズ・ハロウィーン“Into the Frenzy”",
           "reservation_only": false,
           "times": [
-            "16:20"
+            "16:15"
           ],
           "url": "/tdl/show/detail/944/"
         },
@@ -894,7 +904,7 @@
           "name": "ディズニー・ハーモニー・イン・カラー",
           "reservation_only": false,
           "times": [
-            "13:00"
+            "12:55"
           ],
           "url": "/tdl/show/detail/7000/"
         },
@@ -905,7 +915,7 @@
           "name": "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
           "reservation_only": false,
           "times": [
-            "19:20"
+            "19:15"
           ],
           "url": "/tdl/show/detail/913/"
         },
@@ -916,7 +926,7 @@
           "name": "ナイトハイ・ハロウィーン",
           "reservation_only": false,
           "times": [
-            "20:40"
+            "20:30"
           ],
           "url": "/tdl/show/detail/945/"
         },
@@ -966,11 +976,11 @@
           "name": "The D-Groovationz4 Live: Happy! Funky! Groovy! Tour",
           "reservation_only": false,
           "times": [
-            "12:30",
-            "13:55",
-            "15:20",
-            "17:25",
-            "18:50"
+            "12:20",
+            "13:45",
+            "15:10",
+            "17:15",
+            "18:40"
           ],
           "url": "/tdl/show/detail/7204/"
         }
@@ -1094,8 +1104,8 @@
           "name": "ディズニーシー・プラザ（キャラクターグリーティング）",
           "reservation_only": false,
           "times": [
-            "9:00 - 11:20",
-            "12:05 - 13:05",
+            "9:15 - 11:15",
+            "12:00 - 13:00",
             "13:35 - 14:35"
           ],
           "url": "/tds/greeting/detail/921/"
@@ -1113,7 +1123,7 @@
           "name": "ナイトハイ・ハロウィーン",
           "reservation_only": false,
           "times": [
-            "20:40"
+            "20:30"
           ],
           "url": "/tds/show/detail/949/"
         },
@@ -1148,6 +1158,7 @@
           "name": "【環境演出】スパークリング・ジュビリー・ナイト",
           "reservation_only": false,
           "times": [
+            "20:15",
             "20:55"
           ],
           "url": "/tds/show/detail/7405/"
@@ -1159,7 +1170,7 @@
           "name": "ビリーヴ！～シー・オブ・ドリームス～",
           "reservation_only": false,
           "times": [
-            "19:40"
+            "19:30"
           ],
           "url": "/tds/show/detail/967/"
         },
