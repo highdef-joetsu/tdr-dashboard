@@ -89,13 +89,18 @@
         {
           "at": "2026-10-04T15:20:54+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-04T16:05:52+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "final_sold_out_at": "2026-10-04T15:20:54+09:00",
       "first_sold_out_at": "2026-10-04T10:01:18+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "haunted_mansion": {
       "events": [
@@ -171,11 +176,17 @@
         {
           "at": "2026-10-04T08:01:01+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-04T16:10:49+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-04T16:10:49+09:00",
+      "first_sold_out_at": "2026-10-04T16:10:49+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "splash_mountain": {
       "events": [
@@ -217,6 +228,6 @@
       "open": "2026-10-04T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-04T16:01:04+09:00",
+  "last_polled_at": "2026-10-04T16:20:50+09:00",
   "source": "themeparks.wiki"
 }
