@@ -2,19 +2,48 @@
   "date": "2026-10-04",
   "parks": {
     "tdl": {
-      "daily_max": {},
+      "daily_max": {
+        "baymax": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 80
+        },
+        "beauty_and_the_beast": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 140
+        },
+        "big_thunder": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 60
+        },
+        "haunted_mansion": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 50
+        },
+        "monsters_inc": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 50
+        },
+        "pooh": {
+          "at": "2026-10-04T09:10:53+09:00",
+          "minutes": 40
+        },
+        "splash_mountain": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 50
+        }
+      },
       "last": {
-        "at": "2026-10-04T09:01:01+09:00",
-        "closed": [
-          "baymax",
-          "beauty_and_the_beast",
-          "big_thunder",
-          "haunted_mansion",
-          "monsters_inc",
-          "pooh",
-          "splash_mountain"
-        ],
-        "waits": {}
+        "at": "2026-10-04T09:21:02+09:00",
+        "closed": [],
+        "waits": {
+          "baymax": 80,
+          "beauty_and_the_beast": 140,
+          "big_thunder": 60,
+          "haunted_mansion": 50,
+          "monsters_inc": 50,
+          "pooh": 40,
+          "splash_mountain": 50
+        }
       },
       "samples": [
         {
@@ -185,6 +214,59 @@
             "splash_mountain"
           ],
           "waits": {}
+        },
+        {
+          "at": "2026-10-04T09:05:57+09:00",
+          "closed": [
+            "haunted_mansion",
+            "monsters_inc"
+          ],
+          "waits": {
+            "baymax": 60,
+            "beauty_and_the_beast": 70,
+            "big_thunder": 20,
+            "pooh": 20,
+            "splash_mountain": 25
+          }
+        },
+        {
+          "at": "2026-10-04T09:10:53+09:00",
+          "closed": [],
+          "waits": {
+            "baymax": 70,
+            "beauty_and_the_beast": 100,
+            "big_thunder": 40,
+            "haunted_mansion": 40,
+            "monsters_inc": 30,
+            "pooh": 40,
+            "splash_mountain": 40
+          }
+        },
+        {
+          "at": "2026-10-04T09:15:55+09:00",
+          "closed": [],
+          "waits": {
+            "baymax": 70,
+            "beauty_and_the_beast": 100,
+            "big_thunder": 50,
+            "haunted_mansion": 40,
+            "monsters_inc": 30,
+            "pooh": 40,
+            "splash_mountain": 40
+          }
+        },
+        {
+          "at": "2026-10-04T09:21:02+09:00",
+          "closed": [],
+          "waits": {
+            "baymax": 80,
+            "beauty_and_the_beast": 140,
+            "big_thunder": 60,
+            "haunted_mansion": 50,
+            "monsters_inc": 50,
+            "pooh": 40,
+            "splash_mountain": 50
+          }
         }
       ],
       "unmapped": [
@@ -221,21 +303,51 @@
       ]
     },
     "tds": {
-      "daily_max": {},
+      "daily_max": {
+        "center_of_the_earth": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 80
+        },
+        "frozen_journey": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 140
+        },
+        "peter_pan": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 30
+        },
+        "raging_spirits": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 10
+        },
+        "rapunzel_lantern": {
+          "at": "2026-10-04T09:21:02+09:00",
+          "minutes": 30
+        },
+        "soaring": {
+          "at": "2026-10-04T09:05:57+09:00",
+          "minutes": 140
+        },
+        "toy_story_mania": {
+          "at": "2026-10-04T09:05:57+09:00",
+          "minutes": 100
+        }
+      },
       "last": {
-        "at": "2026-10-04T09:01:01+09:00",
+        "at": "2026-10-04T09:21:02+09:00",
         "closed": [
-          "center_of_the_earth",
-          "frozen_journey",
           "indiana_jones",
-          "peter_pan",
-          "raging_spirits",
-          "rapunzel_lantern",
-          "soaring",
-          "tower_of_terror",
-          "toy_story_mania"
+          "tower_of_terror"
         ],
-        "waits": {}
+        "waits": {
+          "center_of_the_earth": 80,
+          "frozen_journey": 140,
+          "peter_pan": 30,
+          "raging_spirits": 10,
+          "rapunzel_lantern": 30,
+          "soaring": 140,
+          "toy_story_mania": 100
+        }
       },
       "samples": [
         {
@@ -432,6 +544,70 @@
             "toy_story_mania"
           ],
           "waits": {}
+        },
+        {
+          "at": "2026-10-04T09:05:57+09:00",
+          "closed": [
+            "center_of_the_earth",
+            "indiana_jones",
+            "raging_spirits",
+            "tower_of_terror"
+          ],
+          "waits": {
+            "frozen_journey": 80,
+            "peter_pan": 15,
+            "rapunzel_lantern": 15,
+            "soaring": 140,
+            "toy_story_mania": 100
+          }
+        },
+        {
+          "at": "2026-10-04T09:10:53+09:00",
+          "closed": [
+            "indiana_jones",
+            "tower_of_terror"
+          ],
+          "waits": {
+            "center_of_the_earth": 70,
+            "frozen_journey": 100,
+            "peter_pan": 20,
+            "raging_spirits": 5,
+            "rapunzel_lantern": 20,
+            "soaring": 140,
+            "toy_story_mania": 100
+          }
+        },
+        {
+          "at": "2026-10-04T09:15:55+09:00",
+          "closed": [
+            "indiana_jones",
+            "tower_of_terror"
+          ],
+          "waits": {
+            "center_of_the_earth": 70,
+            "frozen_journey": 100,
+            "peter_pan": 25,
+            "raging_spirits": 5,
+            "rapunzel_lantern": 20,
+            "soaring": 140,
+            "toy_story_mania": 100
+          }
+        },
+        {
+          "at": "2026-10-04T09:21:02+09:00",
+          "closed": [
+            "indiana_jones",
+            "tower_of_terror"
+          ],
+          "waits": {
+            "center_of_the_earth": 80,
+            "frozen_journey": 140,
+            "peter_pan": 30,
+            "raging_spirits": 10,
+            "rapunzel_lantern": 30,
+            "soaring": 140,
+            "toy_story_mania": 100
+          }
         }
       ],
       "unmapped": [
