@@ -200,11 +200,17 @@
         {
           "at": "2026-10-07T08:01:13+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-07T18:00:53+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-07T18:00:53+09:00",
+      "first_sold_out_at": "2026-10-07T18:00:53+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -222,11 +228,17 @@
         {
           "at": "2026-10-07T08:01:13+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-07T18:00:53+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-07T18:00:53+09:00",
+      "first_sold_out_at": "2026-10-07T18:00:53+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "splash_mountain": {
       "events": [
@@ -268,6 +280,6 @@
       "open": "2026-10-07T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-07T17:40:55+09:00",
+  "last_polled_at": "2026-10-07T18:00:53+09:00",
   "source": "themeparks.wiki"
 }
