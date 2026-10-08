@@ -2156,7 +2156,7 @@
   "crowd_fetched_at": "2026-10-08T09:14:54+09:00",
   "curve_meta": {
     "days_used": 36,
-    "generated_at": "2026-10-08T11:01:35+09:00",
+    "generated_at": "2026-10-08T11:20:40+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6650,7 +6650,7 @@
         }
       }
     },
-    "generated_at": "2026-10-08T11:01:36+09:00",
+    "generated_at": "2026-10-08T11:20:40+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7335,16 +7335,16 @@
         "open": "2026-10-08T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-10-08T11:01:22+09:00",
+    "last_polled_at": "2026-10-08T11:20:25+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-08T11:01:36+09:00",
+  "generated_at": "2026-10-08T11:20:41+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-09",
-      "last_run_at": "2026-10-08T10:41:18+09:00",
-      "last_success_at": "2026-10-08T10:41:18+09:00"
+      "last_run_at": "2026-10-08T11:01:36+09:00",
+      "last_success_at": "2026-10-08T11:01:36+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7361,15 +7361,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数36 observed帯35",
-      "last_run_at": "2026-10-08T11:01:36+09:00",
-      "last_success_at": "2026-10-08T11:01:36+09:00"
+      "last_run_at": "2026-10-08T11:20:40+09:00",
+      "last_success_at": "2026-10-08T11:20:40+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-10-08 待ち74件 DPA37件 から再構成",
+      "last_detail": "2026-10-08 待ち82件 DPA41件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-08T11:01:35+09:00",
-      "last_success_at": "2026-10-08T11:01:35+09:00"
+      "last_run_at": "2026-10-08T11:20:40+09:00",
+      "last_success_at": "2026-10-08T11:20:40+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7392,8 +7392,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "36日分から 15施設 / 時間帯458枠",
-      "last_run_at": "2026-10-08T11:01:35+09:00",
-      "last_success_at": "2026-10-08T11:01:35+09:00"
+      "last_run_at": "2026-10-08T11:20:40+09:00",
+      "last_success_at": "2026-10-08T11:20:40+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8682,8 +8682,8 @@
           "minutes": 50
         },
         "haunted_mansion": {
-          "at": "2026-10-08T09:40:56+09:00",
-          "minutes": 40
+          "at": "2026-10-08T11:06:00+09:00",
+          "minutes": 50
         },
         "monsters_inc": {
           "at": "2026-10-08T09:40:56+09:00",
@@ -8694,12 +8694,12 @@
           "minutes": 70
         },
         "splash_mountain": {
-          "at": "2026-10-08T09:51:05+09:00",
-          "minutes": 60
+          "at": "2026-10-08T11:10:56+09:00",
+          "minutes": 70
         }
       },
       "last": {
-        "at": "2026-10-08T11:01:22+09:00",
+        "at": "2026-10-08T11:20:25+09:00",
         "closed": [
           "pooh"
         ],
@@ -8709,7 +8709,7 @@
           "big_thunder": 40,
           "haunted_mansion": 40,
           "monsters_inc": 40,
-          "splash_mountain": 50
+          "splash_mountain": 60
         }
       }
     },
@@ -8745,22 +8745,22 @@
         }
       },
       "last": {
-        "at": "2026-10-08T11:01:22+09:00",
+        "at": "2026-10-08T11:20:25+09:00",
         "closed": [
           "indiana_jones",
           "tower_of_terror"
         ],
         "waits": {
-          "center_of_the_earth": 200,
+          "center_of_the_earth": 180,
           "frozen_journey": 140,
-          "peter_pan": 60,
-          "raging_spirits": 70,
-          "rapunzel_lantern": 80,
-          "soaring": 180,
+          "peter_pan": 50,
+          "raging_spirits": 80,
+          "rapunzel_lantern": 70,
+          "soaring": 160,
           "toy_story_mania": 120
         }
       }
     }
   },
-  "waits_fetched_at": "2026-10-08T11:01:22+09:00"
+  "waits_fetched_at": "2026-10-08T11:20:25+09:00"
 }
