@@ -145,7 +145,24 @@
       "watch": true
     }
   ],
-  "changes": {},
+  "changes": {
+    "2026-10-09": [
+      {
+        "after": "レストラン",
+        "at": "2026-10-09T10:21:57+09:00",
+        "kind": "closure_added",
+        "label": "フードワゴン（トゥモローランド側）",
+        "park": "tdl"
+      },
+      {
+        "after": "レストラン",
+        "at": "2026-10-09T10:21:57+09:00",
+        "kind": "closure_added",
+        "label": "フードワゴン（アドベンチャーランド側）",
+        "park": "tdl"
+      }
+    ]
+  },
   "closures": {
     "2026-10-09": {
       "tdl": {
@@ -184,6 +201,22 @@
           }
         ],
         "restaurant": [
+          {
+            "from": "2026-10-07",
+            "name": "フードワゴン（アドベンチャーランド側）",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-31",
+            "undecided": false
+          },
+          {
+            "from": "2026-10-07",
+            "name": "フードワゴン（トゥモローランド側）",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-31",
+            "undecided": false
+          },
           {
             "from": "2020-07-01",
             "name": "フードブース（アドベンチャーランド側）",
@@ -430,8 +463,302 @@
       }
     },
     "2026-10-10": {
-      "tdl": {},
-      "tds": {}
+      "tdl": {
+        "attraction": [
+          {
+            "from": "2022-04-01",
+            "name": "スイスファミリー・ツリーハウス",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2026-09-24",
+            "name": "魅惑のチキルーム：スティッチ・プレゼンツ“アロハ・エ・コモ・マイ！”",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-23",
+            "undecided": false
+          },
+          {
+            "from": "2026-10-01",
+            "name": "シンデレラのフェアリーテイル・ホール",
+            "permanent": false,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2026-01-05",
+            "name": "空飛ぶダンボ",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-22",
+            "undecided": false
+          }
+        ],
+        "restaurant": [
+          {
+            "from": "2026-10-07",
+            "name": "フードワゴン（アドベンチャーランド側）",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-31",
+            "undecided": false
+          },
+          {
+            "from": "2026-10-07",
+            "name": "フードワゴン（トゥモローランド側）",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-31",
+            "undecided": false
+          },
+          {
+            "from": "2020-07-01",
+            "name": "フードブース（アドベンチャーランド側）",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-31",
+            "undecided": false
+          },
+          {
+            "from": "2026-04-01",
+            "name": "ザ・ダイヤモンドホースシュー",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-20",
+            "undecided": false
+          },
+          {
+            "from": "2026-04-01",
+            "name": "プラザパビリオン・レストラン",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-01",
+            "undecided": false
+          },
+          {
+            "from": "2026-04-01",
+            "name": "ペコスビル・カフェ",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-01",
+            "undecided": false
+          },
+          {
+            "from": "2020-07-01",
+            "name": "キャリッジハウス・リフレッシュメント",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          }
+        ],
+        "service": [
+          {
+            "from": "2021-08-06",
+            "name": "パークインフォメーションボード",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2020-10-01",
+            "name": "ゲストリレーション・ウインドウ（パーク内）",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2021-01-04",
+            "name": "イーストゲート・レセプション",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          }
+        ],
+        "shop": [
+          {
+            "from": "2020-07-01",
+            "name": "ウエスタンランド写真館",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2020-07-01",
+            "name": "スプラッシュダウン・フォト",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2025-11-04",
+            "name": "コズミック・エンカウンター",
+            "permanent": false,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          }
+        ],
+        "show": [
+          {
+            "from": "2026-09-15",
+            "name": "スカイ・フル・オブ・カラーズ",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-31",
+            "undecided": false
+          },
+          {
+            "from": "2020-07-01",
+            "name": "レッツ・パーティグラ！",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2026-04-01",
+            "name": "ザ・ダイヤモンド・バラエティマスター",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-20",
+            "undecided": false
+          }
+        ]
+      },
+      "tds": {
+        "attraction": [
+          {
+            "from": "2026-08-04",
+            "name": "ディズニーシー・トランジットスチーマーライン（メディテレーニアンハーバー）",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-30",
+            "undecided": false
+          },
+          {
+            "from": "2026-09-28",
+            "name": "タワー・オブ・テラー",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-05",
+            "undecided": false
+          },
+          {
+            "from": "2025-08-18",
+            "name": "インディ・ジョーンズ・アドベンチャー：クリスタルスカルの魔宮",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-29",
+            "undecided": false
+          },
+          {
+            "from": "2020-07-01",
+            "name": "マーメイドラグーンシアター",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          }
+        ],
+        "restaurant": [
+          {
+            "from": "2025-11-01",
+            "name": "テディ・ルーズヴェルト・ラウンジ テラス席",
+            "permanent": false,
+            "source": "both",
+            "to": "2027-03-31",
+            "undecided": false
+          },
+          {
+            "from": "2026-09-15",
+            "name": "パパダキス・フレッシュフルーツ",
+            "permanent": false,
+            "source": "both",
+            "to": "2027-03-31",
+            "undecided": false
+          },
+          {
+            "from": "2026-01-26",
+            "name": "アイスクリームワゴン（リバティ・ランディング・ダイナー前）",
+            "permanent": false,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          }
+        ],
+        "service": [
+          {
+            "from": "2021-08-06",
+            "name": "パークインフォメーションボード",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2020-07-01",
+            "name": "団体チケットブース",
+            "permanent": true,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          }
+        ],
+        "shop": [
+          {
+            "from": "2026-09-28",
+            "name": "タワー・オブ・テラー・メモラビリア",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-05",
+            "undecided": false
+          },
+          {
+            "from": "2026-09-28",
+            "name": "タワー・オブ・テラー・メモラビリア（カプセルトイ）",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-11-05",
+            "undecided": false
+          },
+          {
+            "from": "2025-08-18",
+            "name": "エクスペディション・フォトアーカイヴ",
+            "permanent": false,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          },
+          {
+            "from": "2025-08-18",
+            "name": "ペドラーズ・アウトポスト",
+            "permanent": false,
+            "source": "both",
+            "to": null,
+            "undecided": true
+          }
+        ],
+        "show": [
+          {
+            "from": "2026-09-15",
+            "name": "スカイ・フル・オブ・カラーズ",
+            "permanent": false,
+            "source": "both",
+            "to": "2026-10-31",
+            "undecided": false
+          }
+        ]
+      }
     }
   },
   "closures_schedule": {
@@ -717,6 +1044,24 @@
       },
       {
         "category": "restaurant",
+        "from": "2026-10-07",
+        "name": "フードワゴン（アドベンチャーランド側）",
+        "raw_period": "2026/10/7\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t- 2026/10/31",
+        "to": "2026-10-31",
+        "undecided": false,
+        "url": "/tdl/restaurant/detail/328/"
+      },
+      {
+        "category": "restaurant",
+        "from": "2026-10-07",
+        "name": "フードワゴン（トゥモローランド側）",
+        "raw_period": "2026/10/7\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t- 2026/10/31",
+        "to": "2026-10-31",
+        "undecided": false,
+        "url": "/tdl/restaurant/detail/311/"
+      },
+      {
+        "category": "restaurant",
         "from": "2026-11-01",
         "name": "プラズマ・レイズ・ダイナー",
         "raw_period": "2026/11/1\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t- 2026/11/14",
@@ -872,6 +1217,15 @@
       },
       {
         "category": "attraction",
+        "from": "2026-11-10",
+        "name": "ビッグシティ・ヴィークル",
+        "raw_period": "2026/11/10\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t- 2026/12/25",
+        "to": "2026-12-25",
+        "undecided": false,
+        "url": "/tds/attraction/detail/233/"
+      },
+      {
+        "category": "attraction",
         "from": "2026-12-08",
         "name": "マジックランプシアター",
         "raw_period": "2026/12/8\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t- 2026/12/22",
@@ -950,6 +1304,15 @@
         "to": "2026-12-25",
         "undecided": false,
         "url": "/tds/show/detail/7801/"
+      },
+      {
+        "category": "show",
+        "from": null,
+        "name": "スターブライト・クリスマス",
+        "raw_period": null,
+        "to": null,
+        "undecided": false,
+        "url": "/tds/show/detail/952/"
       },
       {
         "category": "show",
@@ -3955,90 +4318,1527 @@
       "attractions": {
         "baymax": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "11": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "12": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "13": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "14": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "15": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "16": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "17": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "18": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "19": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "20": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "21": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            }
+          },
           "price": 1500,
           "sold_out_at": null
         },
         "beauty_and_the_beast": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "11": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "12": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "13": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "14": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "15": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "16": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "17": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "18": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "19": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "20": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "21": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            }
+          },
           "price": 2500,
           "sold_out_at": null
         },
         "big_thunder": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "11": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "12": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "13": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "14": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "15": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "16": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "17": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "18": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "19": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "20": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "21": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            }
+          },
           "price": 1500,
           "sold_out_at": null
         },
         "center_of_the_earth": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 470,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            },
+            "11": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 410,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            },
+            "12": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 350,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            },
+            "13": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 290,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            },
+            "14": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 230,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            },
+            "15": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 170,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            },
+            "16": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 110,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            },
+            "17": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 50,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            },
+            "18": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -10,
+              "reason": "売切目安 17:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 25
+            },
+            "19": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -70,
+              "reason": "売切目安 17:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 25
+            },
+            "20": {
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 40
+              },
+              "minutes_left_to_buy": -130,
+              "reason": "売切目安 17:50 を過ぎている。並ぶなら20時台が最短で約40分",
+              "verdict": "sold_out",
+              "yen_per_minute": 50
+            },
+            "21": {
+              "reason": "21時以降のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 530,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約25円",
+              "verdict": "worth",
+              "yen_per_minute": 25
+            }
+          },
           "price": 2000,
           "sold_out_at": "17:50"
         },
         "frozen_journey": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -10,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "11": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -70,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "12": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -130,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "13": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -190,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "14": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -250,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "15": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -310,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "16": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -370,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "17": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -430,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "18": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -490,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "19": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": -550,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら19時台が最短で約80分",
+              "verdict": "sold_out",
+              "yen_per_minute": 31
+            },
+            "20": {
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 42
+              },
+              "minutes_left_to_buy": -610,
+              "reason": "売切目安 09:50 を過ぎている。並ぶなら20時台が最短で約42分",
+              "verdict": "sold_out",
+              "yen_per_minute": 60
+            },
+            "21": {
+              "reason": "21時以降のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "minutes_left_to_buy": 50,
+              "reason": "これから並ぶと最短でも80分（19時台）。1分あたり約31円",
+              "verdict": "worth",
+              "yen_per_minute": 31
+            }
+          },
           "price": 2500,
           "sold_out_at": "09:50"
         },
         "monsters_inc": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "11": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "12": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "13": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "14": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "15": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "16": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "17": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "18": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "19": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "20": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "21": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            }
+          },
           "price": 1000,
           "sold_out_at": null
         },
         "peter_pan": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 600,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "11": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 540,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "12": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 480,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "13": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 420,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "14": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 360,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "15": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 300,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "16": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 240,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "17": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 180,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "18": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 120,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "19": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 60,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "20": {
+              "best": {
+                "hour": 21,
+                "lastcall": true,
+                "minutes": 5
+              },
+              "minutes_left_to_buy": 0,
+              "reason": "売切目安 20:00 を過ぎている。並ぶなら21時台が最短で約5分",
+              "verdict": "sold_out",
+              "yen_per_minute": 400
+            },
+            "21": {
+              "best": {
+                "hour": 21,
+                "lastcall": true,
+                "minutes": 5
+              },
+              "minutes_left_to_buy": -60,
+              "reason": "売切目安 20:00 を過ぎている。並ぶなら21時台が最短で約5分",
+              "verdict": "sold_out",
+              "yen_per_minute": 400
+            },
+            "9": {
+              "best": {
+                "hour": 9,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 660,
+              "reason": "9時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            }
+          },
           "price": 2000,
           "sold_out_at": "20:00"
         },
         "pooh": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "11": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "12": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "13": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "14": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "15": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "16": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "17": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "18": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "19": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "20": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "21": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            }
+          },
           "price": 1500,
           "sold_out_at": null
         },
         "raging_spirits": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 595,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "11": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 535,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "12": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 475,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "13": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 415,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "14": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 355,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "15": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 295,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "16": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 235,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "17": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 175,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "18": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 115,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "19": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 30
+              },
+              "minutes_left_to_buy": 55,
+              "reason": "19時台なら約30分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 50
+            },
+            "20": {
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": -5,
+              "reason": "売切目安 19:55 を過ぎている。並ぶなら20時台が最短で約20分",
+              "verdict": "sold_out",
+              "yen_per_minute": 75
+            },
+            "21": {
+              "reason": "21時以降のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "best": {
+                "hour": 9,
+                "lastcall": false,
+                "minutes": 8
+              },
+              "minutes_left_to_buy": 655,
+              "reason": "9時台なら約8分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 188
+            }
+          },
           "price": 1500,
           "sold_out_at": "19:55"
         },
         "rapunzel_lantern": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 604,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "11": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 544,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "12": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 484,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "13": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 424,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "14": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 364,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "15": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 304,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "16": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 244,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "17": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 184,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "18": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 124,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "19": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 64,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            },
+            "20": {
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 5
+              },
+              "minutes_left_to_buy": 4,
+              "reason": "20時台なら約5分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 400
+            },
+            "21": {
+              "best": {
+                "hour": 21,
+                "lastcall": true,
+                "minutes": 5
+              },
+              "minutes_left_to_buy": -56,
+              "reason": "売切目安 20:04 を過ぎている。並ぶなら21時台が最短で約5分",
+              "verdict": "sold_out",
+              "yen_per_minute": 400
+            },
+            "9": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 20
+              },
+              "minutes_left_to_buy": 664,
+              "reason": "19時台なら約20分で並べる",
+              "verdict": "skip",
+              "yen_per_minute": 100
+            }
+          },
           "price": 2000,
           "sold_out_at": "20:04"
         },
         "soaring": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": 262,
+              "reason": "これから並ぶと最短でも92分（19時台）。1分あたり約27円",
+              "verdict": "worth",
+              "yen_per_minute": 27
+            },
+            "11": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": 202,
+              "reason": "これから並ぶと最短でも92分（19時台）。1分あたり約27円",
+              "verdict": "worth",
+              "yen_per_minute": 27
+            },
+            "12": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": 142,
+              "reason": "これから並ぶと最短でも92分（19時台）。1分あたり約27円",
+              "verdict": "worth",
+              "yen_per_minute": 27
+            },
+            "13": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": 82,
+              "reason": "これから並ぶと最短でも92分（19時台）。1分あたり約27円",
+              "verdict": "worth",
+              "yen_per_minute": 27
+            },
+            "14": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": 22,
+              "reason": "これから並ぶと最短でも92分（19時台）。1分あたり約27円",
+              "verdict": "worth",
+              "yen_per_minute": 27
+            },
+            "15": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": -38,
+              "reason": "売切目安 14:22 を過ぎている。並ぶなら19時台が最短で約92分",
+              "verdict": "sold_out",
+              "yen_per_minute": 27
+            },
+            "16": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": -98,
+              "reason": "売切目安 14:22 を過ぎている。並ぶなら19時台が最短で約92分",
+              "verdict": "sold_out",
+              "yen_per_minute": 27
+            },
+            "17": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": -158,
+              "reason": "売切目安 14:22 を過ぎている。並ぶなら19時台が最短で約92分",
+              "verdict": "sold_out",
+              "yen_per_minute": 27
+            },
+            "18": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": -218,
+              "reason": "売切目安 14:22 を過ぎている。並ぶなら19時台が最短で約92分",
+              "verdict": "sold_out",
+              "yen_per_minute": 27
+            },
+            "19": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": -278,
+              "reason": "売切目安 14:22 を過ぎている。並ぶなら19時台が最短で約92分",
+              "verdict": "sold_out",
+              "yen_per_minute": 27
+            },
+            "20": {
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 70
+              },
+              "minutes_left_to_buy": -338,
+              "reason": "売切目安 14:22 を過ぎている。並ぶなら20時台が最短で約70分",
+              "verdict": "sold_out",
+              "yen_per_minute": 36
+            },
+            "21": {
+              "reason": "21時以降のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 92
+              },
+              "minutes_left_to_buy": 322,
+              "reason": "これから並ぶと最短でも92分（19時台）。1分あたり約27円",
+              "verdict": "worth",
+              "yen_per_minute": 27
+            }
+          },
           "price": 2500,
           "sold_out_at": "14:22"
         },
         "splash_mountain": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "11": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "12": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "13": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "14": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "15": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "16": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "17": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "18": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "19": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "20": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "21": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "verdict": "insufficient"
+            }
+          },
           "price": 1500,
           "sold_out_at": null
         },
         "tower_of_terror": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "best": {
+                "hour": 14,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "minutes_left_to_buy": 590,
+              "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
+              "yen_per_minute": 27
+            },
+            "11": {
+              "best": {
+                "hour": 14,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "minutes_left_to_buy": 530,
+              "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
+              "yen_per_minute": 27
+            },
+            "12": {
+              "best": {
+                "hour": 14,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "minutes_left_to_buy": 470,
+              "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
+              "yen_per_minute": 27
+            },
+            "13": {
+              "best": {
+                "hour": 14,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "minutes_left_to_buy": 410,
+              "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
+              "yen_per_minute": 27
+            },
+            "14": {
+              "best": {
+                "hour": 14,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "minutes_left_to_buy": 350,
+              "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
+              "yen_per_minute": 27
+            },
+            "15": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 70
+              },
+              "minutes_left_to_buy": 290,
+              "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
+              "verdict": "worth",
+              "yen_per_minute": 21
+            },
+            "16": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 70
+              },
+              "minutes_left_to_buy": 230,
+              "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
+              "verdict": "worth",
+              "yen_per_minute": 21
+            },
+            "17": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 70
+              },
+              "minutes_left_to_buy": 170,
+              "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
+              "verdict": "worth",
+              "yen_per_minute": 21
+            },
+            "18": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 70
+              },
+              "minutes_left_to_buy": 110,
+              "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
+              "verdict": "worth",
+              "yen_per_minute": 21
+            },
+            "19": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 70
+              },
+              "minutes_left_to_buy": 50,
+              "reason": "これから並ぶと最短でも70分（19時台）。1分あたり約21円",
+              "verdict": "worth",
+              "yen_per_minute": 21
+            },
+            "20": {
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 45
+              },
+              "minutes_left_to_buy": -10,
+              "reason": "売切目安 19:50 を過ぎている。並ぶなら20時台が最短で約45分",
+              "verdict": "sold_out",
+              "yen_per_minute": 33
+            },
+            "21": {
+              "reason": "21時以降のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "best": {
+                "hour": 14,
+                "lastcall": false,
+                "minutes": 55
+              },
+              "minutes_left_to_buy": 650,
+              "reason": "これから並ぶと最短55分（14時台）。短縮の価値は滞在計画次第",
+              "verdict": "depends",
+              "yen_per_minute": 27
+            }
+          },
           "price": 1500,
           "sold_out_at": "19:50"
         },
         "toy_story_mania": {
           "band": "81-100",
-          "no_hours": true,
+          "by_hour": {
+            "10": {
+              "best": {
+                "hour": 12,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 498,
+              "reason": "これから並ぶと最短でも88分（12時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "11": {
+              "best": {
+                "hour": 12,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 438,
+              "reason": "これから並ぶと最短でも88分（12時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "12": {
+              "best": {
+                "hour": 12,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 378,
+              "reason": "これから並ぶと最短でも88分（12時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "13": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 318,
+              "reason": "これから並ぶと最短でも88分（19時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "14": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 258,
+              "reason": "これから並ぶと最短でも88分（19時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "15": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 198,
+              "reason": "これから並ぶと最短でも88分（19時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "16": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 138,
+              "reason": "これから並ぶと最短でも88分（19時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "17": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 78,
+              "reason": "これから並ぶと最短でも88分（19時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "18": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 18,
+              "reason": "これから並ぶと最短でも88分（19時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            },
+            "19": {
+              "best": {
+                "hour": 19,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": -42,
+              "reason": "売切目安 18:18 を過ぎている。並ぶなら19時台が最短で約88分",
+              "verdict": "sold_out",
+              "yen_per_minute": 23
+            },
+            "20": {
+              "best": {
+                "hour": 20,
+                "lastcall": true,
+                "minutes": 55
+              },
+              "minutes_left_to_buy": -102,
+              "reason": "売切目安 18:18 を過ぎている。並ぶなら20時台が最短で約55分",
+              "verdict": "sold_out",
+              "yen_per_minute": 36
+            },
+            "21": {
+              "reason": "21時以降のデータがまだ足りない",
+              "verdict": "insufficient"
+            },
+            "9": {
+              "best": {
+                "hour": 12,
+                "lastcall": false,
+                "minutes": 88
+              },
+              "minutes_left_to_buy": 558,
+              "reason": "これから並ぶと最短でも88分（12時台）。1分あたり約23円",
+              "verdict": "worth",
+              "yen_per_minute": 23
+            }
+          },
           "price": 2000,
           "sold_out_at": "18:18"
         }
       },
-      "hours": {}
+      "hours": {
+        "tdl": [
+          9,
+          21
+        ],
+        "tds": [
+          9,
+          21
+        ]
+      }
     }
   },
   "dpa_estimates": {
@@ -4352,7 +6152,7 @@
         }
       }
     },
-    "generated_at": "2026-10-09T10:20:36+09:00",
+    "generated_at": "2026-10-09T10:24:07+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -5031,13 +6831,13 @@
     "last_polled_at": "2026-10-09T10:20:22+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-09T10:20:37+09:00",
+  "generated_at": "2026-10-09T10:24:07+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-10",
-      "last_run_at": "2026-10-09T10:13:04+09:00",
-      "last_success_at": "2026-10-09T10:13:04+09:00"
+      "last_run_at": "2026-10-09T10:20:37+09:00",
+      "last_success_at": "2026-10-09T10:20:37+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -5054,8 +6854,8 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数37 observed帯35",
-      "last_run_at": "2026-10-09T10:20:36+09:00",
-      "last_success_at": "2026-10-09T10:20:36+09:00"
+      "last_run_at": "2026-10-09T10:24:07+09:00",
+      "last_success_at": "2026-10-09T10:24:07+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
@@ -5066,9 +6866,9 @@
     },
     "official": {
       "consecutive_failures": 0,
-      "last_detail": "2日分 変更23件 (2026-10-08, 2026-10-09)",
-      "last_run_at": "2026-10-08T19:56:46+09:00",
-      "last_success_at": "2026-10-08T19:56:46+09:00"
+      "last_detail": "2日分 変更2件 (2026-10-09, 2026-10-10)",
+      "last_run_at": "2026-10-09T10:24:06+09:00",
+      "last_success_at": "2026-10-09T10:24:06+09:00"
     },
     "rollup": {
       "consecutive_failures": 0,
@@ -5093,7 +6893,7 @@
   "official": {
     "2026-10-09": {
       "date": "2026-10-09",
-      "fetched_at": "2026-10-08T19:53:12+09:00",
+      "fetched_at": "2026-10-09T10:21:57+09:00",
       "parks": {
         "tdl": {
           "greetings": [
@@ -5467,7 +7267,382 @@
       },
       "source": "tokyodisneyresort.jp"
     },
-    "2026-10-10": null
+    "2026-10-10": {
+      "date": "2026-10-10",
+      "fetched_at": "2026-10-09T10:21:57+09:00",
+      "parks": {
+        "tdl": {
+          "greetings": [
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "メインストリート・ハウス前（キャラクターグリーティング）",
+              "reservation_only": false,
+              "times": [
+                "9:20 - 12:20",
+                "13:40 - 14:40"
+              ],
+              "url": "/tdl/greeting/detail/908/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ウッドチャック・グリーティングトレイル（ドナルド）",
+              "reservation_only": false,
+              "times": [
+                "9:00 - 19:15"
+              ],
+              "url": "/tdl/greeting/detail/916/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ウッドチャック・グリーティングトレイル（デイジー）",
+              "reservation_only": false,
+              "times": [
+                "9:00 - 19:15"
+              ],
+              "url": "/tdl/greeting/detail/917/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ミッキーの家とミート・ミッキー",
+              "reservation_only": false,
+              "times": [
+                "9:00 - 21:00"
+              ],
+              "url": "/tdl/greeting/detail/909/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ミニーのスタイルスタジオ",
+              "reservation_only": false,
+              "times": [
+                "9:00 - 21:00"
+              ],
+              "url": "/tdl/greeting/detail/890/"
+            }
+          ],
+          "hours": {
+            "close": "21:00",
+            "open": "09:00"
+          },
+          "shows": [
+            {
+              "changed": false,
+              "dpa": true,
+              "entry": false,
+              "name": "ザ・ヴィランズ・ハロウィーン“Into the Frenzy”",
+              "reservation_only": false,
+              "times": [
+                "16:15"
+              ],
+              "url": "/tdl/show/detail/944/"
+            },
+            {
+              "changed": false,
+              "dpa": true,
+              "entry": false,
+              "name": "ディズニー・ハーモニー・イン・カラー",
+              "reservation_only": false,
+              "times": [
+                "12:55"
+              ],
+              "url": "/tdl/show/detail/7000/"
+            },
+            {
+              "changed": false,
+              "dpa": true,
+              "entry": false,
+              "name": "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
+              "reservation_only": false,
+              "times": [
+                "19:15"
+              ],
+              "url": "/tdl/show/detail/913/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ナイトハイ・ハロウィーン",
+              "reservation_only": false,
+              "times": [
+                "20:30"
+              ],
+              "url": "/tdl/show/detail/945/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": true,
+              "name": "ジャンボリミッキー！レッツ・ダンス！",
+              "reservation_only": false,
+              "times": [
+                "11:30",
+                "12:45",
+                "14:00",
+                "15:50",
+                "17:05"
+              ],
+              "url": "/tdl/show/detail/985/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ミッキーのレインボー・ルアウ",
+              "reservation_only": true,
+              "times": [],
+              "url": "/tdl/show/detail/970/"
+            },
+            {
+              "changed": false,
+              "dpa": true,
+              "entry": true,
+              "name": "ミッキーのマジカルミュージックワールド",
+              "reservation_only": false,
+              "times": [
+                "11:20",
+                "12:45",
+                "14:10",
+                "16:15",
+                "17:40"
+              ],
+              "url": "/tdl/show/detail/895/"
+            },
+            {
+              "changed": false,
+              "dpa": true,
+              "entry": true,
+              "name": "The D-Groovationz4 Live: Happy! Funky! Groovy! Tour",
+              "reservation_only": false,
+              "times": [
+                "12:20",
+                "13:45",
+                "15:10",
+                "17:15",
+                "18:40"
+              ],
+              "url": "/tdl/show/detail/7204/"
+            }
+          ],
+          "ticket": {
+            "adult_1day": 11900,
+            "status": "販売中"
+          }
+        },
+        "tds": {
+          "greetings": [
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ヴィレッジ・グリーティングプレイス",
+              "reservation_only": false,
+              "times": [
+                "9:30 - 20:00"
+              ],
+              "url": "/tds/greeting/detail/905/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "“サルードス・アミーゴス！”グリーティングドック",
+              "reservation_only": false,
+              "times": [
+                "9:30 - 20:00"
+              ],
+              "url": "/tds/greeting/detail/904/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ミッキー＆フレンズ・グリーティングトレイル（ミッキー）",
+              "reservation_only": false,
+              "times": [
+                "9:30 - 20:00"
+              ],
+              "url": "/tds/greeting/detail/901/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ミッキー＆フレンズ・グリーティングトレイル（ミニー）",
+              "reservation_only": false,
+              "times": [
+                "9:30 - 20:00"
+              ],
+              "url": "/tds/greeting/detail/902/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ミッキー＆フレンズ・グリーティングトレイル（ドナルド）",
+              "reservation_only": false,
+              "times": [
+                "9:30 - 20:00"
+              ],
+              "url": "/tds/greeting/detail/903/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ロストリバーデルタ（ミゲル　～13:00）",
+              "reservation_only": false,
+              "times": [
+                "9:00 - 13:00"
+              ],
+              "url": "/tds/greeting/detail/911/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ロストリバーデルタ（ミゲル　13:30～）",
+              "reservation_only": false,
+              "times": [
+                "13:30 - 16:20",
+                "17:30 - 21:00"
+              ],
+              "url": "/tds/greeting/detail/912/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ディズニーシー・プラザ（キャラクターグリーティング）",
+              "reservation_only": false,
+              "times": [
+                "9:00 - 11:00",
+                "12:00 - 13:00",
+                "13:40 - 14:40"
+              ],
+              "url": "/tds/greeting/detail/921/"
+            }
+          ],
+          "hours": {
+            "close": "21:00",
+            "open": "09:00"
+          },
+          "shows": [
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ナイトハイ・ハロウィーン",
+              "reservation_only": false,
+              "times": [
+                "20:30"
+              ],
+              "url": "/tds/show/detail/949/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "スパークリング・ジュビリー・セレブレーション",
+              "reservation_only": false,
+              "times": [
+                "11:30",
+                "15:00"
+              ],
+              "url": "/tds/show/detail/7404/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ディズニー・ハロウィーン・グリーティング",
+              "reservation_only": false,
+              "times": [
+                "13:15",
+                "16:15"
+              ],
+              "url": "/tds/show/detail/950/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "【環境演出】スパークリング・ジュビリー・ナイト",
+              "reservation_only": false,
+              "times": [
+                "20:15",
+                "20:55"
+              ],
+              "url": "/tds/show/detail/7405/"
+            },
+            {
+              "changed": false,
+              "dpa": true,
+              "entry": false,
+              "name": "ビリーヴ！～シー・オブ・ドリームス～",
+              "reservation_only": false,
+              "times": [
+                "19:30"
+              ],
+              "url": "/tds/show/detail/967/"
+            },
+            {
+              "changed": false,
+              "dpa": false,
+              "entry": false,
+              "name": "ダッフィー＆フレンズのワンダフル・フレンドシップ",
+              "reservation_only": true,
+              "times": [],
+              "url": "/tds/show/detail/7601/"
+            },
+            {
+              "changed": false,
+              "dpa": true,
+              "entry": true,
+              "name": "ダンス・ザ・グローブ！",
+              "reservation_only": false,
+              "times": [
+                "12:40",
+                "14:25",
+                "16:45",
+                "18:30"
+              ],
+              "url": "/tds/show/detail/7604/"
+            },
+            {
+              "changed": false,
+              "dpa": true,
+              "entry": true,
+              "name": "ドリームス・テイク・フライト",
+              "reservation_only": false,
+              "times": [
+                "11:00",
+                "12:25",
+                "13:50",
+                "15:55",
+                "17:20"
+              ],
+              "url": "/tds/show/detail/7602/"
+            }
+          ],
+          "ticket": {
+            "adult_1day": 11900,
+            "status": "販売中"
+          }
+        }
+      },
+      "source": "tokyodisneyresort.jp"
+    }
   },
   "official_dates": [
     "2026-09-03",
@@ -5506,7 +7681,8 @@
     "2026-10-06",
     "2026-10-07",
     "2026-10-08",
-    "2026-10-09"
+    "2026-10-09",
+    "2026-10-10"
   ],
   "prices": {
     "baymax": {
