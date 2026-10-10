@@ -2215,7 +2215,7 @@
   "crowd_fetched_at": "2026-10-10T09:04:31+09:00",
   "curve_meta": {
     "days_used": 38,
-    "generated_at": "2026-10-10T10:40:27+09:00",
+    "generated_at": "2026-10-10T11:00:46+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2291,17 +2291,23 @@
           "by_hour": {
             "10": {
               "best": {
-                "hour": 10,
+                "hour": 11,
                 "lastcall": false,
-                "minutes": 150
+                "minutes": 130
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
-              "yen_per_minute": 17
+              "reason": "これから並ぶと最短でも130分（11時台）。1分あたり約19円",
+              "verdict": "worth",
+              "yen_per_minute": 19
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 130
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 19
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -2345,13 +2351,13 @@
             },
             "9": {
               "best": {
-                "hour": 10,
+                "hour": 11,
                 "lastcall": false,
-                "minutes": 150
+                "minutes": 130
               },
-              "reason": "これから並ぶと最短でも150分（10時台）。1分あたり約17円",
+              "reason": "これから並ぶと最短でも130分（11時台）。1分あたり約19円",
               "verdict": "worth",
-              "yen_per_minute": 17
+              "yen_per_minute": 19
             }
           },
           "price": 2500,
@@ -2719,17 +2725,23 @@
           "by_hour": {
             "10": {
               "best": {
-                "hour": 10,
+                "hour": 11,
                 "lastcall": false,
                 "minutes": 80
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "これから並ぶと最短でも80分（11時台）。1分あたり約12円",
+              "verdict": "worth",
               "yen_per_minute": 12
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 12
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -2939,56 +2951,74 @@
           "band": "81-100",
           "by_hour": {
             "10": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 10,
+                "lastcall": false,
+                "minutes": 70
+              },
+              "reason": "これから並ぶと最短でも70分（10時台）。1分あたり約21円",
+              "verdict": "worth",
+              "yen_per_minute": 21
             },
             "11": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 82
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 18
             },
             "12": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "12時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "13": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "13時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "14": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "14時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "15": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "15時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "16": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "16時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "17": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "17時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "18": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "18時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "19": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "19時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "20": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "20時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "21": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
+              "reason": "21時以降のデータがまだ足りない",
               "verdict": "insufficient"
             },
             "9": {
-              "reason": "同じ混雑度の日のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 10,
+                "lastcall": false,
+                "minutes": 70
+              },
+              "reason": "これから並ぶと最短でも70分（10時台）。1分あたり約21円",
+              "verdict": "worth",
+              "yen_per_minute": 21
             }
           },
           "price": 1500,
@@ -3439,13 +3469,19 @@
                 "lastcall": false,
                 "minutes": 80
               },
-              "reason": "10時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "これから並ぶと最短でも80分（10時台）。1分あたり約19円",
+              "verdict": "worth",
               "yen_per_minute": 19
             },
             "11": {
-              "reason": "11時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 11,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "reason": "11時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 19
             },
             "12": {
               "reason": "12時以降のデータがまだ足りない",
@@ -6183,7 +6219,7 @@
         }
       }
     },
-    "generated_at": "2026-10-10T10:40:27+09:00",
+    "generated_at": "2026-10-10T11:00:46+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -6875,16 +6911,16 @@
         "open": "2026-10-10T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-10-10T10:40:13+09:00",
+    "last_polled_at": "2026-10-10T11:00:32+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-10T10:40:28+09:00",
+  "generated_at": "2026-10-10T11:00:46+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-11",
-      "last_run_at": "2026-10-10T10:20:26+09:00",
-      "last_success_at": "2026-10-10T10:20:26+09:00"
+      "last_run_at": "2026-10-10T10:40:28+09:00",
+      "last_success_at": "2026-10-10T10:40:28+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -6901,15 +6937,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数38 observed帯35",
-      "last_run_at": "2026-10-10T10:40:27+09:00",
-      "last_success_at": "2026-10-10T10:40:27+09:00"
+      "last_run_at": "2026-10-10T11:00:46+09:00",
+      "last_success_at": "2026-10-10T11:00:46+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-10-10 待ち66件 DPA33件 から再構成",
+      "last_detail": "2026-10-10 待ち74件 DPA37件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-10T10:40:27+09:00",
-      "last_success_at": "2026-10-10T10:40:27+09:00"
+      "last_run_at": "2026-10-10T11:00:45+09:00",
+      "last_success_at": "2026-10-10T11:00:45+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -6931,9 +6967,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "38日分から 15施設 / 時間帯468枠",
-      "last_run_at": "2026-10-10T10:40:27+09:00",
-      "last_success_at": "2026-10-10T10:40:27+09:00"
+      "last_detail": "38日分から 15施設 / 時間帯474枠",
+      "last_run_at": "2026-10-10T11:00:46+09:00",
+      "last_success_at": "2026-10-10T11:00:46+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -7794,6 +7830,7 @@
     "2026-10-10": {
       "beauty_and_the_beast": {
         "10": 150,
+        "11": 130,
         "9": 160
       },
       "big_thunder": {
@@ -7802,7 +7839,7 @@
       },
       "center_of_the_earth": {
         "10": 120,
-        "11": 160,
+        "11": 150,
         "12": 130,
         "13": 120,
         "14": 120,
@@ -7816,7 +7853,7 @@
       },
       "frozen_journey": {
         "10": 180,
-        "11": 150,
+        "11": 155,
         "12": 140,
         "13": 140,
         "14": 160,
@@ -7829,12 +7866,13 @@
         "9": 140
       },
       "monsters_inc": {
-        "10": 80,
+        "10": 85,
+        "11": 80,
         "9": 80
       },
       "peter_pan": {
         "10": 58,
-        "11": 50,
+        "11": 55,
         "12": 50,
         "13": 40,
         "14": 50,
@@ -7847,9 +7885,13 @@
         "21": 5,
         "9": 21
       },
+      "pooh": {
+        "10": 70,
+        "11": 82
+      },
       "raging_spirits": {
-        "10": 50,
-        "11": 50,
+        "10": 55,
+        "11": 60,
         "12": 50,
         "13": 60,
         "14": 60,
@@ -7863,7 +7905,7 @@
       },
       "rapunzel_lantern": {
         "10": 60,
-        "11": 50,
+        "11": 55,
         "12": 40,
         "13": 48,
         "14": 50,
@@ -7892,6 +7934,7 @@
       },
       "splash_mountain": {
         "10": 80,
+        "11": 80,
         "9": 80
       },
       "tower_of_terror": {
@@ -7971,7 +8014,7 @@
       },
       "center_of_the_earth": {
         "10": 120,
-        "11": 160,
+        "11": 150,
         "12": 130,
         "13": 120,
         "14": 120,
@@ -7985,7 +8028,7 @@
       },
       "frozen_journey": {
         "10": 180,
-        "11": 150,
+        "11": 155,
         "12": 140,
         "13": 140,
         "14": 160,
@@ -8014,7 +8057,7 @@
       },
       "peter_pan": {
         "10": 58,
-        "11": 50,
+        "11": 55,
         "12": 50,
         "13": 40,
         "14": 50,
@@ -8043,8 +8086,8 @@
         "9": 50
       },
       "raging_spirits": {
-        "10": 50,
-        "11": 50,
+        "10": 55,
+        "11": 60,
         "12": 50,
         "13": 60,
         "14": 60,
@@ -8058,7 +8101,7 @@
       },
       "rapunzel_lantern": {
         "10": 60,
-        "11": 50,
+        "11": 55,
         "12": 40,
         "13": 48,
         "14": 50,
@@ -8153,23 +8196,26 @@
           "at": "2026-10-10T09:35:21+09:00",
           "minutes": 90
         },
+        "pooh": {
+          "at": "2026-10-10T10:55:07+09:00",
+          "minutes": 50
+        },
         "splash_mountain": {
           "at": "2026-10-10T09:35:21+09:00",
           "minutes": 120
         }
       },
       "last": {
-        "at": "2026-10-10T10:40:13+09:00",
-        "closed": [
-          "pooh"
-        ],
+        "at": "2026-10-10T11:00:32+09:00",
+        "closed": [],
         "waits": {
-          "baymax": 120,
+          "baymax": 100,
           "beauty_and_the_beast": 160,
           "big_thunder": 60,
           "haunted_mansion": 50,
           "monsters_inc": 90,
-          "splash_mountain": 70
+          "pooh": 50,
+          "splash_mountain": 80
         }
       }
     },
@@ -8188,12 +8234,12 @@
           "minutes": 90
         },
         "raging_spirits": {
-          "at": "2026-10-10T09:35:21+09:00",
-          "minutes": 60
+          "at": "2026-10-10T10:45:11+09:00",
+          "minutes": 70
         },
         "rapunzel_lantern": {
-          "at": "2026-10-10T10:35:21+09:00",
-          "minutes": 80
+          "at": "2026-10-10T10:55:07+09:00",
+          "minutes": 90
         },
         "soaring": {
           "at": "2026-10-10T09:10:28+09:00",
@@ -8205,22 +8251,22 @@
         }
       },
       "last": {
-        "at": "2026-10-10T10:40:13+09:00",
+        "at": "2026-10-10T11:00:32+09:00",
         "closed": [
           "indiana_jones",
           "tower_of_terror"
         ],
         "waits": {
-          "center_of_the_earth": 100,
-          "frozen_journey": 180,
+          "center_of_the_earth": 120,
+          "frozen_journey": 160,
           "peter_pan": 60,
-          "raging_spirits": 60,
-          "rapunzel_lantern": 80,
-          "soaring": 120,
-          "toy_story_mania": 180
+          "raging_spirits": 70,
+          "rapunzel_lantern": 90,
+          "soaring": 140,
+          "toy_story_mania": 160
         }
       }
     }
   },
-  "waits_fetched_at": "2026-10-10T10:40:13+09:00"
+  "waits_fetched_at": "2026-10-10T11:00:32+09:00"
 }
