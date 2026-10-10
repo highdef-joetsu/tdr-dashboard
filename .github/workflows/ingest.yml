@@ -27,7 +27,7 @@ jobs:
       TDR_WORKER_URL: ${{ secrets.TDR_WORKER_URL }}
       TDR_INGEST_TOKEN: ${{ secrets.TDR_INGEST_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/collect
         with:
           collector: "ingest waitcurve estimates"
