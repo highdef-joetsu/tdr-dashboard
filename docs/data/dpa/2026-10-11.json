@@ -71,9 +71,18 @@
         {
           "at": "2026-10-11T15:20:21+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-11T16:05:11+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-11T16:15:12+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-11T15:20:21+09:00",
+      "final_sold_out_at": "2026-10-11T16:15:12+09:00",
       "first_sold_out_at": "2026-10-11T10:25:10+09:00",
       "park": "tdl",
       "price": 2500,
@@ -116,9 +125,18 @@
         {
           "at": "2026-10-11T09:05:33+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-11T16:05:11+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-11T16:10:16+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-11T09:05:33+09:00",
+      "final_sold_out_at": "2026-10-11T16:10:16+09:00",
       "first_sold_out_at": "2026-10-11T09:05:33+09:00",
       "park": "tds",
       "price": 2500,
@@ -215,11 +233,17 @@
         {
           "at": "2026-10-11T08:00:35+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-11T16:20:36+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-11T16:20:36+09:00",
+      "first_sold_out_at": "2026-10-11T16:20:36+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "tower_of_terror": {
       "events": [],
@@ -256,6 +280,6 @@
       "open": "2026-10-11T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-11T16:01:01+09:00",
+  "last_polled_at": "2026-10-11T16:20:36+09:00",
   "source": "themeparks.wiki"
 }
