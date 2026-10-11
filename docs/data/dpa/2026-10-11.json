@@ -5,11 +5,17 @@
         {
           "at": "2026-10-11T08:00:35+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-11T11:20:25+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-11T11:20:25+09:00",
+      "first_sold_out_at": "2026-10-11T11:20:25+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "beauty_and_the_beast": {
       "events": [
@@ -20,9 +26,18 @@
         {
           "at": "2026-10-11T10:25:10+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-11T11:05:10+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-11T11:10:23+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-11T10:25:10+09:00",
+      "final_sold_out_at": "2026-10-11T11:10:23+09:00",
       "first_sold_out_at": "2026-10-11T10:25:10+09:00",
       "park": "tdl",
       "price": 2500,
@@ -199,6 +214,6 @@
       "open": "2026-10-11T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-11T11:00:42+09:00",
+  "last_polled_at": "2026-10-11T11:20:25+09:00",
   "source": "themeparks.wiki"
 }
