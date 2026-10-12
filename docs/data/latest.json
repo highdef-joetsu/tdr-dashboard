@@ -2223,7 +2223,7 @@
   "crowd_fetched_at": "2026-10-12T08:43:35+09:00",
   "curve_meta": {
     "days_used": 40,
-    "generated_at": "2026-10-12T14:41:01+09:00",
+    "generated_at": "2026-10-12T15:00:27+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2284,13 +2284,19 @@
                 "lastcall": false,
                 "minutes": 80
               },
-              "reason": "14時から先で埋まっている時間帯が1つしかない",
-              "verdict": "insufficient",
+              "reason": "これから並ぶと最短でも80分（14時台）。1分あたり約19円",
+              "verdict": "worth",
               "yen_per_minute": 19
             },
             "15": {
-              "reason": "15時以降のデータがまだ足りない",
-              "verdict": "insufficient"
+              "best": {
+                "hour": 15,
+                "lastcall": false,
+                "minutes": 80
+              },
+              "reason": "15時から先で埋まっている時間帯が1つしかない",
+              "verdict": "insufficient",
+              "yen_per_minute": 19
             },
             "16": {
               "reason": "16時以降のデータがまだ足りない",
@@ -6585,7 +6591,7 @@
         }
       }
     },
-    "generated_at": "2026-10-12T14:41:01+09:00",
+    "generated_at": "2026-10-12T15:00:27+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7328,16 +7334,16 @@
         "open": "2026-10-12T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-10-12T14:40:46+09:00",
+    "last_polled_at": "2026-10-12T15:00:10+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-12T14:41:02+09:00",
+  "generated_at": "2026-10-12T15:00:27+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-13",
-      "last_run_at": "2026-10-12T14:21:01+09:00",
-      "last_success_at": "2026-10-12T14:21:01+09:00"
+      "last_run_at": "2026-10-12T14:41:02+09:00",
+      "last_success_at": "2026-10-12T14:41:02+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7354,15 +7360,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数40 observed帯40",
-      "last_run_at": "2026-10-12T14:41:01+09:00",
-      "last_success_at": "2026-10-12T14:41:01+09:00"
+      "last_run_at": "2026-10-12T15:00:27+09:00",
+      "last_success_at": "2026-10-12T15:00:27+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-10-12 待ち164件 DPA82件 から再構成",
+      "last_detail": "2026-10-12 待ち172件 DPA86件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-12T14:41:01+09:00",
-      "last_success_at": "2026-10-12T14:41:01+09:00"
+      "last_run_at": "2026-10-12T15:00:26+09:00",
+      "last_success_at": "2026-10-12T15:00:26+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7384,9 +7390,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "40日分から 15施設 / 時間帯525枠",
-      "last_run_at": "2026-10-12T14:41:01+09:00",
-      "last_success_at": "2026-10-12T14:41:01+09:00"
+      "last_detail": "40日分から 15施設 / 時間帯526枠",
+      "last_run_at": "2026-10-12T15:00:27+09:00",
+      "last_success_at": "2026-10-12T15:00:27+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8253,6 +8259,7 @@
         "12": 70,
         "13": 90,
         "14": 80,
+        "15": 80,
         "9": 120
       },
       "beauty_and_the_beast": {
@@ -8273,7 +8280,7 @@
         "11": 70,
         "13": 60,
         "14": 65,
-        "15": 60,
+        "15": 55,
         "16": 50,
         "17": 60,
         "18": 50,
@@ -8287,7 +8294,7 @@
         "12": 140,
         "13": 120,
         "14": 120,
-        "15": 130,
+        "15": 140,
         "16": 130,
         "17": 130,
         "18": 120,
@@ -8315,7 +8322,7 @@
         "12": 62,
         "13": 65,
         "14": 65,
-        "15": 70,
+        "15": 65,
         "16": 50,
         "17": 85,
         "18": 90,
@@ -8344,7 +8351,7 @@
         "12": 60,
         "13": 70,
         "14": 90,
-        "15": 82,
+        "15": 71,
         "16": 70,
         "9": 82
       },
@@ -8354,7 +8361,7 @@
         "12": 65,
         "13": 75,
         "14": 75,
-        "15": 70,
+        "15": 75,
         "16": 80,
         "17": 70,
         "18": 72,
@@ -8368,7 +8375,7 @@
         "12": 50,
         "13": 50,
         "14": 55,
-        "15": 58,
+        "15": 55,
         "16": 50,
         "17": 40,
         "18": 35,
@@ -8383,7 +8390,7 @@
         "12": 130,
         "13": 140,
         "14": 140,
-        "15": 140,
+        "15": 150,
         "16": 140,
         "17": 155,
         "18": 130,
@@ -8397,7 +8404,7 @@
         "12": 75,
         "13": 75,
         "14": 80,
-        "15": 70,
+        "15": 75,
         "16": 60,
         "17": 80,
         "18": 60,
@@ -8424,7 +8431,7 @@
         "12": 90,
         "13": 100,
         "14": 120,
-        "15": 140,
+        "15": 130,
         "16": 140,
         "17": 120,
         "18": 110,
@@ -8677,16 +8684,16 @@
         }
       },
       "last": {
-        "at": "2026-10-12T14:40:46+09:00",
+        "at": "2026-10-12T15:00:10+09:00",
         "closed": [],
         "waits": {
           "baymax": 70,
           "beauty_and_the_beast": 90,
-          "big_thunder": 60,
-          "haunted_mansion": 60,
+          "big_thunder": 50,
+          "haunted_mansion": 40,
           "monsters_inc": 60,
           "pooh": 60,
-          "splash_mountain": 90
+          "splash_mountain": 80
         }
       }
     },
@@ -8722,16 +8729,16 @@
         }
       },
       "last": {
-        "at": "2026-10-12T14:40:46+09:00",
+        "at": "2026-10-12T15:00:10+09:00",
         "closed": [
-          "center_of_the_earth",
           "indiana_jones",
           "tower_of_terror"
         ],
         "waits": {
+          "center_of_the_earth": 140,
           "frozen_journey": 140,
-          "peter_pan": 70,
-          "raging_spirits": 90,
+          "peter_pan": 60,
+          "raging_spirits": 100,
           "rapunzel_lantern": 50,
           "soaring": 160,
           "toy_story_mania": 120
@@ -8739,5 +8746,5 @@
       }
     }
   },
-  "waits_fetched_at": "2026-10-12T14:40:46+09:00"
+  "waits_fetched_at": "2026-10-12T15:00:10+09:00"
 }
