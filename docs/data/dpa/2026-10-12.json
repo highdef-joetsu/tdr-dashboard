@@ -162,12 +162,17 @@
         {
           "at": "2026-10-12T17:20:57+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-12T17:40:32+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "final_sold_out_at": "2026-10-12T17:20:57+09:00",
       "first_sold_out_at": "2026-10-12T17:20:57+09:00",
       "park": "tdl",
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "indiana_jones": {
       "events": [],
@@ -258,9 +263,18 @@
         {
           "at": "2026-10-12T17:10:42+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-12T17:25:44+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-12T17:35:20+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-12T17:10:42+09:00",
+      "final_sold_out_at": "2026-10-12T17:35:20+09:00",
       "first_sold_out_at": "2026-10-12T17:10:42+09:00",
       "park": "tdl",
       "price": 1500,
@@ -302,6 +316,6 @@
       "open": "2026-10-12T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-12T17:20:57+09:00",
+  "last_polled_at": "2026-10-12T17:40:32+09:00",
   "source": "themeparks.wiki"
 }
