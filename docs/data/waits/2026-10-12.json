@@ -33,14 +33,14 @@
         }
       },
       "last": {
-        "at": "2026-10-12T18:40:06+09:00",
+        "at": "2026-10-12T18:45:24+09:00",
         "closed": [],
         "waits": {
           "baymax": 100,
           "beauty_and_the_beast": 70,
-          "big_thunder": 60,
+          "big_thunder": 50,
           "haunted_mansion": 60,
-          "monsters_inc": 60,
+          "monsters_inc": 50,
           "pooh": 50,
           "splash_mountain": 50
         }
@@ -1736,6 +1736,19 @@
             "pooh": 50,
             "splash_mountain": 50
           }
+        },
+        {
+          "at": "2026-10-12T18:45:24+09:00",
+          "closed": [],
+          "waits": {
+            "baymax": 100,
+            "beauty_and_the_beast": 70,
+            "big_thunder": 50,
+            "haunted_mansion": 60,
+            "monsters_inc": 50,
+            "pooh": 50,
+            "splash_mountain": 50
+          }
         }
       ],
       "unmapped": [
@@ -1803,7 +1816,7 @@
         }
       },
       "last": {
-        "at": "2026-10-12T18:40:06+09:00",
+        "at": "2026-10-12T18:45:24+09:00",
         "closed": [
           "indiana_jones",
           "tower_of_terror"
@@ -1811,11 +1824,11 @@
         "waits": {
           "center_of_the_earth": 0,
           "frozen_journey": 100,
-          "peter_pan": 40,
+          "peter_pan": 30,
           "raging_spirits": 80,
           "rapunzel_lantern": 40,
           "soaring": 120,
-          "toy_story_mania": 90
+          "toy_story_mania": 80
         }
       },
       "samples": [
@@ -3883,6 +3896,22 @@
             "rapunzel_lantern": 40,
             "soaring": 120,
             "toy_story_mania": 90
+          }
+        },
+        {
+          "at": "2026-10-12T18:45:24+09:00",
+          "closed": [
+            "indiana_jones",
+            "tower_of_terror"
+          ],
+          "waits": {
+            "center_of_the_earth": 0,
+            "frozen_journey": 100,
+            "peter_pan": 30,
+            "raging_spirits": 80,
+            "rapunzel_lantern": 40,
+            "soaring": 120,
+            "toy_story_mania": 80
           }
         }
       ],
