@@ -48,11 +48,17 @@
         {
           "at": "2026-10-12T08:00:29+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-12T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-12T20:01:30+09:00",
+      "first_sold_out_at": "2026-10-12T20:01:30+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "center_of_the_earth": {
       "events": [
@@ -185,55 +191,85 @@
         {
           "at": "2026-10-12T08:00:29+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-12T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-12T20:01:30+09:00",
+      "first_sold_out_at": "2026-10-12T20:01:30+09:00",
       "park": "tdl",
       "price": 1000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "peter_pan": {
       "events": [
         {
           "at": "2026-10-12T08:00:29+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-12T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-12T20:01:30+09:00",
+      "first_sold_out_at": "2026-10-12T20:01:30+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "pooh": {
       "events": [
         {
           "at": "2026-10-12T08:00:29+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-12T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-12T20:01:30+09:00",
+      "first_sold_out_at": "2026-10-12T20:01:30+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "raging_spirits": {
       "events": [
         {
           "at": "2026-10-12T08:00:29+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-12T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-12T20:01:30+09:00",
+      "first_sold_out_at": "2026-10-12T20:01:30+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
         {
           "at": "2026-10-12T08:00:29+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-12T20:01:30+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-12T20:01:30+09:00",
+      "first_sold_out_at": "2026-10-12T20:01:30+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "soaring": {
       "events": [
@@ -313,6 +349,6 @@
       "open": "2026-10-12T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-12T19:40:20+09:00",
+  "last_polled_at": "2026-10-12T20:01:30+09:00",
   "source": "themeparks.wiki"
 }
