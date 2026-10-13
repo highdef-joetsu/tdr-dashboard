@@ -2231,7 +2231,7 @@
   "crowd_fetched_at": "2026-10-13T11:05:12+09:00",
   "curve_meta": {
     "days_used": 41,
-    "generated_at": "2026-10-13T18:22:30+09:00",
+    "generated_at": "2026-10-13T18:42:30+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6753,7 +6753,7 @@
         }
       }
     },
-    "generated_at": "2026-10-13T18:22:30+09:00",
+    "generated_at": "2026-10-13T18:42:30+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -6778,6 +6778,11 @@
           "final_sold_out_at": "2026-10-13T18:22:14+09:00",
           "first_sold_out_at": "2026-10-13T09:31:15+09:00",
           "resale": true
+        },
+        "haunted_mansion": {
+          "final_sold_out_at": "2026-10-13T18:32:25+09:00",
+          "first_sold_out_at": "2026-10-13T18:32:25+09:00",
+          "resale": false
         },
         "raging_spirits": {
           "final_sold_out_at": "2026-10-13T17:37:14+09:00",
@@ -7421,10 +7426,16 @@
           {
             "at": "2026-10-13T08:01:17+09:00",
             "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-10-13T18:32:25+09:00",
+            "state": "FINISHED"
           }
         ],
+        "final_sold_out_at": "2026-10-13T18:32:25+09:00",
+        "first_sold_out_at": "2026-10-13T18:32:25+09:00",
         "park": "tdl",
-        "status_at_close": "on_sale"
+        "status_at_close": "sold_out"
       },
       "indiana_jones": {
         "events": [],
@@ -7560,16 +7571,16 @@
         "open": "2026-10-13T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-10-13T18:22:14+09:00",
+    "last_polled_at": "2026-10-13T18:42:15+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-13T18:22:31+09:00",
+  "generated_at": "2026-10-13T18:42:31+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-14",
-      "last_run_at": "2026-10-13T18:01:50+09:00",
-      "last_success_at": "2026-10-13T18:01:50+09:00"
+      "last_run_at": "2026-10-13T18:22:31+09:00",
+      "last_success_at": "2026-10-13T18:22:31+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7586,15 +7597,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数41 observed帯41",
-      "last_run_at": "2026-10-13T18:22:30+09:00",
-      "last_success_at": "2026-10-13T18:22:30+09:00"
+      "last_run_at": "2026-10-13T18:42:30+09:00",
+      "last_success_at": "2026-10-13T18:42:30+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-10-13 待ち248件 DPA124件 から再構成",
+      "last_detail": "2026-10-13 待ち256件 DPA128件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-13T18:22:29+09:00",
-      "last_success_at": "2026-10-13T18:22:29+09:00"
+      "last_run_at": "2026-10-13T18:42:30+09:00",
+      "last_success_at": "2026-10-13T18:42:30+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7617,8 +7628,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "41日分から 15施設 / 時間帯540枠",
-      "last_run_at": "2026-10-13T18:22:30+09:00",
-      "last_success_at": "2026-10-13T18:22:30+09:00"
+      "last_run_at": "2026-10-13T18:42:30+09:00",
+      "last_success_at": "2026-10-13T18:42:30+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8933,16 +8944,16 @@
         }
       },
       "last": {
-        "at": "2026-10-13T18:22:14+09:00",
+        "at": "2026-10-13T18:42:15+09:00",
         "closed": [],
         "waits": {
-          "baymax": 90,
+          "baymax": 100,
           "beauty_and_the_beast": 100,
           "big_thunder": 50,
           "haunted_mansion": 80,
-          "monsters_inc": 70,
-          "pooh": 50,
-          "splash_mountain": 70
+          "monsters_inc": 60,
+          "pooh": 40,
+          "splash_mountain": 60
         }
       }
     },
@@ -8978,22 +8989,22 @@
         }
       },
       "last": {
-        "at": "2026-10-13T18:22:14+09:00",
+        "at": "2026-10-13T18:42:15+09:00",
         "closed": [
           "indiana_jones",
           "tower_of_terror"
         ],
         "waits": {
-          "center_of_the_earth": 160,
+          "center_of_the_earth": 140,
           "frozen_journey": 120,
-          "peter_pan": 50,
+          "peter_pan": 40,
           "raging_spirits": 100,
           "rapunzel_lantern": 100,
-          "soaring": 140,
-          "toy_story_mania": 120
+          "soaring": 120,
+          "toy_story_mania": 100
         }
       }
     }
   },
-  "waits_fetched_at": "2026-10-13T18:22:14+09:00"
+  "waits_fetched_at": "2026-10-13T18:42:15+09:00"
 }
