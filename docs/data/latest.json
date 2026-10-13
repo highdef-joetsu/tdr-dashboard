@@ -2231,7 +2231,7 @@
   "crowd_fetched_at": "2026-10-13T11:05:12+09:00",
   "curve_meta": {
     "days_used": 41,
-    "generated_at": "2026-10-13T16:01:28+09:00",
+    "generated_at": "2026-10-13T16:21:49+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6753,14 +6753,14 @@
         }
       }
     },
-    "generated_at": "2026-10-13T16:01:28+09:00",
+    "generated_at": "2026-10-13T16:21:49+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
     {
       "attractions": {
         "beauty_and_the_beast": {
-          "final_sold_out_at": "2026-10-13T15:21:30+09:00",
+          "final_sold_out_at": "2026-10-13T16:21:33+09:00",
           "first_sold_out_at": "2026-10-13T12:56:05+09:00",
           "resale": true
         },
@@ -6770,7 +6770,7 @@
           "resale": false
         },
         "frozen_journey": {
-          "final_sold_out_at": "2026-10-13T12:11:07+09:00",
+          "final_sold_out_at": "2026-10-13T16:11:28+09:00",
           "first_sold_out_at": "2026-10-13T09:31:15+09:00",
           "resale": true
         },
@@ -7297,9 +7297,18 @@
           {
             "at": "2026-10-13T15:21:30+09:00",
             "state": "FINISHED"
+          },
+          {
+            "at": "2026-10-13T16:07:06+09:00",
+            "note": "resale",
+            "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-10-13T16:21:33+09:00",
+            "state": "FINISHED"
           }
         ],
-        "final_sold_out_at": "2026-10-13T15:21:30+09:00",
+        "final_sold_out_at": "2026-10-13T16:21:33+09:00",
         "first_sold_out_at": "2026-10-13T12:56:05+09:00",
         "park": "tdl",
         "price": 2500,
@@ -7360,9 +7369,18 @@
           {
             "at": "2026-10-13T12:11:07+09:00",
             "state": "FINISHED"
+          },
+          {
+            "at": "2026-10-13T16:07:06+09:00",
+            "note": "resale",
+            "state": "AVAILABLE"
+          },
+          {
+            "at": "2026-10-13T16:11:28+09:00",
+            "state": "FINISHED"
           }
         ],
-        "final_sold_out_at": "2026-10-13T12:11:07+09:00",
+        "final_sold_out_at": "2026-10-13T16:11:28+09:00",
         "first_sold_out_at": "2026-10-13T09:31:15+09:00",
         "park": "tds",
         "price": 2500,
@@ -7500,16 +7518,16 @@
         "open": "2026-10-13T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-10-13T16:01:13+09:00",
+    "last_polled_at": "2026-10-13T16:21:33+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-13T16:01:28+09:00",
+  "generated_at": "2026-10-13T16:21:50+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-14",
-      "last_run_at": "2026-10-13T15:41:43+09:00",
-      "last_success_at": "2026-10-13T15:41:43+09:00"
+      "last_run_at": "2026-10-13T16:01:28+09:00",
+      "last_success_at": "2026-10-13T16:01:28+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7526,15 +7544,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数41 observed帯41",
-      "last_run_at": "2026-10-13T16:01:28+09:00",
-      "last_success_at": "2026-10-13T16:01:28+09:00"
+      "last_run_at": "2026-10-13T16:21:49+09:00",
+      "last_success_at": "2026-10-13T16:21:49+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-10-13 待ち194件 DPA97件 から再構成",
+      "last_detail": "2026-10-13 待ち202件 DPA101件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-13T16:01:27+09:00",
-      "last_success_at": "2026-10-13T16:01:27+09:00"
+      "last_run_at": "2026-10-13T16:21:49+09:00",
+      "last_success_at": "2026-10-13T16:21:49+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7557,8 +7575,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "41日分から 15施設 / 時間帯540枠",
-      "last_run_at": "2026-10-13T16:01:28+09:00",
-      "last_success_at": "2026-10-13T16:01:28+09:00"
+      "last_run_at": "2026-10-13T16:21:49+09:00",
+      "last_success_at": "2026-10-13T16:21:49+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8856,8 +8874,8 @@
           "minutes": 100
         },
         "haunted_mansion": {
-          "at": "2026-10-13T09:46:08+09:00",
-          "minutes": 70
+          "at": "2026-10-13T16:21:33+09:00",
+          "minutes": 90
         },
         "monsters_inc": {
           "at": "2026-10-13T10:26:04+09:00",
@@ -8868,21 +8886,21 @@
           "minutes": 90
         },
         "splash_mountain": {
-          "at": "2026-10-13T11:11:07+09:00",
-          "minutes": 100
+          "at": "2026-10-13T16:07:06+09:00",
+          "minutes": 120
         }
       },
       "last": {
-        "at": "2026-10-13T16:01:13+09:00",
+        "at": "2026-10-13T16:21:33+09:00",
         "closed": [],
         "waits": {
-          "baymax": 70,
+          "baymax": 80,
           "beauty_and_the_beast": 100,
-          "big_thunder": 50,
-          "haunted_mansion": 60,
-          "monsters_inc": 60,
+          "big_thunder": 60,
+          "haunted_mansion": 90,
+          "monsters_inc": 80,
           "pooh": 60,
-          "splash_mountain": 100
+          "splash_mountain": 120
         }
       }
     },
@@ -8918,22 +8936,22 @@
         }
       },
       "last": {
-        "at": "2026-10-13T16:01:13+09:00",
+        "at": "2026-10-13T16:21:33+09:00",
         "closed": [
           "indiana_jones",
-          "rapunzel_lantern",
           "tower_of_terror"
         ],
         "waits": {
           "center_of_the_earth": 160,
           "frozen_journey": 180,
           "peter_pan": 100,
-          "raging_spirits": 140,
+          "raging_spirits": 120,
+          "rapunzel_lantern": 60,
           "soaring": 160,
           "toy_story_mania": 140
         }
       }
     }
   },
-  "waits_fetched_at": "2026-10-13T16:01:13+09:00"
+  "waits_fetched_at": "2026-10-13T16:21:33+09:00"
 }
