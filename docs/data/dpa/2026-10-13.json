@@ -176,11 +176,17 @@
         {
           "at": "2026-10-13T08:01:17+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-13T17:37:14+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-13T17:37:14+09:00",
+      "first_sold_out_at": "2026-10-13T17:37:14+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -262,6 +268,6 @@
       "open": "2026-10-13T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-13T17:24:30+09:00",
+  "last_polled_at": "2026-10-13T17:42:06+09:00",
   "source": "themeparks.wiki"
 }
