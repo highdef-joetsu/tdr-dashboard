@@ -1928,8 +1928,8 @@
   },
   "crowd_fetched_at": "2026-10-14T08:44:54+09:00",
   "curve_meta": {
-    "days_used": 42,
-    "generated_at": "2026-10-15T07:40:24+09:00",
+    "days_used": 43,
+    "generated_at": "2026-10-15T08:00:19+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -4412,10 +4412,18 @@
         }
       }
     },
-    "generated_at": "2026-10-15T07:40:25+09:00",
+    "generated_at": "2026-10-15T08:00:19+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
+    {
+      "attractions": {},
+      "crowd_pct": {
+        "tdl": 77,
+        "tds": 81
+      },
+      "date": "2026-10-15"
+    },
     {
       "attractions": {
         "baymax": {
@@ -4889,95 +4897,208 @@
         "tds": 59
       },
       "date": "2026-10-09"
-    },
-    {
-      "attractions": {
-        "baymax": {
-          "final_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "first_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "resale": false
-        },
-        "beauty_and_the_beast": {
-          "final_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "first_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "resale": false
-        },
-        "big_thunder": {
-          "final_sold_out_at": "2026-10-08T17:00:27+09:00",
-          "first_sold_out_at": "2026-10-08T17:00:27+09:00",
-          "resale": false
-        },
-        "center_of_the_earth": {
-          "final_sold_out_at": "2026-10-08T15:00:26+09:00",
-          "first_sold_out_at": "2026-10-08T15:00:26+09:00",
-          "resale": false
-        },
-        "frozen_journey": {
-          "final_sold_out_at": "2026-10-08T17:20:25+09:00",
-          "first_sold_out_at": "2026-10-08T10:51:12+09:00",
-          "resale": true
-        },
-        "haunted_mansion": {
-          "final_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "first_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "resale": false
-        },
-        "monsters_inc": {
-          "final_sold_out_at": "2026-10-08T17:00:27+09:00",
-          "first_sold_out_at": "2026-10-08T17:00:27+09:00",
-          "resale": false
-        },
-        "peter_pan": {
-          "final_sold_out_at": "2026-10-08T20:06:41+09:00",
-          "first_sold_out_at": "2026-10-08T20:06:41+09:00",
-          "resale": false
-        },
-        "pooh": {
-          "final_sold_out_at": "2026-10-08T16:40:25+09:00",
-          "first_sold_out_at": "2026-10-08T16:40:25+09:00",
-          "resale": false
-        },
-        "raging_spirits": {
-          "final_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "first_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "resale": false
-        },
-        "rapunzel_lantern": {
-          "final_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "first_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "resale": false
-        },
-        "soaring": {
-          "final_sold_out_at": "2026-10-08T15:20:25+09:00",
-          "first_sold_out_at": "2026-10-08T15:20:25+09:00",
-          "resale": false
-        },
-        "splash_mountain": {
-          "final_sold_out_at": "2026-10-08T18:20:25+09:00",
-          "first_sold_out_at": "2026-10-08T18:20:25+09:00",
-          "resale": false
-        },
-        "toy_story_mania": {
-          "final_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "first_sold_out_at": "2026-10-08T20:00:31+09:00",
-          "resale": false
-        }
-      },
-      "crowd_pct": {
-        "tdl": 37,
-        "tds": 59
-      },
-      "date": "2026-10-08"
     }
   ],
-  "dpa_today": null,
-  "generated_at": "2026-10-15T07:40:25+09:00",
+  "dpa_today": {
+    "attractions": {
+      "baymax": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tdl",
+        "price": 1500,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "beauty_and_the_beast": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tdl",
+        "price": 2500,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "big_thunder": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tdl",
+        "price": 1500,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "center_of_the_earth": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tds",
+        "price": 2000,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "frozen_journey": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tds",
+        "price": 2500,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "haunted_mansion": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tdl",
+        "status_at_close": "sold_out"
+      },
+      "indiana_jones": {
+        "events": [],
+        "park": "tds"
+      },
+      "monsters_inc": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tdl",
+        "price": 1000,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "peter_pan": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tds",
+        "price": 2000,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "pooh": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tdl",
+        "price": 1500,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "raging_spirits": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tds",
+        "price": 1500,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "rapunzel_lantern": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tds",
+        "price": 2000,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "soaring": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tds",
+        "price": 2500,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "splash_mountain": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tdl",
+        "price": 1500,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      },
+      "tower_of_terror": {
+        "events": [],
+        "park": "tds",
+        "price": 1500,
+        "price_source": "ledger"
+      },
+      "toy_story_mania": {
+        "events": [
+          {
+            "at": "2026-10-15T08:00:06+09:00",
+            "state": "FINISHED"
+          }
+        ],
+        "park": "tds",
+        "price": 2000,
+        "price_source": "ledger",
+        "status_at_close": "sold_out"
+      }
+    },
+    "date": "2026-10-15",
+    "hours": {
+      "tdl": {
+        "close": "2026-10-15T21:00:00+09:00",
+        "open": "2026-10-15T09:00:00+09:00"
+      },
+      "tds": {
+        "close": "2026-10-15T21:00:00+09:00",
+        "open": "2026-10-15T09:00:00+09:00"
+      }
+    },
+    "last_polled_at": "2026-10-15T08:00:06+09:00",
+    "source": "themeparks.wiki"
+  },
+  "generated_at": "2026-10-15T08:00:20+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-16",
-      "last_run_at": "2026-10-15T07:38:10+09:00",
-      "last_success_at": "2026-10-15T07:38:10+09:00"
+      "last_run_at": "2026-10-15T07:40:25+09:00",
+      "last_success_at": "2026-10-15T07:40:25+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -4993,16 +5114,16 @@
     },
     "estimates": {
       "consecutive_failures": 0,
-      "last_detail": "実績日数42 observed帯41",
-      "last_run_at": "2026-10-15T07:40:25+09:00",
-      "last_success_at": "2026-10-15T07:40:25+09:00"
+      "last_detail": "実績日数43 observed帯41",
+      "last_run_at": "2026-10-15T08:00:19+09:00",
+      "last_success_at": "2026-10-15T08:00:19+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-10-15 サンプル0件（営業時間外か、Worker がまだ動いていない）",
+      "last_detail": "2026-10-15 待ち2件 DPA1件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-15T07:40:24+09:00",
-      "last_success_at": "2026-10-15T07:40:24+09:00"
+      "last_run_at": "2026-10-15T08:00:19+09:00",
+      "last_success_at": "2026-10-15T08:00:19+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -5024,9 +5145,9 @@
     },
     "waitcurve": {
       "consecutive_failures": 0,
-      "last_detail": "42日分から 15施設 / 時間帯540枠",
-      "last_run_at": "2026-10-15T07:40:24+09:00",
-      "last_success_at": "2026-10-15T07:40:24+09:00"
+      "last_detail": "43日分から 15施設 / 時間帯540枠",
+      "last_run_at": "2026-10-15T08:00:19+09:00",
+      "last_success_at": "2026-10-15T08:00:19+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -5926,6 +6047,41 @@
       }
     }
   },
-  "waits": {},
-  "waits_fetched_at": null
+  "waits": {
+    "tdl": {
+      "daily_max": {},
+      "last": {
+        "at": "2026-10-15T08:00:06+09:00",
+        "closed": [
+          "baymax",
+          "beauty_and_the_beast",
+          "big_thunder",
+          "haunted_mansion",
+          "monsters_inc",
+          "pooh",
+          "splash_mountain"
+        ],
+        "waits": {}
+      }
+    },
+    "tds": {
+      "daily_max": {},
+      "last": {
+        "at": "2026-10-15T08:00:06+09:00",
+        "closed": [
+          "center_of_the_earth",
+          "frozen_journey",
+          "indiana_jones",
+          "peter_pan",
+          "raging_spirits",
+          "rapunzel_lantern",
+          "soaring",
+          "tower_of_terror",
+          "toy_story_mania"
+        ],
+        "waits": {}
+      }
+    }
+  },
+  "waits_fetched_at": "2026-10-15T08:00:06+09:00"
 }
