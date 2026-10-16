@@ -185,11 +185,17 @@
         {
           "at": "2026-10-16T08:00:39+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-16T18:00:38+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-16T18:00:38+09:00",
+      "first_sold_out_at": "2026-10-16T18:00:38+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "tower_of_terror": {
       "events": [],
@@ -226,6 +232,6 @@
       "open": "2026-10-16T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-16T17:40:38+09:00",
+  "last_polled_at": "2026-10-16T18:00:38+09:00",
   "source": "themeparks.wiki"
 }
