@@ -1938,7 +1938,7 @@
   "crowd_fetched_at": "2026-10-21T08:13:36+09:00",
   "curve_meta": {
     "days_used": 49,
-    "generated_at": "2026-10-21T20:46:26+09:00",
+    "generated_at": "2026-10-21T21:00:57+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -2067,23 +2067,23 @@
               "best": {
                 "hour": 21,
                 "lastcall": true,
-                "minutes": 15
+                "minutes": 20
               },
               "minutes_left_to_buy": -2,
-              "reason": "売切目安 19:58 を過ぎている。並ぶなら21時台が最短で約15分",
+              "reason": "売切目安 19:58 を過ぎている。並ぶなら21時台が最短で約20分",
               "verdict": "sold_out",
-              "yen_per_minute": 100
+              "yen_per_minute": 75
             },
             "21": {
               "best": {
                 "hour": 21,
                 "lastcall": true,
-                "minutes": 15
+                "minutes": 20
               },
               "minutes_left_to_buy": -62,
-              "reason": "売切目安 19:58 を過ぎている。並ぶなら21時台が最短で約15分",
+              "reason": "売切目安 19:58 を過ぎている。並ぶなら21時台が最短で約20分",
               "verdict": "sold_out",
-              "yen_per_minute": 100
+              "yen_per_minute": 75
             },
             "9": {
               "best": {
@@ -3396,23 +3396,23 @@
               "best": {
                 "hour": 21,
                 "lastcall": true,
-                "minutes": 8
+                "minutes": 5
               },
               "minutes_left_to_buy": 5,
-              "reason": "21時台なら約8分で並べる",
+              "reason": "21時台なら約5分で並べる",
               "verdict": "skip",
-              "yen_per_minute": 250
+              "yen_per_minute": 400
             },
             "21": {
               "best": {
                 "hour": 21,
                 "lastcall": true,
-                "minutes": 8
+                "minutes": 5
               },
               "minutes_left_to_buy": -55,
-              "reason": "売切目安 20:05 を過ぎている。並ぶなら21時台が最短で約8分",
+              "reason": "売切目安 20:05 を過ぎている。並ぶなら21時台が最短で約5分",
               "verdict": "sold_out",
-              "yen_per_minute": 250
+              "yen_per_minute": 400
             },
             "9": {
               "best": {
@@ -4421,7 +4421,7 @@
         }
       }
     },
-    "generated_at": "2026-10-21T20:46:26+09:00",
+    "generated_at": "2026-10-21T21:00:57+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -5275,16 +5275,16 @@
         "open": "2026-10-21T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-10-21T20:45:41+09:00",
+    "last_polled_at": "2026-10-21T21:00:41+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-21T20:46:27+09:00",
+  "generated_at": "2026-10-21T21:00:58+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-22",
-      "last_run_at": "2026-10-21T20:40:56+09:00",
-      "last_success_at": "2026-10-21T20:40:56+09:00"
+      "last_run_at": "2026-10-21T20:46:27+09:00",
+      "last_success_at": "2026-10-21T20:46:27+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -5301,15 +5301,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数49 observed帯41",
-      "last_run_at": "2026-10-21T20:46:26+09:00",
-      "last_success_at": "2026-10-21T20:46:26+09:00"
+      "last_run_at": "2026-10-21T21:00:57+09:00",
+      "last_success_at": "2026-10-21T21:00:57+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-10-21 待ち308件 DPA154件 から再構成",
+      "last_detail": "2026-10-21 待ち314件 DPA157件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-21T20:46:25+09:00",
-      "last_success_at": "2026-10-21T20:46:25+09:00"
+      "last_run_at": "2026-10-21T21:00:57+09:00",
+      "last_success_at": "2026-10-21T21:00:57+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -5332,8 +5332,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "49日分から 15施設 / 時間帯543枠",
-      "last_run_at": "2026-10-21T20:46:26+09:00",
-      "last_success_at": "2026-10-21T20:46:26+09:00"
+      "last_run_at": "2026-10-21T21:00:57+09:00",
+      "last_success_at": "2026-10-21T21:00:57+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -5839,7 +5839,7 @@
         "18": 60,
         "19": 45,
         "20": 40,
-        "21": 15,
+        "21": 20,
         "9": 85
       },
       "beauty_and_the_beast": {
@@ -5971,7 +5971,7 @@
         "18": 40,
         "19": 26,
         "20": 20,
-        "21": 8,
+        "21": 5,
         "9": 38
       },
       "soaring": {
@@ -6173,7 +6173,7 @@
         "18": 40,
         "19": 26,
         "20": 20,
-        "21": 8,
+        "21": 5,
         "9": 38
       },
       "soaring": {
@@ -6267,15 +6267,16 @@
         }
       },
       "last": {
-        "at": "2026-10-21T20:45:41+09:00",
-        "closed": [],
+        "at": "2026-10-21T21:00:41+09:00",
+        "closed": [
+          "big_thunder"
+        ],
         "waits": {
           "baymax": 30,
           "beauty_and_the_beast": 0,
-          "big_thunder": 25,
-          "haunted_mansion": 25,
-          "monsters_inc": 20,
-          "pooh": 15,
+          "haunted_mansion": 15,
+          "monsters_inc": 15,
+          "pooh": 14,
           "splash_mountain": 0
         }
       }
@@ -6312,7 +6313,7 @@
         }
       },
       "last": {
-        "at": "2026-10-21T20:45:41+09:00",
+        "at": "2026-10-21T21:00:41+09:00",
         "closed": [
           "indiana_jones",
           "tower_of_terror"
@@ -6320,14 +6321,14 @@
         "waits": {
           "center_of_the_earth": 0,
           "frozen_journey": 0,
-          "peter_pan": 10,
-          "raging_spirits": 20,
-          "rapunzel_lantern": 15,
+          "peter_pan": 5,
+          "raging_spirits": 0,
+          "rapunzel_lantern": 5,
           "soaring": 0,
           "toy_story_mania": 0
         }
       }
     }
   },
-  "waits_fetched_at": "2026-10-21T20:45:41+09:00"
+  "waits_fetched_at": "2026-10-21T21:00:41+09:00"
 }
