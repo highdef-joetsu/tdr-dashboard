@@ -16,8 +16,19 @@
         {
           "at": "2026-10-24T08:00:24+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-24T16:05:23+09:00",
+          "state": "FINISHED"
+        },
+        {
+          "at": "2026-10-24T16:10:23+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
+      "final_sold_out_at": "2026-10-24T16:05:23+09:00",
+      "first_sold_out_at": "2026-10-24T16:05:23+09:00",
       "park": "tdl",
       "price": 2500,
       "status_at_close": "on_sale"
@@ -201,6 +212,6 @@
       "open": "2026-10-24T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-24T16:00:25+09:00",
+  "last_polled_at": "2026-10-24T16:20:23+09:00",
   "source": "themeparks.wiki"
 }
