@@ -67,13 +67,17 @@
           "at": "2026-10-27T16:15:24+09:00",
           "note": "resale",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-27T16:30:25+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-27T12:35:24+09:00",
+      "final_sold_out_at": "2026-10-27T16:30:25+09:00",
       "first_sold_out_at": "2026-10-27T10:55:23+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "haunted_mansion": {
       "events": [
@@ -201,6 +205,6 @@
       "open": "2026-10-27T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-27T16:20:23+09:00",
+  "last_polled_at": "2026-10-27T16:40:23+09:00",
   "source": "themeparks.wiki"
 }
