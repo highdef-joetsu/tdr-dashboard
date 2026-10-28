@@ -25,13 +25,17 @@
           "at": "2026-10-28T18:00:25+09:00",
           "note": "resale",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-28T18:55:22+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-10-28T16:25:22+09:00",
+      "final_sold_out_at": "2026-10-28T18:55:22+09:00",
       "first_sold_out_at": "2026-10-28T16:25:22+09:00",
       "park": "tdl",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "big_thunder": {
       "events": [
@@ -213,11 +217,17 @@
         {
           "at": "2026-10-28T08:00:24+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-28T19:00:25+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-28T19:00:25+09:00",
+      "first_sold_out_at": "2026-10-28T19:00:25+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -287,6 +297,6 @@
       "open": "2026-10-28T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-28T18:40:24+09:00",
+  "last_polled_at": "2026-10-28T19:00:25+09:00",
   "source": "themeparks.wiki"
 }
