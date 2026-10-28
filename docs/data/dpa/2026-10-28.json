@@ -148,10 +148,16 @@
         {
           "at": "2026-10-28T08:00:24+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-28T18:25:23+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-28T18:25:23+09:00",
+      "first_sold_out_at": "2026-10-28T18:25:23+09:00",
       "park": "tdl",
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "indiana_jones": {
       "events": [],
@@ -281,6 +287,6 @@
       "open": "2026-10-28T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-28T18:20:24+09:00",
+  "last_polled_at": "2026-10-28T18:40:24+09:00",
   "source": "themeparks.wiki"
 }
