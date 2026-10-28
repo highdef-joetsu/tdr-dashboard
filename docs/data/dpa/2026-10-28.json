@@ -5,11 +5,17 @@
         {
           "at": "2026-10-28T08:00:24+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-28T20:00:24+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-28T20:00:24+09:00",
+      "first_sold_out_at": "2026-10-28T20:00:24+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "beauty_and_the_beast": {
       "events": [
@@ -266,11 +272,17 @@
         {
           "at": "2026-10-28T08:00:24+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-28T19:50:22+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-28T19:50:22+09:00",
+      "first_sold_out_at": "2026-10-28T19:50:22+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "tower_of_terror": {
       "events": [],
@@ -283,11 +295,17 @@
         {
           "at": "2026-10-28T08:00:24+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-10-28T20:00:24+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-10-28T20:00:24+09:00",
+      "first_sold_out_at": "2026-10-28T20:00:24+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     }
   },
   "date": "2026-10-28",
@@ -301,6 +319,6 @@
       "open": "2026-10-28T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-10-28T19:40:24+09:00",
+  "last_polled_at": "2026-10-28T20:00:24+09:00",
   "source": "themeparks.wiki"
 }
