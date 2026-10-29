@@ -2217,7 +2217,7 @@
   "crowd_fetched_at": "2026-10-29T09:03:03+09:00",
   "curve_meta": {
     "days_used": 57,
-    "generated_at": "2026-10-29T14:01:00+09:00",
+    "generated_at": "2026-10-29T14:21:00+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6665,7 +6665,7 @@
         }
       }
     },
-    "generated_at": "2026-10-29T14:01:00+09:00",
+    "generated_at": "2026-10-29T14:21:00+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7250,13 +7250,18 @@
           {
             "at": "2026-10-29T13:25:42+09:00",
             "state": "FINISHED"
+          },
+          {
+            "at": "2026-10-29T14:05:43+09:00",
+            "note": "resale",
+            "state": "AVAILABLE"
           }
         ],
         "final_sold_out_at": "2026-10-29T13:25:42+09:00",
         "first_sold_out_at": "2026-10-29T10:45:23+09:00",
         "park": "tds",
         "price": 2500,
-        "status_at_close": "sold_out"
+        "status_at_close": "on_sale"
       },
       "haunted_mansion": {
         "events": [
@@ -7389,16 +7394,16 @@
         "open": "2026-10-29T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-10-29T14:00:44+09:00",
+    "last_polled_at": "2026-10-29T14:20:42+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-29T14:01:01+09:00",
+  "generated_at": "2026-10-29T14:21:00+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-30",
-      "last_run_at": "2026-10-29T13:40:58+09:00",
-      "last_success_at": "2026-10-29T13:40:58+09:00"
+      "last_run_at": "2026-10-29T14:01:01+09:00",
+      "last_success_at": "2026-10-29T14:01:01+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7415,15 +7420,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数57 observed帯41",
-      "last_run_at": "2026-10-29T14:01:00+09:00",
-      "last_success_at": "2026-10-29T14:01:00+09:00"
+      "last_run_at": "2026-10-29T14:21:00+09:00",
+      "last_success_at": "2026-10-29T14:21:00+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-10-29 待ち148件 DPA74件 から再構成",
+      "last_detail": "2026-10-29 待ち156件 DPA78件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-29T14:01:00+09:00",
-      "last_success_at": "2026-10-29T14:01:00+09:00"
+      "last_run_at": "2026-10-29T14:20:59+09:00",
+      "last_success_at": "2026-10-29T14:20:59+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7446,8 +7451,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "57日分から 15施設 / 時間帯548枠",
-      "last_run_at": "2026-10-29T14:01:00+09:00",
-      "last_success_at": "2026-10-29T14:01:00+09:00"
+      "last_run_at": "2026-10-29T14:21:00+09:00",
+      "last_success_at": "2026-10-29T14:21:00+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8768,16 +8773,16 @@
         }
       },
       "last": {
-        "at": "2026-10-29T14:00:44+09:00",
+        "at": "2026-10-29T14:20:42+09:00",
         "closed": [],
         "waits": {
-          "baymax": 50,
-          "beauty_and_the_beast": 70,
+          "baymax": 60,
+          "beauty_and_the_beast": 80,
           "big_thunder": 50,
-          "haunted_mansion": 40,
+          "haunted_mansion": 50,
           "monsters_inc": 30,
           "pooh": 60,
-          "splash_mountain": 30
+          "splash_mountain": 50
         }
       }
     },
@@ -8813,7 +8818,7 @@
         }
       },
       "last": {
-        "at": "2026-10-29T14:00:44+09:00",
+        "at": "2026-10-29T14:20:42+09:00",
         "closed": [
           "indiana_jones",
           "tower_of_terror"
@@ -8823,12 +8828,12 @@
           "frozen_journey": 140,
           "peter_pan": 30,
           "raging_spirits": 100,
-          "rapunzel_lantern": 50,
-          "soaring": 120,
-          "toy_story_mania": 80
+          "rapunzel_lantern": 60,
+          "soaring": 140,
+          "toy_story_mania": 90
         }
       }
     }
   },
-  "waits_fetched_at": "2026-10-29T14:00:44+09:00"
+  "waits_fetched_at": "2026-10-29T14:20:42+09:00"
 }
