@@ -2218,7 +2218,7 @@
   "crowd_fetched_at": "2026-10-30T08:58:32+09:00",
   "curve_meta": {
     "days_used": 58,
-    "generated_at": "2026-10-30T22:00:44+09:00",
+    "generated_at": "2026-10-30T22:20:42+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6676,7 +6676,7 @@
         }
       }
     },
-    "generated_at": "2026-10-30T22:00:44+09:00",
+    "generated_at": "2026-10-30T22:20:42+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7543,13 +7543,13 @@
     "last_polled_at": "2026-10-30T21:55:59+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-10-30T22:00:44+09:00",
+  "generated_at": "2026-10-30T22:20:43+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-10-31",
-      "last_run_at": "2026-10-30T21:40:42+09:00",
-      "last_success_at": "2026-10-30T21:40:42+09:00"
+      "last_run_at": "2026-10-30T22:00:44+09:00",
+      "last_success_at": "2026-10-30T22:00:44+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7566,15 +7566,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数58 observed帯41",
-      "last_run_at": "2026-10-30T22:00:44+09:00",
-      "last_success_at": "2026-10-30T22:00:44+09:00"
+      "last_run_at": "2026-10-30T22:20:42+09:00",
+      "last_success_at": "2026-10-30T22:20:42+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
       "last_detail": "2026-10-30 待ち336件 DPA168件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-10-30T22:00:43+09:00",
-      "last_success_at": "2026-10-30T22:00:43+09:00"
+      "last_run_at": "2026-10-30T22:20:42+09:00",
+      "last_success_at": "2026-10-30T22:20:42+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7597,8 +7597,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "58日分から 15施設 / 時間帯549枠",
-      "last_run_at": "2026-10-30T22:00:44+09:00",
-      "last_success_at": "2026-10-30T22:00:44+09:00"
+      "last_run_at": "2026-10-30T22:20:42+09:00",
+      "last_success_at": "2026-10-30T22:20:42+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
