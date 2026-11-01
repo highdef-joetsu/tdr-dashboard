@@ -75,11 +75,17 @@
         {
           "at": "2026-11-01T08:01:00+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-01T20:00:59+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-11-01T20:00:59+09:00",
+      "first_sold_out_at": "2026-11-01T20:00:59+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "center_of_the_earth": {
       "events": [
@@ -156,10 +162,16 @@
         {
           "at": "2026-11-01T08:01:00+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-01T20:00:59+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-11-01T20:00:59+09:00",
+      "first_sold_out_at": "2026-11-01T20:00:59+09:00",
       "park": "tdl",
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "indiana_jones": {
       "events": [],
@@ -170,44 +182,68 @@
         {
           "at": "2026-11-01T08:01:00+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-01T20:00:59+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-11-01T20:00:59+09:00",
+      "first_sold_out_at": "2026-11-01T20:00:59+09:00",
       "park": "tdl",
       "price": 1000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "peter_pan": {
       "events": [
         {
           "at": "2026-11-01T08:01:00+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-01T20:00:59+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-11-01T20:00:59+09:00",
+      "first_sold_out_at": "2026-11-01T20:00:59+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "pooh": {
       "events": [
         {
           "at": "2026-11-01T08:01:00+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-01T20:00:59+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-11-01T20:00:59+09:00",
+      "first_sold_out_at": "2026-11-01T20:00:59+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "raging_spirits": {
       "events": [
         {
           "at": "2026-11-01T08:01:00+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-01T20:00:59+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-11-01T20:00:59+09:00",
+      "first_sold_out_at": "2026-11-01T20:00:59+09:00",
       "park": "tds",
       "price": 1500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "rapunzel_lantern": {
       "events": [
@@ -223,13 +259,17 @@
           "at": "2026-11-01T18:25:59+09:00",
           "note": "resale",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-01T20:00:59+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-11-01T16:55:59+09:00",
+      "final_sold_out_at": "2026-11-01T20:00:59+09:00",
       "first_sold_out_at": "2026-11-01T16:55:59+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "soaring": {
       "events": [
@@ -309,6 +349,6 @@
       "open": "2026-11-01T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-11-01T19:56:00+09:00",
+  "last_polled_at": "2026-11-01T20:15:59+09:00",
   "source": "themeparks.wiki"
 }
