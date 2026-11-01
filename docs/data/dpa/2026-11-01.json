@@ -218,13 +218,18 @@
         {
           "at": "2026-11-01T16:55:59+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-11-01T18:25:59+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "final_sold_out_at": "2026-11-01T16:55:59+09:00",
       "first_sold_out_at": "2026-11-01T16:55:59+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "soaring": {
       "events": [
@@ -304,6 +309,6 @@
       "open": "2026-11-01T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-11-01T18:16:00+09:00",
+  "last_polled_at": "2026-11-01T18:36:00+09:00",
   "source": "themeparks.wiki"
 }
