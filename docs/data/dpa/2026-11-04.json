@@ -74,13 +74,18 @@
         {
           "at": "2026-11-04T09:25:59+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-11-04T18:10:59+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "final_sold_out_at": "2026-11-04T09:25:59+09:00",
       "first_sold_out_at": "2026-11-04T09:25:59+09:00",
       "park": "tds",
       "price": 2500,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "haunted_mansion": {
       "events": [
@@ -186,13 +191,18 @@
         {
           "at": "2026-11-04T16:30:59+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-11-04T18:00:59+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "final_sold_out_at": "2026-11-04T16:30:59+09:00",
       "first_sold_out_at": "2026-11-04T16:30:59+09:00",
       "park": "tdl",
       "price": 1500,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "tower_of_terror": {
       "events": [],
@@ -229,6 +239,6 @@
       "open": "2026-11-04T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-11-04T17:56:00+09:00",
+  "last_polled_at": "2026-11-04T18:16:00+09:00",
   "source": "themeparks.wiki"
 }
