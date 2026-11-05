@@ -6838,7 +6838,7 @@
         }
       }
     },
-    "generated_at": "2026-11-05T20:20:45+09:00",
+    "generated_at": "2026-11-05T20:28:05+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7732,13 +7732,13 @@
     "last_polled_at": "2026-11-05T20:15:59+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-11-05T20:20:46+09:00",
+  "generated_at": "2026-11-05T20:28:06+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-11-06",
-      "last_run_at": "2026-11-05T20:00:47+09:00",
-      "last_success_at": "2026-11-05T20:00:47+09:00"
+      "last_run_at": "2026-11-05T20:20:46+09:00",
+      "last_success_at": "2026-11-05T20:20:46+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7755,8 +7755,8 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数64 observed帯41",
-      "last_run_at": "2026-11-05T20:20:45+09:00",
-      "last_success_at": "2026-11-05T20:20:45+09:00"
+      "last_run_at": "2026-11-05T20:28:05+09:00",
+      "last_success_at": "2026-11-05T20:28:05+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
@@ -7768,8 +7768,8 @@
     "official": {
       "consecutive_failures": 0,
       "last_detail": "2日分 変更0件 (2026-11-05, 2026-11-06)",
-      "last_run_at": "2026-11-05T10:45:46+09:00",
-      "last_success_at": "2026-11-05T10:45:46+09:00"
+      "last_run_at": "2026-11-05T20:28:05+09:00",
+      "last_success_at": "2026-11-05T20:28:05+09:00"
     },
     "rollup": {
       "consecutive_failures": 0,
@@ -7794,7 +7794,7 @@
   "official": {
     "2026-11-05": {
       "date": "2026-11-05",
-      "fetched_at": "2026-11-05T10:43:42+09:00",
+      "fetched_at": "2026-11-05T20:25:54+09:00",
       "parks": {
         "tdl": {
           "greetings": [
@@ -7949,8 +7949,8 @@
             }
           ],
           "ticket": {
-            "adult_1day": 9900,
-            "status": "販売中"
+            "adult_1day": null,
+            "status": null
           }
         },
         "tds": {
@@ -8116,8 +8116,8 @@
             }
           ],
           "ticket": {
-            "adult_1day": 9900,
-            "status": "販売中"
+            "adult_1day": null,
+            "status": null
           }
         }
       },
@@ -8125,7 +8125,7 @@
     },
     "2026-11-06": {
       "date": "2026-11-06",
-      "fetched_at": "2026-11-05T10:43:42+09:00",
+      "fetched_at": "2026-11-05T20:25:54+09:00",
       "parks": {
         "tdl": {
           "greetings": [
