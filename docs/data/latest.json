@@ -2416,7 +2416,7 @@
   "crowd_fetched_at": "2026-11-05T09:55:38+09:00",
   "curve_meta": {
     "days_used": 64,
-    "generated_at": "2026-11-05T20:20:45+09:00",
+    "generated_at": "2026-11-05T20:40:39+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6838,7 +6838,7 @@
         }
       }
     },
-    "generated_at": "2026-11-05T20:28:05+09:00",
+    "generated_at": "2026-11-05T20:40:39+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7729,16 +7729,16 @@
         "open": "2026-11-05T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-11-05T20:15:59+09:00",
+    "last_polled_at": "2026-11-05T20:35:59+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-11-05T20:28:06+09:00",
+  "generated_at": "2026-11-05T20:40:40+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-11-06",
-      "last_run_at": "2026-11-05T20:20:46+09:00",
-      "last_success_at": "2026-11-05T20:20:46+09:00"
+      "last_run_at": "2026-11-05T20:28:06+09:00",
+      "last_success_at": "2026-11-05T20:28:06+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7755,15 +7755,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数64 observed帯41",
-      "last_run_at": "2026-11-05T20:28:05+09:00",
-      "last_success_at": "2026-11-05T20:28:05+09:00"
+      "last_run_at": "2026-11-05T20:40:39+09:00",
+      "last_success_at": "2026-11-05T20:40:39+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-11-05 待ち296件 DPA148件 から再構成",
+      "last_detail": "2026-11-05 待ち304件 DPA152件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-11-05T20:20:45+09:00",
-      "last_success_at": "2026-11-05T20:20:45+09:00"
+      "last_run_at": "2026-11-05T20:40:39+09:00",
+      "last_success_at": "2026-11-05T20:40:39+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7786,8 +7786,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "64日分から 15施設 / 時間帯556枠",
-      "last_run_at": "2026-11-05T20:20:45+09:00",
-      "last_success_at": "2026-11-05T20:20:45+09:00"
+      "last_run_at": "2026-11-05T20:40:39+09:00",
+      "last_success_at": "2026-11-05T20:40:39+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8750,7 +8750,7 @@
         "17": 50,
         "18": 50,
         "19": 30,
-        "20": 29,
+        "20": 26,
         "21": 4,
         "9": 40
       },
@@ -9013,15 +9013,15 @@
         }
       },
       "last": {
-        "at": "2026-11-05T20:15:59+09:00",
+        "at": "2026-11-05T20:35:59+09:00",
         "closed": [],
         "waits": {
           "baymax": 30,
-          "beauty_and_the_beast": 30,
+          "beauty_and_the_beast": 25,
           "big_thunder": 20,
           "haunted_mansion": 5,
           "monsters_inc": 25,
-          "pooh": 25,
+          "pooh": 14,
           "splash_mountain": 25
         }
       }
@@ -9058,22 +9058,22 @@
         }
       },
       "last": {
-        "at": "2026-11-05T20:15:59+09:00",
+        "at": "2026-11-05T20:35:59+09:00",
         "closed": [
           "indiana_jones",
           "peter_pan",
           "tower_of_terror"
         ],
         "waits": {
-          "center_of_the_earth": 60,
-          "frozen_journey": 50,
-          "raging_spirits": 25,
-          "rapunzel_lantern": 25,
+          "center_of_the_earth": 40,
+          "frozen_journey": 0,
+          "raging_spirits": 20,
+          "rapunzel_lantern": 20,
           "soaring": 0,
-          "toy_story_mania": 60
+          "toy_story_mania": 0
         }
       }
     }
   },
-  "waits_fetched_at": "2026-11-05T20:15:59+09:00"
+  "waits_fetched_at": "2026-11-05T20:35:59+09:00"
 }
