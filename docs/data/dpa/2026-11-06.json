@@ -16,11 +16,17 @@
         {
           "at": "2026-11-06T08:00:59+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-06T12:16:00+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-11-06T12:16:00+09:00",
+      "first_sold_out_at": "2026-11-06T12:16:00+09:00",
       "park": "tdl",
       "price": 2500,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "big_thunder": {
       "events": [
@@ -53,9 +59,18 @@
         {
           "at": "2026-11-06T09:25:59+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-11-06T12:10:59+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-06T12:16:00+09:00",
+          "state": "FINISHED"
         }
       ],
-      "final_sold_out_at": "2026-11-06T09:25:59+09:00",
+      "final_sold_out_at": "2026-11-06T12:16:00+09:00",
       "first_sold_out_at": "2026-11-06T09:25:59+09:00",
       "park": "tds",
       "price": 2500,
@@ -198,6 +213,6 @@
       "open": "2026-11-06T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-11-06T11:55:59+09:00",
+  "last_polled_at": "2026-11-06T12:16:00+09:00",
   "source": "themeparks.wiki"
 }
