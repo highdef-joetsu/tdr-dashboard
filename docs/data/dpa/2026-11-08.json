@@ -42,11 +42,16 @@
         {
           "at": "2026-11-08T08:36:00+09:00",
           "state": "FINISHED"
+        },
+        {
+          "at": "2026-11-08T11:15:59+09:00",
+          "note": "resale",
+          "state": "AVAILABLE"
         }
       ],
       "park": "tds",
       "price": 2000,
-      "status_at_close": "sold_out"
+      "status_at_close": "on_sale"
     },
     "frozen_journey": {
       "events": [
@@ -196,6 +201,6 @@
       "open": "2026-11-08T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-11-08T10:56:00+09:00",
+  "last_polled_at": "2026-11-08T11:15:59+09:00",
   "source": "themeparks.wiki"
 }
