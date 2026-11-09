@@ -2420,7 +2420,7 @@
   "crowd_fetched_at": "2026-11-09T08:46:22+09:00",
   "curve_meta": {
     "days_used": 68,
-    "generated_at": "2026-11-09T16:00:40+09:00",
+    "generated_at": "2026-11-09T16:20:41+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6892,7 +6892,7 @@
         }
       }
     },
-    "generated_at": "2026-11-09T16:00:40+09:00",
+    "generated_at": "2026-11-09T16:20:41+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7487,13 +7487,18 @@
           {
             "at": "2026-11-09T14:20:59+09:00",
             "state": "FINISHED"
+          },
+          {
+            "at": "2026-11-09T16:10:59+09:00",
+            "note": "resale",
+            "state": "AVAILABLE"
           }
         ],
         "final_sold_out_at": "2026-11-09T14:20:59+09:00",
         "first_sold_out_at": "2026-11-09T09:50:59+09:00",
         "park": "tds",
         "price": 2500,
-        "status_at_close": "sold_out"
+        "status_at_close": "on_sale"
       },
       "haunted_mansion": {
         "events": [
@@ -7626,16 +7631,16 @@
         "open": "2026-11-09T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-11-09T15:55:59+09:00",
+    "last_polled_at": "2026-11-09T16:15:59+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-11-09T16:00:40+09:00",
+  "generated_at": "2026-11-09T16:20:42+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-11-10",
-      "last_run_at": "2026-11-09T15:40:41+09:00",
-      "last_success_at": "2026-11-09T15:40:41+09:00"
+      "last_run_at": "2026-11-09T16:00:40+09:00",
+      "last_success_at": "2026-11-09T16:00:40+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7652,15 +7657,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数68 observed帯41",
-      "last_run_at": "2026-11-09T16:00:40+09:00",
-      "last_success_at": "2026-11-09T16:00:40+09:00"
+      "last_run_at": "2026-11-09T16:20:41+09:00",
+      "last_success_at": "2026-11-09T16:20:41+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-11-09 待ち192件 DPA96件 から再構成",
+      "last_detail": "2026-11-09 待ち200件 DPA100件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-11-09T16:00:39+09:00",
-      "last_success_at": "2026-11-09T16:00:39+09:00"
+      "last_run_at": "2026-11-09T16:20:40+09:00",
+      "last_success_at": "2026-11-09T16:20:40+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7683,8 +7688,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "68日分から 15施設 / 時間帯557枠",
-      "last_run_at": "2026-11-09T16:00:40+09:00",
-      "last_success_at": "2026-11-09T16:00:40+09:00"
+      "last_run_at": "2026-11-09T16:20:41+09:00",
+      "last_success_at": "2026-11-09T16:20:41+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8673,7 +8678,7 @@
         "13": 60,
         "14": 60,
         "15": 65,
-        "16": 70,
+        "16": 65,
         "17": 70,
         "18": 55,
         "19": 50,
@@ -8688,7 +8693,7 @@
         "13": 100,
         "14": 120,
         "15": 90,
-        "16": 110,
+        "16": 120,
         "17": 100,
         "18": 115,
         "19": 72,
@@ -8880,7 +8885,7 @@
         "13": 60,
         "14": 60,
         "15": 65,
-        "16": 70,
+        "16": 65,
         "17": 70,
         "18": 55,
         "19": 50,
@@ -8895,7 +8900,7 @@
         "13": 100,
         "14": 120,
         "15": 90,
-        "16": 110,
+        "16": 120,
         "17": 100,
         "18": 115,
         "19": 72,
@@ -8952,12 +8957,12 @@
         }
       },
       "last": {
-        "at": "2026-11-09T15:55:59+09:00",
+        "at": "2026-11-09T16:15:59+09:00",
         "closed": [],
         "waits": {
-          "baymax": 70,
-          "beauty_and_the_beast": 80,
-          "big_thunder": 30,
+          "baymax": 60,
+          "beauty_and_the_beast": 90,
+          "big_thunder": 40,
           "haunted_mansion": 20,
           "monsters_inc": 70,
           "pooh": 40,
@@ -9001,16 +9006,16 @@
         }
       },
       "last": {
-        "at": "2026-11-09T15:55:59+09:00",
+        "at": "2026-11-09T16:15:59+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
-          "center_of_the_earth": 160,
+          "center_of_the_earth": 120,
           "frozen_journey": 140,
-          "peter_pan": 40,
+          "peter_pan": 50,
           "raging_spirits": 70,
-          "rapunzel_lantern": 70,
+          "rapunzel_lantern": 50,
           "soaring": 120,
           "tower_of_terror": 120,
           "toy_story_mania": 120
@@ -9018,5 +9023,5 @@
       }
     }
   },
-  "waits_fetched_at": "2026-11-09T15:55:59+09:00"
+  "waits_fetched_at": "2026-11-09T16:15:59+09:00"
 }
