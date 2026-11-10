@@ -2435,7 +2435,7 @@
   "crowd_fetched_at": "2026-11-10T11:46:22+09:00",
   "curve_meta": {
     "days_used": 69,
-    "generated_at": "2026-11-10T13:40:42+09:00",
+    "generated_at": "2026-11-10T14:00:44+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6911,7 +6911,7 @@
         }
       }
     },
-    "generated_at": "2026-11-10T13:40:42+09:00",
+    "generated_at": "2026-11-10T14:00:44+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7643,16 +7643,16 @@
         "open": "2026-11-10T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-11-10T13:35:59+09:00",
+    "last_polled_at": "2026-11-10T13:55:59+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-11-10T13:40:42+09:00",
+  "generated_at": "2026-11-10T14:00:45+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-11-11",
-      "last_run_at": "2026-11-10T13:20:42+09:00",
-      "last_success_at": "2026-11-10T13:20:42+09:00"
+      "last_run_at": "2026-11-10T13:40:42+09:00",
+      "last_success_at": "2026-11-10T13:40:42+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7669,15 +7669,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数69 observed帯41",
-      "last_run_at": "2026-11-10T13:40:42+09:00",
-      "last_success_at": "2026-11-10T13:40:42+09:00"
+      "last_run_at": "2026-11-10T14:00:44+09:00",
+      "last_success_at": "2026-11-10T14:00:44+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-11-10 待ち136件 DPA68件 から再構成",
+      "last_detail": "2026-11-10 待ち144件 DPA72件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-11-10T13:40:41+09:00",
-      "last_success_at": "2026-11-10T13:40:41+09:00"
+      "last_run_at": "2026-11-10T14:00:44+09:00",
+      "last_success_at": "2026-11-10T14:00:44+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7700,8 +7700,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "69日分から 15施設 / 時間帯557枠",
-      "last_run_at": "2026-11-10T13:40:42+09:00",
-      "last_success_at": "2026-11-10T13:40:42+09:00"
+      "last_run_at": "2026-11-10T14:00:44+09:00",
+      "last_success_at": "2026-11-10T14:00:44+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8991,15 +8991,15 @@
         }
       },
       "last": {
-        "at": "2026-11-10T13:35:59+09:00",
+        "at": "2026-11-10T13:55:59+09:00",
         "closed": [],
         "waits": {
           "baymax": 40,
-          "beauty_and_the_beast": 80,
+          "beauty_and_the_beast": 90,
           "big_thunder": 20,
-          "haunted_mansion": 25,
-          "monsters_inc": 40,
-          "pooh": 50,
+          "haunted_mansion": 30,
+          "monsters_inc": 30,
+          "pooh": 40,
           "splash_mountain": 25
         }
       }
@@ -9019,8 +9019,8 @@
           "minutes": 70
         },
         "raging_spirits": {
-          "at": "2026-11-10T11:50:59+09:00",
-          "minutes": 60
+          "at": "2026-11-10T13:50:59+09:00",
+          "minutes": 70
         },
         "rapunzel_lantern": {
           "at": "2026-11-10T10:50:59+09:00",
@@ -9040,22 +9040,22 @@
         }
       },
       "last": {
-        "at": "2026-11-10T13:35:59+09:00",
+        "at": "2026-11-10T13:55:59+09:00",
         "closed": [
-          "frozen_journey",
           "indiana_jones"
         ],
         "waits": {
-          "center_of_the_earth": 120,
-          "peter_pan": 70,
-          "raging_spirits": 60,
-          "rapunzel_lantern": 80,
+          "center_of_the_earth": 140,
+          "frozen_journey": 90,
+          "peter_pan": 60,
+          "raging_spirits": 70,
+          "rapunzel_lantern": 70,
           "soaring": 100,
           "tower_of_terror": 120,
-          "toy_story_mania": 90
+          "toy_story_mania": 80
         }
       }
     }
   },
-  "waits_fetched_at": "2026-11-10T13:35:59+09:00"
+  "waits_fetched_at": "2026-11-10T13:55:59+09:00"
 }
