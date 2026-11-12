@@ -2427,7 +2427,7 @@
   "crowd_fetched_at": "2026-11-12T10:55:32+09:00",
   "curve_meta": {
     "days_used": 71,
-    "generated_at": "2026-11-12T11:40:40+09:00",
+    "generated_at": "2026-11-12T12:00:43+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -6907,7 +6907,7 @@
         }
       }
     },
-    "generated_at": "2026-11-12T11:40:40+09:00",
+    "generated_at": "2026-11-12T12:00:43+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -7629,16 +7629,16 @@
         "open": "2026-11-12T09:00:00+09:00"
       }
     },
-    "last_polled_at": "2026-11-12T11:35:59+09:00",
+    "last_polled_at": "2026-11-12T11:55:59+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-11-12T11:40:41+09:00",
+  "generated_at": "2026-11-12T12:00:43+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-11-13",
-      "last_run_at": "2026-11-12T11:29:58+09:00",
-      "last_success_at": "2026-11-12T11:29:58+09:00"
+      "last_run_at": "2026-11-12T11:40:41+09:00",
+      "last_success_at": "2026-11-12T11:40:41+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
@@ -7655,15 +7655,15 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数71 observed帯41",
-      "last_run_at": "2026-11-12T11:40:40+09:00",
-      "last_success_at": "2026-11-12T11:40:40+09:00"
+      "last_run_at": "2026-11-12T12:00:43+09:00",
+      "last_success_at": "2026-11-12T12:00:43+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
-      "last_detail": "2026-11-12 待ち88件 DPA44件 から再構成",
+      "last_detail": "2026-11-12 待ち96件 DPA48件 から再構成",
       "last_failure_at": "2026-09-04T08:06:01+09:00",
-      "last_run_at": "2026-11-12T11:40:39+09:00",
-      "last_success_at": "2026-11-12T11:40:39+09:00"
+      "last_run_at": "2026-11-12T12:00:42+09:00",
+      "last_success_at": "2026-11-12T12:00:42+09:00"
     },
     "official": {
       "consecutive_failures": 0,
@@ -7686,8 +7686,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "71日分から 15施設 / 時間帯557枠",
-      "last_run_at": "2026-11-12T11:40:40+09:00",
-      "last_success_at": "2026-11-12T11:40:40+09:00"
+      "last_run_at": "2026-11-12T12:00:43+09:00",
+      "last_success_at": "2026-11-12T12:00:43+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
@@ -8978,16 +8978,16 @@
         }
       },
       "last": {
-        "at": "2026-11-12T11:35:59+09:00",
+        "at": "2026-11-12T11:55:59+09:00",
         "closed": [],
         "waits": {
-          "baymax": 80,
-          "beauty_and_the_beast": 100,
+          "baymax": 70,
+          "beauty_and_the_beast": 80,
           "big_thunder": 50,
-          "haunted_mansion": 40,
+          "haunted_mansion": 50,
           "monsters_inc": 40,
-          "pooh": 50,
-          "splash_mountain": 60
+          "pooh": 60,
+          "splash_mountain": 50
         }
       }
     },
@@ -8998,8 +8998,8 @@
           "minutes": 200
         },
         "frozen_journey": {
-          "at": "2026-11-12T10:45:59+09:00",
-          "minutes": 200
+          "at": "2026-11-12T11:55:59+09:00",
+          "minutes": 220
         },
         "peter_pan": {
           "at": "2026-11-12T10:25:59+09:00",
@@ -9027,22 +9027,22 @@
         }
       },
       "last": {
-        "at": "2026-11-12T11:35:59+09:00",
+        "at": "2026-11-12T11:55:59+09:00",
         "closed": [
           "indiana_jones"
         ],
         "waits": {
           "center_of_the_earth": 200,
-          "frozen_journey": 200,
-          "peter_pan": 70,
+          "frozen_journey": 220,
+          "peter_pan": 80,
           "raging_spirits": 90,
           "rapunzel_lantern": 90,
           "soaring": 160,
-          "tower_of_terror": 180,
-          "toy_story_mania": 140
+          "tower_of_terror": 140,
+          "toy_story_mania": 120
         }
       }
     }
   },
-  "waits_fetched_at": "2026-11-12T11:35:59+09:00"
+  "waits_fetched_at": "2026-11-12T11:55:59+09:00"
 }
