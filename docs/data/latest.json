@@ -1553,7 +1553,7 @@
         "hours": "09:00-21:00"
       },
       "2026-11-01": {
-        "crowd_pct": 83,
+        "crowd_pct": 84,
         "forecast_pct": 83,
         "hours": "09:00-21:00"
       },
@@ -1613,7 +1613,7 @@
         "hours": "09:00-21:00"
       },
       "2026-11-13": {
-        "crowd_pct": 88,
+        "crowd_pct": 95,
         "forecast_pct": 88,
         "hours": "09:00-21:00"
       },
@@ -1633,23 +1633,23 @@
         "hours": "09:00-21:00"
       },
       "2026-11-17": {
-        "crowd_pct": 74,
-        "forecast_pct": 74,
+        "crowd_pct": 76,
+        "forecast_pct": 76,
         "hours": "09:00-21:00"
       },
       "2026-11-18": {
-        "crowd_pct": 79,
-        "forecast_pct": 79,
+        "crowd_pct": 66,
+        "forecast_pct": 66,
         "hours": "09:00-21:00"
       },
       "2026-11-19": {
-        "crowd_pct": 83,
-        "forecast_pct": 83,
+        "crowd_pct": 84,
+        "forecast_pct": 84,
         "hours": "09:00-21:00"
       },
       "2026-11-20": {
-        "crowd_pct": 87,
-        "forecast_pct": 87,
+        "crowd_pct": 86,
+        "forecast_pct": 86,
         "hours": "09:00-21:00"
       },
       "2026-11-21": {
@@ -2070,7 +2070,7 @@
         "hours": "09:00-21:00"
       },
       "2026-11-13": {
-        "crowd_pct": 92,
+        "crowd_pct": 98,
         "forecast_pct": 92,
         "hours": "09:00-21:00"
       },
@@ -2090,18 +2090,18 @@
         "hours": "09:00-21:00"
       },
       "2026-11-17": {
-        "crowd_pct": 84,
-        "forecast_pct": 84,
+        "crowd_pct": 86,
+        "forecast_pct": 86,
         "hours": "09:00-21:00"
       },
       "2026-11-18": {
-        "crowd_pct": 88,
-        "forecast_pct": 88,
+        "crowd_pct": 77,
+        "forecast_pct": 77,
         "hours": "09:00-21:00"
       },
       "2026-11-19": {
-        "crowd_pct": 90,
-        "forecast_pct": 90,
+        "crowd_pct": 91,
+        "forecast_pct": 91,
         "hours": "09:00-21:00"
       },
       "2026-11-20": {
@@ -2161,10 +2161,10 @@
       }
     }
   },
-  "crowd_fetched_at": "2026-11-13T10:10:39+09:00",
+  "crowd_fetched_at": "2026-11-14T09:54:38+09:00",
   "curve_meta": {
     "days_used": 73,
-    "generated_at": "2026-11-14T09:40:42+09:00",
+    "generated_at": "2026-11-14T09:54:38+09:00",
     "late_from_hour": null,
     "min_days": 3
   },
@@ -4654,7 +4654,7 @@
         }
       }
     },
-    "generated_at": "2026-11-14T09:40:42+09:00",
+    "generated_at": "2026-11-14T09:54:38+09:00",
     "min_samples": 3
   },
   "dpa_recent": [
@@ -4756,8 +4756,8 @@
         }
       },
       "crowd_pct": {
-        "tdl": 88,
-        "tds": 92
+        "tdl": 95,
+        "tds": 98
       },
       "date": "2026-11-13"
     },
@@ -5379,19 +5379,19 @@
     "last_polled_at": "2026-11-14T09:35:59+09:00",
     "source": "themeparks.wiki"
   },
-  "generated_at": "2026-11-14T09:40:43+09:00",
+  "generated_at": "2026-11-14T09:54:39+09:00",
   "health": {
     "build_latest": {
       "consecutive_failures": 0,
       "last_detail": "target=2026-11-15",
-      "last_run_at": "2026-11-14T09:20:41+09:00",
-      "last_success_at": "2026-11-14T09:20:41+09:00"
+      "last_run_at": "2026-11-14T09:40:43+09:00",
+      "last_success_at": "2026-11-14T09:40:43+09:00"
     },
     "crowd_calendar": {
       "consecutive_failures": 0,
       "last_detail": "tdl=30日 tds=30日",
-      "last_run_at": "2026-11-13T10:10:39+09:00",
-      "last_success_at": "2026-11-13T10:10:39+09:00"
+      "last_run_at": "2026-11-14T09:54:38+09:00",
+      "last_success_at": "2026-11-14T09:54:38+09:00"
     },
     "dpa": {
       "consecutive_failures": 0,
@@ -5402,8 +5402,8 @@
     "estimates": {
       "consecutive_failures": 0,
       "last_detail": "実績日数73 observed帯41",
-      "last_run_at": "2026-11-14T09:40:42+09:00",
-      "last_success_at": "2026-11-14T09:40:42+09:00"
+      "last_run_at": "2026-11-14T09:54:38+09:00",
+      "last_success_at": "2026-11-14T09:54:38+09:00"
     },
     "ingest": {
       "consecutive_failures": 0,
@@ -5433,8 +5433,8 @@
     "waitcurve": {
       "consecutive_failures": 0,
       "last_detail": "73日分から 15施設 / 時間帯557枠",
-      "last_run_at": "2026-11-14T09:40:42+09:00",
-      "last_success_at": "2026-11-14T09:40:42+09:00"
+      "last_run_at": "2026-11-14T09:54:38+09:00",
+      "last_success_at": "2026-11-14T09:54:38+09:00"
     }
   },
   "live_endpoint": "https://tdr-collector.highdef-joetsu.workers.dev/live",
