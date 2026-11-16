@@ -20,8 +20,8 @@
           "minutes": 50
         },
         "monsters_inc": {
-          "at": "2026-11-16T10:15:59+09:00",
-          "minutes": 5
+          "at": "2026-11-16T10:20:59+09:00",
+          "minutes": 10
         },
         "pooh": {
           "at": "2026-11-16T09:25:59+09:00",
@@ -33,14 +33,14 @@
         }
       },
       "last": {
-        "at": "2026-11-16T10:15:59+09:00",
+        "at": "2026-11-16T10:20:59+09:00",
         "closed": [],
         "waits": {
           "baymax": 120,
           "beauty_and_the_beast": 140,
           "big_thunder": 80,
           "haunted_mansion": 50,
-          "monsters_inc": 5,
+          "monsters_inc": 10,
           "pooh": 70,
           "splash_mountain": 60
         }
@@ -423,6 +423,19 @@
             "pooh": 70,
             "splash_mountain": 60
           }
+        },
+        {
+          "at": "2026-11-16T10:20:59+09:00",
+          "closed": [],
+          "waits": {
+            "baymax": 120,
+            "beauty_and_the_beast": 140,
+            "big_thunder": 80,
+            "haunted_mansion": 50,
+            "monsters_inc": 10,
+            "pooh": 70,
+            "splash_mountain": 60
+          }
         }
       ],
       "unmapped": [
@@ -494,7 +507,7 @@
         }
       },
       "last": {
-        "at": "2026-11-16T10:15:59+09:00",
+        "at": "2026-11-16T10:20:59+09:00",
         "closed": [
           "indiana_jones"
         ],
@@ -931,6 +944,22 @@
         },
         {
           "at": "2026-11-16T10:15:59+09:00",
+          "closed": [
+            "indiana_jones"
+          ],
+          "waits": {
+            "center_of_the_earth": 180,
+            "frozen_journey": 220,
+            "peter_pan": 90,
+            "raging_spirits": 80,
+            "rapunzel_lantern": 100,
+            "soaring": 0,
+            "tower_of_terror": 180,
+            "toy_story_mania": 180
+          }
+        },
+        {
+          "at": "2026-11-16T10:20:59+09:00",
           "closed": [
             "indiana_jones"
           ],
