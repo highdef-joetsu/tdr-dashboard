@@ -148,11 +148,17 @@
         {
           "at": "2026-11-26T08:00:59+09:00",
           "state": "AVAILABLE"
+        },
+        {
+          "at": "2026-11-26T18:50:59+09:00",
+          "state": "FINISHED"
         }
       ],
+      "final_sold_out_at": "2026-11-26T18:50:59+09:00",
+      "first_sold_out_at": "2026-11-26T18:50:59+09:00",
       "park": "tds",
       "price": 2000,
-      "status_at_close": "on_sale"
+      "status_at_close": "sold_out"
     },
     "pooh": {
       "events": [
@@ -282,6 +288,6 @@
       "open": "2026-11-26T09:00:00+09:00"
     }
   },
-  "last_polled_at": "2026-11-26T18:35:59+09:00",
+  "last_polled_at": "2026-11-26T18:55:59+09:00",
   "source": "themeparks.wiki"
 }
